@@ -12,31 +12,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <style>
-        /* ==========================================================
-           PERFECT BENTO GRID & APP SWITCHER STYLES (No Overlaps!)
-           ========================================================== */
-        :root {
-            --gor-neon: #00ff88;
-            --gor-purple: #8b5cf6;
-            --twin-cyan: #00f0ff;
-            --twin-blue: #3b82f6;
-            --am-gold: #ffb703;
-            --am-cyan: #00e5ff;
-        }
-
-        body {
-            background-color: #07070b;
-            color: #f8fafc;
-            font-family: 'Heebo', sans-serif;
-        }
-
-        .apps-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 20px 80px;
-        }
-
-        /* App Switcher Bar */
         .switcher-wrap {
             position: sticky;
             top: 76px;
@@ -48,263 +23,95 @@
             backdrop-filter: blur(12px);
         }
 
-        .app-switcher-bar {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px;
-            background: rgba(14, 14, 22, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 9999px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            flex-wrap: wrap;
-        }
-
-        .switcher-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 22px;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            background: transparent;
-            border: 1px solid transparent;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .switcher-btn img {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            object-fit: contain;
-        }
-
-        .switcher-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .switcher-btn.btn-gor {
-            border-color: rgba(0, 255, 136, 0.4);
-            color: #00ff88;
-        }
-        .switcher-btn.btn-gor:hover {
-            background: #00ff88;
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-        }
-
-        .switcher-btn.btn-twin {
-            border-color: rgba(0, 240, 255, 0.4);
-            color: #00f0ff;
-        }
-        .switcher-btn.btn-twin:hover {
-            background: #00f0ff;
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-        }
-
-        .switcher-btn.btn-am {
-            border-color: rgba(255, 183, 3, 0.4);
-            color: #ffb703;
-        }
-        .switcher-btn.btn-am:hover {
-            background: #ffb703;
-            color: #000;
-            box-shadow: 0 0 20px rgba(255, 183, 3, 0.4);
-        }
-
-        /* Bento Sections */
         .bento-app-block {
-            margin-bottom: 90px;
+            margin-bottom: 80px;
             scroll-margin-top: 150px;
-            background: rgba(14, 14, 24, 0.7);
-            border-radius: 28px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--bg-card);
+            border-radius: 26px;
+            padding: 38px;
+            border: 1px solid var(--border-subtle);
             backdrop-filter: blur(16px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: var(--shadow-card);
         }
 
-        .block-gor {
-            border-color: rgba(0, 255, 136, 0.3);
-        }
-        .block-twin {
-            border-color: rgba(0, 240, 255, 0.3);
-        }
-        .block-am {
-            border-color: rgba(255, 183, 3, 0.3);
-        }
-
-        /* Header of Each App */
         .app-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
+            margin-bottom: 28px;
+            padding-bottom: 18px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .app-header-logo {
-            width: 64px;
-            height: 64px;
+            width: 60px;
+            height: 60px;
             border-radius: 14px;
-            padding: 4px;
+            padding: 3px;
             background: #000;
             object-fit: contain;
-            box-shadow: 0 0 25px rgba(0,0,0,0.8);
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .app-header-text h2 {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            line-height: 1.15;
-        }
-
-        .app-header-text span {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* Bento Grid 2 Columns */
         .bento-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
+            gap: 30px;
             align-items: stretch;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
         @media (max-width: 960px) {
-            .bento-row {
-                grid-template-columns: 1fr;
-            }
-            .bento-app-block {
-                padding: 24px;
-            }
+            .bento-row { grid-template-columns: 1fr; }
+            .bento-app-block { padding: 22px; }
         }
 
-        /* Card inside Bento */
         .bento-subcard {
-            background: rgba(20, 20, 32, 0.85);
+            background: rgba(20, 22, 34, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 28px;
+            border-radius: 18px;
+            padding: 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .mockup-img {
-            width: 100%;
-            height: auto;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s ease;
-        }
-
-        .mockup-img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Feature list */
         .feature-box {
             display: flex;
             align-items: flex-start;
-            gap: 14px;
+            gap: 12px;
             padding: 12px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .feature-box:last-child {
-            border-bottom: none;
-        }
+        .feature-box:last-child { border-bottom: none; }
 
         .feature-ico {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 17px;
+            font-size: 16px;
             flex-shrink: 0;
         }
 
-        /* Bottom Chips Grid */
         .chips-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            gap: 14px;
             margin-top: 10px;
         }
 
         .chip-card {
-            background: rgba(20, 20, 32, 0.6);
+            background: rgba(20, 22, 34, 0.6);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 18px;
+            border-radius: 12px;
+            padding: 16px;
         }
-        .chip-card h5 {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 4px;
-        }
-        .chip-card p {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        .metric-highlight {
-            font-size: 2.2rem;
-            font-weight: 900;
-            font-family: 'Outfit', sans-serif;
-            margin: 10px 0 4px;
-        }
-
-        /* Action Buttons */
-        .btn-action-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 9999px;
-            font-weight: 800;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-        .btn-action-primary:hover {
-            transform: translateY(-2px);
-        }
-
-        .btn-action-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff;
-            transition: all 0.25s ease;
-        }
-        .btn-action-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-2px);
-        }
+        .chip-card h5 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; }
+        .chip-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -318,8 +125,8 @@
     <header class="navbar">
         <div class="container">
             <div class="logo-container">
-                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
-                    <img src="assets/gor-logo-3d.png" alt="GOR MARKETING" width="44" height="44" style="border-radius: 8px; box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);">
+                <a href="index.html">
+                    <img src="assets/gor-logo-3d.png" alt="GOR MARKETING" width="44" height="44">
                     <div class="logo-text">GOR <span>MARKETING</span></div>
                 </a>
             </div>
@@ -333,17 +140,17 @@
         </div>
     </header>
 
-    <main class="apps-container">
+    <main class="container" style="padding-top: 30px; padding-bottom: 80px;">
         
-        <!-- Hero Header -->
-        <section style="text-align: center; margin-bottom: 30px; padding-top: 20px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 18px; background: rgba(0,255,136,0.08); border: 1px solid rgba(0,255,136,0.3); border-radius: 9999px; color: #00ff88; font-weight: 700; font-size: 0.9rem; margin-bottom: 16px;">
+        <!-- Hero Section -->
+        <section style="text-align: center; margin-bottom: 30px;">
+            <div class="badge-gold-emerald">
                 ⚡ פלטפורמות SaaS ומערכות חכמות
             </div>
-            <h1 style="font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; color: #fff;">
-                שלושת מערכות הדגל של <span style="background: linear-gradient(135deg, #00ff88, #00f0ff, #ffb703); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">GOR MARKETING</span>
+            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px;">
+                שלושת מערכות הדגל של <span class="gradient-title">GOR MARKETING</span>
             </h1>
-            <p style="color: #94a3b8; font-size: 1.15rem; max-width: 800px; margin: 0 auto;">
+            <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 800px; margin: 0 auto;">
                 מערכות מותאמות אישית שמחליפות עשרות שעות עבודה ידנית, סוגרות לידים, מנהלות מגה-פרויקטים ומייצרות שליטה עסקית מוחלטת.
             </p>
         </section>
@@ -351,90 +158,86 @@
         <!-- Sticky App Switcher Bar -->
         <div class="switcher-wrap">
             <div class="app-switcher-bar">
-                <a href="#gor-crm" class="switcher-btn btn-gor">
+                <a href="#gor-crm" class="switcher-btn active-gold">
                     <img src="assets/gor_crm_logo.png" alt="GOR CRM">
                     GOR CRM
                 </a>
-                <a href="#twin-proptech" class="switcher-btn btn-twin">
+                <a href="#twin-proptech" class="switcher-btn" style="color: var(--cyan-accent); border-color: rgba(0, 240, 255, 0.3);">
                     <img src="assets/twin_logo.png" alt="TWIN">
                     TWIN PropTech
                 </a>
-                <a href="#am-building" class="switcher-btn btn-am">
+                <a href="#am-building" class="switcher-btn" style="color: var(--gold-bright); border-color: rgba(255, 193, 7, 0.3);">
                     <img src="assets/am_building_logo.png" alt="AM BUILDING">
                     AM BUILDING
                 </a>
             </div>
         </div>
 
-        <!-- =============================================================
-             1. GOR CRM
-             ============================================================= -->
-        <section id="gor-crm" class="bento-app-block block-gor">
+        <!-- 1. GOR CRM (Emerald & Gold) -->
+        <section id="gor-crm" class="bento-app-block card-emerald">
             <div class="app-header">
-                <img src="assets/gor_crm_logo.png" alt="GOR CRM Logo" class="app-header-logo" style="border-color: rgba(0, 255, 136, 0.4); box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);">
-                <div class="app-header-text">
-                    <h2>GOR CRM — ניהול לידים, לקוחות ואוטומציה</h2>
-                    <span style="color: #00ff88;">Agency & Business Management Ecosystem</span>
+                <img src="assets/gor_crm_logo.png" alt="GOR CRM Logo" class="app-header-logo" style="border-color: var(--emerald-primary); box-shadow: var(--shadow-emerald);">
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 900; color: #fff;">GOR CRM — ניהול לידים, לקוחות ואוטומציה</h2>
+                    <span style="color: var(--emerald-primary); font-weight: 600;">Agency & Business Management Ecosystem</span>
                 </div>
             </div>
 
             <div class="bento-row">
-                <!-- Left: Mockup Showcase -->
-                <div class="bento-subcard" style="border-color: rgba(0, 255, 136, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-emerald);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(0, 255, 136, 0.15); color: #00ff88; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
-                            דשבורד שליטה בזמן אמת
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 10px;">קליטה, ניתוב וסגירת עסקאות באוטומציה מלאה</h3>
+                        <div class="badge-gold-emerald" style="margin-bottom: 12px;">דשבורד שליטה בזמן אמת</div>
+                        <h3 style="font-size: 1.45rem; color: #fff; margin-bottom: 10px;">קליטה, ניתוב וסגירת עסקאות באוטומציה מלאה</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px;">
                             המערכת מרכזת את כל הפניות מ-Google, Meta ו-TikTok תוך אלפית השנייה, שולחת הודעת WhatsApp אוטומטית ומנהלת את תהליך המכירה.
                         </p>
                     </div>
-                    <img src="assets/service_crm.png" alt="GOR CRM Dashboard" class="mockup-img">
+                    <div class="mockup-frame">
+                        <img src="assets/service_crm.png" alt="GOR CRM Dashboard">
+                    </div>
                 </div>
 
-                <!-- Right: Why You Need It + Value -->
-                <div class="bento-subcard" style="border-color: rgba(0, 255, 136, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-emerald);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(139, 92, 246, 0.15); color: #c084fc; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
+                        <div style="display: inline-block; padding: 4px 12px; background: rgba(255, 193, 7, 0.15); color: var(--gold-bright); border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
                             💡 למה העסק שלך חייב את GOR CRM?
                         </div>
                         
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: #00ff88;"><i class="fab fa-whatsapp"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: var(--emerald-primary);"><i class="fab fa-whatsapp"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">מענה WhatsApp מיידי 24/7:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">חימום ליד אוטומטי תוך שניות מרגע השארת הפרטים, לפני שהמתחרים מספיקים להגיב.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">חימום ליד אוטומטי תוך שניות מרגע השארת הפרטים, לפני שהמתחרים מספיקים להגיב.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: #00ff88;"><i class="fas fa-funnel-dollar"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: var(--emerald-primary);"><i class="fas fa-funnel-dollar"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">אפס לידים שהולכים לאיבוד:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">ניתוב חכם לנציג, לוח Kanban ויזואלי ומעקב מדויק אחרי כל שלב במכירה.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">ניתוב חכם לנציג, לוח Kanban ויזואלי ומעקב מדויק אחרי כל שלב במכירה.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: #00ff88;"><i class="fas fa-chart-pie"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,255,136,0.15); color: var(--emerald-primary);"><i class="fas fa-chart-pie"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">מדידת ROI מדויק:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">ידיעה ודאית כמה שקלים נכנסו מכל קמפיין, מילת מפתח או ערוץ שיווק.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">ידיעה ודאית כמה שקלים נכנסו מכל קמפיין, מילת מפתח או ערוץ שיווק.</p>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: 24px;">
-                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(0,255,136,0.06); border-radius: 12px; border: 1px solid rgba(0,255,136,0.2);">
-                            <span style="color: #94a3b8; font-size: 0.85rem;">שיפור ממוצע ביחס ההמרה</span>
-                            <div class="metric-highlight" style="color: #00ff88;">+340% 🚀</div>
+                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(0,255,136,0.06); border-radius: 12px; border: 1px solid var(--border-emerald);">
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">שיפור ממוצע ביחס ההמרה</span>
+                            <div class="metric-val" style="color: var(--emerald-primary);">+340% 🚀</div>
                         </div>
                         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                            <a href="https://gorcrm.netlify.app/" target="_blank" class="btn-action-primary" style="background: #00ff88; color: #000; box-shadow: 0 4px 20px rgba(0,255,136,0.4);">
-                                <i class="fas fa-external-link-alt"></i> כניסה למערכת GOR CRM
+                            <a href="https://gorcrm.netlify.app/" target="_blank" class="btn-emerald">
+                                <i class="fas fa-external-link-alt"></i> כניסה ל-GOR CRM
                             </a>
-                            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%9E%D7%A2%D7%AA%20GOR%20CRM%20%D7%91%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-action-secondary">
+                            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%98%D7%9E%D7%A2%D7%AA%20GOR%20CRM%20%D7%91%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-gold">
                                 <i class="fab fa-whatsapp"></i> ייעוץ והטמעה בעסק
                             </a>
                         </div>
@@ -442,202 +245,191 @@
                 </div>
             </div>
 
-            <!-- Chips Footer -->
             <div class="chips-grid">
                 <div class="chip-card">
-                    <i class="fas fa-bolt" style="color: #00ff88; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-bolt" style="color: var(--emerald-primary); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>סנכרון רב-ערוצי מלא</h5>
                     <p>קליטה מ-Meta, Google, TikTok, טאבולה, וואטסאפ ודפי נחיתה.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-shield-alt" style="color: #00ff88; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-shield-alt" style="color: var(--emerald-primary); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>אבטחה וניהול הרשאות</h5>
                     <p>הפרדה מוחלטת בין הרשאות מנהל, נציג מכירות וספקי חוץ.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-robot" style="color: #00ff88; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-robot" style="color: var(--emerald-primary); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>סוכני AI מובנים</h5>
                     <p>תיאום פגישות אוטומטי ומענה ראשוני חכם לפניות נכנסות.</p>
                 </div>
             </div>
         </section>
 
-        <!-- =============================================================
-             2. TWIN (PropTech)
-             ============================================================= -->
-        <section id="twin-proptech" class="bento-app-block block-twin">
+        <!-- 2. TWIN (Cyan & Emerald) -->
+        <section id="twin-proptech" class="bento-app-block card-cyan">
             <div class="app-header">
-                <img src="assets/twin_logo.png" alt="TWIN Logo" class="app-header-logo" style="border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);">
-                <div class="app-header-text">
-                    <h2>TWIN — מערכת ניהול בניינים, ועדים ודיירים</h2>
-                    <span style="color: #00f0ff;">Autonomous Building Management PropTech</span>
+                <img src="assets/twin_logo.png" alt="TWIN Logo" class="app-header-logo" style="border-color: var(--cyan-accent); box-shadow: var(--shadow-emerald);">
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 900; color: #fff;">TWIN — מערכת ניהול בניינים, ועדים ודיירים</h2>
+                    <span style="color: var(--cyan-accent); font-weight: 600;">Autonomous Building Management PropTech</span>
                 </div>
             </div>
 
             <div class="bento-row">
-                <!-- Left: Mockup Showcase -->
-                <div class="bento-subcard" style="border-color: rgba(0, 240, 255, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-cyan);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(0, 240, 255, 0.15); color: #00f0ff; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
-                            מודל תאום דיגיטלי (Digital Twin)
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 10px;">שליטה מלאה בכל דירה, קומה ומערכת בבניין</h3>
+                        <div class="badge-gold-emerald" style="margin-bottom: 12px;">מודל תאום דיגיטלי (Digital Twin)</div>
+                        <h3 style="font-size: 1.45rem; color: #fff; margin-bottom: 10px;">שליטה מלאה בכל דירה, קומה ומערכת בבניין</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px;">
                             פלטפורמה חכמה הממפה את הבניין בתלת-ממד ומנהלת תשלומים, קריאות שירות, מעליות ומשאבות מים בצורה שקופה ואוטונומית.
                         </p>
                     </div>
-                    <img src="assets/twin_preview.jpg" alt="TWIN Dashboard Preview" class="mockup-img">
+                    <div class="mockup-frame">
+                        <img src="assets/twin_preview.jpg" alt="TWIN Dashboard Preview">
+                    </div>
                 </div>
 
-                <!-- Right: Why You Need It + Value -->
-                <div class="bento-subcard" style="border-color: rgba(0, 240, 255, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-cyan);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
+                        <div style="display: inline-block; padding: 4px 12px; background: rgba(0, 240, 255, 0.15); color: var(--cyan-accent); border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
                             🏢 למה כל בניין וועד צריכים את TWIN?
                         </div>
                         
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: #00f0ff;"><i class="fas fa-credit-card"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: var(--cyan-accent);"><i class="fas fa-credit-card"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">גבייה אוטומטית באשראי / ביט:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">סוף למרדף אחרי דמי ועד. תזכורות דיגיטליות וקבלות ישירות לטלפון הדייר.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">סוף למרדף אחרי דמי ועד. תזכורות דיגיטליות וקבלות ישירות לטלפון הדייר.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: #00f0ff;"><i class="fas fa-eye"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: var(--cyan-accent);"><i class="fas fa-eye"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">100% שקיפות כספית:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">ספר קופה ודוחות כספיים נגישים בזמן אמת – מונע 99% מסכסוכי השכנים.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">ספר קופה ודוחות כספיים נגישים בזמן אמת – מונע 99% מסכסוכי השכנים.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: #00f0ff;"><i class="fas fa-wrench"></i></div>
+                            <div class="feature-ico" style="background: rgba(0,240,255,0.15); color: var(--cyan-accent);"><i class="fas fa-wrench"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">ניהול תקלות וספקים חכם:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">השוואת הצעות מחיר מספקים מאומתים ואישור תקציבים משותף.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">השוואת הצעות מחיר מספקים מאומתים ואישור תקציבים משותף.</p>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: 24px;">
-                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(0,240,255,0.06); border-radius: 12px; border: 1px solid rgba(0,240,255,0.2);">
-                            <span style="color: #94a3b8; font-size: 0.85rem;">שיעור גבייה ממוצע לחודש</span>
-                            <div class="metric-highlight" style="color: #00f0ff;">99.2% 💳</div>
+                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(0,240,255,0.06); border-radius: 12px; border: 1px solid var(--border-cyan);">
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">שיעור גבייה ממוצע לחודש</span>
+                            <div class="metric-val" style="color: var(--cyan-accent);">99.2% 💳</div>
                         </div>
-                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20TWIN%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%9F%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-action-primary" style="background: linear-gradient(135deg, #00f0ff, #3b82f6); color: #000; box-shadow: 0 4px 20px rgba(0,240,255,0.4);">
+                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20TWIN%20%D7%9C%D7%91%D7%A0%D7%99%D7%99%D7%9F%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-cyan">
                             <i class="fas fa-building"></i> תיאום הדגמה לבניין שלכם
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Chips Footer -->
             <div class="chips-grid">
                 <div class="chip-card">
-                    <i class="fas fa-clock" style="color: #00f0ff; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-clock" style="color: var(--cyan-accent); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>חיסכון 95% בזמן</h5>
                     <p>אוטומציה מלאה שחוסכת שיחות טלפון ואיסוף כספים מדלת לדלת.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-file-invoice" style="color: #00f0ff; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-file-invoice" style="color: var(--cyan-accent); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>קבלות ודוחות PDF</h5>
                     <p>הפקה מיידית של דוחות הכנסות-הוצאות לשקיפות מול הדיירים.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-mobile-alt" style="color: #00f0ff; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-mobile-alt" style="color: var(--cyan-accent); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>אפליקציה קלה לכל דייר</h5>
                     <p>פתיחת קריאות שירות, תשלום בלחיצה ועדכוני ועד שוטפים.</p>
                 </div>
             </div>
         </section>
 
-        <!-- =============================================================
-             3. AM BUILDING (ConTech)
-             ============================================================= -->
-        <section id="am-building" class="bento-app-block block-am">
+        <!-- 3. AM BUILDING (Gold & Emerald) -->
+        <section id="am-building" class="bento-app-block card-gold">
             <div class="app-header">
-                <img src="assets/am_building_logo.png" alt="AM BUILDING Logo" class="app-header-logo" style="border-color: rgba(255, 183, 3, 0.4); box-shadow: 0 0 20px rgba(255, 183, 3, 0.3);">
-                <div class="app-header-text">
-                    <h2>AM BUILDING — ניהול פרויקטי בנייה ותשתיות</h2>
-                    <span style="color: #ffb703;">Construction & Contractor Project Management Platform</span>
+                <img src="assets/am_building_logo.png" alt="AM BUILDING Logo" class="app-header-logo" style="border-color: var(--gold-primary); box-shadow: var(--shadow-gold);">
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: 900; color: #fff;">AM BUILDING — ניהול פרויקטי בנייה ותשתיות</h2>
+                    <span style="color: var(--gold-bright); font-weight: 600;">Construction & Contractor Project Management Platform</span>
                 </div>
             </div>
 
             <div class="bento-row">
-                <!-- Left: Mockup Showcase -->
-                <div class="bento-subcard" style="border-color: rgba(255, 183, 3, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-gold);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(255, 183, 3, 0.15); color: #ffb703; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
-                            שליטה הנדסית וביצועית בשטח
-                        </div>
-                        <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 10px;">סנכרון תוכניות, גאנט משימות וכתב כמויות</h3>
+                        <div class="badge-gold-emerald" style="margin-bottom: 12px;">שליטה הנדסית וביצועית בשטח</div>
+                        <h3 style="font-size: 1.45rem; color: #fff; margin-bottom: 10px;">סנכרון תוכניות, גאנט משימות וכתב כמויות</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 18px;">
                             פלטפורמת ה-ConTech המובילה המאפשרת למנהלי פרויקטים, קבלנים ויזמים לפקח על כל שלב בבנייה ולאתר חריגות תקציב מראש.
                         </p>
                     </div>
-                    <img src="assets/am_building_preview.jpg" alt="AM BUILDING Dashboard Preview" class="mockup-img">
+                    <div class="mockup-frame">
+                        <img src="assets/am_building_preview.jpg" alt="AM BUILDING Dashboard Preview">
+                    </div>
                 </div>
 
-                <!-- Right: Why You Need It + Value -->
-                <div class="bento-subcard" style="border-color: rgba(255, 183, 3, 0.2);">
+                <div class="bento-subcard" style="border-color: var(--border-gold);">
                     <div>
-                        <div style="display: inline-block; padding: 4px 12px; background: rgba(255, 183, 3, 0.15); color: #ffb703; border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
+                        <div style="display: inline-block; padding: 4px 12px; background: rgba(255, 193, 7, 0.15); color: var(--gold-bright); border-radius: 6px; font-weight: 700; font-size: 0.85rem; margin-bottom: 12px;">
                             🏗️ למה קבלנים ויזמים צריכים את AM BUILDING?
                         </div>
                         
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(255,183,3,0.15); color: #ffb703;"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <div class="feature-ico" style="background: rgba(255,193,7,0.15); color: var(--gold-bright);"><i class="fas fa-file-invoice-dollar"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">כתבי כמויות וחשבונות חלקיים:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">אישור שלבי ביצוע, ספקי חומרים ומעקב הדוק למניעת הפסדים.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">אישור שלבי ביצוע, ספקי חומרים ומעקב הדוק למניעת הפסדים.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(255,183,3,0.15); color: #ffb703;"><i class="fas fa-map"></i></div>
+                            <div class="feature-ico" style="background: rgba(255,193,7,0.15); color: var(--gold-bright);"><i class="fas fa-map"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">תוכניות עדכניות בשטח:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">גרסאות מעודכנות בסמארטפון/טאבלט למניעת ליקויי בנייה יקרים.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">גרסאות מעודכנות בסמארטפון/טאבלט למניעת ליקויי בנייה יקרים.</p>
                             </div>
                         </div>
 
                         <div class="feature-box">
-                            <div class="feature-ico" style="background: rgba(255,183,3,0.15); color: #ffb703;"><i class="fas fa-clipboard-check"></i></div>
+                            <div class="feature-ico" style="background: rgba(255,193,7,0.15); color: var(--gold-bright);"><i class="fas fa-clipboard-check"></i></div>
                             <div>
                                 <strong style="color: #fff; font-size: 0.95rem;">יומן עבודה ופרוטוקולים:</strong>
-                                <p style="color: #94a3b8; font-size: 0.85rem;">תיעוד שטח מצולם, מעקב ליקויים והפקת דוחות מסירה חתומים.</p>
+                                <p style="color: var(--text-muted); font-size: 0.85rem;">תיעוד שטח מצולם, מעקב ליקויים והפקת דוחות מסירה חתומים.</p>
                             </div>
                         </div>
                     </div>
 
                     <div style="margin-top: 24px;">
-                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(255,183,3,0.06); border-radius: 12px; border: 1px solid rgba(255,183,3,0.2);">
-                            <span style="color: #94a3b8; font-size: 0.85rem;">חיסכון ממוצע בחריגות תקציב</span>
-                            <div class="metric-highlight" style="color: #ffb703;">-18% 📐</div>
+                        <div style="margin-bottom: 16px; padding: 14px; background: rgba(255,193,7,0.06); border-radius: 12px; border: 1px solid var(--border-gold);">
+                            <span style="color: var(--text-muted); font-size: 0.85rem;">חיסכון ממוצע בחריגות תקציב</span>
+                            <div class="metric-val" style="color: var(--gold-bright);">-18% 📐</div>
                         </div>
-                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20AM%20BUILDING%20%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%20%D7%91%D7%A0%D7%99%D7%99%D7%94" target="_blank" class="btn-action-primary" style="background: linear-gradient(135deg, #ffb703, #fb8500); color: #000; box-shadow: 0 4px 20px rgba(255,183,3,0.4);">
+                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20AM%20BUILDING%20%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C%20%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%D7%99%20%D7%91%D7%A0%D7%99%D7%99%D7%94" target="_blank" class="btn-gold">
                             <i class="fas fa-hard-hat"></i> תיאום פגישת אפיון הנדסי
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Chips Footer -->
             <div class="chips-grid">
                 <div class="chip-card">
-                    <i class="fas fa-tasks" style="color: #ffb703; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-tasks" style="color: var(--gold-bright); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>גאנט לוחות זמנים</h5>
                     <p>מעקב מילסטונים, התראות על עיכובים ותיאום קבלני משנה.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-camera" style="color: #ffb703; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-camera" style="color: var(--gold-bright); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>תיעוד מצולם בשטח</h5>
                     <p>העלאת תמונות התקדמות יומיות ישירות מהאתר.</p>
                 </div>
                 <div class="chip-card">
-                    <i class="fas fa-file-contract" style="color: #ffb703; font-size: 18px; margin-bottom: 6px;"></i>
+                    <i class="fas fa-file-contract" style="color: var(--gold-bright); font-size: 18px; margin-bottom: 6px;"></i>
                     <h5>פרוטוקול מסירה דיגיטלי</h5>
                     <p>הפקת דוחות בדק בית ומסירה חתומים לרוכשים.</p>
                 </div>
@@ -645,12 +437,12 @@
         </section>
 
         <!-- Final CTA Banner -->
-        <section style="background: linear-gradient(135deg, rgba(0,255,136,0.1), rgba(139,92,246,0.2)); border: 1px solid rgba(0,255,136,0.3); border-radius: 24px; padding: 48px; text-align: center;">
+        <section class="bento-card card-gold" style="text-align: center; padding: 48px; margin-top: 40px;">
             <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 14px;">רוצים לפתח מערכת מותאמת אישית לעסק שלכם?</h2>
             <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 680px; margin: 0 auto 28px;">
                 צוות הפיתוח של GOR MARKETING בונה מערכות SaaS, דשבורדים ואפליקציות Web מתקדמות שמחברות בינה מלאכותית ותוצאות עסקיות מוכחות.
             </p>
-            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A4%D7%AA%D7%97%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; background: #00ff88; color: #000; font-size: 1.1rem; font-weight: 800; border-radius: 9999px; box-shadow: 0 6px 25px rgba(0, 255, 136, 0.4); text-decoration: none;">
+            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A4%D7%AA%D7%97%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-emerald" style="padding: 16px 36px; font-size: 1.1rem;">
                 <i class="fab fa-whatsapp"></i> שיחת ייעוץ ואפיון אישית עם איגור
             </a>
         </section>
@@ -661,29 +453,29 @@
     <footer>
         <div class="container footer-inner">
             <div>
-                <div class="logo-text" style="font-size: 1.4rem; margin-bottom: 12px;">GOR <span>MARKETING</span></div>
+                <div class="logo-text" style="font-size: 1.45rem; margin-bottom: 12px;">GOR <span>MARKETING</span></div>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                    סוכנות שיווק דיגיטלי, מיתוג ופיתוח מערכות AI מובילה מאז 2008.
+                    סוכנות שיווק דיגיטלי, מיתוג ופיתוח מערכות AI מובילה מאז 2008. בהובלת איגור גורלקין.
                 </p>
             </div>
             <div>
-                <h4 style="color: #fff; margin-bottom: 12px;">אפליקציות הדגל</h4>
-                <ul style="line-height: 2; font-size: 0.95rem; color: var(--text-muted);">
-                    <li><a href="https://gorcrm.netlify.app/" target="_blank">GOR CRM</a></li>
+                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">מערכות הדגל</h4>
+                <ul style="line-height: 2.2; font-size: 0.95rem; color: var(--text-muted);">
+                    <li><a href="#gor-crm">GOR CRM</a></li>
                     <li><a href="#twin-proptech">TWIN PropTech</a></li>
                     <li><a href="#am-building">AM BUILDING ConTech</a></li>
                 </ul>
             </div>
             <div>
-                <h4 style="color: #fff; margin-bottom: 12px;">מדריכי שיווק</h4>
-                <ul style="line-height: 2; font-size: 0.95rem; color: var(--text-muted);">
+                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">מדריכים ואסטרטגיה</h4>
+                <ul style="line-height: 2.2; font-size: 0.95rem; color: var(--text-muted);">
                     <li><a href="seo-guide.html">מדריך קידום אורגני SEO</a></li>
                     <li><a href="sem-guide.html">מדריך Google Ads</a></li>
                     <li><a href="meta-ads-guide.html">מדריך Meta Ads</a></li>
                 </ul>
             </div>
             <div>
-                <h4 style="color: #fff; margin-bottom: 12px;">יצירת קשר ישירה</h4>
+                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">יצירת קשר ישירה</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
                     📞 טלפון: 0525155598<br>
                     ✉️ דוא"ל: igor@gormarketing.com<br>
@@ -692,7 +484,7 @@
             </div>
         </div>
         <div class="container footer-bottom">
-            © 2026 GOR MARKETING — כל הזכויות שמורות. נבנה בגאווה ובטכנולוגיית AI מתקדמת.
+            © 2026 GOR MARKETING — כל הזכויות שמורות. נבנה בטכנולוגיית Cyber Gold & GOR Emerald.
         </div>
     </footer>
 
