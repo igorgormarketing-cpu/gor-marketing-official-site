@@ -620,5 +620,43 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMeeting
 
 
 
+
+<!-- GOR Israeli IS 1918 Accessibility Widget -->
+<div id="gor-a11y-container" style="position: fixed; bottom: 25px; left: 25px; z-index: 99999;">
+  <button id="gor-a11y-toggle" aria-label="תפריט נגישות" style="width: 50px; height: 50px; border-radius: 50%; background: #00ff88; color: #000; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0,255,136,0.4); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    ♿
+  </button>
+  <div id="gor-a11y-modal" style="display: none; position: absolute; bottom: 60px; left: 0; width: 280px; background: #111; color: #fff; border: 1px solid #333; border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); font-family: system-ui, sans-serif; direction: rtl;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; padding-bottom: 8px; margin-bottom: 12px;">
+      <span style="font-weight: bold; font-size: 15px; color: #00ff88;">התאמת נגישות (תקן 1918)</span>
+      <button id="gor-a11y-close" style="background: none; border: none; color: #888; font-size: 18px; cursor: pointer;">✕</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <button onclick="document.body.classList.toggle('a11y-high-contrast')" style="padding: 8px 12px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer; text-align: right;">🌓 ניגודיות גבוהה</button>
+      <button onclick="document.body.classList.toggle('a11y-large-text')" style="padding: 8px 12px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer; text-align: right;">🔍 הגדלת טקסט</button>
+      <button onclick="document.body.classList.toggle('a11y-highlight-links')" style="padding: 8px 12px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer; text-align: right;">🔗 הדגשת קישורים</button>
+      <button onclick="document.body.classList.toggle('a11y-readable-font')" style="padding: 8px 12px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; cursor: pointer; text-align: right;">🔤 גופן קריא</button>
+      <button onclick="location.reload()" style="padding: 8px 12px; background: #331111; color: #ff8888; border: 1px solid #662222; border-radius: 6px; cursor: pointer; text-align: right;">🔄 איפוס הגדרות</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    var toggle = document.getElementById('gor-a11y-toggle');
+    var modal = document.getElementById('gor-a11y-modal');
+    var close = document.getElementById('gor-a11y-close');
+    if(toggle && modal && close){
+      toggle.onclick = function(){ modal.style.display = modal.style.display === 'none' ? 'block' : 'none'; };
+      close.onclick = function(){ modal.style.display = 'none'; };
+    }
+  })();
+</script>
+<style>
+  .a11y-high-contrast { filter: contrast(150%) brightness(110%) !important; background: #000 !important; color: #fff !important; }
+  .a11y-large-text * { font-size: 115% !important; }
+  .a11y-highlight-links a { text-decoration: underline !important; color: #00ff88 !important; background: rgba(0,255,136,0.1) !important; }
+  .a11y-readable-font * { font-family: Arial, sans-serif !important; letter-spacing: 0.5px !important; }
+</style>
+
 </body>
 </html>
