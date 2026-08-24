@@ -486,3 +486,109 @@ footer {
     .nav-links { display: none; }
     .footer-inner { grid-template-columns: 1fr; gap: 30px; }
 }
+
+
+/* ==========================================================================
+   DYNAMIC CYBER MOTION & ANIMATIONS (Live Moving Elements)
+   ========================================================================== */
+
+/* 1. Floating Breathing Animation */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes floatReverse {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+.float-slow {
+    animation: floatSlow 5s ease-in-out infinite;
+}
+
+.float-reverse {
+    animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* 2. Pulsating Neon Glow */
+@keyframes neonPulseGold {
+    0%, 100% { box-shadow: 0 0 15px rgba(255, 193, 7, 0.3), 0 0 30px rgba(255, 193, 7, 0.1); }
+    50% { box-shadow: 0 0 30px rgba(255, 193, 7, 0.6), 0 0 50px rgba(255, 193, 7, 0.3); }
+}
+
+@keyframes neonPulseEmerald {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 136, 0.1); }
+    50% { box-shadow: 0 0 30px rgba(0, 255, 136, 0.7), 0 0 60px rgba(0, 255, 136, 0.35); }
+}
+
+.pulse-gold {
+    animation: neonPulseGold 3s infinite ease-in-out;
+}
+
+.pulse-emerald {
+    animation: neonPulseEmerald 3s infinite ease-in-out;
+}
+
+/* 3. Glowing Border Beam (Laser Light Orbiting the Card) */
+.bento-card, .bento-subcard, .mockup-frame {
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.bento-card:hover, .bento-subcard:hover {
+    transform: translateY(-8px) scale(1.01);
+}
+
+/* 4. Live Mouse Spotlight Glow on Background */
+.cursor-spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.07) 0%, rgba(255, 193, 7, 0.04) 40%, transparent 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    transition: width 0.3s, height 0.3s;
+}
+
+/* 5. Floating Live Status Chips */
+.floating-chip {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(14, 16, 26, 0.9);
+    border: 1px solid var(--gold-primary);
+    border-radius: 9999px;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(255, 193, 7, 0.3);
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+/* 6. Rotating Ambient Mesh Orbs */
+@keyframes meshRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.15); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.blob-1 { animation: meshRotate 22s linear infinite; }
+.blob-2 { animation: meshRotate 28s linear infinite reverse; }
+.blob-3 { animation: meshRotate 35s linear infinite; }
+
+/* 7. Header Logo 3D Hover & Glow */
+.logo-container img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.logo-container:hover img {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.7), 0 0 45px rgba(255, 193, 7, 0.6);
+}
