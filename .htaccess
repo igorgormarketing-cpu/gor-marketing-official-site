@@ -1,0 +1,111 @@
+# GOR MARKETING — Security & Performance (.htaccess) v2
+
+# ── Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── www to non-www
+RewriteCond %{HTTP_HOST} ^www\.gormarketing\.com [NC]
+RewriteRule ^(.*)$ https://gormarketing.com/$1 [L,R=301]
+
+<IfModule mod_headers.c>
+  # HSTS — 1 year, include subdomains
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  # Prevent MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Clickjacking protection
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # XSS protection
+  Header always set X-XSS-Protection "1; mode=block"
+  # Referrer policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Permissions policy
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
+  # CSP
+  Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.youtube.com https://calendly.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; frame-src https://www.youtube.com https://calendly.com; connect-src 'self' https:; object-src 'none'; base-uri 'self';"
+  # Remove server info
+  Header unset X-Powered-By
+  Header always unset X-Powered-By
+
+  # HTML cache
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  # Static assets cache
+  <FilesMatch "\.(css|js|svg|woff2|png|jpg|jpeg|gif|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ── Block sensitive files
+<FilesMatch "(^\.env|^\.git|wp-config\.php|phpinfo\.php|\.log|\.bak|\.sql|\.zip|\.tar)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# ── Disable directory listing
+Options -Indexes
+
+# ── MIME types
+AddType text/css .css
+AddType application/javascript .js
+AddType image/svg+xml .svg
+AddType font/woff2 .woff2
+
+# ── Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/plain application/json image/svg+xml
+</IfModule>
+
+# ── 404 handler
+ErrorDocument 404 /index.html
+
+
+# ══════════════════════════════════════════════
+# 301 Redirects — Old flat URLs → New DEEP structure
+# ══════════════════════════════════════════════
+Redirect 301 /article-seo.html /articles/seo-kiddum-organi-google/
+Redirect 301 /article-sem.html /articles/sem-google-ads-prsoom-mamoon/
+Redirect 301 /article-meta.html /articles/meta-ads-facebook-instagram/
+Redirect 301 /article-youtube.html /articles/youtube-ads-video-marketing/
+Redirect 301 /article-digital.html /articles/shivuk-digitalit-maqtzoi/
+Redirect 301 /article-digital-presence.html /articles/nochchut-digitalit/
+Redirect 301 /article-ai.html /articles/shivuk-binah-melakutit-ai/
+Redirect 301 /article-prompt.html /articles/prompt-engineering-handasat/
+Redirect 301 /article-frontal.html /articles/mechirot-frontaliot/
+Redirect 301 /article-sales.html /articles/omanut-hamechirot-2025/
+Redirect 301 /article-psychology.html /articles/psychologia-kabalat-hachlata/
+Redirect 301 /article-client.html /articles/lama-haluach-lo-tamid-tzodek/
+
+
+# ── New site files — serve directly ─────────────────────
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^(index-new\.html|assets/.*)$ - [L]
+</IfModule>
+
+# Serve index.html from article folders
+<IfModule mod_rewrite.c>
+  RewriteRule ^articles/([^/]+)/?$ /articles/$1/index.html [L]
+</IfModule>
+
+
+# ── Cache Control ──
+<IfModule mod_headers.c>
+  # HTML — no cache (always fresh)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+  # CSS/JS — cache 1 year (versioned via ?v=)
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images — cache 30 days
+  <FilesMatch "\.(png|jpg|jpeg|gif|svg|ico|webp)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

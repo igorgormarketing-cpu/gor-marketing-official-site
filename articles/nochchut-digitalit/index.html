@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נוכחות דיגיטלית לעסק | GOR MARKETING</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#050510;color:#e8e8f0;font-family:'Segoe UI',Arial,sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+:root{--c1:#0891b2;--c2:#22d3ee;--c3:#7c3aed;--c4:#a855f7;--glass:rgba(255,255,255,0.05);--border:rgba(255,255,255,0.1)}
+.blobs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.b1{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(8,145,178,.18),transparent 70%);top:-10%;right:-5%;border-radius:50%;filter:blur(60px)}
+.b2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,.12),transparent 70%);bottom:10%;left:-5%;border-radius:50%;filter:blur(60px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,16,.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:linear-gradient(135deg,var(--c1),var(--c3));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#fff}
+.logo-text{font-size:15px;font-weight:700;background:linear-gradient(90deg,var(--c2),var(--c4));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-back{font-size:13px;color:rgba(255,255,255,.55);border:1px solid var(--border);padding:8px 18px;border-radius:100px;transition:all .2s}
+.nav-back:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+.article-wrap{max-width:780px;margin:0 auto;padding:110px 40px 80px;position:relative;z-index:1}
+.art-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(8,145,178,.4);background:rgba(8,145,178,.1);padding:6px 16px;border-radius:100px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--c2);margin-bottom:24px}
+.art-chip::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--c2);box-shadow:0 0 8px var(--c2)}
+h1{font-size:clamp(32px,4.5vw,58px);font-weight:900;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px}
+.grad{background:linear-gradient(135deg,var(--c2),var(--c4));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.art-meta{display:flex;gap:24px;margin-bottom:48px;padding-bottom:28px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.art-meta span{font-size:12px;color:rgba(255,255,255,.35)}
+.art-meta span strong{color:rgba(255,255,255,.6);font-weight:500}
+.art-lead{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.75);line-height:1.75;margin-bottom:48px;font-weight:300;border-right:3px solid var(--c2);padding-right:20px}
+h2{font-size:clamp(22px,2.5vw,30px);font-weight:700;margin:48px 0 16px;letter-spacing:-.02em}
+h3{font-size:18px;font-weight:700;margin:32px 0 10px;color:rgba(255,255,255,.85)}
+p{font-size:15px;color:rgba(255,255,255,.58);line-height:1.85;margin-bottom:16px}
+ul{padding-right:22px;margin-bottom:16px}
+li{font-size:15px;color:rgba(255,255,255,.55);line-height:1.8;padding:3px 0}
+li::marker{color:var(--c2)}
+blockquote{border-right:3px solid var(--c2);padding:14px 20px;margin:24px 0;background:rgba(8,145,178,.08);border-radius:0 8px 8px 0;font-style:italic;font-size:16px;color:rgba(255,255,255,.78);line-height:1.7}
+strong{color:rgba(255,255,255,.85);font-weight:600}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.pillar{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:24px;text-align:center}
+.pillar-icon{font-size:36px;margin-bottom:12px}
+.pillar h4{font-size:15px;font-weight:700;margin-bottom:8px}
+.pillar p{font-size:13px;color:rgba(255,255,255,.4);margin:0}
+.info-box{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:28px 0}
+.info-box h4{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--c2);letter-spacing:.05em;text-transform:uppercase}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+.info-item::before{content:'✓';color:var(--c2);flex-shrink:0;font-weight:700;margin-top:1px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat-box{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-n{font-size:32px;font-weight:900;background:linear-gradient(135deg,var(--c2),var(--c4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1}
+.stat-l{font-size:12px;color:rgba(255,255,255,.35);margin-top:4px;line-height:1.4}
+.cta-box{background:linear-gradient(135deg,rgba(8,145,178,.12),rgba(124,58,237,.08));border:1px solid rgba(8,145,178,.25);border-radius:16px;padding:36px;text-align:center;margin-top:56px}
+.cta-box h3{font-size:22px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:24px}
+.btn-cta{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));padding:14px 36px;border-radius:100px;font-size:14px;font-weight:700;color:#fff;transition:opacity .2s,transform .2s}
+.btn-cta:hover{opacity:.85;transform:translateY(-2px)}
+footer{border-top:1px solid var(--border);padding:28px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
+.f-logo{font-size:13px;font-weight:700;background:linear-gradient(90deg,var(--c2),var(--c4));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.f-links{display:flex;gap:20px}
+.f-links a{font-size:12px;color:rgba(255,255,255,.3);transition:color .2s}
+.f-links a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:700px){.article-wrap{padding:90px 20px 60px}.pillar-grid,.info-grid{grid-template-columns:1fr}.stat-row{grid-template-columns:1fr 1fr}nav{padding:16px 20px}}
+</style>
+<link rel="stylesheet" href="/assets/main.css">
+<link rel="canonical" href="https://gormarketing.com/articles/nochchut-digitalit/">
+<meta name="robots" content="noindex, nofollow">
+<style id="gor-sidebar-css">
+.social-sidebar{position:fixed;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:900;}
+.social-link{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;border:1px solid rgba(255,255,255,.12);transition:transform .2s;}
+.social-link:hover{transform:scale(1.12);}
+/* #mm hidden by default */
+#mm{position:fixed!important;top:0!important;left:0!important;width:min(300px,85vw)!important;height:100%!important;background:rgba(10,10,30,.97)!important;z-index:9990!important;display:none!important;flex-direction:column!important;gap:8px!important;padding:70px 20px 120px!important;overflow-y:auto!important;}
+/* #mm open — JS will set display:flex */
+.mobile-menu-link{display:block;padding:13px 16px;border-radius:10px;color:#e8e8f0;text-decoration:none;font-size:15px;font-weight:600;border:1px solid rgba(255,255,255,.08);}
+.mobile-lang-switcher{display:flex;gap:8px;justify-content:center;padding:10px 0;border-top:1px solid rgba(255,255,255,.1);margin-top:4px;}
+.mobile-lang-switcher button{width:50px;height:34px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e8e8f0;font-size:13px;font-weight:700;cursor:pointer;}
+@media (pointer:coarse){
+  #mob-bottom{display:block!important;}
+  .social-sidebar{display:none!important;}
+  .hamburger{display:flex!important;}
+  .nav-links,.nav-right,.flags,.flag-btn,.nav-dropdown-menu{display:none!important;}
+}
+@media (pointer:fine){
+  #mob-bottom{display:none!important;}
+  .hamburger{display:none!important;}
+}
+#gor-a11y-fab{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:33px;height:33px;border-radius:50%;background:linear-gradient(135deg,#7c3aed,#2563eb);border:none;color:#fff;font-size:20px;cursor:pointer;z-index:9998;box-shadow:0 4px 16px rgba(124,58,237,.5);display:flex;align-items:center;justify-content:center;}
+@media (pointer:coarse){#gor-a11y-fab{top:50%;transform:translateY(-50%);left:8px;width:33px;height:33px;font-size:15px;}}
+
+
+@media (pointer:coarse){.reveal{opacity:1!important;transform:none!important;transition:none!important;}.reveal.visible{opacity:1!important;transform:none!important;}}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="/assets/main.css?v=23">
+<meta property="og:type" content="article">
+<meta property="og:title" content="נוכחות דיגיטלית לעסק — המדריך המלא | GOR MARKETING">
+<meta property="og:description" content="איך לבנות נוכחות דיגיטלית חזקה לעסק — אתר, רשתות חברתיות ו-SEO.">
+<meta property="og:url" content="https://gormarketing.com/articles/nochchut-digitalit/">
+<meta property="og:image" content="https://gormarketing.com/assets/og-image.jpg">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="נוכחות דיגיטלית לעסק — המדריך המלא | GOR MARKETING">
+<meta name="twitter:description" content="איך לבנות נוכחות דיגיטלית חזקה לעסק — אתר, רשתות חברתיות ו-SEO.">
+<link rel="canonical" href="https://gormarketing.com/articles/nochchut-digitalit/">
+</head>
+<body>
+<a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+<div class="social-sidebar" role="complementary" aria-label="קישורים לרשתות חברתיות">
+  <a href="tel:052-515-5598" class="social-link" style="background:rgba(34,197,94,.15)" aria-label="טלפון" title="טלפון"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+  <a href="https://wa.me/972525155598" target="_blank" rel="noopener noreferrer" class="social-link" style="background:rgba(34,197,94,.15)" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#22c55e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 0C5.373 0 0 5.373 0 12c0 2.125.557 4.122 1.529 5.855L0 24l6.335-1.502A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.626 0 11.999 0zm.001 21.818a9.816 9.816 0 01-5.001-1.369l-.36-.213-3.76.891.945-3.658-.234-.376A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.421-4.398 9.818-9.818 9.818z"/></svg></a>
+  <a href="https://www.facebook.com/gormarketing" target="_blank" rel="noopener noreferrer" class="social-link" style="background:rgba(37,99,235,.15)" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="#60a5fa"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.023 4.388 11.013 10.125 11.927v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.437C19.612 23.086 24 18.096 24 12.073z"/></svg></a>
+  <a href="https://www.youtube.com/@gormarketing" target="_blank" rel="noopener noreferrer" class="social-link" style="background:rgba(239,68,68,.15)" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="#f87171"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+  <a href="#" onclick="openMeetingModal(event)" class="social-link zoom-link" style="background:rgba(139,92,246,.2)" aria-label="קבע פגישה"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><rect x="2" y="7" width="15" height="13" rx="2"/><path d="M17 11l5-3v10l-5-3"/></svg></a>
+
+<button class="hamburger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mm" onclick="var mm=document.getElementById('mm');var open=mm.classList.toggle('open');document.body.classList.toggle('menu-open',open);this.setAttribute('aria-expanded',open);" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;width:44px;height:44px;align-items:center;justify-content:center;">
+  <span style="display:block;width:22px;height:2px;background:#e8e8f0;border-radius:2px;transition:all .3s;"></span>
+  <span style="display:block;width:22px;height:2px;background:#e8e8f0;border-radius:2px;transition:all .3s;"></span>
+  <span style="display:block;width:22px;height:2px;background:#e8e8f0;border-radius:2px;transition:all .3s;"></span>
+</button>
+</div>
+<div class="blobs"><div class="b1"></div><div class="b2"></div></div>
+<nav>
+  <a href="gor_marketing_website.html" class="nav-logo">
+    <div class="logo-icon">⚡</div>
+    <span class="logo-text">GOR MARKETING</span>
+  </a>
+  <a href="gor_marketing_website.html" class="nav-back">← חזרה לאתר</a>
+</nav>
+
+<div class="article-wrap">
+  <div class="art-chip">מאמר מקצועי</div>
+  <h1>אתר, אפליקציה ו-CRM —<br><span class="grad">שלושה עמודי התווך של כל עסק מודרני</span></h1>
+  <div class="art-meta">
+    <span><strong>GOR MARKETING</strong> | איגור גורלקין</span>
+    <span><strong>זמן קריאה:</strong> 8 דקות</span>
+    <span><strong>נושא:</strong> תשתית דיגיטלית</span>
+  </div>
+
+  <p class="art-lead">עסק ללא אתר, אפליקציה ו-CRM בשנת 2025 הוא כמו חנות ללא שלט, ללא ספר לקוחות וללא מערכת קופה. שלושת הכלים הללו הם לא "נחמד שיהיה" — הם תשתית בסיסית להצלחה עסקית.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar">
+      <div class="pillar-icon">🌐</div>
+      <h4>אתר אינטרנט</h4>
+      <p>כרטיס הביקור ואיש המכירות שעובד 24/7</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">📱</div>
+      <h4>אפליקציה</h4>
+      <p>נוכחות ישירה בכיס של הלקוח</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-icon">⚙️</div>
+      <h4>מערכת CRM</h4>
+      <p>המוח שמנהל את כל מחזור הלקוח</p>
+    </div>
+  </div>
+
+  <h2>חשיבות האתר — הנוכחות הדיגיטלית הבסיסית</h2>
+  <p>97% מהצרכנים מחפשים עסקים מקומיים באינטרנט לפני שהם מתקשרים. אם אין לך אתר — הם פשוט לא מוצאים אותך. ובעידן שבו 65% מהגלישה מתבצעת מסמארטפון, <strong>אתר שלא מותאם למובייל הוא כמו אין אתר</strong>.</p>
+
+  <div class="stat-row">
+    <div class="stat-box"><span class="stat-n">97%</span><div class="stat-l">מהצרכנים מחפשים<br>עסקים באינטרנט</div></div>
+    <div class="stat-box"><span class="stat-n">0.05s</span><div class="stat-l">הזמן שלוקח לגולש<br>לשפוט את האתר שלך</div></div>
+    <div class="stat-box"><span class="stat-n">5x</span><div class="stat-l">יותר המרות עם<br>וידאו בדף נחיתה</div></div>
+  </div>
+
+  <p>אתר עסקי מקצועי הוא הרבה יותר מ"עמוד שכתוב עליו מה אנחנו עושים". הוא מערכת שיווקית שלמה: <strong>מושך גולשים</strong> דרך SEO, <strong>ממיר</strong> אותם ללידים דרך עמודי נחיתה מותאמים, <strong>מבסס אמינות</strong> דרך ביקורות ותוכן מקצועי, ו<strong>מוכר</strong> ישירות אם מדובר בחנות.</p>
+
+  <blockquote>"אתר איטי שלא נטען תוך 3 שניות מאבד 40% מהגולשים. אתר שלא מותאם למובייל מאבד עוד 50% מהשאר. לא מספיק שיהיה אתר — הוא צריך לעבוד נכון."</blockquote>
+
+  <h2>חשיבות האפליקציה — נוכחות בכיס של הלקוח</h2>
+  <p>בעוד שאתר הוא חובה, <strong>אפליקציה היא יתרון תחרותי</strong>. לקוח שהוריד את האפליקציה שלך הוא לקוח שנתן לך גישה ישירה לטלפון שלו. זה אומר:</p>
+  <ul>
+    <li><strong>Push Notifications</strong> — הודעות שמגיעות ישירות אל הלקוח ללא עלות</li>
+    <li><strong>נאמנות גבוהה</strong> — משתמשי אפליקציה קונים פי 3 יותר ממשתמשי אתר</li>
+    <li><strong>חוויה מותאמת</strong> — ממשק נוח, מהיר ואישי</li>
+    <li><strong>Offline</strong> — עובדת גם ללא חיבור לאינטרנט</li>
+  </ul>
+  <p>אפליקציה אינה מתאימה לכל עסק — אבל לעסקים עם לקוחות חוזרים (מסעדות, קליניקות, חדרי כושר, חנויות) היא <strong>ההשקעה שמכפילה שימור לקוחות</strong>.</p>
+
+  <h2>מערכת CRM — הלב הפועם של ניהול הלקוחות</h2>
+  <p>CRM — Customer Relationship Management — היא מערכת שמנהלת את כל הקשר עם הלקוח לאורך חייו: מהליד הראשון ועד הרכישה החמישית. בלי CRM, מידע על לקוחות מפוזר בין Gmail, ווטסאפ, פתקיות על השולחן ובראש של בעל העסק — <strong>ימנע אפקטיביות, יגרום לאי-דיוקים ועלול לגרום לאובדן עסקאות</strong>.</p>
+
+  <div class="info-box">
+    <h4>מה CRM עושה לעסק שלך?</h4>
+    <div class="info-grid">
+      <div class="info-item">כל ההיסטוריה של כל לקוח במקום אחד</div>
+      <div class="info-item">תזכורות אוטומטיות לפולואו-אפ</div>
+      <div class="info-item">פייפליין מכירות ויזואלי — תמיד יודע איפה כל עסקה</div>
+      <div class="info-item">אוטומציה של הודעות ומיילים חוזרים</div>
+      <div class="info-item">דוחות מכירות ותחזיות בזמן אמת</div>
+      <div class="info-item">אינטגרציה עם אתר, ווטסאפ ואימייל</div>
+    </div>
+  </div>
+
+  <h2>השילוב המנצח — אתר + CRM + שיווק דיגיטלי</h2>
+  <p>כאשר שלושת המרכיבים עובדים יחד, קורה הקסם: <strong>גולש שנכנס לאתר</strong> ← משאיר פרטים ← <strong>נכנס אוטומטית ל-CRM</strong> ← מקבל אימייל / ווטסאפ אוטומטי ← <strong>מגיע לשיחה מוכן ומתוחזק</strong>. זהו מחזור שעובד בשבילך 24/7 ללא מעורבות ידנית.</p>
+  <p>עסקים שמיישמים את השילוב הזה מדווחים על <strong>הכפלת שיעורי ההמרה ושלישית בזמן שמוקדש לניהול שוטף</strong>.</p>
+
+  <h3>GOR MARKETING — בניית התשתית הדיגיטלית שלך</h3>
+  <p>ב-GOR MARKETING אנחנו מקימים את כל התשתית הדיגיטלית: בניית אתר, הקמת CRM, חיבור בין המערכות ואוטומציה של תהליכים. <strong>פתרון אחד, ספק אחד, תוצאות מלאות</strong>.</p>
+
+  <div class="cta-box">
+    <h3>רוצה לבנות תשתית דיגיטלית לעסק שלך?</h3>
+    <p>נבדוק מה קיים, נמפה מה חסר, ונציג תכנית פעולה להקמת נוכחות דיגיטלית מלאה — מאתר ועד CRM.</p>
+    <a href="gor_marketing_website.html#contact" class="btn-cta">צור קשר עכשיו ←</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">GOR MARKETING © 2026</div>
+  <div class="f-links">
+    <a href="gor_marketing_website.html">ראשי</a>
+    <a href="gor_marketing_website.html#services">שירותים</a>
+    <a href="gor_marketing_website.html#contact">קשר</a>
+  </div>
+</footer>
+
+
+<script src="/assets/a11y.js?v=6" async></script>
+<div id="mm" role="dialog" aria-modal="true" aria-label="תפריט ניווט" dir="rtl" style="position:fixed;top:0;right:0;width:min(320px,90vw);height:100%;background:rgba(10,10,30,.97);z-index:980;transform:translateX(100%);transition:transform .3s ease;overflow-y:auto;padding:80px 20px 100px;display:flex;flex-direction:column;gap:8px;">
+  <a href="/" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#127968; בית</a>
+  <a href="/#about" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#128100; אודות</a>
+  <a href="/#services" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#9889; שירותים שלנו</a>
+  <a href="/#articles" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#128218; מאמרים</a>
+  <a href="/#reviews" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#11088; ביקורות</a>
+  <a href="/#contact" class="mobile-menu-link" onclick="document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" style="display:block;padding:14px 16px;border-radius:12px;color:#e8e8f0;text-decoration:none;font-size:16px;font-weight:600;border:1px solid rgba(255,255,255,.08);transition:background .2s;">&#128172; דברו איתנו</a>
+  <div class="mobile-lang-switcher" style="display:flex;gap:8px;justify-content:center;padding:12px 0 4px;border-top:1px solid rgba(255,255,255,.1);margin-top:4px;">
+    <button data-lang="he" onclick="(function(l){document.documentElement.lang=l;document.documentElement.dir='rtl';localStorage.setItem('gor_lang',l);document.querySelectorAll('[data-lang]').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)})})('he')" style="width:52px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e8e8f0;font-size:14px;font-weight:700;cursor:pointer;" aria-label="עברית">&#1506;&#1489;</button>
+    <button data-lang="en" onclick="(function(l){document.documentElement.lang=l;document.documentElement.dir='ltr';localStorage.setItem('gor_lang',l);document.querySelectorAll('[data-lang]').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)})})('en')" style="width:52px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e8e8f0;font-size:14px;font-weight:700;cursor:pointer;" aria-label="English">EN</button>
+    <button data-lang="ru" onclick="(function(l){document.documentElement.lang=l;document.documentElement.dir='ltr';localStorage.setItem('gor_lang',l);document.querySelectorAll('[data-lang]').forEach(function(b){b.classList.toggle('active',b.dataset.lang===l)})})('ru')" style="width:52px;height:36px;border-radius:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#e8e8f0;font-size:14px;font-weight:700;cursor:pointer;" aria-label="Russian">&#1056;&#1059;</button>
+  </div>
+  <a href="#" onclick="openMeetingModal(event);document.getElementById('mm').classList.remove('open');document.body.classList.remove('menu-open')" class="cta-btn cta-primary mobile-menu-link" style="display:block;text-align:center;padding:14px 16px;border-radius:12px;margin-top:4px;text-decoration:none;font-size:15px;font-weight:700;background:linear-gradient(135deg,#7c3aed,#2563eb);color:#fff;">&#128197; קבע פגישה &mdash; 150 &#1513;&quot;&#1495; + &#1502;&#1506;&quot;&#1502;</a>
+</div>
+<nav class="nav" id="navbar" dir="rtl" aria-label="ניווט ראשי">
+    <div class="nav-inner" style="display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1400px;margin:0 auto;padding:0 24px;">
+      <a href="/" class="nav-logo"><img src="/assets/favicon.png.png" alt="GOR" width="44" height="44" loading="eager"><span class="nav-logo-text">GOR MARKETING</span></a>
+      <ul class="nav-links" role="list" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;">
+        <li><a href="/#hero">🏠 בית</a></li>
+        <li><a href="/#about">אודות</a></li>
+        <li><a href="/#services">שירותים שלנו</a></li>
+        <li class="has-dropdown" style="position:relative;list-style:none;">
+          <a href="/#articles" style="font-size:14px;color:var(--text2);padding:8px 14px;border-radius:8px;text-decoration:none;display:flex;align-items:center;gap:5px;">מאמרים ▾</a>
+          <ul class="art-mega-drop" style="position:absolute;top:calc(100% + 8px);right:0;background:rgba(10,10,28,.97);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:14px;min-width:280px;padding:8px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:all .25s;box-shadow:0 24px 64px rgba(0,0,0,.6);z-index:600;list-style:none;margin:0;">
+            <li><a href="/articles/seo-kiddum-organi-google/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">🔍</span><span><strong style="display:block;font-size:13px;color:#fff;">קידום אורגני — SEO</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">להיות ראשון בגוגל</small></span></a></li>
+            <li><a href="/articles/sem-google-ads-prsoom-mamoon/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">📈</span><span><strong style="display:block;font-size:13px;color:#fff;">Google Ads — פרסום ממומן</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">פרסום שמחזיר השקעה</small></span></a></li>
+            <li><a href="/articles/meta-ads-facebook-instagram/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">📱</span><span><strong style="display:block;font-size:13px;color:#fff;">Meta Ads — Facebook &amp; Instagram</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">5.5M ישראלים</small></span></a></li>
+            <li><a href="/articles/shivuk-binah-melakutit-ai/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">🤖</span><span><strong style="display:block;font-size:13px;color:#fff;">שיווק בינה מלאכותית</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">AI Marketing</small></span></a></li>
+            <li><a href="/articles/omanut-hamechirot-2025/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">🤝</span><span><strong style="display:block;font-size:13px;color:#fff;">אמנות המכירה 2025</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">SPIN, Consultative</small></span></a></li>
+            <li><a href="/articles/prompt-engineering-handasat/" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:10px;text-decoration:none;transition:background .15s;"><span style="font-size:22px;">✨</span><span><strong style="display:block;font-size:13px;color:#fff;">Prompt Engineering</strong><small style="color:rgba(255,255,255,.45);font-size:12px;">הנדסת פרומפטים</small></span></a></li>
+          </ul>
+        </li>
+        <li><a href="/#reviews">⭐ ביקורות</a></li>
+        <li><a href="/#contact">דברו איתנו</a></li>
+        <li><a href="/#booking">📅 פגישה</a></li>
+      </ul>
+      <div class="nav-right" style="display:flex;align-items:center;gap:12px;">
+        <div class="nav-status" onclick="location.href='/#contact'"><span class="nav-status-dot"></span><span>מצב יום</span></div>
+        <a href="/#booking" class="nav-btn">דברו איתנו</a>
+      </div>
+      <button class="hamburger" onclick="var mm=document.getElementById('mm');mm.classList.toggle('open');this.setAttribute('aria-expanded',mm.classList.contains('open'))" aria-label="תפריט"><span></span><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+<div id="meetingModal" role="dialog" aria-modal="true" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:10000;align-items:flex-start;justify-content:center;overflow-y:auto;padding:16px;" dir="rtl">
+  <div style="background:#0d0d1f;border:1px solid rgba(255,255,255,.12);border-radius:20px;max-width:540px;width:100%;position:relative;margin:0 auto;box-shadow:0 24px 80px rgba(0,0,0,.7);">
+
+    <!-- Header -->
+    <div style="padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;">
+      <h2 style="margin:0;font-size:18px;font-weight:800;color:#fff;">&#128197; קבע פגישה אישית</h2>
+      <button onclick="closeMeetingModal()" aria-label="סגור" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:22px;cursor:pointer;line-height:1;padding:4px;">&#10005;</button>
+    </div>
+
+    <!-- Type selection -->
+    <div id="mm-step1" style="padding:20px;">
+      <p style="margin:0 0 14px;color:rgba(255,255,255,.55);font-size:13px;text-align:center;">בחר סוג פגישה &mdash; 150 &#1513;&quot;&#1495; + &#1502;&#1506;&quot;&#1502;</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <button onclick="showCalendly('zoom')" style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.4);border-radius:12px;color:#fff;cursor:pointer;font-family:inherit;">
+          <span style="font-size:28px;">&#128249;</span>
+          <strong style="font-size:14px;">פגישת Zoom</strong>
+          <span style="font-size:12px;color:rgba(255,255,255,.5);">מרחוק בווידאו</span>
+        </button>
+        <button onclick="showCalendly('frontal')" style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 10px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.4);border-radius:12px;color:#fff;cursor:pointer;font-family:inherit;">
+          <span style="font-size:28px;">&#129309;</span>
+          <strong style="font-size:14px;">פגישה פרונטלית</strong>
+          <span style="font-size:12px;color:rgba(255,255,255,.5);">מפגש אישי</span>
+        </button>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:center;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);">
+        <a href="tel:052-515-5598" style="display:flex;align-items:center;gap:5px;padding:8px 14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;color:#86efac;text-decoration:none;font-size:13px;">&#128222; 052-515-5598</a>
+        <a href="https://wa.me/972525155598" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:5px;padding:8px 14px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);border-radius:8px;color:#86efac;text-decoration:none;font-size:13px;">&#128172; WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Calendly iframe -->
+    <div id="mm-step2" style="display:none;">
+      <div style="padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08);">
+        <button onclick="backToStep1()" style="background:rgba(255,255,255,.1);border:none;color:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;font-family:inherit;">&#8592; חזור</button>
+        <span id="mm-type-label" style="color:rgba(255,255,255,.6);font-size:13px;font-weight:600;"></span>
+      </div>
+      <!-- Loading spinner -->
+      <div id="mm-loading" style="display:flex;align-items:center;justify-content:center;height:200px;color:rgba(255,255,255,.4);flex-direction:column;gap:12px;">
+        <div style="width:32px;height:32px;border:3px solid rgba(124,58,237,.3);border-top-color:#7c3aed;border-radius:50%;animation:spin 1s linear infinite;"></div>
+        <span style="font-size:13px;">טוען יומן...</span>
+      </div>
+      <iframe id="mm-iframe" src="" width="100%" height="660"
+        frameborder="0" title="Calendly — קבע פגישה"
+        style="display:none;border:none;border-radius:0 0 20px 20px;"
+        allow="camera; microphone; payment"
+        onload="document.getElementById('mm-loading').style.display='none';this.style.display='block';">
+      </iframe>
+    </div>
+
+  </div>
+</div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+<script>
+function openMeetingModal(e){
+  if(e&&e.preventDefault)e.preventDefault();
+  var m=document.getElementById('meetingModal');
+  if(!m)return;
+  document.getElementById('mm-step1').style.display='block';
+  document.getElementById('mm-step2').style.display='none';
+  var fr=document.getElementById('mm-iframe');
+  if(fr){fr.src='';fr.style.display='none';}
+  var ld=document.getElementById('mm-loading');
+  if(ld)ld.style.display='flex';
+  m.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeMeetingModal(){
+  var m=document.getElementById('meetingModal');
+  if(!m)return;
+  m.style.display='none';
+  document.body.style.overflow='';
+  var fr=document.getElementById('mm-iframe');
+  if(fr){fr.src='';fr.style.display='none';}
+}
+function showCalendly(type){
+  var base='https://calendly.com/gormarketing';
+  var path=type==='zoom'?'/zoom':'/frontal';
+  var url=base+path+'?hide_gdpr_banner=1&background_color=0d0d1f&text_color=ffffff&primary_color=7c3aed';
+  var label=type==='zoom'?'&#128249; פגישת Zoom':'&#129309; פגישה פרונטלית';
+  document.getElementById('mm-step1').style.display='none';
+  document.getElementById('mm-step2').style.display='block';
+  document.getElementById('mm-type-label').innerHTML=label;
+  var ld=document.getElementById('mm-loading');
+  if(ld)ld.style.display='flex';
+  var fr=document.getElementById('mm-iframe');
+  if(fr){fr.style.display='none';fr.src=url;}
+}
+function backToStep1(){
+  document.getElementById('mm-step1').style.display='block';
+  document.getElementById('mm-step2').style.display='none';
+  var fr=document.getElementById('mm-iframe');
+  if(fr){fr.src='';fr.style.display='none';}
+}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('meetingModal');
+  if(m&&e.target===m)closeMeetingModal();
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMeetingModal();});
+</script>
+
+<script>/* GOR v4 */
+(function(){
+  function mob(){return window.matchMedia('(pointer:coarse)').matches;}
+  function showBar(){
+    var b=document.getElementById('mob-bottom');
+    var h=document.querySelector('.hamburger');
+    var m=mob();
+    if(b)b.style.setProperty('display',m?'block':'none','important');
+    if(h)h.style.setProperty('display',m?'flex':'none','important');
+  }
+  function openMM(){
+    var mm=document.getElementById('mm');
+    if(!mm)return;
+    mm.style.setProperty('display','flex','important');
+    mm.style.removeProperty('transform');
+    setTimeout(function(){mm.classList.add('open');},10);
+  }
+  function closeMM(){
+    var mm=document.getElementById('mm');
+    if(!mm)return;
+    mm.classList.remove('open');
+    mm.style.setProperty('display','none','important');
+  }
+  function init(){
+    showBar();
+    // Patch hamburger
+    var ham=document.querySelector('.hamburger');
+    if(ham){
+      ham.onclick=function(e){
+        e.stopPropagation();
+        var mm=document.getElementById('mm');
+        if(!mm)return;
+        if(mm.classList.contains('open')){closeMM();}else{openMM();}
+      };
+    }
+    // Close on outside click
+    document.addEventListener('click',function(e){
+      var mm=document.getElementById('mm');
+      if(mm&&mm.classList.contains('open')&&!mm.contains(e.target)&&!e.target.closest('.hamburger'))
+        closeMM();
+    });
+    // Close links in mm
+    document.querySelectorAll('#mm .mobile-menu-link').forEach(function(a){
+      a.addEventListener('click',function(){closeMM();});
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  window.addEventListener('resize',showBar);
+  window.addEventListener('orientationchange',showBar);
+})();
+</script>
+<script src="/assets/main.js?v=7" defer></script>
+<div class="related">
+    <h3>// מאמרים נוספים</h3>
+    <div class="related-grid">
+      <a href="/articles/seo-kiddum-organi-google/" class="rel-card" aria-label="seo-kiddum-organi-google"><span class="rel-emoji">🔍</span><span class="rel-title">SEO — קידום אורגני בגוגל</span></a>
+      <a href="/articles/sem-google-ads-prsoom-mamoon/" class="rel-card" aria-label="sem-google-ads-prsoom-mamoon"><span class="rel-emoji">🎯</span><span class="rel-title">Google Ads — פרסום ממומן</span></a>
+      <a href="/articles/meta-ads-facebook-instagram/" class="rel-card" aria-label="meta-ads-facebook-instagram"><span class="rel-emoji">📱</span><span class="rel-title">Meta Ads — פייסבוק ואינסטגרם</span></a>
+    </div>
+  </div>
+</body>
+</html>
