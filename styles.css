@@ -1162,3 +1162,87 @@ footer {
         max-height: min(420px, calc(100vh - 160px)) !important;
     }
 }
+
+
+/* Floating Buttons Hierarchy: GOR-Bot at bottom, WhatsApp above it */
+.gor-bot-trigger {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border: 2px solid #fff;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6), 0 0 35px rgba(255, 152, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 99998 !important;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #05070d;
+    font-size: 1.6rem;
+}
+
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 98px !important;
+    left: 24px !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25d366;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+    z-index: 99999 !important;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    border: 2px solid #ffffff;
+}
+
+.gor-bot-modal {
+    position: fixed !important;
+    bottom: 168px !important;
+    left: 24px !important;
+    width: clamp(300px, 90vw, 380px);
+    max-height: min(480px, calc(100vh - 190px));
+    background: rgba(10, 14, 24, 0.95);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 100000 !important;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: botSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (max-width: 768px) {
+    .gor-bot-trigger {
+        bottom: 18px !important;
+        left: 18px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.35rem !important;
+    }
+    .whatsapp-float {
+        bottom: 78px !important;
+        left: 18px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 26px !important;
+    }
+    .gor-bot-modal {
+        bottom: 138px !important;
+        left: 14px !important;
+        width: calc(100vw - 28px) !important;
+        max-height: min(420px, calc(100vh - 160px)) !important;
+    }
+}

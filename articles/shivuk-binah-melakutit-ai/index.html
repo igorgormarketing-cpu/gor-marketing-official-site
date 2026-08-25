@@ -92,7 +92,7 @@ footer{border-top:1px solid var(--border);padding:28px 60px;display:flex;align-i
   footer{padding:24px 20px;flex-direction:column;text-align:center}
 }
 </style>
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../styles.css?v=4.0">
 <link rel="canonical" href="https://gormarketing.com/articles/shivuk-binah-melakutit-ai/">
 <meta name="robots" content="noindex, nofollow">
 <style id="gor-sidebar-css">
@@ -131,7 +131,7 @@ footer{border-top:1px solid var(--border);padding:28px 60px;display:flex;align-i
 <meta name="twitter:title" content="AI Marketing — שיווק בינה מלאכותית | GOR MARKETING">
 <meta name="twitter:description" content="איך להשתמש ב-AI לשיווק עסקי — כלים, אוטומציה וטקטיקות מתקדמות.">
 <link rel="canonical" href="https://gormarketing.com/articles/shivuk-binah-melakutit-ai/">
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../styles.css?v=4.0">
     <link rel="stylesheet" href="../../assets/accessibility.css">
 </head>
 <body>
@@ -684,18 +684,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMeeting
     <script src="../../assets/motion.js" defer></script>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING" class="whatsapp-float" style="position: fixed !important; bottom: 98px !important; left: 24px !important; z-index: 99999 !important;" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
     <script src="../../assets/accessibility.js" defer></script>
-    <!-- GOR-Bot Floating AI Concierge Widget -->
-    <div id="gor-bot-trigger" class="gor-bot-trigger" title="צ'אט עם סוכן GOR">
+            <!-- GOR-Bot Floating AI Concierge Widget (Bottom: 24px) -->
+    <div id="gor-bot-trigger" class="gor-bot-trigger" style="position: fixed !important; bottom: 24px !important; left: 24px !important; z-index: 99998 !important;" title="צ'אט עם סוכן GOR">
         <div class="gor-bot-pulse"></div>
         <span class="gor-bot-badge">AI</span>
         <i class="fas fa-robot"></i>
     </div>
 
-    <div id="gor-bot-modal" class="gor-bot-modal">
+    <div id="gor-bot-modal" class="gor-bot-modal" style="position: fixed !important; bottom: 168px !important; left: 24px !important; z-index: 100000 !important;">
         <div class="gor-bot-header">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900;">G</div>
@@ -738,6 +738,76 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMeeting
             </a>
         </div>
     </div>
-<script src="../../script.js"></script>
+            </div>
+            <button id="gor-bot-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        </div>
+
+        <div id="gor-bot-body" class="gor-bot-body">
+            <div class="gor-msg bot">
+                היי, אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
+            </div>
+
+            <div class="gor-quick-options">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')">
+                    <span>⚡ מה סל השירותים של הסוכנות?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')">
+                    <span>💰 כמה עולה פגישת אפיון אסטרטגית?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')">
+                    <span>💼 מה היכולות של מערכת GOR CRM?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')">
+                    <span>🚀 פיתוח אפליקציות ומערכות מותאמות</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="gor-bot-footer">
+            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; font-size: 0.88rem; text-decoration: none; border-radius: 10px;">
+                <i class="fab fa-whatsapp"></i> שיחה ישירה עם איגור בוואטסאפ
+            </a>
+        </div>
+    </div>
+            </div>
+            <button id="gor-bot-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        </div>
+
+        <div id="gor-bot-body" class="gor-bot-body">
+            <div class="gor-msg bot">
+                היי, אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
+            </div>
+
+            <div class="gor-quick-options">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')">
+                    <span>⚡ מה סל השירותים של הסוכנות?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')">
+                    <span>💰 כמה עולה פגישת אפיון אסטרטגית?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')">
+                    <span>💼 מה היכולות של מערכת GOR CRM?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')">
+                    <span>🚀 פיתוח אפליקציות ומערכות מותאמות</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="gor-bot-footer">
+            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; font-size: 0.88rem; text-decoration: none; border-radius: 10px;">
+                <i class="fab fa-whatsapp"></i> שיחה ישירה עם איגור בוואטסאפ
+            </a>
+        </div>
+    </div>
+<script src="../../script.js?v=4.0"></script>
 </body>
 </html>
