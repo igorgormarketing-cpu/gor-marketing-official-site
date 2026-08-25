@@ -112,7 +112,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. GOR-Bot AI Concierge Widget Logic
+    // 5. Smart Lead Form Engine
+    const leadForm = document.getElementById('gor-lead-form');
+    if (leadForm) {
+        leadForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('form-name')?.value || '';
+            const phone = document.getElementById('form-phone')?.value || '';
+            const service = document.getElementById('form-service')?.value || '';
+            const msg = document.getElementById('form-msg')?.value || '';
+
+            // Save lead to local storage backup
+            try {
+                const storedLeads = JSON.parse(localStorage.getItem('gor_leads_backup') || '[]');
+                storedLeads.push({ name, phone, service, msg, date: new Date().toISOString() });
+                localStorage.setItem('gor_leads_backup', JSON.stringify(storedLeads));
+            } catch (err) {
+                console.error('Storage error', err);
+            }
+
+            // Visual feedback
+            const submitBtn = leadForm.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                const originalHtml = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> הפנייה התקבלה! פותח וואטסאפ...';
+                submitBtn.style.background = 'linear-gradient(135deg, #00ff88, #00b0ff)';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHtml;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 4000);
+            }
+
+            const formattedMsg = `היי איגור, השארתי פנייה באתר GOR MARKETING:\n👤 שם מלא: ${name}\n📞 טלפון: ${phone}\n🛠️ שירות מבוקש: ${service}\n📝 פירוט: ${msg ? msg : 'ללא הודעה נוספת'}`;
+            window.open(`https://wa.me/972525155598?text=${encodeURIComponent(formattedMsg)}`, '_blank');
+        });
+    }
+
+    // 6. GOR-Bot AI Concierge Widget Logic
     const botTrigger = document.getElementById('gor-bot-trigger');
     const botModal = document.getElementById('gor-bot-modal');
     const botClose = document.getElementById('gor-bot-close');
