@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GOR MARKETING - ULTIMATE FLUID & RESPONSIVE DESIGN SYSTEM (Desktop & Mobile)
    ========================================================================== */
 
@@ -313,25 +313,43 @@ body {
     color: var(--text-muted);
 }
 
+/* Universal Navbar CTA Button - Ultra High Contrast & Visibility */
+.nav-links a.btn-nav,
 .btn-nav {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: clamp(6px, 1vh, 9px) clamp(12px, 1.5vw, 18px);
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: clamp(0.82rem, 1vw, 0.9rem);
-    background: var(--emerald-primary);
-    color: #06070a !important;
-    text-decoration: none;
-    box-shadow: var(--shadow-emerald);
-    transition: all 0.25s ease;
-    white-space: nowrap;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 22px !important;
+    border-radius: 9999px !important;
+    font-weight: 900 !important;
+    font-size: clamp(0.85rem, 1.1vw, 0.95rem) !important;
+    background: linear-gradient(135deg, #00ff88 0%, #00e5ff 100%) !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 0 22px rgba(0, 255, 136, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    text-shadow: none !important;
 }
 
-.btn-nav:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px var(--emerald-primary);
+.nav-links a.btn-nav:hover,
+.nav-links a.btn-nav:focus,
+.btn-nav:hover,
+.btn-nav:focus {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px) scale(1.04) !important;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.85), 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.nav-links a.btn-nav i,
+.btn-nav i {
+    color: #000000 !important;
+    font-size: 0.88rem !important;
 }
 
 .mobile-nav-toggle {
