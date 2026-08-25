@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -289,6 +289,8 @@
                 </div>
 
                 <a href="index.html#about">אודות</a>
+                <a href="#case-studies">תוצאות</a>
+                <a href="#roi-calculator">מחשבון ROI</a>
                 <a href="index.html#reviews">המלצות</a>
                 <a href="index.html#contact" class="btn-nav">קביעת פגישה</a>
             </nav>
@@ -587,6 +589,280 @@
             </div>
         </section>
 
+                <!-- 4.1 Interactive Growth & ROI Calculator -->
+        <section id="roi-calculator" style="margin-bottom: 80px;">
+            <div style="text-align: center; margin-bottom: 36px;">
+                <div class="badge-gold-emerald">
+                    <i class="fas fa-calculator"></i> סימולטור צמיחה פיננסי
+                </div>
+                <h2 style="font-size: 2.3rem; font-weight: 900; color: #fff; margin-bottom: 12px;">
+                    מחשבון <span class="gradient-title">ROI ותחזית הכנסות</span>
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto;">
+                    בדקו כמה רווח והכנסות המשפך השיווקי של GOR MARKETING ואוטומציות ה-AI יכולים לייצר לעסק שלכם.
+                </p>
+            </div>
+
+            <div class="roi-calculator-card">
+                <div class="calc-grid">
+                    <!-- Controls Column -->
+                    <div>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-sliders-h" style="color: var(--gold-bright);"></i> נתוני הפעילות של העסק
+                        </h3>
+
+                        <!-- Slider 1: Budget -->
+                        <div class="calc-slider-group">
+                            <div class="calc-slider-header">
+                                <span>תקציב שיווק ופרסום חודשי:</span>
+                                <span id="calc-budget-val" class="calc-slider-val">₪10,000</span>
+                            </div>
+                            <input type="range" id="calc-budget" class="calc-range" min="3000" max="80000" step="1000" value="10000">
+                        </div>
+
+                        <!-- Slider 2: Average Deal Value -->
+                        <div class="calc-slider-group">
+                            <div class="calc-slider-header">
+                                <span>שווי ממוצע של עסקה / לקוח:</span>
+                                <span id="calc-deal-val" class="calc-slider-val">₪3,500</span>
+                            </div>
+                            <input type="range" id="calc-deal" class="calc-range" min="500" max="40000" step="500" value="3500">
+                        </div>
+
+                        <!-- Slider 3: Target Leads -->
+                        <div class="calc-slider-group" style="margin-bottom: 0;">
+                            <div class="calc-slider-header">
+                                <span>צפי פניות / לידים בחודש:</span>
+                                <span id="calc-leads-val" class="calc-slider-val">80 לידים</span>
+                            </div>
+                            <input type="range" id="calc-leads" class="calc-range" min="20" max="600" step="10" value="80">
+                        </div>
+                    </div>
+
+                    <!-- Results Column -->
+                    <div class="calc-results-box">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">
+                            <span style="font-size: 1.1rem; font-weight: 800; color: #fff;">
+                                <i class="fas fa-chart-line" style="color: var(--emerald-primary);"></i> צפי תוצאות חודשי משוער
+                            </span>
+                            <span style="font-size: 0.75rem; background: rgba(0,255,136,0.15); color: var(--emerald-primary); padding: 4px 10px; border-radius: 9999px; font-weight: 700;">
+                                מבוסס נתוני GOR
+                            </span>
+                        </div>
+
+                        <div class="calc-metric-row">
+                            <div class="calc-metric-item">
+                                <div class="calc-metric-label">צפי הכנסות ישיר</div>
+                                <div id="calc-res-revenue" class="calc-metric-number emerald">₪35,000</div>
+                            </div>
+                            <div class="calc-metric-item">
+                                <div class="calc-metric-label">עסקאות סגורות</div>
+                                <div id="calc-res-deals" class="calc-metric-number gold">10 עסקאות</div>
+                            </div>
+                        </div>
+
+                        <div class="calc-metric-row">
+                            <div class="calc-metric-item">
+                                <div class="calc-metric-label">החזר השקעה (ROAS)</div>
+                                <div id="calc-res-roas" class="calc-metric-number emerald">350%</div>
+                            </div>
+                            <div class="calc-metric-item">
+                                <div class="calc-metric-label">חיסכון זמן באוטומציות</div>
+                                <div id="calc-res-time" class="calc-metric-number gold">140 שעות/חודש</div>
+                            </div>
+                        </div>
+
+                        <a id="calc-cta-btn" href="https://wa.me/972525155598" target="_blank" class="btn-emerald" style="width: 100%; text-align: center; padding: 14px; font-size: 1rem; display: block; text-decoration: none;">
+                            <i class="fab fa-whatsapp"></i> קבל תוכנית פעולה לתחזית הזו
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4.2 Case Studies & Proven Results Section -->
+        <section id="case-studies" style="margin-bottom: 80px;">
+            <div style="text-align: center; margin-bottom: 36px;">
+                <div class="badge-gold-emerald">
+                    <i class="fas fa-trophy"></i> הוכחות בשטח
+                </div>
+                <h2 style="font-size: 2.3rem; font-weight: 900; color: #fff; margin-bottom: 12px;">
+                    קייס סטאדיז <span class="gradient-title">ותיק עבודות מוביל</span>
+                </h2>
+                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto;">
+                    הצצה לפרויקטים, מהלכי שיווק ומערכות שפיתחנו שהניבו תוצאות עסקיות מוכחות.
+                </p>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="case-filter-bar">
+                <button type="button" class="case-filter-btn active" data-filter="all">הכל (6)</button>
+                <button type="button" class="case-filter-btn" data-filter="ppc">פרסום ממומן PPC</button>
+                <button type="button" class="case-filter-btn" data-filter="seo">קידום אורגני SEO</button>
+                <button type="button" class="case-filter-btn" data-filter="apps">מערכות SaaS & PropTech</button>
+                <button type="button" class="case-filter-btn" data-filter="ecommerce">איקומרס ומכירות</button>
+            </div>
+
+            <!-- Case Studies Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                <!-- Case 1: PPC Clinic -->
+                <div class="case-study-card" data-category="ppc">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(255,193,7,0.15); color: var(--gold-bright); border: 1px solid rgba(255,193,7,0.3);">
+                            רשת מרפאות אסתטיקה
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">משפך PPC ודפי נחיתה מהירים</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            בניית ארכיטקטורת קמפיינים ב-Google Search ו-Meta Ads עם בוט סינון לידים חכם לשיפור איכות הפניות.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">+340%</div>
+                                <div class="case-metric-lbl">גידול בפניות סגורות</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">-44%</div>
+                                <div class="case-metric-lbl">הוזלת עלות לליד (CPA)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="sem-guide.html" class="btn-gold" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        למדריך הפרסום הממומן
+                    </a>
+                </div>
+
+                <!-- Case 2: SEO E-Commerce -->
+                <div class="case-study-card" data-category="seo">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(0,255,136,0.15); color: var(--emerald-primary); border: 1px solid rgba(0,255,136,0.3);">
+                            מותג ריהוט ועיצוב הבית
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">אופטימיזציית SEO ודירוג מקום 1</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            אופטימיזציה טכנית מלאה, היררכיית קטגוריות ותוכן סמכותי שהביאו 12 ביטויים תחרותיים למקום הראשון בגוגל.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">+280%</div>
+                                <div class="case-metric-lbl">תנועה אורגנית חודשית</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">6.8x</div>
+                                <div class="case-metric-lbl">החזר השקעה (ROAS)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="seo-guide.html" class="btn-emerald" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        למדריך ה-SEO המלא
+                    </a>
+                </div>
+
+                <!-- Case 3: TWIN PropTech -->
+                <div class="case-study-card" data-category="apps">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(0,229,255,0.15); color: var(--cyan-accent); border: 1px solid rgba(0,229,255,0.3);">
+                            חברת ניהול נכסים ובניינים
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">הטמעת מערכת TWIN PropTech</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            החלפת קבוצות וואטסאפ וטבלאות אקסל באפליקציה תלת-ממדית לגבייה, תקלות ודוחות שקופים לדיירים.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">99.4%</div>
+                                <div class="case-metric-lbl">גבייה בזמן באשראי</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">0</div>
+                                <div class="case-metric-lbl">סכסוכי שכנים ואי-ודאות</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="websites.html#twin-proptech" class="btn-cyan" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        לפרטי מערכת TWIN
+                    </a>
+                </div>
+
+                <!-- Case 4: AM BUILDING ConTech -->
+                <div class="case-study-card" data-category="apps">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(255,193,7,0.15); color: var(--gold-bright); border: 1px solid rgba(255,193,7,0.3);">
+                            קבלנות ביצוע ותשתיות
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">שליטה הנדסית עם AM BUILDING</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            מערכת ענן לניהול כתב כמויות, יומני פיקוח מצולמים ומעקב תקציב חודשי ללא חריגות הנדסיות.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">160 שעות</div>
+                                <div class="case-metric-lbl">חיסכון חודשי במנהלה</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">100%</div>
+                                <div class="case-metric-lbl">עמידה בתקציב ולו"ז</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="websites.html#am-building" class="btn-gold" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        לפרטי AM BUILDING
+                    </a>
+                </div>
+
+                <!-- Case 5: Meta Ads E-Commerce -->
+                <div class="case-study-card" data-category="ecommerce">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(0,255,136,0.15); color: var(--emerald-primary); border: 1px solid rgba(0,255,136,0.3);">
+                            חנות אופנה ואקססוריז
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">משפך וידאו וקריאייטיב דינמי</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            שילוב סרטוני Reels קצרים, בדיקות A/B על קהלים מותאמים ורימרקטינג אגרסיבי לנוטשי עגלה.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">5.4x</div>
+                                <div class="case-metric-lbl">ROAS יציב ב-Meta</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">+195%</div>
+                                <div class="case-metric-lbl">גידול בעסקאות חוזרות</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="meta-ads-guide.html" class="btn-emerald" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        למדריך Meta Ads
+                    </a>
+                </div>
+
+                <!-- Case 6: GOR CRM Integration -->
+                <div class="case-study-card" data-category="apps">
+                    <div>
+                        <span class="case-study-tag" style="background: rgba(0,229,255,0.15); color: var(--cyan-accent); border: 1px solid rgba(0,229,255,0.3);">
+                            חברת שירותים וייעוץ פיננסי
+                        </span>
+                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 10px;">אוטומציית משפך עם GOR CRM</h3>
+                        <p style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                            חיבור דפי הנחיתה למערכת GOR CRM: שליחת הצעות מחיר ב-WhatsApp וסנכרון לידים מיידי עם צוות המכירות.
+                        </p>
+                        <div class="case-metrics-grid">
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">&lt; 3 דקות</div>
+                                <div class="case-metric-lbl">זמן מענה לליד חדש</div>
+                            </div>
+                            <div class="case-metric-box">
+                                <div class="case-metric-val">+68%</div>
+                                <div class="case-metric-lbl">אחוז סגירת עסקאות</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://gorcrm.netlify.app/" target="_blank" class="btn-cyan" style="width: 100%; text-align: center; text-decoration: none; padding: 10px; font-size: 0.9rem;">
+                        כניסה ל-GOR CRM
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- 5. Reviews Section: מה הלקוחות אומרים עלינו -->
         <section id="reviews" style="margin-bottom: 80px;">
             <div style="text-align: center; margin-bottom: 40px;">
@@ -881,5 +1157,56 @@
     <!-- Motion Engine -->
     <script src="assets/motion.js" defer></script>
     <script src="assets/accessibility.js" defer></script>
+    <!-- GOR-Bot Floating AI Concierge Widget -->
+    <div id="gor-bot-trigger" class="gor-bot-trigger" title="צ'אט עם סוכן GOR">
+        <div class="gor-bot-pulse"></div>
+        <span class="gor-bot-badge">AI</span>
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div id="gor-bot-modal" class="gor-bot-modal">
+        <div class="gor-bot-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900;">G</div>
+                <div>
+                    <strong style="color: #fff; font-size: 0.95rem;">סוכן העל GOR</strong>
+                    <div style="color: var(--emerald-primary); font-size: 0.75rem; font-weight: 600;">● מחובר | מענה מיידי</div>
+                </div>
+            </div>
+            <button id="gor-bot-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">&times;</button>
+        </div>
+
+        <div id="gor-bot-body" class="gor-bot-body">
+            <div class="gor-msg bot">
+                היי, אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
+            </div>
+
+            <div class="gor-quick-options">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')">
+                    <span>⚡ מה סל השירותים של הסוכנות?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')">
+                    <span>💰 כמה עולה פגישת אפיון אסטרטגית?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')">
+                    <span>💼 מה היכולות של מערכת GOR CRM?</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')">
+                    <span>🚀 פיתוח אפליקציות ומערכות מותאמות</span>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="gor-bot-footer">
+            <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 10px; font-size: 0.88rem; text-decoration: none; border-radius: 10px;">
+                <i class="fab fa-whatsapp"></i> שיחה ישירה עם איגור בוואטסאפ
+            </a>
+        </div>
+    </div>
+<script src="script.js"></script>
 </body>
 </html>

@@ -731,3 +731,408 @@ footer {
     object-fit: contain;
     transition: filter 0.3s ease;
 }
+
+/* ==========================================================================
+   GOR MARKETING - PREMIUM INTERACTIVE SUITE
+   1. Growth & ROI Calculator
+   2. Proven Case Studies Grid & Filters
+   3. GOR-Bot Floating AI Concierge
+   ========================================================================== */
+
+/* 1. Growth & ROI Calculator */
+.roi-calculator-card {
+    background: linear-gradient(135deg, rgba(16, 20, 32, 0.85), rgba(10, 12, 20, 0.95));
+    border: 1px solid rgba(255, 193, 7, 0.35);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 30px rgba(255, 193, 7, 0.05);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 44px);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.roi-calculator-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(255, 193, 7, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    position: relative;
+    z-index: 1;
+    align-items: center;
+}
+
+.calc-slider-group {
+    margin-bottom: 24px;
+}
+
+.calc-slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+}
+
+.calc-slider-val {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+}
+
+.calc-range {
+    width: 100%;
+    height: 8px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calc-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.9);
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.calc-range::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+}
+
+.calc-range::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--gold-bright);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.9);
+    cursor: pointer;
+    border: none;
+}
+
+.calc-results-box {
+    background: rgba(10, 12, 22, 0.85);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.calc-metric-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.calc-metric-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.calc-metric-item:hover {
+    border-color: var(--emerald-primary);
+    background: rgba(0, 255, 136, 0.05);
+}
+
+.calc-metric-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.calc-metric-number {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 900;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+}
+
+.calc-metric-number.emerald {
+    color: var(--emerald-primary);
+    text-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
+}
+
+.calc-metric-number.gold {
+    color: var(--gold-bright);
+    text-shadow: 0 0 12px rgba(255, 193, 7, 0.4);
+}
+
+
+/* 2. Case Studies & Proven Results Filterable Grid */
+.case-filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.case-filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #cbd5e1;
+    padding: 9px 20px;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.case-filter-btn:hover, .case-filter-btn.active {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(0, 255, 136, 0.2));
+    border-color: var(--gold-bright);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+    transform: translateY(-2px);
+}
+
+.case-study-card {
+    background: rgba(14, 18, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.case-study-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold-bright);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 193, 7, 0.2);
+}
+
+.case-study-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    width: fit-content;
+}
+
+.case-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.case-metric-box {
+    text-align: center;
+}
+
+.case-metric-val {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--emerald-primary);
+}
+
+.case-metric-lbl {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+
+/* 3. GOR-Bot Floating AI Concierge Widget */
+.gor-bot-trigger {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    border: 2px solid #fff;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6), 0 0 35px rgba(255, 152, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9998;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #05070d;
+    font-size: 1.6rem;
+}
+
+.gor-bot-trigger:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 10px 35px rgba(255, 193, 7, 0.9), 0 0 45px rgba(0, 255, 136, 0.5);
+}
+
+.gor-bot-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 193, 7, 0.4);
+    animation: botPulse 2s infinite ease-out;
+    pointer-events: none;
+}
+
+@keyframes botPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+.gor-bot-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--emerald-primary);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    border: 1px solid #fff;
+}
+
+.gor-bot-modal {
+    position: fixed;
+    bottom: 96px;
+    left: 24px;
+    width: clamp(300px, 90vw, 380px);
+    max-height: 540px;
+    background: rgba(10, 14, 24, 0.95);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: botSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gor-bot-modal.active {
+    display: flex;
+}
+
+@keyframes botSlideUp {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.gor-bot-header {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(0, 255, 136, 0.1));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gor-bot-body {
+    padding: 18px;
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 340px;
+}
+
+.gor-msg {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    max-width: 85%;
+}
+
+.gor-msg.bot {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+    align-self: flex-start;
+}
+
+.gor-quick-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.gor-quick-btn {
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gor-quick-btn:hover {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: var(--gold-bright);
+    transform: translateX(-4px);
+}
+
+.gor-bot-footer {
+    padding: 12px 18px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 768px) {
+    .gor-bot-trigger {
+        bottom: 20px;
+        left: 20px;
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+    }
+    .gor-bot-modal {
+        bottom: 82px;
+        left: 16px;
+        width: calc(100vw - 32px);
+    }
+}
