@@ -647,3 +647,39 @@ footer {
         padding: 12px 14px;
     }
 }
+
+
+/* ==========================================================================
+   MOBILE DRAWER & DROPDOWN ACCORDION OVERRIDES
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .dropdown-tray,
+    .dropdown-tray.mega-tray {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .dropdown-item {
+        width: 100% !important;
+        padding: 12px 14px !important;
+    }
+
+    .dropdown-item-text strong {
+        font-size: 0.95rem !important;
+    }
+
+    .dropdown-item-text span {
+        font-size: 0.8rem !important;
+    }
+
+    /* Prevent any card overflow */
+    .bento-card, .container, .hero {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+}
