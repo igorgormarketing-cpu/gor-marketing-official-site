@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (index > slides.length - visibleItems) {
                 index = 0;
             }
-            track.style.transform = `translateX(px)`;
+            track.style.transform = `translateX(${index * slideWidth}px)`;
         }
         setInterval(moveCarousel, 4500);
     }
@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dealDisplay) dealDisplay.textContent = '₪' + dealVal.toLocaleString('he-IL');
         if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' לידים';
 
-        // Conversion benchmark: average 8%-15% lead-to-deal closing rate with GOR qualified funnels
+        // Conversion benchmark: average 12% lead-to-deal closing rate with GOR qualified funnels
         const conversionRate = 0.12; 
         const estimatedDeals = Math.max(1, Math.round(leads * conversionRate));
         const estimatedRevenue = estimatedDeals * dealVal;
         const roas = budget > 0 ? Math.round((estimatedRevenue / budget) * 100) : 0;
         
-        // Time saved calculation with AI agents and automations (approx 3.5 hrs per deal/lead workflow)
+        // Time saved calculation with AI agents and automations (approx 1.5 hrs per lead + 2 hrs per deal)
         const timeSavedHours = Math.round(leads * 1.5 + estimatedDeals * 2);
 
         if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
 
         if (calcCtaBtn) {
-            const msg = היי איגור, ביצעתי תחזית במחשבון ה-ROI באתר GOR MARKETING:\n• תקציב חודשי: ₪\n• שווי ממוצע לעסקה: ₪\n• צפי לידים: \n• צפי הכנסות: ₪ (ROAS %)\nאשמח לבנות תוכנית פעולה מותאמת אישית!;
-            calcCtaBtn.href = https://wa.me/972525155598?text=;
+            const msg = `היי איגור, ביצעתי תחזית במחשבון ה-ROI באתר GOR MARKETING:\n• תקציב חודשי: ₪${budget.toLocaleString('he-IL')}\n• שווי ממוצע לעסקה: ₪${dealVal.toLocaleString('he-IL')}\n• צפי לידים: ${leads}\n• צפי הכנסות: ₪${estimatedRevenue.toLocaleString('he-IL')} (ROAS ${roas}%)\nאשמח לבנות תוכנית פעולה מותאמת אישית!`;
+            calcCtaBtn.href = `https://wa.me/972525155598?text=${encodeURIComponent(msg)}`;
         }
     }
 
@@ -151,14 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const msgDiv = document.createElement('div');
         msgDiv.className = 'gor-msg bot';
-        msgDiv.innerHTML = 
-            
+        msgDiv.innerHTML = `
+            ${response}
             <div style="margin-top: 10px;">
-                <a href="https://wa.me/972525155598?text=" target="_blank" class="btn-gold" style="display: inline-block; padding: 6px 14px; font-size: 0.8rem; text-decoration: none; border-radius: 8px;">
+                <a href="https://wa.me/972525155598?text=${encodeURIComponent(whatsappMsg)}" target="_blank" class="btn-gold" style="display: inline-block; padding: 6px 14px; font-size: 0.8rem; text-decoration: none; border-radius: 8px;">
                     <i class="fab fa-whatsapp"></i> המשך שיחה בוואטסאפ עם איגור
                 </a>
             </div>
-        ;
+        `;
         botBody.appendChild(msgDiv);
         botBody.scrollTop = botBody.scrollHeight;
     };
