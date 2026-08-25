@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מיתוג ומיצוב אסטרטגי | GOR MARKETING</title>
+    <title>עיצוב גרפי, מיתוג וקריאייטיב ויזואלי | GOR MARKETING</title>
+    <meta name="description" content="שירותי מיתוג, עיצוב גרפי, שפת מותג, לוגואים וקריאייטיב מנצח שמבדל את העסק שלך ומייצר סמכות ואמון מיידי.">
+    <link rel="canonical" href="https://www.gormarketing.com/graphics.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .service-detail-hero { padding: 180px 0 100px; background: var(--navy-gradient); color: #fff; }
-        .content-section { padding: 120px 0; }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: flex-start; }
-        .content-text h2 { font-size: 3rem; margin-bottom: 2rem; color: var(--navy); }
-        .content-text p { font-size: 1.2rem; color: var(--slate); margin-bottom: 2rem; }
-        .strategy-list { list-style: none; margin-top: 3rem; }
-        .strategy-list li { margin-bottom: 2rem; padding: 2rem; background: var(--ice-blue); border-radius: 1.5rem; border-right: 6px solid var(--sky); }
-        .strategy-list h4 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--navy); }
-    </style>
     <link rel="icon" type="image/png" href="assets/favicon.png">
 </head>
 <body>
-    
-    <!-- Standard Universal Navbar (Fixed across ALL pages) -->
+    <div class="mesh-bg">
+        <div class="mesh-blob blob-1"></div>
+        <div class="mesh-blob blob-2"></div>
+        <div class="mesh-blob blob-3"></div>
+    </div>
+
+    <!-- Universal Navbar -->
     <header class="navbar">
         <div class="container">
             <div class="logo-container">
@@ -32,252 +29,75 @@
                     <div class="logo-text">GOR <span>MARKETING</span></div>
                 </a>
             </div>
-
-            <button class="mobile-nav-toggle" aria-label="פתח תפריט ניווט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
+            <button class="mobile-nav-toggle" aria-label="פתח תפריט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
                 <i class="fas fa-bars"></i>
             </button>
-
             <nav class="nav-links">
-                <a href="index.html" class="">בית</a>
-
-                <!-- 1. שירותי 360° -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger ">
-                        שירותי 360° <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray">
-                        <a href="index.html#services" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-laptop-code"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>בניית אתרים & דפי נחיתה</strong>
-                                <span>אתרי תדמית, E-Commerce ומשפכי המרה</span>
-                            </div>
-                        </a>
-                        <a href="seo-guide.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-chart-line"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>קידום אורגני בגוגל SEO</strong>
-                                <span>הובלה לתוצאות הראשונות ללא תלות בתקציב יומי</span>
-                            </div>
-                        </a>
-                        <a href="sem-guide.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-google"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום ממומן Google Ads</strong>
-                                <span>קמפיינים ממוקדי המרות ו-ROI מקסימלי</span>
-                            </div>
-                        </a>
-                        <a href="meta-ads-guide.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fab fa-facebook-f"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום במטא & טיקטוק</strong>
-                                <span>קריאייטיב ומשפכי לידים חמים</span>
-                            </div>
-                        </a>
-                        <a href="youtube-ads-guide.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fab fa-youtube"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק וידאו ב-YouTube</strong>
-                                <span>סרטוני פרסומת ומיתוג מעסיק</span>
-                            </div>
-                        </a>
-                        <a href="ai.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-robot"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>סוכני AI ואוטומציה</strong>
-                                <span>מענה שירות, סינון לידים ותיאום פגישות</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. אפליקציות SaaS -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger ">
-                        אפליקציות SaaS <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray">
-                        <a href="websites.html#gor-crm" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-crown"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>GOR CRM</strong>
-                                <span>ניהול לידים, לקוחות ואוטומציית WhatsApp</span>
-                            </div>
-                        </a>
-                        <a href="websites.html#twin-proptech" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-building"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>TWIN PropTech</strong>
-                                <span>תאום דיגיטלי לבניינים וגבייה אוטומטית לוועדים</span>
-                            </div>
-                        </a>
-                        <a href="websites.html#am-building" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-hard-hat"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>AM BUILDING ConTech</strong>
-                                <span>ניהול פרויקטי בנייה, כתבי כמויות ויומני שטח</span>
-                            </div>
-                        </a>
-                        <a href="websites.html" class="dropdown-item" style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; padding-top: 8px;">
-                            <div class="dropdown-icon"><i class="fas fa-th-large"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>לכל האפליקציות והמערכות</strong>
-                                <span>צפייה בלוח השליטה המלא</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. סוכני AI -->
-                <a href="ai.html" class="">סוכני AI</a>
-
-                <!-- 4. מרכז ידע & מאמרים (12 מאמרים) -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger ">
-                        מרכז ידע & מאמרים <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray mega-tray">
-                        <a href="articles/seo-kiddum-organi-google/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-search"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>קידום אורגני בגוגל SEO</strong>
-                                <span>המדריך המלא לכיבוש המקום הראשון</span>
-                            </div>
-                        </a>
-                        <a href="articles/sem-google-ads-prsoom-mamoon/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fab fa-google"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום ממומן Google Ads</strong>
-                                <span>אופטימיזציית PPC ו-ROI מקסימלי</span>
-                            </div>
-                        </a>
-                        <a href="articles/meta-ads-facebook-instagram/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-facebook"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום במטא פייסבוק & אינסטגרם</strong>
-                                <span>משפכי המרות וסגירת עסקאות</span>
-                            </div>
-                        </a>
-                        <a href="articles/shivuk-binah-melakutit-ai/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-brain"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק ובינה מלאכותית AI</strong>
-                                <span>הטמעת סוכנים חכמים בעסק</span>
-                            </div>
-                        </a>
-                        <a href="articles/prompt-engineering-handasat/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-code"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>הנדסת פרומפטים מעשית</strong>
-                                <span>מינוף מודלי שפה להאצת תהליכים</span>
-                            </div>
-                        </a>
-                        <a href="articles/lama-haluach-lo-tamid-tzodek/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-balance-scale"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>למה הלקוח לא תמיד צודק?</strong>
-                                <span>אוטוריטה מקצועית מובילה</span>
-                            </div>
-                        </a>
-                        <a href="articles/psychologia-kabalat-hachlata/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-head-side-virus"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>הפסיכולוגיה של קבלת החלטות</strong>
-                                <span>טריגרים רגשיים וקוגניטיביים לקנייה</span>
-                            </div>
-                        </a>
-                        <a href="articles/omanut-hamechirot-2025/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-handshake"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>אמנות המכירות 2025</strong>
-                                <span>טכניקות סגירה וטיפול בהתנגדויות</span>
-                            </div>
-                        </a>
-                        <a href="articles/mechirot-frontaliot/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-users"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>מכירות פרונטליות ומשא ומתן</strong>
-                                <span>הובלת פגישות וסגירת עסקאות</span>
-                            </div>
-                        </a>
-                        <a href="articles/nochchut-digitalit/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-globe"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>נוכחות דיגיטלית דומיננטית</strong>
-                                <span>הפיכת המותג לבחירה הטבעית</span>
-                            </div>
-                        </a>
-                        <a href="articles/shivuk-digitalit-maqtzoi/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-bullseye"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק דיגיטלי מקצועי לתוצאות</strong>
-                                <span>בניית תוכנית עבודה ו-KPIs מדידים</span>
-                            </div>
-                        </a>
-                        <a href="articles/youtube-ads-video-marketing/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-youtube"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק וידאו ב-YouTube</strong>
-                                <span>קמפיינים וסרטוני וידאו ממירים</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
+                <a href="index.html">בית</a>
+                <a href="index.html#services">שירותי 360°</a>
+                <a href="websites.html">אפליקציות SaaS</a>
+                <a href="graphics.html" class="active">עיצוב & מיתוג</a>
+                <a href="ai.html">סוכני AI</a>
                 <a href="index.html#about">אודות</a>
                 <a href="index.html#reviews">המלצות</a>
                 <a href="index.html#contact" class="btn-nav">קביעת פגישה</a>
             </nav>
         </div>
     </header>
-    
 
-    <section class="service-detail-hero">
-        <div class="container">
-            <div class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">Brand Strategy</div>
-            <h1 style="font-size: 4.5rem; line-height: 1.1;">מיתוג ו<span style="color: var(--sky);">מיצוב אסטרטגי</span></h1>
-            <p style="font-size: 1.5rem; max-width: 700px; opacity: 0.8; margin-top: 1.5rem;">אנחנו מגדירים מחדש את הדרך בה השוק תופס אתכם כדי לייצר דומיננטיות קטגוריאלית.</p>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <div class="content-text">
-                    <h2>עיצוב הוא שפה, מיתוג הוא אסטרטגיה</h2>
-                    <p>ב-GOR MARKETING אנחנו לא רק "מעצבים יפה". אנחנו בונים שפה ויזואלית שנועדה לתמוך במטרות העסקיות שלכם, ליצור בידול משמעותי מול המתחרים ולשדר סמכות ומקצועיות.</p>
-                    <p>התהליך שלנו מתחיל במחקר עומק של השוק וקהל היעד, ומסתיים בבניית ספר מותג מקיף שמנחה את כל הפעילות השיווקית שלכם קדימה.</p>
-                    
-                    <ul class="strategy-list">
-                        <li>
-                            <h4>בניית זהות מותגית (Identity Design)</h4>
-                            <p>יצירת לוגו, מערכת צבעים וטיפוגרפיה שמעבירים את מהות המותג בצורה מיידית ועוצמתית.</p>
-                        </li>
-                        <li>
-                            <h4>Category Design ובידול</h4>
-                            <p>מיצוב העסק שלכם כמוביל קטגוריה או יצירת קטגוריה חדשה שבה אתם השחקן היחיד.</p>
-                        </li>
-                        <li>
-                            <h4>עיצוב חומרים שיווקיים ותאגידיים</h4>
-                            <p>החל ממצגות למשקיעים ועד אריזות מוצר וחומרים לתערוכות - הכל בשפה אחידה ומנצחת.</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2671&auto=format&fit=crop" alt="Strategic Branding" style="width: 100%; border-radius: 2rem; box-shadow: var(--shadow-bold);">
-                </div>
+    <main class="container" style="padding-top: 50px;">
+        <section class="hero" style="text-align: center; margin-bottom: 60px;">
+            <div class="badge-gold-emerald">
+                <i class="fas fa-palette"></i> קריאייטיב, שפת מותג וויז'ואל פרימיום
             </div>
-        </div>
-    </section>
+            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px;">
+                עיצוב גרפי ומיתוג <br>
+                <span class="gradient-title">שמבדל אותך מכל המתחרים</span>
+            </h1>
+            <p style="color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 750px; margin: 0 auto 36px;">
+                בעולם דיגיטלי רווי, רושם ראשוני נמדד בשבריר שנייה. אנחנו מעצבים שפה חזותית יוקרתית, לוגואים בלתי נשכחים וחומרי שיווק שמשדרים סמכות, ביטחון ועוצמה.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="index.html#contact" class="btn-gold"><i class="fas fa-magic"></i> אפיון שפת מותג וקריאייטיב</a>
+                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A2%D7%99%D7%A6%D7%95%D7%91%20%D7%95%D7%9E%D7%99%D7%AA%D7%95%D7%92" target="_blank" class="btn-emerald"><i class="fab fa-whatsapp"></i> ייעוץ קריאייטיב מהיר</a>
+            </div>
+        </section>
 
-    
-    <!-- Master Unified Footer -->
+        <!-- Graphics Bento Grid -->
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px;">
+            <div class="bento-card card-gold">
+                <i class="fas fa-vector-square" style="font-size: 32px; color: var(--gold-bright); margin-bottom: 16px;"></i>
+                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">מיתוג ולוגואים 3D & Vector</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                    עיצוב לוגואים ייחודיים בווקטור ובתלת-ממד, בניית ספר מותג מפורט (Brand Book), פלטות צבעים וטיפוגרפיה שמותאמות לקהל היעד.
+                </p>
+            </div>
+
+            <div class="bento-card card-emerald">
+                <i class="fas fa-layer-group" style="font-size: 32px; color: var(--emerald-primary); margin-bottom: 16px;"></i>
+                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">עיצוב ממשקים ו-UI/UX</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                    תכנון חוויית משתמש ועיצוב ממשקים מתקדמים לאתרים, חנויות ואפליקציות מורכבות שמכוונות למקסימום המרות ופשטות שימוש.
+                </p>
+            </div>
+
+            <div class="bento-card card-cyan">
+                <i class="fas fa-ad" style="font-size: 32px; color: var(--cyan-accent); margin-bottom: 16px;"></i>
+                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">קריאייטיב ובאנרים לקמפיינים</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
+                    עיצוב מודעות פרסום לרשתות (Meta, Instagram, TikTok, Google Display) שעוצרות גלילה ומייצרות אחוזי הקלקה (CTR) גבוהים.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
         <div class="container footer-inner">
             <div>
                 <div class="logo-text" style="font-size: 1.4rem; margin-bottom: 12px;">GOR <span>MARKETING</span></div>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
-                    סוכנות שיווק דיגיטלי, סוכני AI ופיתוח מערכות SaaS בהובלת איגור גורלקין מאז 2008. שיווק 360° שמייצר תוצאות מוכחות.
+                    סוכנות שיווק דיגיטלי, סוכני AI ופיתוח מערכות SaaS בהובלת איגור גורלקין מאז 2008.
                 </p>
             </div>
             <div>
@@ -293,27 +113,22 @@
                 <ul style="list-style: none; line-height: 2.2; font-size: 0.95rem; color: var(--text-muted); padding: 0;">
                     <li><a href="articles/seo-kiddum-organi-google/index.html">קידום אורגני SEO</a></li>
                     <li><a href="articles/sem-google-ads-prsoom-mamoon/index.html">פרסום Google Ads</a></li>
-                    <li><a href="articles/meta-ads-facebook-instagram/index.html">פרסום במטא & טיקטוק</a></li>
-                    <li><a href="articles/shivuk-binah-melakutit-ai/index.html">שיווק ובינה מלאכותית</a></li>
+                    <li><a href="graphics.html">עיצוב & מיתוג</a></li>
                 </ul>
             </div>
             <div>
-                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">יצירת קשר ישירה</h4>
+                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">יצירת קשר</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
                     📞 טלפון: 052-515-5598<br>
                     ✉️ דוא"ל: igor@gormarketing.com<br>
-                    💬 מענה מהיר בוואטסאפ 24/7
+                    💬 וואטסאפ זמין 24/7
                 </p>
             </div>
         </div>
         <div class="container footer-bottom">
-            © 2026 GOR MARKETING — כל הזכויות שמורות. נבנה בטכנולוגיית Cyber Gold & GOR Emerald.
+            © 2026 GOR MARKETING — כל הזכויות שמורות.
         </div>
     </footer>
-    
-    <a href="https://wa.me/972525155598" class="whatsapp-float" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
     <script src="assets/motion.js" defer></script>
 </body>
 </html>
