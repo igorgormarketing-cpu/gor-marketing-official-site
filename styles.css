@@ -992,7 +992,7 @@ footer {
 /* 3. GOR-Bot Floating AI Concierge Widget */
 .gor-bot-trigger {
     position: fixed;
-    bottom: 24px;
+    bottom: 98px;
     left: 24px;
     width: 60px;
     height: 60px;
@@ -1045,7 +1045,7 @@ footer {
 
 .gor-bot-modal {
     position: fixed;
-    bottom: 96px;
+    bottom: 168px;
     left: 24px;
     width: clamp(300px, 90vw, 380px);
     max-height: 540px;
@@ -1141,16 +1141,24 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 18px !important;
+        left: 18px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 26px !important;
+    }
     .gor-bot-trigger {
-        bottom: 20px;
-        left: 20px;
-        width: 52px;
-        height: 52px;
-        font-size: 1.35rem;
+        bottom: 78px !important;
+        left: 18px !important;
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.35rem !important;
     }
     .gor-bot-modal {
-        bottom: 82px;
-        left: 16px;
-        width: calc(100vw - 32px);
+        bottom: 138px !important;
+        left: 14px !important;
+        width: calc(100vw - 28px) !important;
+        max-height: min(420px, calc(100vh - 160px)) !important;
     }
 }
