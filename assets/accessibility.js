@@ -1,5 +1,6 @@
 /**
  * GOR MARKETING - Accessibility Plugin (תקן ת"י 5568 ברמה AA)
+ * Bottom-Right Positioned Widget with Full Accessibility Toolset
  */
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Create Skip to Content
@@ -17,35 +18,47 @@ document.addEventListener('DOMContentLoaded', () => {
         mainEl.id = 'main-content';
     }
 
-    // 2. Create Floating Accessibility Trigger & Modal
+    // 2. Remove any existing widget to prevent duplicates
+    const existing = document.getElementById('gor-accessibility-widget');
+    if (existing) existing.remove();
+
+    // 3. Create Floating Accessibility Trigger & Modal
     const modalHtml = `
-    <button class="accessibility-trigger" aria-label="פתח תפריט נגישות" title="תפריט נגישות (תקן AA)">
-        <i class="fas fa-wheelchair" aria-hidden="true"></i>
+    <button class="accessibility-trigger" aria-label="פתח תפריט נגישות" title="תפריט נגישות (תקן AA - Alt+A)">
+        <i class="fas fa-universal-access" aria-hidden="true"></i>
     </button>
 
     <div class="accessibility-modal" role="dialog" aria-modal="true" aria-labelledby="a11y-title" tabindex="-1">
         <div class="a11y-header">
-            <h3 id="a11y-title"><i class="fas fa-universal-access"></i> תפריט נגישות (ת"י 5568)</h3>
+            <h3 id="a11y-title"><i class="fas fa-universal-access" style="color: var(--cyan-accent);"></i> תפריט נגישות (ת"י 5568)</h3>
             <button class="a11y-close" aria-label="סגור תפריט נגישות">&times;</button>
         </div>
 
         <div class="a11y-grid">
-            <button class="a11y-btn" data-action="font-plus"><i class="fas fa-text-height"></i> הגדל טקסט (+)</button>
-            <button class="a11y-btn" data-action="font-minus"><i class="fas fa-text-width"></i> הקטן טקסט (-)</button>
-            <button class="a11y-btn" data-action="high-contrast"><i class="fas fa-adjust"></i> ניגודיות כהה</button>
-            <button class="a11y-btn" data-action="bright-contrast"><i class="fas fa-sun"></i> ניגודיות בהירה</button>
-            <button class="a11y-btn" data-action="highlight-links"><i class="fas fa-link"></i> הדגשת קישורים</button>
-            <button class="a11y-btn" data-action="readable-font"><i class="fas fa-font"></i> גופן קריא</button>
-            <button class="a11y-btn" data-action="stop-animations"><i class="fas fa-ban"></i> עצירת אנימציות</button>
-            <button class="a11y-btn" data-action="big-cursor"><i class="fas fa-mouse-pointer"></i> סמן מוגדל</button>
+            <button type="button" class="a11y-btn" data-action="font-plus"><i class="fas fa-text-height"></i> הגדל טקסט</button>
+            <button type="button" class="a11y-btn" data-action="font-minus"><i class="fas fa-text-width"></i> הקטן טקסט</button>
+            <button type="button" class="a11y-btn" data-action="high-contrast"><i class="fas fa-adjust"></i> ניגודיות כהה</button>
+            <button type="button" class="a11y-btn" data-action="bright-contrast"><i class="fas fa-sun"></i> ניגודיות בהירה</button>
+            <button type="button" class="a11y-btn" data-action="highlight-links"><i class="fas fa-link"></i> הדגש קישורים</button>
+            <button type="button" class="a11y-btn" data-action="readable-font"><i class="fas fa-font"></i> גופן קריא</button>
+            <button type="button" class="a11y-btn" data-action="stop-animations"><i class="fas fa-ban"></i> עצור אנימציה</button>
+            <button type="button" class="a11y-btn" data-action="big-cursor"><i class="fas fa-mouse-pointer"></i> סמן מוגדל</button>
         </div>
 
-        <button class="a11y-btn" data-action="reset" style="width: 100%; margin-bottom: 12px; background: rgba(255,255,255,0.08); border-color: var(--border-gold);"><i class="fas fa-undo"></i> איפוס כל ההגדרות</button>
+        <button type="button" class="a11y-btn a11y-btn-reset" data-action="reset"><i class="fas fa-undo"></i> איפוס כל ההגדרות</button>
 
         <div class="a11y-footer-links">
-            <a href="accessibility.html"><i class="fas fa-file-contract"></i> הצהרת נגישות מלאה</a>
-            <a href="sitemap.html"><i class="fas fa-sitemap"></i> מפת אתר נגישה</a>
-            <span style="color: #94a3b8; font-size: 0.78rem;">רכז נגישות: איגור גורלקין | 052-515-5598</span>
+            <div style="display: flex; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
+                <a href="accessibility.html" style="color: var(--cyan-accent); font-size: 0.82rem; text-decoration: none; font-weight: 700;">
+                    <i class="fas fa-file-contract"></i> הצהרת נגישות
+                </a>
+                <a href="sitemap.html" style="color: var(--gold-bright); font-size: 0.82rem; text-decoration: none; font-weight: 700;">
+                    <i class="fas fa-sitemap"></i> מפת אתר
+                </a>
+            </div>
+            <div style="color: #94a3b8; font-size: 0.75rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 6px;">
+                רכז נגישות: <strong>איגור גורלקין</strong> | 052-515-5598
+            </div>
         </div>
     </div>
     `;
@@ -59,7 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = wrapper.querySelector('.accessibility-modal');
     const closeBtn = wrapper.querySelector('.a11y-close');
 
-    function toggleModal() {
+    function toggleModal(e) {
+        if (e) e.stopPropagation();
         modal.classList.toggle('active');
         if (modal.classList.contains('active')) {
             modal.focus();
@@ -69,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
     trigger.addEventListener('click', toggleModal);
     closeBtn.addEventListener('click', toggleModal);
 
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (modal.classList.contains('active') && !modal.contains(e.target) && !trigger.contains(e.target)) {
+            modal.classList.remove('active');
+        }
+    });
+
     // Keyboard shortcut (Alt + A)
     window.addEventListener('keydown', (e) => {
         if (e.altKey && (e.key === 'a' || e.key === 'A' || e.key === 'ש')) {
@@ -76,14 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleModal();
         }
         if (e.key === 'Escape' && modal.classList.contains('active')) {
-            toggleModal();
+            modal.classList.remove('active');
         }
     });
 
     // Handle Actions
     const buttons = wrapper.querySelectorAll('.a11y-btn');
     buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
             const act = btn.getAttribute('data-action');
             if (act === 'font-plus') {
                 if (document.body.classList.contains('a11y-font-large')) {
