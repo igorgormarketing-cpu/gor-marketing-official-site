@@ -50,6 +50,7 @@ html {
 }
 
 body {
+    background: radial-gradient(circle at 50% -20%, rgba(22, 32, 65, 0.85) 0%, #06070a 65%) !important;
     background-color: #06070a !important;
     color: #ffffff !important;
     font-family: 'Heebo', sans-serif !important;
@@ -88,34 +89,34 @@ body {
 .mesh-blob {
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.2;
+    filter: blur(100px);
+    opacity: 0.4;
 }
 
 .blob-1 {
-    width: clamp(300px, 45vw, 600px);
-    height: clamp(300px, 45vw, 600px);
-    background: radial-gradient(circle, #ffc107 0%, transparent 70%);
-    top: -100px;
+    width: clamp(350px, 50vw, 650px);
+    height: clamp(350px, 50vw, 650px);
+    background: radial-gradient(circle, rgba(255, 193, 7, 0.5) 0%, transparent 70%);
+    top: -80px;
     right: -50px;
     animation: meshRotate 22s linear infinite;
 }
 
 .blob-2 {
-    width: clamp(350px, 50vw, 700px);
-    height: clamp(350px, 50vw, 700px);
-    background: radial-gradient(circle, #00ff88 0%, transparent 70%);
-    bottom: -100px;
+    width: clamp(400px, 55vw, 750px);
+    height: clamp(400px, 55vw, 750px);
+    background: radial-gradient(circle, rgba(0, 255, 136, 0.5) 0%, transparent 70%);
+    bottom: -80px;
     left: -100px;
     animation: meshRotate 28s linear infinite reverse;
 }
 
 .blob-3 {
-    width: clamp(250px, 35vw, 500px);
-    height: clamp(250px, 35vw, 500px);
-    background: radial-gradient(circle, #00f0ff 0%, transparent 70%);
-    top: 40%;
-    left: 25%;
+    width: clamp(300px, 40vw, 550px);
+    height: clamp(300px, 40vw, 550px);
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.5) 0%, transparent 70%);
+    top: 35%;
+    left: 20%;
     animation: meshRotate 35s linear infinite;
 }
 
