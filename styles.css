@@ -1246,3 +1246,10 @@ footer {
         max-height: min(420px, calc(100vh - 160px)) !important;
     }
 }
+
+.cursor-spotlight {
+    position: fixed;
+    pointer-events: none !important;
+    user-select: none !important;
+    z-index: 1;
+}
