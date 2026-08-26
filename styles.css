@@ -1,3 +1,15 @@
+
+/* Global Hero Centering */
+.hero {
+    text-align: center !important;
+    position: relative;
+}
+.hero h1, .hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
 ﻿/* ==========================================================================
    GOR MARKETING - ULTIMATE FLUID & RESPONSIVE DESIGN SYSTEM (Desktop & Mobile)
    ========================================================================== */
