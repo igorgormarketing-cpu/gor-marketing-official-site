@@ -1,36 +1,97 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>עיצוב גרפי, מיתוג וקריאייטיב ויזואלי | GOR MARKETING</title>
-    <meta name="description" content="שירותי מיתוג, עיצוב גרפי, שפת מותג, לוגואים וקריאייטיב מנצח שמבדל את העסק שלך ומייצר סמכות ואמון מיידי.">
-    <link rel="canonical" href="https://www.gormarketing.com/graphics.html">
+    <title>HAKABLANIM | פלטפורמת ה-ConTech והמכרזים לקבלנים | GOR MARKETING</title>
+    <meta name="description" content="פלטפורמת HAKABLANIM מבית GOR MARKETING: האקוסיסטם הדיגיטלי המוביל בישראל לחיבור יזמים, קבלנים ראשיים, קבלני משנה וספקים, בשילוב מכרזים חכמים וסוכני AI.">
+    <link rel="canonical" href="https://gormarketing.com/hakablanim.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=4.0">
+    <link rel="stylesheet" href="styles.css?v=4.5">
     <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link rel="stylesheet" href="assets/accessibility.css">
-    <!-- OpenGraph Meta Tags -->
+    
+    <meta property="og:title" content="HAKABLANIM | פלטפורמת ה-ConTech והמכרזים לקבלנים">
+    <meta property="og:description" content="אקוסיסטם דיגיטלי מבוסס AI לניהול מכרזי בנייה, סנכרון קבלני משנה וחישוב כתבי כמויות אוטומטי.">
+    <meta property="og:image" content="https://gormarketing.com/assets/gor-logo-3d.png">
+    <meta property="og:url" content="https://gormarketing.com/hakablanim.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gormarketing.com/graphics.html">
-    <meta property="og:title" content="עיצוב גרפי, מיתוג וקריאייטיב ויזואלי | GOR MARKETING">
-    <meta property="og:description" content="שירותי מיתוג, עיצוב גרפי, שפת מותג, לוגואים וקריאייטיב מנצח שמבדל את העסק שלך ומייצר סמכות ואמון מיידי.">
-    <meta property="og:image" content="https://igorgormarketing-cpu.github.io/gor-marketing-official-site/assets/hero_full.png">
-    <meta property="og:locale" content="he_IL">
-    <meta name="twitter:card" content="summary_large_image">
+    
+    <style>
+        .contech-hero {
+            padding: clamp(60px, 10vh, 100px) 0 clamp(40px, 6vh, 60px);
+            text-align: center;
+            position: relative;
+        }
+        .contech-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            background: rgba(255, 193, 7, 0.12);
+            border: 1px solid var(--border-gold);
+            border-radius: 9999px;
+            color: var(--gold-bright);
+            font-size: 0.88rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+        .contech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 40px 0;
+        }
+        .contech-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .contech-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--gold-bright);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 25px rgba(255,193,7,0.2);
+        }
+        .contech-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255,193,7,0.2), rgba(0,255,136,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--gold-bright);
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .feature-check-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0 0;
+        }
+        .feature-check-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .feature-check-list li i {
+            color: var(--emerald-primary);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    <div class="mesh-bg">
-        <div class="mesh-blob blob-1"></div>
-        <div class="mesh-blob blob-2"></div>
-        <div class="mesh-blob blob-3"></div>
-    </div>
 
-    <!-- Universal Navbar -->
-        <!-- Standard Universal Navbar (100% Unified across ALL pages) -->
         <!-- Standard Universal Navbar (100% Unified across ALL pages) -->
     <header class="navbar">
         <div class="container">
@@ -265,55 +326,126 @@
         </div>
     </header>
 
-    <main class="container" style="padding-top: 50px;">
-        <section class="hero" style="text-align: center; margin-bottom: 60px;">
-            <div class="badge-gold-emerald">
-                <i class="fas fa-palette"></i> קריאייטיב, שפת מותג וויז'ואל פרימיום
+    <main class="container">
+        <section class="contech-hero">
+            <div class="contech-pill">
+                <i class="fas fa-hard-hat"></i> ConTech SaaS Platform
             </div>
-            <h1 style="font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 20px;">
-                עיצוב גרפי ומיתוג <br>
-                <span class="gradient-title">שמבדל אותך מכל המתחרים</span>
+            <h1 style="font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px;">
+                HAKABLANIM <br>
+                <span class="gradient-title">זירת המכרזים והקבלנים החכמה בישראל</span>
             </h1>
-            <p style="color: var(--text-muted); font-size: clamp(1rem, 2vw, 1.2rem); max-width: 750px; margin: 0 auto 36px;">
-                בעולם דיגיטלי רווי, רושם ראשוני נמדד בשבריר שנייה. אנחנו מעצבים שפה חזותית יוקרתית, לוגואים בלתי נשכחים וחומרי שיווק שמשדרים סמכות, ביטחון ועוצמה.
+            <p style="color: var(--text-muted); font-size: clamp(1.05rem, 1.8vw, 1.25rem); max-width: 820px; margin: 0 auto 36px; line-height: 1.7;">
+                פלטפורמת B2B מבוססת בינה מלאכותית המחברת בין יזמים, קבלנים ראשיים, קבלני משנה וספקי חומרי בניין. ניהול מכרזים שקוף, בדיקת רישיונות אוטומטית ברשם הקבלנים, וסגירת עסקאות בביטחון מלא.
             </p>
             <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <a href="index.html#contact" class="btn-gold"><i class="fas fa-magic"></i> אפיון שפת מותג וקריאייטיב</a>
-                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A2%D7%99%D7%A6%D7%95%D7%91%20%D7%95%D7%9E%D7%99%D7%AA%D7%95%D7%92" target="_blank" class="btn-emerald"><i class="fab fa-whatsapp"></i> ייעוץ קריאייטיב מהיר</a>
+                <a href="index.html#contact" class="btn-gold">
+                    <i class="fas fa-calendar-check"></i> תיאום דמו וחיבור למערכת
+                </a>
+                <a href="articles/hakablanim-contech-digital/index.html" class="btn-emerald">
+                    <i class="fas fa-book-open"></i> קרא את מאמר העומק
+                </a>
             </div>
         </section>
 
-        <!-- Graphics Bento Grid -->
-        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 80px;">
-            <div class="bento-card card-gold">
-                <i class="fas fa-vector-square" style="font-size: 32px; color: var(--gold-bright); margin-bottom: 16px;"></i>
-                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">מיתוג ולוגואים 3D & Vector</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
-                    עיצוב לוגואים ייחודיים בווקטור ובתלת-ממד, בניית ספר מותג מפורט (Brand Book), פלטות צבעים וטיפוגרפיה שמותאמות לקהל היעד.
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 60px;">
+            <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px; text-align: center;">
+                <div style="font-size: 2.4rem; font-weight: 900; color: var(--gold-bright); line-height: 1;">100%</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">אימות סיווג בפנקס הקבלנים</div>
+            </div>
+            <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px; text-align: center;">
+                <div style="font-size: 2.4rem; font-weight: 900; color: var(--emerald-primary); line-height: 1;">-65%</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">חיסכון בזמן תמחור והשוואת מכרזים</div>
+            </div>
+            <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px; text-align: center;">
+                <div style="font-size: 2.4rem; font-weight: 900; color: var(--cyan-accent); line-height: 1;">0</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">חריגות תשלום הודות לחוזי Milestone</div>
+            </div>
+            <div class="stat-card" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 16px; padding: 24px; text-align: center;">
+                <div style="font-size: 2.4rem; font-weight: 900; color: var(--gold-bright); line-height: 1;">24/7</div>
+                <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">סוכן AI לניתוח כתבי כמויות</div>
+            </div>
+        </div>
+
+        <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; text-align: center; margin-bottom: 14px;">
+            ארבעת עמודי התווך של <span class="gradient-title">HAKABLANIM</span>
+        </h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 680px; margin: 0 auto 30px;">
+            כל הכלים שהקבלן המודרני, היזם ומנהל הפרויקט צריכים תחת קורת גג טכנולוגית אחת.
+        </p>
+
+        <div class="contech-grid">
+            <div class="contech-card">
+                <div class="contech-icon"><i class="fas fa-file-signature"></i></div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 10px;">זירת מכרזים דיגיטלית חכמה</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+                    פרסום מכרזי בנייה ושיפוצים, קבלת הצעות מחיר מובנות בקליק, והשוואה אוטומטית שורה-מול-שורה של כתב הכמויות ללא טבלאות אקסל מסורבלות.
                 </p>
+                <ul class="feature-check-list">
+                    <li><i class="fas fa-check-circle"></i> השוואת מחירים לפי פרקים וסעיפים</li>
+                    <li><i class="fas fa-check-circle"></i> מנגנון מכרז סגור או פומבי</li>
+                    <li><i class="fas fa-check-circle"></i> התראות WhatsApp בזמן אמת על הצעות חדשות</li>
+                </ul>
             </div>
 
-            <div class="bento-card card-emerald">
-                <i class="fas fa-layer-group" style="font-size: 32px; color: var(--emerald-primary); margin-bottom: 16px;"></i>
-                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">עיצוב ממשקים ו-UI/UX</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
-                    תכנון חוויית משתמש ועיצוב ממשקים מתקדמים לאתרים, חנויות ואפליקציות מורכבות שמכוונות למקסימום המרות ופשטות שימוש.
+            <div class="contech-card">
+                <div class="contech-icon"><i class="fas fa-shield-alt"></i></div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 10px;">מנוע אימות סיווג ופנקס הקבלנים</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+                    מערכת אימות אוטומטית המצטלבת מול מאגרי רשם הקבלנים ומשרד הבינוי והשיכון. מוודאת סיווג תקף, ביטוחים בתוקף והיסטוריית פרויקטים מוכחת.
                 </p>
+                <ul class="feature-check-list">
+                    <li><i class="fas fa-check-circle"></i> אימות רישיון ג'1 עד ג'5 אוטומטי</li>
+                    <li><i class="fas fa-check-circle"></i> בדיקת ביטוח עבודות קבלניות וצד ג'</li>
+                    <li><i class="fas fa-check-circle"></i> דירוג איכות וביקורות יזמים מאומתות</li>
+                </ul>
             </div>
 
-            <div class="bento-card card-cyan">
-                <i class="fas fa-ad" style="font-size: 32px; color: var(--cyan-accent); margin-bottom: 16px;"></i>
-                <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 10px;">קריאייטיב ובאנרים לקמפיינים</h3>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
-                    עיצוב מודעות פרסום לרשתות (Meta, Instagram, TikTok, Google Display) שעוצרות גלילה ומייצרות אחוזי הקלקה (CTR) גבוהים.
+            <div class="contech-card">
+                <div class="contech-icon"><i class="fas fa-robot"></i></div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 10px;">סוכן AI לניתוח כתבי כמויות (BOQ)</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+                    העלאת קובצי PDF או תוכניות אדריכליות – סוכן הבינה המלאכותית מפרק את כתב הכמויות, מזהה חוסרים תמחיריים ומתריע על סטיות תקציב לפני החתימה.
                 </p>
+                <ul class="feature-check-list">
+                    <li><i class="fas fa-check-circle"></i> קריאת קובצי PDF, DWG ו-Excel מורכבים</li>
+                    <li><i class="fas fa-check-circle"></i> זיהוי סעיפים חסרים או סתירות במפרט</li>
+                    <li><i class="fas fa-check-circle"></i> המלצות תמחור מבוססות מחירוני ענף עדכניים</li>
+                </ul>
             </div>
-        </section>
+
+            <div class="contech-card">
+                <div class="contech-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 10px;">חוזים חכמים ואישורי אבני דרך</h3>
+                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+                    מנגנון שחרור תשלומים לפי אבני דרך בשטח (יציקת יסודות, שלד, טיח, גמרים). חתימה דיגיטלית מאובטחת ומניעת סכסוכים משפטיים ועיכובים.
+                </p>
+                <ul class="feature-check-list">
+                    <li><i class="fas fa-check-circle"></i> אישור ביצוע עם תיעוד צילומי מהשטח</li>
+                    <li><i class="fas fa-check-circle"></i> מודל תשלומים מדורג ומאובטח</li>
+                    <li><i class="fas fa-check-circle"></i> אינטגרציה מלאה ל-AM BUILDING ו-GOR CRM</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(255,193,7,0.12), rgba(0,255,136,0.06)); border: 1px solid var(--border-gold); border-radius: 24px; padding: clamp(30px, 5vw, 50px); text-align: center; margin: 60px 0;">
+            <h3 style="font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 900; margin-bottom: 14px; color: #fff;">
+                מוכנים להכניס את פרויקטי הבנייה שלכם לעידן ה-AI?
+            </h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto 28px; line-height: 1.7;">
+                הצטרפו לפלטפורמת HAKABLANIM והתחילו לנהל מכרזים, קבלנים וכתבי כמויות בדיוק, מהירות וביטחון פיננסי מלא.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                <a href="index.html#contact" class="btn-gold">
+                    <i class="fas fa-paper-plane"></i> לתיאום הדגמה חיה לצוות
+                </a>
+                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%A4%D7%9C%D7%98%D7%A4%D7%95%D7%A1%D7%AA%20HAKABLANIM" target="_blank" class="btn-emerald">
+                    <i class="fab fa-whatsapp"></i> שיחה ישירה בוואטסאפ
+                </a>
+            </div>
+        </div>
     </main>
 
-    <!-- Footer -->
-
-        <!-- Master Unified Footer -->
     <footer>
         <div class="container footer-inner">
             <div>
@@ -328,6 +460,7 @@
                     <li><a href="websites.html#gor-crm">👑 GOR CRM (ניהול לידים)</a></li>
                     <li><a href="websites.html#twin-proptech">🏢 TWIN PropTech (בניינים)</a></li>
                     <li><a href="websites.html#am-building">🏗️ AM BUILDING (קבלנים)</a></li>
+                    <li><a href="hakablanim.html">🛠️ HAKABLANIM (זירת מכרזים)</a></li>
                     <li><a href="apps.html">🚀 לכל המערכות והאפליקציות</a></li>
                 </ul>
             </div>
@@ -337,7 +470,7 @@
                     <li><a href="seo-guide.html">🔍 קידום אורגני SEO</a></li>
                     <li><a href="sem-guide.html">📊 פרסום Google Ads</a></li>
                     <li><a href="meta-ads-guide.html">📱 פרסום במטא & טיקטוק</a></li>
-                    <li><a href="articles/index.html">📚 כל 13 המאמרים המקצועיים</a></li>
+                    <li><a href="articles/index.html">📚 כל 14 המאמרים המקצועיים</a></li>
                 </ul>
             </div>
             <div>
@@ -350,7 +483,6 @@
             </div>
         </div>
 
-        <!-- Footer Bottom Bar (שורה תחתונה עם מפת אתר ונגישות) -->
         <div class="container footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 30px;">
             <div style="color: var(--text-muted); font-size: 0.9rem;">
                 © 2026 GOR MARKETING — כל הזכויות שמורות.
@@ -372,12 +504,10 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button (Stacked above Bot at bottom: 98px) -->
     <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING" class="whatsapp-float" style="position: fixed !important; bottom: 98px !important; left: 24px !important; z-index: 99999 !important;" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- GOR-Bot Floating AI Concierge Widget (Bottom: 24px) -->
     <div id="gor-bot-trigger" class="gor-bot-trigger" style="position: fixed !important; bottom: 24px !important; left: 24px !important; z-index: 99998 !important;" title="צ'אט עם סוכן GOR">
         <div class="gor-bot-pulse"></div>
         <span class="gor-bot-badge">AI</span>
@@ -428,7 +558,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/motion.js" defer></script>
     <script src="assets/accessibility.js" defer></script>
     <script src="script.js?v=4.5"></script>
