@@ -1,23 +1,11 @@
-
-/* Global Hero Centering */
-.hero {
-    text-align: center !important;
-    position: relative;
-}
-.hero h1, .hero p {
-    text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-﻿/* ==========================================================================
+/* ==========================================================================
    GOR MARKETING - ULTIMATE FLUID & RESPONSIVE DESIGN SYSTEM (Desktop & Mobile)
    ========================================================================== */
 
 :root {
     --bg-main: #06070a;
-    --bg-card: rgba(12, 14, 22, 0.9);
-    --bg-glass: rgba(14, 18, 28, 0.82);
+    --bg-card: rgba(12, 14, 22, 0.95);
+    --bg-glass: rgba(14, 18, 28, 0.88);
     
     /* Cyber Gold */
     --gold-primary: #ffc107;
@@ -47,7 +35,7 @@
     --font-body: 'Heebo', sans-serif;
 }
 
-/* Reset & Fluid Base */
+/* Base Reset & Guaranteed Dark Theme */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -58,17 +46,31 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    background-color: #06070a;
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: var(--font-body);
+    background-color: #06070a !important;
+    color: #ffffff !important;
+    font-family: 'Heebo', sans-serif !important;
     line-height: 1.6;
     overflow-x: hidden;
-    width: 100%;
     min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Global Hero Centering */
+.hero {
+    text-align: center !important;
     position: relative;
+}
+.hero h1, .hero p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Ambient Background Blobs */
