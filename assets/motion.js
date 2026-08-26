@@ -1,4 +1,4 @@
-﻿/**
+/**
  * GOR MARKETING - Interactive Motion Engine
  * Adds: Cursor Spotlight, 3D Card Tilt, Number Counters, and Live Floating Badges
  */
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 2. 3D Card Tilt on Mouse Move
-    const cards = document.querySelectorAll('.bento-card, .bento-subcard, .mockup-frame');
+    const cards = document.querySelectorAll('.bento-card, .bento-subcard');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
             
-            const rotateX = ((y - centerY) / centerY) * -6;
-            const rotateY = ((x - centerX) / centerX) * 6;
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
 
-            card.style.transform = perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px);
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
         });
 
         card.addEventListener('mouseleave', () => {
