@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -9,15 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=13.0">
-    <style>
-        .service-detail-hero { padding: 180px 0 100px; background: var(--navy-gradient); color: #fff; }
-        .content-section { padding: 120px 0; }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: flex-start; }
-        .content-text h2 { font-size: 3rem; margin-bottom: 2rem; color: var(--navy); }
-        .content-text p { font-size: 1.2rem; color: var(--slate); margin-bottom: 2rem; }
-        .strategy-list { list-style: none; margin-top: 3rem; }
-        .strategy-list li { margin-bottom: 2rem; padding: 2rem; background: var(--ice-blue); border-radius: 1.5rem; border-right: 6px solid var(--sky); }
-        .strategy-list h4 { font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--navy); }
+        <style>
+        .service-detail-hero { padding: clamp(120px, 15vh, 160px) 0 clamp(40px, 6vh, 60px); text-align: center; }
+        .service-detail-hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); line-height: 1.2; margin-bottom: 1rem; }
+        .content-section { padding: clamp(40px, 6vh, 80px) 0; }
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(24px, 4vw, 50px); align-items: center; }
+        .content-text h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1.5rem; color: #fff; }
+        .content-text p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.8; }
+        .strategy-list { list-style: none; margin-top: 2rem; padding: 0; }
+        .strategy-list li { margin-bottom: 1.5rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border-radius: 1.2rem; border-right: 4px solid var(--emerald-primary); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .strategy-list h4 { font-size: 1.25rem; margin-bottom: 0.5rem; color: #fff; }
+        .strategy-list p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0; }
     </style>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="assets/accessibility.css">
@@ -279,7 +281,7 @@
     <section class="service-detail-hero">
         <div class="container">
             <div class="section-tag" style="background: rgba(255,255,255,0.1); color: #fff;">Business Growth</div>
-            <h1 style="font-size: 4.5rem; line-height: 1.1;">פיתוח עסקי <span style="color: var(--sky);">אסטרטגי</span></h1>
+            <h1 style="font-size: clamp(2.2rem, 5.5vw, 3.8rem); line-height: 1.2;">פיתוח עסקי <span style="color: var(--sky);">אסטרטגי</span></h1>
             <p style="font-size: 1.5rem; max-width: 700px; opacity: 0.8; margin-top: 1.5rem;">אנחנו בונים את המנועים שמניעים את העסק שלכם לשיאים חדשים של רווחיות ונתח שוק.</p>
         </div>
     </section>
@@ -305,8 +307,6 @@
                             <h4>בניית שיתופי פעולה אסטרטגיים</h4>
                             <p>איתור וחיבור עם שותפים עסקיים שיכולים להאיץ את הצמיחה שלכם וליצור ערך הדדי.</p>
                         </li>
-                        <li><a href="accessibility.html">♿ הצהרת נגישות</a></li>
-                    <li><a href="sitemap.html">🗺️ מפת אתר</a></li>
                 </ul>
                 </div>
                 <div class="content-image">

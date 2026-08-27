@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -9,11 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css?v=13.0">
-    <style>
-        .service-hero { padding: 180px 0 100px; text-align: center; }
-        .service-hero h1 { font-size: 4.5rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 1.5rem; }
-        .content-section { padding: 100px 0; }
-        .content-card { background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); border-radius: 32px; padding: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        <style>
+        .service-hero { padding: clamp(120px, 15vh, 160px) 0 clamp(30px, 5vh, 50px); text-align: center; }
+        .service-hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 1.2rem; }
+        .content-section { padding: clamp(40px, 6vh, 80px) 0; }
+        .content-card { background: rgba(14, 18, 28, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(24px, 4vw, 48px); align-items: center; box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6); }
+        .content-card h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1.5rem; color: #fff; }
+        .content-card p { font-size: clamp(1rem, 2vw, 1.15rem); color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem; }
     </style>
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="stylesheet" href="assets/accessibility.css">
@@ -279,7 +281,7 @@
 
     <main class="container">
         <section class="service-hero">
-            <h1 class="reveal">ליווי <span style="color: var(--primary);">M&A ומיזוגים</span></h1>
+            <h1 class="reveal">ליווי <span style="color: var(--gold-bright);">M&A ומיזוגים</span></h1>
             <p class="reveal" style="font-size: 1.5rem; color: var(--text-muted);">ניהול אסטרטגי של מהלכי מיזוג ורכישה.</p>
         </section>
 
@@ -289,11 +291,9 @@
                     <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">צמיחה דרך סינרגיה</h2>
                     <p style="margin-bottom: 1.5rem;">תהליכי מיזוג ורכישה (M&A) הם מהלכים מורכבים הדורשים מומחיות, דיסקרטיות והבנה עסקית עמוקה. אנחנו מלווים אתכם בכל שלב.</p>
                     <ul style="list-style: none; display: grid; gap: 1rem; font-weight: 600;">
-                        <li><i class="fa-solid fa-check" style="color: var(--primary);"></i> איתור חברות פוטנציאליות</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--primary);"></i> ליווי בבדיקת נאותות (Due Diligence)</li>
-                        <li><i class="fa-solid fa-check" style="color: var(--primary);"></i> תכנון וליווי אינטגרציה לאחר המיזוג</li>
-                        <li><a href="accessibility.html">♿ הצהרת נגישות</a></li>
-                    <li><a href="sitemap.html">🗺️ מפת אתר</a></li>
+                        <li><i class="fa-solid fa-check" style="color: var(--gold-bright);"></i> איתור חברות פוטנציאליות</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--gold-bright);"></i> ליווי בבדיקת נאותות (Due Diligence)</li>
+                        <li><i class="fa-solid fa-check" style="color: var(--gold-bright);"></i> תכנון וליווי אינטגרציה לאחר המיזוג</li>
                 </ul>
                 </div>
                 <div>

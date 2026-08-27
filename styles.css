@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GOR MARKETING - ULTIMATE FLUID & RESPONSIVE DESIGN SYSTEM (Desktop & Mobile)
    ========================================================================== */
 
@@ -30,6 +30,15 @@
     --text-main: #ffffff;
     --text-muted: #94a3b8;
     --text-dim: #64748b;
+    
+    /* Universal Compatibility Tokens */
+    --primary: var(--gold-bright);
+    --navy: #ffffff;
+    --slate: var(--text-muted);
+    --ice-blue: rgba(255, 255, 255, 0.04);
+    --sky: var(--cyan-accent);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass: rgba(14, 18, 28, 0.88);
     
     --font-heading: 'Outfit', 'Heebo', sans-serif;
     --font-body: 'Heebo', sans-serif;
@@ -783,11 +792,14 @@ footer {
     border: 1px solid rgba(255, 193, 7, 0.35);
     box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 30px rgba(255, 193, 7, 0.05);
     border-radius: 24px;
-    padding: clamp(24px, 4vw, 44px);
+    padding: clamp(18px, 3.5vw, 44px);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .roi-calculator-card::before {
@@ -804,31 +816,49 @@ footer {
 
 .calc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: clamp(24px, 3vw, 40px);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(20px, 3vw, 40px);
     position: relative;
     z-index: 1;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .calc-slider-group {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .calc-slider-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
     margin-bottom: 10px;
-    font-size: 0.95rem;
+    font-size: clamp(0.88rem, 2vw, 0.95rem);
     color: #e2e8f0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calc-slider-header span:first-child {
+    flex: 1 1 auto;
+    min-width: 130px;
 }
 
 .calc-slider-val {
-    font-size: 1.25rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
     font-weight: 800;
     color: var(--gold-bright);
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    flex-shrink: 0;
+    direction: ltr;
+    display: inline-block;
 }
 
 .calc-range {
@@ -873,24 +903,65 @@ footer {
     background: rgba(10, 12, 22, 0.85);
     border: 1px solid rgba(0, 255, 136, 0.3);
     border-radius: 20px;
-    padding: clamp(20px, 3vw, 32px);
+    padding: clamp(16px, 2.5vw, 32px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.05);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.calc-results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.calc-results-title {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.calc-results-badge {
+    font-size: 0.75rem;
+    background: rgba(0, 255, 136, 0.15);
+    color: var(--emerald-primary);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .calc-metric-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: clamp(8px, 2vw, 16px);
+    margin-bottom: 18px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .calc-metric-item {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 14px;
-    padding: 14px 16px;
+    padding: clamp(10px, 2vw, 16px) clamp(6px, 1.5vw, 14px);
     text-align: center;
     transition: all 0.3s ease;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .calc-metric-item:hover {
@@ -899,16 +970,21 @@ footer {
 }
 
 .calc-metric-label {
-    font-size: 0.8rem;
+    font-size: clamp(0.72rem, 1.8vw, 0.8rem);
     color: var(--text-muted);
     margin-bottom: 6px;
+    line-height: 1.3;
+    white-space: normal;
 }
 
 .calc-metric-number {
-    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-size: clamp(1.05rem, 2.8vw, 1.6rem);
     font-weight: 900;
     color: #fff;
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .calc-metric-number.emerald {
@@ -1482,5 +1558,126 @@ footer {
         bottom: 78px !important;
         right: 12px !important;
         width: calc(100vw - 24px) !important;
+    }
+}
+
+
+/* ==========================================================================
+   GOR MARKETING - UNIVERSAL RESPONSIVE GUARDS & MOBILE ADAPTATIONS
+   ========================================================================== */
+
+/* Universal Safety for all cards and containers */
+.container,
+.calc-grid,
+.roi-calculator-card,
+.calc-results-box,
+.case-study-card,
+.content-card,
+.content-grid,
+.bento-app-block,
+.bento-subcard,
+.chip-card {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    word-break: break-word;
+}
+
+@media (max-width: 768px) {
+    .calc-grid {
+        grid-template-columns: 1fr !important;
+        gap: 22px !important;
+    }
+    
+    .roi-calculator-card {
+        padding: 20px 14px !important;
+        border-radius: 18px !important;
+    }
+    
+    .calc-results-box {
+        padding: 16px 12px !important;
+        border-radius: 16px !important;
+    }
+    
+    .calc-metric-row {
+        gap: 8px !important;
+        margin-bottom: 14px !important;
+    }
+    
+    .calc-metric-item {
+        padding: 10px 6px !important;
+        border-radius: 12px !important;
+    }
+    
+    .calc-metric-label {
+        font-size: 0.72rem !important;
+    }
+    
+    .calc-metric-number {
+        font-size: 1.15rem !important;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+    }
+    
+    .content-card {
+        grid-template-columns: 1fr !important;
+        padding: 22px 16px !important;
+        gap: 24px !important;
+        border-radius: 20px !important;
+    }
+    
+    .case-metrics-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+        padding: 10px !important;
+    }
+    
+    .hero h1,
+    .service-hero h1,
+    .service-detail-hero h1,
+    .article-hero h1 {
+        font-size: clamp(2.2rem, 6.5vw, 3.2rem) !important;
+        line-height: 1.2 !important;
+    }
+    
+    .content-text h2 {
+        font-size: clamp(1.6rem, 4.5vw, 2.2rem) !important;
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .strategy-list li {
+        padding: 16px !important;
+        margin-bottom: 14px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .roi-calculator-card {
+        padding: 16px 10px !important;
+    }
+    
+    .calc-results-box {
+        padding: 14px 10px !important;
+    }
+    
+    .calc-slider-header {
+        font-size: 0.85rem !important;
+    }
+    
+    .calc-slider-val {
+        font-size: 1.05rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .calc-metric-row {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .case-metrics-grid {
+        grid-template-columns: 1fr !important;
     }
 }
