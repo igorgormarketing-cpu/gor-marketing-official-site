@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20260827_03">
+    <link rel="stylesheet" href="styles.css?v=20260827_05">
     
     <style>
         /* Form & Review Specific Enhancements */
@@ -115,7 +115,7 @@
         <div class="container">
             <div class="logo-container">
                 <a href="index.html">
-                    <img src="assets/gor-logo-3d.png" alt="GOR MARKETING" width="44" height="44">
+                    <img src="assets/gor-logo-3d.png?v=20260827_04" alt="GOR MARKETING" width="44" height="44">
                     <div class="logo-text">GOR <span>MARKETING</span></div>
                 </a>
             </div>
@@ -468,7 +468,7 @@
                     <div style="text-align: right; color: var(--text-muted); font-size: 0.85rem; line-height: 1.9; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px;">
                         <div>📍 <strong>מוקד פעילות:</strong> ישראל & גלובלי</div>
                         <div>📞 <strong>טלפון ישיר:</strong> 052-515-5598</div>
-                        <div>✉️ <strong>דוא"ל:</strong> igor@gormarketing.com</div>
+                        <div>✉️ <strong>דוא"ל:</strong> igorgor.marketing@gmail.com</div>
                     </div>
                 </div>
             </div>
@@ -632,7 +632,7 @@
                 <div class="bento-card card-emerald" style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img src="assets/gor_crm_logo.png" alt="GOR CRM" width="48" height="48" style="border-radius: 10px; border: 1px solid var(--border-emerald);">
+                            <img src="assets/gor_crm_logo.png?v=20260827_04" alt="GOR CRM" width="48" height="48" style="border-radius: 10px; border: 1px solid var(--border-emerald);">
                             <div>
                                 <h3 style="font-size: 1.35rem; color: #fff;">GOR CRM</h3>
                                 <span style="color: var(--emerald-primary); font-size: 0.85rem; font-weight: 600;">ניהול לידים ואוטומציית מכירות</span>
@@ -690,53 +690,132 @@
             </div>
         </section>
 
-                <!-- 4.1 Interactive Growth & ROI Calculator -->
+                        <!-- 4.1 Interactive Multi-Channel Growth & ROI Simulator -->
         <section id="roi-calculator" style="margin-bottom: 80px;">
             <div style="text-align: center; margin-bottom: 36px;">
                 <div class="badge-gold-emerald">
-                    <i class="fas fa-calculator"></i> סימולטור צמיחה פיננסי
+                    <i class="fas fa-calculator"></i> סימולטור צמיחה רב-ערוצי מתקדם
                 </div>
-                <h2 style="font-size: 2.3rem; font-weight: 900; color: #fff; margin-bottom: 12px;">
-                    מחשבון <span class="gradient-title">ROI ותחזית הכנסות</span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 12px;">
+                    מחשבון <span class="gradient-title">ROI ותחזית תשואה רב-ערוצית</span>
                 </h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 650px; margin: 0 auto;">
-                    בדקו כמה רווח והכנסות המשפך השיווקי של GOR MARKETING ואוטומציות ה-AI יכולים לייצר לעסק שלכם.
+                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 720px; margin: 0 auto; line-height: 1.7;">
+                    בחר את ערוץ השיווק הרצוי או שילוב 360°, כוונן את התקציב וגודל העסקה, וקבל תחזית ביצועים מדויקת מבוססת נתוני אמת של GOR MARKETING.
                 </p>
             </div>
 
             <div class="roi-calculator-card">
+                <!-- Channel Selector Matrix -->
+                <div class="calc-channel-wrapper">
+                    <div class="calc-channel-title">
+                        <i class="fas fa-filter" style="color: var(--gold-bright);"></i> בחר ערוץ שיווק / אפיק פעילות לסימולציה:
+                    </div>
+                    <div class="calc-channel-grid" id="calc-channel-selector" role="tablist" aria-label="בחירת ערוץ שיווק">
+                        <button type="button" class="calc-channel-btn active" data-channel="omnichannel">
+                            <i class="fas fa-network-wired" style="color: var(--emerald-primary);"></i>
+                            <span>שילוב 360° Omnichannel</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="google_ppc">
+                            <i class="fab fa-google" style="color: #4285F4;"></i>
+                            <span>גוגל ממומן (Google Ads)</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="google_seo">
+                            <i class="fas fa-magnifying-glass-chart" style="color: #34A853;"></i>
+                            <span>גוגל אורגני (SEO)</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="meta_ads">
+                            <i class="fas fa-bullhorn" style="color: #0081FB;"></i>
+                            <span>קמפיין פייסבוק ממומן</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="fb_organic">
+                            <i class="fab fa-facebook" style="color: #1877F2;"></i>
+                            <span>ניהול עמוד וקהילה בפייסבוק</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="youtube">
+                            <i class="fab fa-youtube" style="color: #FF0000;"></i>
+                            <span>ניהול ושיווק ערוץ יוטיוב</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="instagram">
+                            <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                            <span>אינסטגרם ומיתוג ויזואלי</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="native_news">
+                            <i class="fas fa-newspaper" style="color: #00bcd4;"></i>
+                            <span>אתרי חדשות וטאבולה/אאוטבריין</span>
+                        </button>
+                        <button type="button" class="calc-channel-btn" data-channel="whatsapp_retention">
+                            <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                            <span>שיווק בוואטסאפ וניוזלטרים</span>
+                        </button>
+                    </div>
+                </div>
+
                 <div class="calc-grid">
                     <!-- Controls Column -->
                     <div>
-                        <h3 style="font-size: 1.3rem; color: #fff; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-sliders-h" style="color: var(--gold-bright);"></i> נתוני הפעילות של העסק
-                        </h3>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                            <h3 style="font-size: 1.25rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-sliders-h" style="color: var(--gold-bright);"></i> התאמת פרמטרים לפעילות
+                            </h3>
+                            <span id="calc-current-channel-badge" class="calc-active-channel-badge">
+                                🌐 שילוב 360° Omnichannel
+                            </span>
+                        </div>
 
                         <!-- Slider 1: Budget -->
                         <div class="calc-slider-group">
                             <div class="calc-slider-header">
-                                <span>תקציב שיווק ופרסום חודשי:</span>
-                                <span id="calc-budget-val" class="calc-slider-val">₪10,000</span>
+                                <span id="calc-budget-label">תקציב השקעה חודשי משוער:</span>
+                                <span id="calc-budget-val" class="calc-slider-val">₪25,000</span>
                             </div>
-                            <input type="range" id="calc-budget" class="calc-range" min="3000" max="80000" step="1000" value="10000">
+                            <input type="range" id="calc-budget" class="calc-range" min="10000" max="250000" step="2500" value="25000" aria-label="תקציב השקעה חודשי">
+                            <div class="calc-slider-limits">
+                                <span id="calc-budget-min">₪10,000</span>
+                                <span id="calc-budget-max">₪250,000</span>
+                            </div>
                         </div>
 
                         <!-- Slider 2: Average Deal Value -->
                         <div class="calc-slider-group">
                             <div class="calc-slider-header">
-                                <span>שווי ממוצע של עסקה / לקוח:</span>
-                                <span id="calc-deal-val" class="calc-slider-val">₪3,500</span>
+                                <span>שווי ממוצע של עסקה / לקוח (Ticket Size):</span>
+                                <span id="calc-deal-val" class="calc-slider-val">₪6,000</span>
                             </div>
-                            <input type="range" id="calc-deal" class="calc-range" min="500" max="40000" step="500" value="3500">
+                            <input type="range" id="calc-deal" class="calc-range" min="500" max="60000" step="500" value="6000" aria-label="שווי ממוצע לעסקה">
+                            <div class="calc-slider-limits">
+                                <span>₪500</span>
+                                <span>₪60,000</span>
+                            </div>
                         </div>
 
-                        <!-- Slider 3: Target Leads -->
-                        <div class="calc-slider-group" style="margin-bottom: 0;">
+                        <!-- Slider 3: Target Leads / Volume -->
+                        <div class="calc-slider-group">
                             <div class="calc-slider-header">
-                                <span>צפי פניות / לידים בחודש:</span>
-                                <span id="calc-leads-val" class="calc-slider-val">80 לידים</span>
+                                <span id="calc-volume-label">צפי פניות / לידים איכותיים בחודש:</span>
+                                <span id="calc-leads-val" class="calc-slider-val">380 פניות</span>
                             </div>
-                            <input type="range" id="calc-leads" class="calc-range" min="20" max="600" step="10" value="80">
+                            <input type="range" id="calc-leads" class="calc-range" min="50" max="1500" step="10" value="380" aria-label="כמות פניות או לידים">
+                            <div class="calc-slider-limits">
+                                <span id="calc-leads-min">50</span>
+                                <span id="calc-leads-max">1,500</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Booster Switch -->
+                        <div class="calc-ai-toggle-box">
+                            <label class="calc-switch">
+                                <input type="checkbox" id="calc-ai-boost" checked>
+                                <span class="calc-slider round"></span>
+                            </label>
+                            <div class="calc-ai-toggle-text">
+                                <div class="calc-ai-toggle-title">
+                                    <i class="fas fa-bolt" style="color: var(--emerald-primary);"></i>
+                                    <span>הפעלת סוכני AI ו-GOR CRM (מענה תוך 60 שניות)</span>
+                                </div>
+                                <div class="calc-ai-toggle-desc">
+                                    מקפיצה את יחס הסגירה ב-30% ומקצרת 80% מזמן הטיפול הידני בכל ליד.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -744,38 +823,62 @@
                     <div class="calc-results-box">
                         <div class="calc-results-header">
                             <span class="calc-results-title">
-                                <i class="fas fa-chart-line" style="color: var(--emerald-primary);"></i> צפי תוצאות חודשי משוער
+                                <i class="fas fa-chart-line" style="color: var(--emerald-primary);"></i> תחזית ביצועים ותשואה חודשית
                             </span>
-                            <span class="calc-results-badge">
-                                מבוסס נתוני GOR
+                            <span class="calc-results-badge" id="calc-benchmark-tag">
+                                בנצ'מרק GOR אומת
                             </span>
                         </div>
 
                         <div class="calc-metric-row">
                             <div class="calc-metric-item">
-                                <div class="calc-metric-label">צפי הכנסות ישיר</div>
-                                <div id="calc-res-revenue" class="calc-metric-number emerald">₪35,000</div>
+                                <div class="calc-metric-label">צפי הכנסות חודשיות</div>
+                                <div id="calc-res-revenue" class="calc-metric-number emerald">₪504,000</div>
                             </div>
                             <div class="calc-metric-item">
-                                <div class="calc-metric-label">עסקאות סגורות</div>
-                                <div id="calc-res-deals" class="calc-metric-number gold">10 עסקאות</div>
+                                <div class="calc-metric-label">עסקאות סגורות משוערות</div>
+                                <div id="calc-res-deals" class="calc-metric-number gold">84 עסקאות</div>
                             </div>
                         </div>
 
                         <div class="calc-metric-row">
                             <div class="calc-metric-item">
-                                <div class="calc-metric-label">החזר השקעה (ROAS)</div>
-                                <div id="calc-res-roas" class="calc-metric-number emerald">350%</div>
+                                <div class="calc-metric-label">תשואה על השקעה (ROAS)</div>
+                                <div id="calc-res-roas" class="calc-metric-number emerald">2,016%</div>
                             </div>
                             <div class="calc-metric-item">
-                                <div class="calc-metric-label">חיסכון זמן באוטומציות</div>
-                                <div id="calc-res-time" class="calc-metric-number gold">140 שעות/חודש</div>
+                                <div class="calc-metric-label">חיסכון זמן עבודה חודשי</div>
+                                <div id="calc-res-time" class="calc-metric-number gold">185 שעות/חודש</div>
                             </div>
                         </div>
 
-                        <a id="calc-cta-btn" href="https://wa.me/972525155598" target="_blank" class="btn-emerald" style="width: 100%; text-align: center; padding: 14px; font-size: 1rem; display: block; text-decoration: none;">
-                            <i class="fab fa-whatsapp"></i> קבל תוכנית פעולה לתחזית הזו
-                        </a>
+                        <!-- Profit Summary Banner -->
+                        <div class="calc-profit-banner">
+                            <div class="calc-profit-label">
+                                <span>רווח גולמי משוער מפעילות (לאחר ניכוי הוצאות שיווק):</span>
+                            </div>
+                            <div id="calc-res-profit" class="calc-profit-val">₪479,000</div>
+                        </div>
+
+                        <!-- Executive Strategic Insight -->
+                        <div class="calc-insight-card">
+                            <div class="calc-insight-header">
+                                <i class="fas fa-lightbulb" style="color: var(--gold-bright);"></i>
+                                <span>תובנה אסטרטגית בלעדית לערוץ זה:</span>
+                            </div>
+                            <p id="calc-res-insight" class="calc-insight-text">
+                                המערך השלם של GOR MARKETING: סינרגיה מושלמת בין גוגל, מטא, יוטיוב, אוטומציות וואטסאפ וסוכני AI לסגירה הרמטית של לקוחות בכל נקודת מגע.
+                            </p>
+                        </div>
+
+                        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                            <a id="calc-cta-btn" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%91%D7%99%D7%A6%D7%A2%D7%AA%D7%99%20%D7%AA%D7%97%D7%96%D7%99%D7%AA%20%D7%91%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%94-ROI%20%D7%A9%D7%9C%20GOR%20MARKETING%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%A4%D7%A2%D7%95%D7%9C%D7%94" target="_blank" class="btn-emerald" style="width: 100%; text-align: center; padding: 14px; font-weight: 800; font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                                <i class="fab fa-whatsapp" style="font-size: 1.25rem;"></i> קבל תוכנית פעולה לערוץ זה בוואטסאפ
+                            </a>
+                            <a href="mailto:igorgor.marketing@gmail.com?subject=%D7%AA%D7%9B%D7%A0%D7%95%D7%9F%20%D7%AA%D7%A7%D7%A6%D7%99%D7%91%20%D7%95%D7%AA%D7%A9%D7%95%D7%90%D7%94%20%D7%A2%D7%A1%D7%A7%D7%99%D7%AA%20-%20GOR%20MARKETING" class="btn-action-secondary" style="width: 100%; text-align: center; padding: 12px; font-size: 0.95rem;">
+                                <i class="fas fa-envelope"></i> שלח סימולציה זו למייל של איגור
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1139,8 +1242,11 @@
                 <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%90%D7%A4%D7%99%D7%95%D7%9F%20%D7%95%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%20(150%20%D7%A9%D7%97)" target="_blank" class="btn-gold" style="padding: 15px 32px; font-size: 1.05rem;">
                     <i class="fas fa-calendar-check"></i> קבע פגישה עכשיו בוואטסאפ
                 </a>
+                <a href="mailto:igorgor.marketing@gmail.com?subject=%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%96%D7%95%D7%9D%20%D7%95%D7%90%D7%A4%D7%99%D7%95%D7%9F%20%D7%90%D7%A1%D7%98%D7%A8%D7%98%D7%92%D7%99%20-%20GOR%20MARKETING&body=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%0A%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%96%D7%95%D7%9D%20%D7%91%D7%99%D7%95%D7%9E%D7%9F%20%D7%9C%D7%90%D7%A4%D7%99%D7%95%D7%9F%20%D7%95%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%A2%D7%A1%D7%A7%D7%99.%0A%D7%A9%D7%9D%3A%0A%D7%98%D7%9C%D7%A4%D7%95%D7%9F%3A%0A%D7%A9%D7%9D%20%D7%94%D7%A2%D7%A1%D7%A7%2F%D7%90%D7%AA%D7%A8%3A%0A%D7%96%D7%9E%D7%A0%D7%99%D7%9D%20%D7%A0%D7%95%D7%97%D7%99%D7%9D%3A" class="btn-cyan" style="padding: 15px 28px; font-size: 1.05rem;">
+                    <i class="fas fa-video"></i> תאם פגישת Zoom בדוא"ל (Gmail)
+                </a>
                 <a href="tel:0525155598" class="btn-action-secondary" style="padding: 15px 28px;">
-                    <i class="fas fa-phone-alt"></i> התקשר עכשיו: 052-515-5598
+                    <i class="fas fa-phone-alt"></i> התקשר: 052-515-5598
                 </a>
             </div>
         </section>
@@ -1166,7 +1272,7 @@
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,255,136,0.1); color: var(--emerald-primary); display: flex; align-items: center; justify-content: center;"><i class="fas fa-envelope"></i></div>
-                            <div>דוא"ל: <strong style="color: #fff;">igor@gormarketing.com</strong></div>
+                            <div>דוא"ל: <strong style="color: #fff;">igorgor.marketing@gmail.com</strong></div>
                         </div>
                         <div style="display: flex; align-items: center; gap: 12px;">
                             <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(0,255,136,0.1); color: var(--emerald-primary); display: flex; align-items: center; justify-content: center;"><i class="fab fa-whatsapp"></i></div>
@@ -1238,7 +1344,7 @@
                 <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">יצירת קשר ישירה</h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
                     📞 טלפון ישיר: <strong style="color: #fff;">052-515-5598</strong><br>
-                    ✉️ דוא"ל: <strong style="color: #fff;">igor@gormarketing.com</strong><br>
+                    ✉️ דוא"ל: <strong style="color: #fff;">igorgor.marketing@gmail.com</strong><br>
                     💬 מענה מהיר בוואטסאפ 24/7
                 </p>
             </div>
@@ -1325,6 +1431,6 @@
     <!-- Scripts -->
     <script src="assets/motion.js?v=13.0" defer></script>
     <script src="assets/accessibility.js?v=13.0" defer></script>
-    <script src="script.js?v=13.0"></script>
+    <script src="script.js?v=14.0"></script>
 </body>
 </html>

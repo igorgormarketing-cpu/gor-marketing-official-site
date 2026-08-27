@@ -90,57 +90,247 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(moveCarousel, 4500);
     }
 
-    // 3. Growth & ROI Calculator Logic
+        // 3. Advanced Multi-Channel Growth & ROI Simulator Logic
+    const channelPresets = {
+        omnichannel: {
+            name: 'שילוב 360° Omnichannel',
+            badge: '🌐 שילוב 360° Omnichannel',
+            minBudget: 10000, maxBudget: 250000, stepBudget: 2500, defaultBudget: 25000,
+            minDeal: 1000, maxDeal: 60000, stepDeal: 500, defaultDeal: 6000,
+            minLeads: 50, maxLeads: 1500, stepLeads: 10, defaultLeads: 380,
+            baseConvRate: 0.22,
+            aiBoostFactor: 0.45,
+            volumeLabel: 'צפי פניות / לידים איכותיים בחודש:',
+            insight: 'המערך השלם של GOR MARKETING: סינרגיה מושלמת בין גוגל, מטא, יוטיוב, אוטומציות וואטסאפ וסוכני AI לסגירה הרמטית של לקוחות בכל נקודת מגע.'
+        },
+        google_ppc: {
+            name: 'גוגל ממומן (Google Ads)',
+            badge: '🎯 גוגל ממומן (PPC / Shopping)',
+            minBudget: 3000, maxBudget: 120000, stepBudget: 1000, defaultBudget: 12000,
+            minDeal: 800, maxDeal: 50000, stepDeal: 500, defaultDeal: 4500,
+            minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            baseConvRate: 0.17,
+            aiBoostFactor: 0.40,
+            volumeLabel: 'צפי הקלקות ופניות מחיפוש ממוקד:',
+            insight: 'תנועת חיפוש ממוקדת של לקוחות בעלי כוונת רכישה מיידית (High Commercial Intent). היתרון המרכזי: תוצאות מהירות וסגירה מיידית.'
+        },
+        google_seo: {
+            name: 'גוגל אורגני (SEO)',
+            badge: '🔍 גוגל אורגני (SEO & Top Rank)',
+            minBudget: 3500, maxBudget: 60000, stepBudget: 500, defaultBudget: 8000,
+            minDeal: 1000, maxDeal: 50000, stepDeal: 500, defaultDeal: 5000,
+            minLeads: 30, maxLeads: 900, stepLeads: 10, defaultLeads: 180,
+            baseConvRate: 0.15,
+            aiBoostFactor: 0.35,
+            volumeLabel: 'צפי פניות חודשיות מתנועה אורגנית:',
+            insight: 'אפקט "הריבית דריבית" של השיווק הדיגיטלי: עלות הליד הולכת ופוחתת לאורך זמן ללא תשלום על כל קליק, ויוצרת נכס דיגיטלי בעל ערך מצטבר.'
+        },
+        meta_ads: {
+            name: 'קמפיין פייסבוק ממומן (Meta Ads)',
+            badge: '🚀 קמפיין ממומן מטא / פייסבוק',
+            minBudget: 3000, maxBudget: 100000, stepBudget: 1000, defaultBudget: 10000,
+            minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3800,
+            minLeads: 30, maxLeads: 1000, stepLeads: 10, defaultLeads: 145,
+            baseConvRate: 0.13,
+            aiBoostFactor: 0.45,
+            volumeLabel: 'צפי לידים ממשפכי המרה ממומנים:',
+            insight: 'ווליום לידים מהיר באמצעות פילוח קהלים מדויק, Lookalike ומשפכי המרה מדורגים (Retargeting) להבשלת מתעניינים.'
+        },
+        fb_organic: {
+            name: 'ניהול עמוד וקהילה בפייסבוק',
+            badge: '📘 עמוד וקהילה בפייסבוק',
+            minBudget: 2500, maxBudget: 40000, stepBudget: 500, defaultBudget: 6000,
+            minDeal: 500, maxDeal: 30000, stepDeal: 500, defaultDeal: 3000,
+            minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 120,
+            baseConvRate: 0.12,
+            aiBoostFactor: 0.30,
+            volumeLabel: 'צפי פניות מאינטראקציה וקהילה:',
+            insight: 'בניית נאמנות, Social Proof ושימור קהילה לאורך זמן: מענה מושלם לחיזוק המותג, לקוחות חוזרים והפניות מפה לאוזן.'
+        },
+        youtube: {
+            name: 'ניהול ושיווק ערוץ יוטיוב',
+            badge: '🎥 ערוץ יוטיוב (YouTube Video)',
+            minBudget: 4000, maxBudget: 80000, stepBudget: 1000, defaultBudget: 9000,
+            minDeal: 1500, maxDeal: 70000, stepDeal: 500, defaultDeal: 7500,
+            minLeads: 20, maxLeads: 700, stepLeads: 5, defaultLeads: 135,
+            baseConvRate: 0.20,
+            aiBoostFactor: 0.45,
+            volumeLabel: 'צפי פניות חמות מתוכן וידאו:',
+            insight: 'עוצמת האמון בווידאו: לידים שמגיעים מתוכן יוטיוב מגיעים "חמים" ומוכנים לרכישה, ומאפשרים סגירת עסקאות בשווי גבוה (High-Ticket) בהרבה.'
+        },
+        instagram: {
+            name: 'אינסטגרם ומיתוג ויזואלי',
+            badge: '📸 אינסטגרם ומיתוג ויזואלי',
+            minBudget: 3000, maxBudget: 70000, stepBudget: 1000, defaultBudget: 8000,
+            minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3200,
+            minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            baseConvRate: 0.14,
+            aiBoostFactor: 0.35,
+            volumeLabel: 'צפי פניות והמרות מרילס ומיתוג:',
+            insight: 'מיתוג ויזואלי סוחף, Reels ויראליים ומשיכת קהל פרימיום: מושלם לעסקי B2C, לייפסטייל, עיצוב, נדל"ן ושירותי בוטיק.'
+        },
+        native_news: {
+            name: 'אתרי חדשות וטאבולה/אאוטבריין',
+            badge: '📰 אתרי חדשות ויח"צ (Native Ads)',
+            minBudget: 6000, maxBudget: 150000, stepBudget: 1000, defaultBudget: 15000,
+            minDeal: 2000, maxDeal: 100000, stepDeal: 1000, defaultDeal: 9000,
+            minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 135,
+            baseConvRate: 0.18,
+            aiBoostFactor: 0.40,
+            volumeLabel: 'צפי מתעניינים מכתבות תוכן:',
+            insight: 'סמכות עיתונאית יוקרתית: כתבות תוכן ממומנות מחנכות את השוק והופכות קהל קר ללקוחות פרימיום בעסקאות גדולות במיוחד.'
+        },
+        whatsapp_retention: {
+            name: 'שיווק בוואטסאפ וניוזלטרים',
+            badge: '💬 שיווק בוואטסאפ וניוזלטרים',
+            minBudget: 2000, maxBudget: 40000, stepBudget: 500, defaultBudget: 5000,
+            minDeal: 500, maxDeal: 35000, stepDeal: 500, defaultDeal: 3500,
+            minLeads: 40, maxLeads: 1200, stepLeads: 10, defaultLeads: 250,
+            baseConvRate: 0.25,
+            aiBoostFactor: 0.45,
+            volumeLabel: 'צפי פניות ממאגר לקוחות קיים:',
+            insight: 'מיצוי מקסימלי של הדאטה הקיימת: 98% אחוזי פתיחה בוואטסאפ ואפס עלות על רכישת מדיה חיצונית מייצרים את ה-ROI הגבוה ביותר בעסק.'
+        }
+    };
+
+    let activeChannelKey = 'omnichannel';
+
+    const channelBtns = document.querySelectorAll('.calc-channel-btn');
+    const currentChannelBadge = document.getElementById('calc-current-channel-badge');
+
     const budgetSlider = document.getElementById('calc-budget');
     const dealSlider = document.getElementById('calc-deal');
     const leadsSlider = document.getElementById('calc-leads');
+    const aiBoostCheckbox = document.getElementById('calc-ai-boost');
 
     const budgetDisplay = document.getElementById('calc-budget-val');
     const dealDisplay = document.getElementById('calc-deal-val');
     const leadsDisplay = document.getElementById('calc-leads-val');
 
+    const budgetMinDisp = document.getElementById('calc-budget-min');
+    const budgetMaxDisp = document.getElementById('calc-budget-max');
+    const leadsMinDisp = document.getElementById('calc-leads-min');
+    const leadsMaxDisp = document.getElementById('calc-leads-max');
+    const volumeLabelDisp = document.getElementById('calc-volume-label');
+
     const resRevenue = document.getElementById('calc-res-revenue');
     const resDeals = document.getElementById('calc-res-deals');
     const resRoas = document.getElementById('calc-res-roas');
     const resTimeSaved = document.getElementById('calc-res-time');
+    const resProfit = document.getElementById('calc-res-profit');
+    const resInsight = document.getElementById('calc-res-insight');
     const calcCtaBtn = document.getElementById('calc-cta-btn');
+
+    function applyChannelPreset(channelKey) {
+        const preset = channelPresets[channelKey];
+        if (!preset) return;
+        activeChannelKey = channelKey;
+
+        channelBtns.forEach(btn => {
+            if (btn.dataset.channel === channelKey) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        if (currentChannelBadge) {
+            currentChannelBadge.textContent = preset.badge;
+        }
+
+        if (volumeLabelDisp && preset.volumeLabel) {
+            volumeLabelDisp.textContent = preset.volumeLabel;
+        }
+
+        if (budgetSlider) {
+            budgetSlider.min = preset.minBudget;
+            budgetSlider.max = preset.maxBudget;
+            budgetSlider.step = preset.stepBudget;
+            budgetSlider.value = preset.defaultBudget;
+            if (budgetMinDisp) budgetMinDisp.textContent = '₪' + preset.minBudget.toLocaleString('he-IL');
+            if (budgetMaxDisp) budgetMaxDisp.textContent = '₪' + preset.maxBudget.toLocaleString('he-IL');
+        }
+
+        if (dealSlider) {
+            dealSlider.min = preset.minDeal;
+            dealSlider.max = preset.maxDeal;
+            dealSlider.step = preset.stepDeal;
+            dealSlider.value = preset.defaultDeal;
+        }
+
+        if (leadsSlider) {
+            leadsSlider.min = preset.minLeads;
+            leadsSlider.max = preset.maxLeads;
+            leadsSlider.step = preset.stepLeads;
+            leadsSlider.value = preset.defaultLeads;
+            if (leadsMinDisp) leadsMinDisp.textContent = preset.minLeads.toLocaleString('he-IL');
+            if (leadsMaxDisp) leadsMaxDisp.textContent = preset.maxLeads.toLocaleString('he-IL');
+        }
+
+        updateCalculator();
+    }
 
     function updateCalculator() {
         if (!budgetSlider || !dealSlider || !leadsSlider) return;
 
+        const preset = channelPresets[activeChannelKey] || channelPresets.omnichannel;
         const budget = parseInt(budgetSlider.value, 10);
         const dealVal = parseInt(dealSlider.value, 10);
         const leads = parseInt(leadsSlider.value, 10);
+        const isAiBoost = aiBoostCheckbox ? aiBoostCheckbox.checked : true;
 
         if (budgetDisplay) budgetDisplay.textContent = '₪' + budget.toLocaleString('he-IL');
         if (dealDisplay) dealDisplay.textContent = '₪' + dealVal.toLocaleString('he-IL');
-        if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' לידים';
+        if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' פניות';
 
-        // Conversion benchmark: average 12% lead-to-deal closing rate with GOR qualified funnels
-        const conversionRate = 0.12; 
-        const estimatedDeals = Math.max(1, Math.round(leads * conversionRate));
+        const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
+        const estimatedDeals = Math.max(1, Math.round(leads * effectiveConvRate));
         const estimatedRevenue = estimatedDeals * dealVal;
         const roas = budget > 0 ? Math.round((estimatedRevenue / budget) * 100) : 0;
-        
-        // Time saved calculation with AI agents and automations (approx 1.5 hrs per lead + 2 hrs per deal)
-        const timeSavedHours = Math.round(leads * 1.5 + estimatedDeals * 2);
+        const netProfit = Math.max(0, estimatedRevenue - budget);
+
+        const timeSavedHours = Math.round(leads * (isAiBoost ? 1.8 : 0.8) + estimatedDeals * (isAiBoost ? 2.5 : 1.2));
 
         if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
         if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
-        if (resRoas) resRoas.textContent = roas + '%';
+        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
         if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
+        if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
+        if (resInsight) resInsight.textContent = preset.insight;
 
-        window.trackGorEvent('roi_calculated', { budget: budget, deals: estimatedDeals, revenue: estimatedRevenue });
-        if (calcCtaBtn) {
-            const msg = `היי איגור, ביצעתי תחזית במחשבון ה-ROI באתר GOR MARKETING:\n• תקציב חודשי: ₪${budget.toLocaleString('he-IL')}\n• שווי ממוצע לעסקה: ₪${dealVal.toLocaleString('he-IL')}\n• צפי לידים: ${leads}\n• צפי הכנסות: ₪${estimatedRevenue.toLocaleString('he-IL')} (ROAS ${roas}%)\nאשמח לבנות תוכנית פעולה מותאמת אישית!`;
-            calcCtaBtn.href = `https://wa.me/972525155598?text=${encodeURIComponent(msg)}`;
+        if (window.trackGorEvent) {
+            window.trackGorEvent('roi_calculated', { channel: activeChannelKey, budget: budget, deals: estimatedDeals, revenue: estimatedRevenue });
         }
+
+        if (calcCtaBtn) {
+            const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
+            const msg = 'היי איגור, ביצעתי סימולציה במחשבון ה-ROI של GOR MARKETING:' + '\n' +
+                        '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
+                        '• תקציב חודשי: ₪' + budget.toLocaleString('he-IL') + '\n' +
+                        '• שווי ממוצע לעסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
+                        '• צפי פניות: ' + leads.toLocaleString('he-IL') + '\n' +
+                        '• צפי הכנסות: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)' + '\n' +
+                        '• צפי עסקאות: ' + estimatedDeals + ' עסקאות' + '\n' +
+                        'אשמח לבנות יחד תוכנית עבודה מותאמת להזנקת הפעילות!';
+            calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+        }
+    }
+
+    if (channelBtns.length > 0) {
+        channelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const ch = btn.dataset.channel;
+                if (ch) applyChannelPreset(ch);
+            });
+        });
     }
 
     if (budgetSlider) budgetSlider.addEventListener('input', updateCalculator);
     if (dealSlider) dealSlider.addEventListener('input', updateCalculator);
     if (leadsSlider) leadsSlider.addEventListener('input', updateCalculator);
-    updateCalculator(); // Initialize on load
+    if (aiBoostCheckbox) aiBoostCheckbox.addEventListener('change', updateCalculator);
+
+    updateCalculator();
 
     // 4. Case Studies Category Filter Logic
     const filterBtns = document.querySelectorAll('.case-filter-btn');

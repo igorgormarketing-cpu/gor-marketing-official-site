@@ -869,13 +869,15 @@ footer {
    3. GOR-Bot Floating AI Concierge
    ========================================================================== */
 
-/* 1. Growth & ROI Calculator */
+/* ==========================================================================
+   1. Growth & Multi-Channel ROI Simulator (Expanded Suite)
+   ========================================================================== */
 .roi-calculator-card {
-    background: linear-gradient(135deg, rgba(16, 20, 32, 0.85), rgba(10, 12, 20, 0.95));
+    background: linear-gradient(135deg, rgba(16, 20, 32, 0.92), rgba(10, 12, 20, 0.98));
     border: 1px solid rgba(255, 193, 7, 0.35);
     box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 30px rgba(255, 193, 7, 0.05);
     border-radius: 24px;
-    padding: clamp(18px, 3.5vw, 44px);
+    padding: clamp(18px, 3.5vw, 40px);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(20px);
@@ -888,196 +890,241 @@ footer {
 .roi-calculator-card::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, rgba(255, 193, 7, 0.12) 0%, transparent 70%);
+    top: -40%;
+    right: -15%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
 
-.calc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: clamp(20px, 3vw, 40px);
+/* Channel Selector Matrix */
+.calc-channel-wrapper {
+    margin-bottom: 28px;
     position: relative;
     z-index: 1;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.calc-slider-group {
-    margin-bottom: 22px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.calc-slider-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 10px;
-    font-size: clamp(0.88rem, 2vw, 0.95rem);
-    color: #e2e8f0;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.calc-slider-header span:first-child {
-    flex: 1 1 auto;
-    min-width: 130px;
-}
-
-.calc-slider-val {
-    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
-    font-weight: 800;
-    color: var(--gold-bright);
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    flex-shrink: 0;
-    direction: ltr;
-    display: inline-block;
-}
-
-.calc-range {
-    width: 100%;
-    height: 8px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.12);
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.calc-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--gold-bright);
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.9);
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.calc-range::-webkit-slider-thumb:hover {
-    transform: scale(1.25);
-}
-
-.calc-range::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--gold-bright);
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.9);
-    cursor: pointer;
-    border: none;
-}
-
-.calc-results-box {
-    background: rgba(10, 12, 22, 0.85);
-    border: 1px solid rgba(0, 255, 136, 0.3);
-    border-radius: 20px;
-    padding: clamp(16px, 2.5vw, 32px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 136, 0.05);
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.calc-results-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 12px;
+    padding-bottom: 24px;
+}
+
+.calc-channel-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calc-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    width: 100%;
+}
+
+.calc-channel-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: right;
     width: 100%;
     box-sizing: border-box;
 }
 
-.calc-results-title {
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
-    font-weight: 800;
+.calc-channel-btn i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.calc-channel-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 193, 7, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.calc-channel-btn.active {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(255, 193, 7, 0.12));
+    border-color: var(--emerald-primary);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(0, 255, 136, 0.2), inset 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+.calc-channel-btn.active i {
+    transform: scale(1.15);
+}
+
+.calc-active-channel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 255, 136, 0.12);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: var(--emerald-primary);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.calc-slider-limits {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    direction: ltr;
+}
+
+/* AI Booster Toggle Box */
+.calc-ai-toggle-box {
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.06), rgba(255, 193, 7, 0.04));
+    border: 1px solid rgba(0, 255, 136, 0.25);
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+}
+
+.calc-ai-toggle-box:hover {
+    border-color: var(--emerald-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+.calc-switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.calc-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.calc-slider.round {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 34px;
+}
+
+.calc-slider.round:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 50%;
+}
+
+.calc-switch input:checked + .calc-slider.round {
+    background-color: var(--emerald-primary);
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.6);
+}
+
+.calc-switch input:checked + .calc-slider.round:before {
+    transform: translateX(20px);
+}
+
+.calc-ai-toggle-text {
+    flex: 1;
+}
+
+.calc-ai-toggle-title {
+    font-size: 0.88rem;
+    font-weight: 700;
     color: #fff;
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-bottom: 2px;
 }
 
-.calc-results-badge {
-    font-size: 0.75rem;
-    background: rgba(0, 255, 136, 0.15);
-    color: var(--emerald-primary);
-    padding: 4px 10px;
-    border-radius: 9999px;
-    font-weight: 700;
+.calc-ai-toggle-desc {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Profit Banner */
+.calc-profit-banner {
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px dashed rgba(255, 193, 7, 0.35);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.calc-profit-label {
+    font-size: 0.8rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.calc-profit-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--gold-bright);
+    font-variant-numeric: tabular-nums;
+    direction: ltr;
     white-space: nowrap;
-    flex-shrink: 0;
 }
 
-.calc-metric-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(8px, 2vw, 16px);
-    margin-bottom: 18px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.calc-metric-item {
+/* Strategic Insight Box */
+.calc-insight-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: clamp(10px, 2vw, 16px) clamp(6px, 1.5vw, 14px);
-    text-align: center;
-    transition: all 0.3s ease;
-    min-width: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+    border-right: 3px solid var(--gold-bright);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-top: 14px;
 }
 
-.calc-metric-item:hover {
-    border-color: var(--emerald-primary);
-    background: rgba(0, 255, 136, 0.05);
-}
-
-.calc-metric-label {
-    font-size: clamp(0.72rem, 1.8vw, 0.8rem);
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    line-height: 1.3;
-    white-space: normal;
-}
-
-.calc-metric-number {
-    font-size: clamp(1.05rem, 2.8vw, 1.6rem);
-    font-weight: 900;
-    color: #fff;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.calc-metric-number.emerald {
-    color: var(--emerald-primary);
-    text-shadow: 0 0 12px rgba(0, 255, 136, 0.4);
-}
-
-.calc-metric-number.gold {
+.calc-insight-header {
+    font-size: 0.82rem;
+    font-weight: 700;
     color: var(--gold-bright);
-    text-shadow: 0 0 12px rgba(255, 193, 7, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.calc-insight-text {
+    font-size: 0.82rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
 }
 
 

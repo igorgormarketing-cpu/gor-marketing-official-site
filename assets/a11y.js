@@ -84,7 +84,7 @@ function buildPanel(){
   // declaration
   var decl=document.createElement('div');
   decl.style.cssText='border-top:1px solid rgba(255,255,255,.1);padding-top:12px;font-size:12px;color:#7070a0;line-height:1.7;';
-  decl.innerHTML='<p style="font-weight:700;color:#a0a0c0;margin:0 0 4px;">הצהרת נגישות</p><p style="margin:0 0 4px;">אתר זה פועל לעמידה בתקן SI 5568 / WCAG 2.1 AA.</p><a href="mailto:igor@gormarketing.com" style="color:#a78bfa;">אייגור גורלקין</a><br><a href="tel:052-515-5598" style="color:#a78bfa;">052-515-5598</a><p style="margin:8px 0 0;font-size:11px;">מאי 2026 | Alt+1</p>';
+  decl.innerHTML='<p style="font-weight:700;color:#a0a0c0;margin:0 0 4px;">הצהרת נגישות</p><p style="margin:0 0 4px;">אתר זה פועל לעמידה בתקן SI 5568 / WCAG 2.1 AA.</p><a href="mailto:igorgor.marketing@gmail.com" style="color:#a78bfa;">אייגור גורלקין</a><br><a href="tel:052-515-5598" style="color:#a78bfa;">052-515-5598</a><p style="margin:8px 0 0;font-size:11px;">מאי 2026 | Alt+1</p>';
   body.appendChild(decl);
   p.appendChild(body);
   document.body.appendChild(p);
