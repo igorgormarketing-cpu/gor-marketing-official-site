@@ -394,54 +394,201 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. GOR-Bot AI Concierge Widget Logic
+        // 6. Intelligent Proactive GOR-Bot AI Concierge Engine
     const botTrigger = document.getElementById('gor-bot-trigger');
     const botModal = document.getElementById('gor-bot-modal');
     const botClose = document.getElementById('gor-bot-close');
     const botBody = document.getElementById('gor-bot-body');
+    const botInput = document.getElementById('gor-bot-input');
+    const botSendBtn = document.getElementById('gor-bot-send-btn');
 
-    if (botTrigger && botModal) {
-        botTrigger.addEventListener('click', () => {
+    function toggleBotModal(open) {
+        if (!botModal) return;
+        if (open === undefined) {
             botModal.classList.toggle('active');
-        });
+        } else if (open) {
+            botModal.classList.add('active');
+        } else {
+            botModal.classList.remove('active');
+        }
+        const bubble = document.getElementById('gor-bot-bubble');
+        if (bubble) bubble.classList.remove('show');
+        if (botModal.classList.contains('active') && botInput) {
+            setTimeout(() => botInput.focus(), 200);
+        }
     }
 
-    if (botClose && botModal) {
-        botClose.addEventListener('click', () => {
-            botModal.classList.remove('active');
+    if (botTrigger) botTrigger.addEventListener('click', () => toggleBotModal());
+    if (botClose) botClose.addEventListener('click', () => toggleBotModal(false));
+
+    setTimeout(() => {
+        if (!botModal || botModal.classList.contains('active')) return;
+        let bubble = document.getElementById('gor-bot-bubble');
+        if (!bubble) {
+            bubble = document.createElement('div');
+            bubble.id = 'gor-bot-bubble';
+            bubble.className = 'gor-bot-proactive-bubble';
+            bubble.innerHTML = '<span style="font-size: 1.2rem;">👋</span><div><strong>היי! יש לך שאלה?</strong><br><span style="color: var(--text-muted); font-size: 0.78rem;">אני כאן לעזור לך להגדיל מכירות בלייב.</span></div>';
+            bubble.addEventListener('click', () => toggleBotModal(true));
+            document.body.appendChild(bubble);
+        }
+        bubble.classList.add('show');
+        setTimeout(() => bubble && bubble.classList.remove('show'), 12000);
+    }, 8000);
+
+    const knowledgeBase = [
+        {
+            keywords: ['מחיר', 'עלות', 'מחירון', 'כמה עולה', 'אפיון', 'פגישה', 'תשלום', 'זום'],
+            text: 'פגישת אפיון אסטרטגית אישית עם איגור (פרונטלית או ב-Zoom) עולה <strong>150 ₪ + מע"מ</strong>. לאחר הפגישה נבנה תוכנית מותאמת בדיוק לתקציב וליעדי העסק שלך.',
+            wa: 'היי איגור, אשמח לתאם פגישת אפיון אסטרטגית אישית (150 ש"ח + מע"מ).',
+            btnText: 'תאם פגישת אפיון בוואטסאפ',
+            btnIcon: 'fa-calendar-check',
+            btnClass: 'btn-gold',
+            btnHref: 'https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%A4%D7%92%D7%99%D7%A9%D7%AA%20%D7%90%D7%A4%D7%99%D7%95%D7%9F%20%D7%95%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%90%D7%99%D7%A9%D7%99%D7%AA%20(150%20%D7%A9%D7%97)'
+        },
+        {
+            keywords: ['crm', 'סי אר אם', 'לידים', 'אוטומציה', 'בוט', 'מערכת'],
+            text: '<strong>GOR CRM</strong> היא מערכת מתקדמת לניהול לידים, אוטומציית מענה תוך 60 שניות, חיבור לסוכני AI ומקסום יחס סגירה לעסקים.',
+            wa: 'היי איגור, אשמח לקבל פרטים ודמו על מערכת GOR CRM.',
+            btnText: 'כניסה ל-GOR CRM / פתיחת דמו',
+            btnIcon: 'fa-crown',
+            btnClass: 'btn-emerald',
+            btnHref: 'https://gorcrm.netlify.app/'
+        },
+        {
+            keywords: ['roi', 'מחשבון', 'תקציב', 'תחזית', 'כדאיות', 'חישוב'],
+            text: 'מחשבון ה-ROI הרב-ערוצי שלנו מאפשר לך לחשב צפי הכנסות, עסקאות ו-ROAS עבור 8 ערוצי שיווק שונים.',
+            wa: 'היי איגור, ביצעתי תחזית במחשבון ה-ROI ואשמח לתוכנית פעולה.',
+            btnText: 'מעבר למחשבון ה-ROI באתר',
+            btnIcon: 'fa-calculator',
+            btnClass: 'btn-gold',
+            btnHref: 'index.html#roi-calculator',
+            isAnchor: true
+        },
+        {
+            keywords: ['גוגל', 'קידום', 'seo', 'ppc', 'ממומן', 'אורגני', 'פרסום בגוגל'],
+            text: 'אנחנו מנהלים קמפיינים בגוגל ממומן (Google Ads) וקידום אורגני (SEO) ששמים את העסק שלך במקום הראשון ומביאים לקוחות בכוונת רכישה מיידית.',
+            wa: 'היי איגור, אני רוצה לקבל הצעה לפרסום וקידום בגוגל.'
+        },
+        {
+            keywords: ['פייסבוק', 'אינסטגרם', 'מטא', 'טיקטוק', 'סושיאל', 'רילס'],
+            text: 'קמפיינים ממומנים במטא (פייסבוק ואינסטגרם) עם קריאייטיב ממיר, פילוח קהלים מדויק ומשפכי מכירה (Funnels) שמייצרים לידים איכותיים.',
+            wa: 'היי איגור, אשמח להצעה לקמפיין פייסבוק/אינסטגרם ממיר.'
+        },
+        {
+            keywords: ['אפליקציה', 'אפליקציות', 'תוכנה', 'saas', 'פיתוח', 'קוד', 'אתר', 'חנות'],
+            text: 'צוות הפיתוח של GOR בונה מערכות SaaS, חנויות איקומרס מורכבות ואפליקציות מותאמות אישית עם דגש על ביצועים ואבטחה.',
+            wa: 'היי איגור, אני רוצה לפתח אפליקציה / אתר מותאם אישית.',
+            btnText: 'צפייה בפורטפוליו האפליקציות',
+            btnIcon: 'fa-laptop-code',
+            btnClass: 'btn-cyan',
+            btnHref: 'apps.html',
+            isAnchor: true
+        },
+        {
+            keywords: ['קבלנים', 'contech', 'am building', 'בנייה', 'שיפוצים'],
+            text: 'פלטפורמת <strong>הקבלנים (AM BUILDING)</strong> היא מערכת ConTech חדשנית לחיבור ישיר בין קבלנים, יזמים ואנשי מקצוע מובילים.',
+            wa: 'היי איגור, אשמח לפרטים על פלטפורמת הקבלנים ConTech.',
+            btnText: 'מעבר לעמוד הקבלנים',
+            btnIcon: 'fa-hard-hat',
+            btnClass: 'btn-gold',
+            btnHref: 'hakablanim.html',
+            isAnchor: true
+        },
+        {
+            keywords: ['איגור', 'טלפון', 'נייד', 'וואטסאפ', 'דואל', 'מייל', 'קשר', 'ליצור קשר'],
+            text: 'איגור גורלקין זמין ישירות בטלפון <strong>052-515-5598</strong>, בדוא"ל <strong>igorgor.marketing@gmail.com</strong> או ישירות בוואטסאפ!',
+            wa: 'היי איגור, הגעתי מסוכן ה-AI באתר ואשמח לשוחח איתך.',
+            btnText: 'שלח הודעה ישירה לאיגור',
+            btnIcon: 'fa-whatsapp',
+            btnClass: 'btn-gold',
+            btnHref: 'https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A'
+        }
+    ];
+
+    function renderBotResponse(responseText, waMsg, ctaObj) {
+        if (!botBody) return;
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'gor-msg bot';
+        typingDiv.innerHTML = '<div class="gor-typing-dots"><div class="gor-typing-dot"></div><div class="gor-typing-dot"></div><div class="gor-typing-dot"></div></div>';
+        botBody.appendChild(typingDiv);
+        botBody.scrollTop = botBody.scrollHeight;
+
+        setTimeout(() => {
+            typingDiv.remove();
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'gor-msg bot';
+
+            let ctaHtml = '';
+            if (ctaObj && ctaObj.btnHref) {
+                const target = ctaObj.isAnchor ? '' : 'target="_blank" rel="noopener noreferrer"';
+                ctaHtml = '<div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">' +
+                          '<a href="' + ctaObj.btnHref + '" ' + target + ' class="' + (ctaObj.btnClass || 'btn-gold') + '" style="padding: 6px 14px; font-size: 0.8rem; text-decoration: none; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px;">' +
+                          '<i class="fas ' + (ctaObj.btnIcon || 'fa-arrow-left') + '"></i> ' + ctaObj.btnText +
+                          '</a>' +
+                          '</div>';
+            } else if (waMsg) {
+                ctaHtml = '<div style="margin-top: 10px;">' +
+                          '<a href="https://wa.me/972525155598?text=' + encodeURIComponent(waMsg) + '" target="_blank" class="btn-gold" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 0.8rem; text-decoration: none; border-radius: 8px;">' +
+                          '<i class="fab fa-whatsapp"></i> המשך שיחה ישירה עם איגור' +
+                          '</a>' +
+                          '</div>';
+            }
+
+            msgDiv.innerHTML = responseText + ctaHtml;
+            botBody.appendChild(msgDiv);
+            botBody.scrollTop = botBody.scrollHeight;
+        }, 450);
+    }
+
+    function handleUserMessage(queryText) {
+        if (!queryText || !queryText.trim() || !botBody) return;
+        const q = queryText.trim();
+
+        const userDiv = document.createElement('div');
+        userDiv.className = 'gor-msg user';
+        userDiv.textContent = q;
+        botBody.appendChild(userDiv);
+        botBody.scrollTop = botBody.scrollHeight;
+        if (botInput) botInput.value = '';
+
+        const lowerQ = q.toLowerCase();
+        let matched = null;
+        for (const item of knowledgeBase) {
+            if (item.keywords.some(k => lowerQ.includes(k))) {
+                matched = item;
+                break;
+            }
+        }
+
+        if (matched) {
+            renderBotResponse(matched.text, matched.wa, matched);
+        } else {
+            const fallbackText = 'היוצר שלי יוכל לענות לך על השאלה הזו הכי טוב ומדויק.<br>מעביר אותך להתכתבות בוואטסאפ איתו:';
+            const fallbackWa = 'היי איגור, הגעתי מסוכן GOR באתר ויש לי שאלה בנושא: ' + q;
+            renderBotResponse(fallbackText, fallbackWa, null);
+        }
+    }
+
+    if (botSendBtn && botInput) {
+        botSendBtn.addEventListener('click', () => handleUserMessage(botInput.value));
+        botInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleUserMessage(botInput.value);
+            }
         });
     }
 
     window.askGorBot = function(topic) {
-        if (!botBody) return;
-        let response = '';
-        let whatsappMsg = '';
-
         if (topic === 'services') {
-            response = '<strong>GOR MARKETING</strong> מעניקה מעטפת 360° מלאה: קידום אורגני SEO, פרסום ממומן PPC ב-Google וב-Meta, פיתוח מערכות ואפליקציות SaaS, אוטומציות וסוכני AI, והפקות וידאו.';
-            whatsappMsg = 'היי איגור, אשמח לקבל פרטים נוספים על מעטפת שירותי השיווק 360 של GOR MARKETING.';
+            renderBotResponse('<strong>GOR MARKETING</strong> מספקת מעטפת שיווק 360° הכוללת: פרסום בגוגל וברשתות החברתיות, פיתוח אפליקציות ו-SaaS, סוכני AI ואוטומציות מתקדמות.', 'היי איגור, אשמח לשמוע על חבילת שיווק 360°.');
         } else if (topic === 'pricing') {
-            response = 'פגישת אפיון ואסטרטגיה אישית עולה <strong>150 ₪ + מע"מ לשעה</strong>. בנוסף, יש לנו חבילות שיווק ופיתוח מותאמות אישית לגודל העסק והיעדים.';
-            whatsappMsg = 'היי איגור, אני מעוניין לתאם פגישת אפיון ואסטרטגיה אישית (150 ש"ח + מע"מ).';
+            renderBotResponse('פגישת אפיון אסטרטגית אישית עם איגור (פרונטלית או ב-Zoom) עולה <strong>150 ₪ + מע"מ</strong>. לאחר הפגישה נבנה תוכנית מותאמת לתקציב שלך.', 'היי איגור, אני רוצה לתאם פגישת אפיון (150 ש"ח + מע"מ).');
         } else if (topic === 'crm') {
-            response = 'מערכת <strong>GOR CRM</strong> היא מערכת ניהול לקוחות, משימות, הצעות מחיר ומשפכי מכירה מתקדמת שמותאמת במיוחד לעסקים ישראליים.';
-            whatsappMsg = 'היי איגור, אשמח לראות דמו של מערכת GOR CRM.';
+            renderBotResponse('<strong>GOR CRM</strong> היא מערכת ניהול לידים ואוטומציה המבצעת מענה תוך 60 שניות ומקפיצה את אחוזי הסגירה בעסק.', 'היי איגור, אשמח לפרטים על מערכת GOR CRM.');
         } else if (topic === 'apps') {
-            response = 'אנחנו מפתחים פלטפורמות בהתאמה אישית מלאה: כולל אפליקציית <strong>TWIN PropTech</strong> לניהול בניינים ו-<strong>AM BUILDING ConTech</strong> לחברות בנייה.';
-            whatsappMsg = 'היי איגור, מעניין אותי לפתח מערכת / אפליקציה מותאמת אישית לעסק שלי.';
+            renderBotResponse('אנחנו מפתחים מערכות SaaS ואפליקציות מותאמות: <strong>TWIN PropTech</strong> לניהול בניינים, <strong>AM BUILDING</strong> לניהול בנייה ו-ConTech, וחנויות איקומרס.', 'היי איגור, מעניין אותי לפתח מערכת / אפליקציה מותאמת.');
         }
-
-        const msgDiv = document.createElement('div');
-        msgDiv.className = 'gor-msg bot';
-        msgDiv.innerHTML = `
-            ${response}
-            <div style="margin-top: 10px;">
-                <a href="https://wa.me/972525155598?text=${encodeURIComponent(whatsappMsg)}" target="_blank" class="btn-gold" style="display: inline-block; padding: 6px 14px; font-size: 0.8rem; text-decoration: none; border-radius: 8px;">
-                    <i class="fab fa-whatsapp"></i> המשך שיחה בוואטסאפ עם איגור
-                </a>
-            </div>
-        `;
-        botBody.appendChild(msgDiv);
-        botBody.scrollTop = botBody.scrollHeight;
     };
 });
