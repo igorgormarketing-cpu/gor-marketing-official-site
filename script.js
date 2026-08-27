@@ -90,14 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(moveCarousel, 4500);
     }
 
-            // 3. Advanced Multi-Channel & Dual-Mode ROI Simulator Logic
+                // 3. Advanced Multi-Channel & Dual-Mode ROI Simulator Logic
     const channelPresets = {
         omnichannel: {
             name: 'שילוב 360° Omnichannel',
             badge: '🌐 שילוב 360° Omnichannel',
-            minBudget: 10000, maxBudget: 250000, stepBudget: 2500, defaultBudget: 25000,
-            minDeal: 1000, maxDeal: 60000, stepDeal: 500, defaultDeal: 6000,
-            minLeads: 50, maxLeads: 1500, stepLeads: 10, defaultLeads: 380,
+            minBudget: 100, maxBudget: 250000, stepBudget: 100, defaultBudget: 25000,
+            minDeal: 100, maxDeal: 60000, stepDeal: 50, defaultDeal: 6000,
+            minLeads: 1, maxLeads: 1500, stepLeads: 1, defaultLeads: 380,
             baseCpl: 65,
             baseConvRate: 0.22,
             aiBoostFactor: 0.45,
@@ -107,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         google_ppc: {
             name: 'גוגל ממומן (Google Ads)',
             badge: '🎯 גוגל ממומן (PPC / Shopping)',
-            minBudget: 3000, maxBudget: 120000, stepBudget: 1000, defaultBudget: 12000,
-            minDeal: 800, maxDeal: 50000, stepDeal: 500, defaultDeal: 4500,
-            minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            minBudget: 100, maxBudget: 120000, stepBudget: 100, defaultBudget: 12000,
+            minDeal: 100, maxDeal: 50000, stepDeal: 50, defaultDeal: 4500,
+            minLeads: 1, maxLeads: 800, stepLeads: 1, defaultLeads: 130,
             baseCpl: 92,
             baseConvRate: 0.17,
             aiBoostFactor: 0.40,
@@ -119,9 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         google_seo: {
             name: 'גוגל אורגני (SEO)',
             badge: '🔍 גוגל אורגני (SEO & Top Rank)',
-            minBudget: 3500, maxBudget: 60000, stepBudget: 500, defaultBudget: 8000,
-            minDeal: 1000, maxDeal: 50000, stepDeal: 500, defaultDeal: 5000,
-            minLeads: 30, maxLeads: 900, stepLeads: 10, defaultLeads: 180,
+            minBudget: 100, maxBudget: 60000, stepBudget: 100, defaultBudget: 8000,
+            minDeal: 100, maxDeal: 50000, stepDeal: 50, defaultDeal: 5000,
+            minLeads: 1, maxLeads: 900, stepLeads: 1, defaultLeads: 180,
             baseCpl: 45,
             baseConvRate: 0.15,
             aiBoostFactor: 0.35,
@@ -131,9 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         meta_ads: {
             name: 'קמפיין פייסבוק ממומן (Meta Ads)',
             badge: '🚀 קמפיין ממומן מטא / פייסבוק',
-            minBudget: 3000, maxBudget: 100000, stepBudget: 1000, defaultBudget: 10000,
-            minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3800,
-            minLeads: 30, maxLeads: 1000, stepLeads: 10, defaultLeads: 145,
+            minBudget: 100, maxBudget: 100000, stepBudget: 100, defaultBudget: 10000,
+            minDeal: 100, maxDeal: 40000, stepDeal: 50, defaultDeal: 3800,
+            minLeads: 1, maxLeads: 1000, stepLeads: 1, defaultLeads: 145,
             baseCpl: 70,
             baseConvRate: 0.13,
             aiBoostFactor: 0.45,
@@ -143,9 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fb_organic: {
             name: 'ניהול עמוד וקהילה בפייסבוק',
             badge: '📘 עמוד וקהילה בפייסבוק',
-            minBudget: 2500, maxBudget: 40000, stepBudget: 500, defaultBudget: 6000,
-            minDeal: 500, maxDeal: 30000, stepDeal: 500, defaultDeal: 3000,
-            minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 120,
+            minBudget: 100, maxBudget: 40000, stepBudget: 100, defaultBudget: 6000,
+            minDeal: 100, maxDeal: 30000, stepDeal: 50, defaultDeal: 3000,
+            minLeads: 1, maxLeads: 600, stepLeads: 1, defaultLeads: 120,
             baseCpl: 50,
             baseConvRate: 0.12,
             aiBoostFactor: 0.30,
@@ -155,9 +155,9 @@ document.addEventListener('DOMContentLoaded', () => {
         youtube: {
             name: 'ניהול ושיווק ערוץ יוטיוב',
             badge: '🎥 ערוץ יוטיוב (YouTube Video)',
-            minBudget: 4000, maxBudget: 80000, stepBudget: 1000, defaultBudget: 9000,
-            minDeal: 1500, maxDeal: 70000, stepDeal: 500, defaultDeal: 7500,
-            minLeads: 20, maxLeads: 700, stepLeads: 5, defaultLeads: 135,
+            minBudget: 100, maxBudget: 80000, stepBudget: 100, defaultBudget: 9000,
+            minDeal: 100, maxDeal: 70000, stepDeal: 50, defaultDeal: 7500,
+            minLeads: 1, maxLeads: 700, stepLeads: 1, defaultLeads: 135,
             baseCpl: 68,
             baseConvRate: 0.20,
             aiBoostFactor: 0.45,
@@ -167,9 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
         instagram: {
             name: 'אינסטגרם ומיתוג ויזואלי',
             badge: '📸 אינסטגרם ומיתוג ויזואלי',
-            minBudget: 3000, maxBudget: 70000, stepBudget: 1000, defaultBudget: 8000,
-            minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3200,
-            minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            minBudget: 100, maxBudget: 70000, stepBudget: 100, defaultBudget: 8000,
+            minDeal: 100, maxDeal: 40000, stepDeal: 50, defaultDeal: 3200,
+            minLeads: 1, maxLeads: 800, stepLeads: 1, defaultLeads: 130,
             baseCpl: 62,
             baseConvRate: 0.14,
             aiBoostFactor: 0.35,
@@ -179,9 +179,9 @@ document.addEventListener('DOMContentLoaded', () => {
         native_news: {
             name: 'אתרי חדשות וטאבולה/אאוטבריין',
             badge: '📰 אתרי חדשות ויח"צ (Native Ads)',
-            minBudget: 6000, maxBudget: 150000, stepBudget: 1000, defaultBudget: 15000,
-            minDeal: 2000, maxDeal: 100000, stepDeal: 1000, defaultDeal: 9000,
-            minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 135,
+            minBudget: 100, maxBudget: 150000, stepBudget: 100, defaultBudget: 15000,
+            minDeal: 100, maxDeal: 100000, stepDeal: 100, defaultDeal: 9000,
+            minLeads: 1, maxLeads: 600, stepLeads: 1, defaultLeads: 135,
             baseCpl: 110,
             baseConvRate: 0.18,
             aiBoostFactor: 0.40,
@@ -191,9 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsapp_retention: {
             name: 'שיווק בוואטסאפ וניוזלטרים',
             badge: '💬 שיווק בוואטסאפ וניוזלטרים',
-            minBudget: 2000, maxBudget: 40000, stepBudget: 500, defaultBudget: 5000,
-            minDeal: 500, maxDeal: 35000, stepDeal: 500, defaultDeal: 3500,
-            minLeads: 40, maxLeads: 1200, stepLeads: 10, defaultLeads: 250,
+            minBudget: 100, maxBudget: 40000, stepBudget: 100, defaultBudget: 5000,
+            minDeal: 100, maxDeal: 35000, stepDeal: 50, defaultDeal: 3500,
+            minLeads: 1, maxLeads: 1200, stepLeads: 1, defaultLeads: 250,
             baseCpl: 20,
             baseConvRate: 0.25,
             aiBoostFactor: 0.45,
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let activeChannelKey = 'omnichannel';
-    let currentCalcMode = 'forward'; // 'forward' or 'reverse'
+    let currentCalcMode = 'forward';
 
     const modeForwardBtn = document.getElementById('mode-forward-btn');
     const modeReverseBtn = document.getElementById('mode-reverse-btn');
@@ -229,15 +229,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentChannelBadge = document.getElementById('calc-current-channel-badge');
 
     const budgetSlider = document.getElementById('calc-budget');
-    const targetLeadsSlider = document.getElementById('calc-target-leads');
-    const dealSlider = document.getElementById('calc-deal');
-    const leadsSlider = document.getElementById('calc-leads');
-    const aiBoostCheckbox = document.getElementById('calc-ai-boost');
+    const budgetInput = document.getElementById('calc-budget-input');
 
-    const budgetDisplay = document.getElementById('calc-budget-val');
-    const targetLeadsDisplay = document.getElementById('calc-target-leads-val');
-    const dealDisplay = document.getElementById('calc-deal-val');
-    const leadsDisplay = document.getElementById('calc-leads-val');
+    const targetLeadsSlider = document.getElementById('calc-target-leads');
+    const targetLeadsInput = document.getElementById('calc-target-leads-input');
+
+    const dealSlider = document.getElementById('calc-deal');
+    const dealInput = document.getElementById('calc-deal-input');
+
+    const leadsSlider = document.getElementById('calc-leads');
+    const leadsInput = document.getElementById('calc-leads-input');
+
+    const aiBoostCheckbox = document.getElementById('calc-ai-boost');
 
     const budgetMinDisp = document.getElementById('calc-budget-min');
     const budgetMaxDisp = document.getElementById('calc-budget-max');
@@ -264,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetLeadsGroup) targetLeadsGroup.style.display = 'none';
             if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'none';
 
-            if (controlsHeading) controlsHeading.textContent = 'התאמת פרמטרים לפעילות';
+            if (controlsHeading) controlsHeading.textContent = 'התאמת פרמטרים לפעילות (הקלד או גרור)';
             if (resultsHeading) resultsHeading.textContent = 'תחזית ביצועים ותשואה חודשית';
             if (metric1Lbl) metric1Lbl.textContent = 'צפי הכנסות חודשיות';
             if (metric2Lbl) metric2Lbl.textContent = 'עסקאות סגורות משוערות';
@@ -281,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (targetLeadsGroup) targetLeadsGroup.style.display = 'block';
             if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'block';
 
-            if (controlsHeading) controlsHeading.textContent = 'הגדרת יעד שיחות ופניות מבוקש';
+            if (controlsHeading) controlsHeading.textContent = 'הגדרת יעד שיחות ופניות (הקלד או גרור)';
             if (resultsHeading) resultsHeading.textContent = 'תקציב השקעה נדרש ותחזית תוצאות';
             if (metric1Lbl) metric1Lbl.textContent = 'תקציב חודשי נדרש (לערוץ הנבחר)';
             if (metric2Lbl) metric2Lbl.textContent = 'צפי עסקאות שיסגרו מהיעד';
@@ -318,27 +321,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (budgetSlider) {
-            budgetSlider.min = preset.minBudget;
+            budgetSlider.min = 100;
             budgetSlider.max = preset.maxBudget;
-            budgetSlider.step = preset.stepBudget;
+            budgetSlider.step = 100;
             budgetSlider.value = preset.defaultBudget;
-            if (budgetMinDisp) budgetMinDisp.textContent = '₪' + preset.minBudget.toLocaleString('he-IL');
+            if (budgetInput) {
+                budgetInput.value = preset.defaultBudget;
+                budgetInput.min = 100;
+            }
+            if (budgetMinDisp) budgetMinDisp.textContent = '₪100';
             if (budgetMaxDisp) budgetMaxDisp.textContent = '₪' + preset.maxBudget.toLocaleString('he-IL');
         }
 
         if (dealSlider) {
-            dealSlider.min = preset.minDeal;
+            dealSlider.min = 100;
             dealSlider.max = preset.maxDeal;
-            dealSlider.step = preset.stepDeal;
+            dealSlider.step = 50;
             dealSlider.value = preset.defaultDeal;
+            if (dealInput) {
+                dealInput.value = preset.defaultDeal;
+                dealInput.min = 100;
+            }
         }
 
         if (leadsSlider) {
-            leadsSlider.min = preset.minLeads;
+            leadsSlider.min = 1;
             leadsSlider.max = preset.maxLeads;
-            leadsSlider.step = preset.stepLeads;
+            leadsSlider.step = 1;
             leadsSlider.value = preset.defaultLeads;
-            if (leadsMinDisp) leadsMinDisp.textContent = preset.minLeads.toLocaleString('he-IL');
+            if (leadsInput) {
+                leadsInput.value = preset.defaultLeads;
+                leadsInput.min = 1;
+            }
+            if (leadsMinDisp) leadsMinDisp.textContent = '1';
             if (leadsMaxDisp) leadsMaxDisp.textContent = preset.maxLeads.toLocaleString('he-IL');
         }
 
@@ -371,18 +386,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCalculator() {
         const preset = channelPresets[activeChannelKey] || channelPresets.omnichannel;
-        const dealVal = dealSlider ? parseInt(dealSlider.value, 10) : 6000;
+        const dealVal = dealInput ? Math.max(100, parseInt(dealInput.value, 10) || 100) : (dealSlider ? parseInt(dealSlider.value, 10) : 6000);
         const isAiBoost = aiBoostCheckbox ? aiBoostCheckbox.checked : true;
 
-        if (dealDisplay) dealDisplay.textContent = '₪' + dealVal.toLocaleString('he-IL');
-
         if (currentCalcMode === 'forward') {
-            if (!budgetSlider || !leadsSlider) return;
-            const budget = parseInt(budgetSlider.value, 10);
-            const leads = parseInt(leadsSlider.value, 10);
-
-            if (budgetDisplay) budgetDisplay.textContent = '₪' + budget.toLocaleString('he-IL');
-            if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' פניות';
+            const budget = budgetInput ? Math.max(100, parseInt(budgetInput.value, 10) || 100) : (budgetSlider ? parseInt(budgetSlider.value, 10) : 25000);
+            const leads = leadsInput ? Math.max(1, parseInt(leadsInput.value, 10) || 1) : (leadsSlider ? parseInt(leadsSlider.value, 10) : 380);
 
             const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
             const estimatedDeals = Math.max(1, Math.round(leads * effectiveConvRate));
@@ -412,8 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             // REVERSE TARGET GOAL MODE
-            const targetLeads = targetLeadsSlider ? parseInt(targetLeadsSlider.value, 10) : 120;
-            if (targetLeadsDisplay) targetLeadsDisplay.textContent = targetLeads.toLocaleString('he-IL') + ' שיחות/פניות';
+            const targetLeads = targetLeadsInput ? Math.max(1, parseInt(targetLeadsInput.value, 10) || 1) : (targetLeadsSlider ? parseInt(targetLeadsSlider.value, 10) : 120);
 
             const effCpl = isAiBoost ? Math.round(preset.baseCpl * 0.85) : preset.baseCpl;
             const requiredBudget = Math.round(targetLeads * effCpl);
@@ -458,15 +466,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (budgetSlider) budgetSlider.addEventListener('input', updateCalculator);
-    if (targetLeadsSlider) targetLeadsSlider.addEventListener('input', updateCalculator);
-    if (dealSlider) dealSlider.addEventListener('input', updateCalculator);
-    if (leadsSlider) leadsSlider.addEventListener('input', updateCalculator);
+    // Two-way synchronization for budget
+    if (budgetSlider && budgetInput) {
+        budgetSlider.addEventListener('input', () => {
+            budgetInput.value = budgetSlider.value;
+            updateCalculator();
+        });
+        budgetInput.addEventListener('input', () => {
+            const val = Math.max(100, parseInt(budgetInput.value, 10) || 100);
+            budgetSlider.value = val;
+            updateCalculator();
+        });
+    }
+
+    // Two-way synchronization for deal value
+    if (dealSlider && dealInput) {
+        dealSlider.addEventListener('input', () => {
+            dealInput.value = dealSlider.value;
+            updateCalculator();
+        });
+        dealInput.addEventListener('input', () => {
+            const val = Math.max(100, parseInt(dealInput.value, 10) || 100);
+            dealSlider.value = val;
+            updateCalculator();
+        });
+    }
+
+    // Two-way synchronization for forward leads
+    if (leadsSlider && leadsInput) {
+        leadsSlider.addEventListener('input', () => {
+            leadsInput.value = leadsSlider.value;
+            updateCalculator();
+        });
+        leadsInput.addEventListener('input', () => {
+            const val = Math.max(1, parseInt(leadsInput.value, 10) || 1);
+            leadsSlider.value = val;
+            updateCalculator();
+        });
+    }
+
+    // Two-way synchronization for reverse target leads
+    if (targetLeadsSlider && targetLeadsInput) {
+        targetLeadsSlider.addEventListener('input', () => {
+            targetLeadsInput.value = targetLeadsSlider.value;
+            updateCalculator();
+        });
+        targetLeadsInput.addEventListener('input', () => {
+            const val = Math.max(1, parseInt(targetLeadsInput.value, 10) || 1);
+            targetLeadsSlider.value = val;
+            updateCalculator();
+        });
+    }
+
     if (aiBoostCheckbox) aiBoostCheckbox.addEventListener('change', updateCalculator);
 
     updateCalculator();
 
-    
     // Toggle All 19 Google Reviews
     const toggleReviewsBtn = document.getElementById('toggle-all-reviews-btn');
     if (toggleReviewsBtn) {

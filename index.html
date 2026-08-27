@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20260827_08">
+    <link rel="stylesheet" href="styles.css?v=20260827_09">
     
     <style>
         /* Form & Review Specific Enhancements */
@@ -781,15 +781,18 @@
                             </span>
                         </div>
 
-                        <!-- Slider 1: Budget (Forward Mode) OR Target Calls (Reverse Mode) -->
+                        <!-- Slider 1: Budget (Forward Mode) -->
                         <div class="calc-slider-group" id="calc-budget-group">
                             <div class="calc-slider-header">
-                                <span id="calc-budget-label">תקציב השקעה חודשי משוער:</span>
-                                <span id="calc-budget-val" class="calc-slider-val">₪25,000</span>
+                                <span id="calc-budget-label">תקציב השקעה חודשי (הקלד או גרור):</span>
+                                <div class="calc-input-wrapper">
+                                    <span class="calc-currency-symbol">₪</span>
+                                    <input type="number" id="calc-budget-input" class="calc-number-input" min="100" max="500000" step="50" value="25000" aria-label="תקציב השקעה במספר">
+                                </div>
                             </div>
-                            <input type="range" id="calc-budget" class="calc-range" min="10000" max="250000" step="2500" value="25000" aria-label="תקציב השקעה חודשי">
+                            <input type="range" id="calc-budget" class="calc-range" min="100" max="250000" step="100" value="25000" aria-label="תקציב השקעה חודשי">
                             <div class="calc-slider-limits">
-                                <span id="calc-budget-min">₪10,000</span>
+                                <span id="calc-budget-min">₪100</span>
                                 <span id="calc-budget-max">₪250,000</span>
                             </div>
                         </div>
@@ -797,12 +800,15 @@
                         <!-- Reverse Mode Primary Slider: Target Calls / Leads Goal -->
                         <div class="calc-slider-group" id="calc-target-leads-group" style="display: none;">
                             <div class="calc-slider-header">
-                                <span style="font-weight: 700; color: var(--emerald-primary);"><i class="fas fa-phone-volume"></i> יעד שיחות ופניות חודשיות מבוקש:</span>
-                                <span id="calc-target-leads-val" class="calc-slider-val" style="color: var(--emerald-primary);">120 שיחות/פניות</span>
+                                <span style="font-weight: 700; color: var(--emerald-primary);"><i class="fas fa-phone-volume"></i> יעד שיחות ופניות (הקלד או גרור):</span>
+                                <div class="calc-input-wrapper emerald-wrap">
+                                    <input type="number" id="calc-target-leads-input" class="calc-number-input emerald" min="1" max="5000" step="1" value="120" aria-label="יעד שיחות ופניות במספר">
+                                    <span class="calc-unit-label">שיחות</span>
+                                </div>
                             </div>
-                            <input type="range" id="calc-target-leads" class="calc-range" min="20" max="1000" step="10" value="120" aria-label="יעד שיחות ופניות מבוקש">
+                            <input type="range" id="calc-target-leads" class="calc-range" min="1" max="1000" step="1" value="120" aria-label="יעד שיחות ופניות מבוקש">
                             <div class="calc-slider-limits">
-                                <span>20 פניות</span>
+                                <span>1 פנייה</span>
                                 <span>1,000 פניות</span>
                             </div>
                         </div>
@@ -810,12 +816,15 @@
                         <!-- Slider 2: Average Deal Value (Both Modes) -->
                         <div class="calc-slider-group">
                             <div class="calc-slider-header">
-                                <span>שווי ממוצע של עסקה / לקוח (Ticket Size):</span>
-                                <span id="calc-deal-val" class="calc-slider-val">₪6,000</span>
+                                <span>שווי ממוצע לעסקה / לקוח (הקלד או גרור):</span>
+                                <div class="calc-input-wrapper">
+                                    <span class="calc-currency-symbol">₪</span>
+                                    <input type="number" id="calc-deal-input" class="calc-number-input" min="100" max="100000" step="50" value="6000" aria-label="שווי עסקה במספר">
+                                </div>
                             </div>
-                            <input type="range" id="calc-deal" class="calc-range" min="500" max="60000" step="500" value="6000" aria-label="שווי ממוצע לעסקה">
+                            <input type="range" id="calc-deal" class="calc-range" min="100" max="60000" step="100" value="6000" aria-label="שווי ממוצע לעסקה">
                             <div class="calc-slider-limits">
-                                <span>₪500</span>
+                                <span>₪100</span>
                                 <span>₪60,000</span>
                             </div>
                         </div>
@@ -824,11 +833,14 @@
                         <div class="calc-slider-group" id="calc-leads-group">
                             <div class="calc-slider-header">
                                 <span id="calc-volume-label">צפי פניות / לידים איכותיים בחודש:</span>
-                                <span id="calc-leads-val" class="calc-slider-val">380 פניות</span>
+                                <div class="calc-input-wrapper">
+                                    <input type="number" id="calc-leads-input" class="calc-number-input" min="1" max="5000" step="1" value="380" aria-label="כמות פניות במספר">
+                                    <span class="calc-unit-label">פניות</span>
+                                </div>
                             </div>
-                            <input type="range" id="calc-leads" class="calc-range" min="50" max="1500" step="10" value="380" aria-label="כמות פניות או לידים">
+                            <input type="range" id="calc-leads" class="calc-range" min="1" max="1500" step="1" value="380" aria-label="כמות פניות או לידים">
                             <div class="calc-slider-limits">
-                                <span id="calc-leads-min">50</span>
+                                <span id="calc-leads-min">1</span>
                                 <span id="calc-leads-max">1,500</span>
                             </div>
                         </div>
@@ -1848,6 +1860,6 @@
     <!-- Scripts -->
     <script src="assets/motion.js?v=13.0" defer></script>
     <script src="assets/accessibility.js?v=13.0" defer></script>
-    <script src="script.js?v=18.0"></script>
+    <script src="script.js?v=19.0"></script>
 </body>
 </html>
