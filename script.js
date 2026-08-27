@@ -3,6 +3,57 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // ========================================================
+    // GOR Analytics & Conversion Event Engine (GTM / GA4 / Meta)
+    // ========================================================
+    window.trackGorEvent = function(eventName, params = {}) {
+        const payload = {
+            event: eventName,
+            page_title: document.title,
+            page_location: window.location.href,
+            timestamp: new Date().toISOString(),
+            ...params
+        };
+
+        // 1. Google Tag Manager DataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(payload);
+
+        // 2. Google Analytics 4 gtag
+        if (typeof gtag === 'function') {
+            gtag('event', eventName, params);
+        }
+
+        // 3. Meta / Facebook Pixel fbq
+        if (typeof fbq === 'function') {
+            fbq('trackCustom', eventName, params);
+        }
+
+        // Console debug in dev
+        // console.log('[GOR Analytics]', eventName, payload);
+    };
+
+    // Auto-track WhatsApp Clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            window.trackGorEvent('whatsapp_lead_click', {
+                destination: 'whatsapp',
+                button_text: link.innerText.trim().substring(0, 40)
+            });
+        });
+    });
+
+    // Auto-track App Launches & Downloads
+    document.querySelectorAll('a[href*="gorcrm.netlify.app"], .btn-app-action').forEach(link => {
+        link.addEventListener('click', () => {
+            window.trackGorEvent('saas_app_action', {
+                target_url: link.getAttribute('href'),
+                action_text: link.innerText.trim().substring(0, 40)
+            });
+        });
+    });
+
     // 1. Reveal Animations on Scroll
     const reveals = document.querySelectorAll('.reveal');
     function reveal() {
@@ -79,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (resRoas) resRoas.textContent = roas + '%';
         if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
 
+        window.trackGorEvent('roi_calculated', { budget: budget, deals: estimatedDeals, revenue: estimatedRevenue });
         if (calcCtaBtn) {
             const msg = `היי איגור, ביצעתי תחזית במחשבון ה-ROI באתר GOR MARKETING:\n• תקציב חודשי: ₪${budget.toLocaleString('he-IL')}\n• שווי ממוצע לעסקה: ₪${dealVal.toLocaleString('he-IL')}\n• צפי לידים: ${leads}\n• צפי הכנסות: ₪${estimatedRevenue.toLocaleString('he-IL')} (ROAS ${roas}%)\nאשמח לבנות תוכנית פעולה מותאמת אישית!`;
             calcCtaBtn.href = `https://wa.me/972525155598?text=${encodeURIComponent(msg)}`;
@@ -146,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 4000);
             }
 
+            window.trackGorEvent('lead_form_submit', { service: service, name: name });
             const formattedMsg = `היי איגור, השארתי פנייה באתר GOR MARKETING:\n👤 שם מלא: ${name}\n📞 טלפון: ${phone}\n🛠️ שירות מבוקש: ${service}\n📝 פירוט: ${msg ? msg : 'ללא הודעה נוספת'}`;
             window.open(`https://wa.me/972525155598?text=${encodeURIComponent(formattedMsg)}`, '_blank');
         });
