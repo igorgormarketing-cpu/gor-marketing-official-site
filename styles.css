@@ -288,58 +288,85 @@ body {
 }
 
 .dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-    background: rgba(255, 255, 255, 0.02);
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid transparent !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    direction: rtl !important;
+    text-align: right !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .dropdown-item:hover {
-    background: rgba(255, 193, 7, 0.1);
-    border-color: rgba(255, 193, 7, 0.3);
-    color: #fff;
-    transform: translateX(-4px);
+    background: rgba(255, 193, 7, 0.1) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    color: #fff !important;
+    transform: translateX(-4px) !important;
 }
 
 .dropdown-item.item-emerald:hover {
-    background: rgba(0, 255, 136, 0.1);
-    border-color: rgba(0, 255, 136, 0.3);
+    background: rgba(0, 255, 136, 0.1) !important;
+    border-color: rgba(0, 255, 136, 0.3) !important;
 }
 
 .dropdown-item.item-cyan:hover {
-    background: rgba(0, 240, 255, 0.1);
-    border-color: rgba(0, 240, 255, 0.3);
+    background: rgba(0, 240, 255, 0.1) !important;
+    border-color: rgba(0, 240, 255, 0.3) !important;
 }
 
 .dropdown-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-    background: rgba(255, 255, 255, 0.05);
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    margin: 0 !important;
+}
+
+.dropdown-item-text {
+    display: block !important;
+    text-align: right !important;
+    direction: rtl !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .dropdown-item-text strong {
-    display: block;
-    font-size: 0.88rem;
-    color: #fff;
-    margin-bottom: 2px;
+    display: block !important;
+    font-size: 0.94rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 2px 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
 }
 
 .dropdown-item-text span {
-    display: block;
-    font-size: 0.74rem;
-    color: var(--text-muted);
+    display: block !important;
+    font-size: 0.78rem !important;
+    color: #94a3b8 !important;
+    margin: 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
 }
 
 /* Universal Navbar CTA Button - Ultra High Contrast & Visibility */
@@ -627,12 +654,16 @@ footer {
         display: flex !important;
     }
 
-    .nav-links a,
+    .nav-links > a,
     .nav-links .dropdown-trigger {
         font-size: 1.05rem;
         padding: 10px 0;
         width: 100%;
+        display: flex;
+        align-items: center;
         justify-content: space-between;
+        direction: rtl;
+        text-align: right;
     }
 
     .nav-item-dropdown {
@@ -712,16 +743,54 @@ footer {
     }
 
     .dropdown-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 14px !important;
         width: 100% !important;
-        padding: 12px 14px !important;
+        padding: 10px 12px !important;
+        text-align: right !important;
+        direction: rtl !important;
+        box-sizing: border-box !important;
+    }
+
+    .dropdown-icon {
+        width: 38px !important;
+        height: 38px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+
+    .dropdown-item-text {
+        display: block !important;
+        text-align: right !important;
+        direction: rtl !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .dropdown-item-text strong {
         font-size: 0.95rem !important;
+        font-weight: 700 !important;
+        text-align: right !important;
+        direction: rtl !important;
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 2px !important;
+        line-height: 1.3 !important;
     }
 
     .dropdown-item-text span {
-        font-size: 0.8rem !important;
+        font-size: 0.78rem !important;
+        color: #94a3b8 !important;
+        text-align: right !important;
+        direction: rtl !important;
+        display: block !important;
+        width: 100% !important;
+        line-height: 1.4 !important;
     }
 
     /* Prevent any card overflow */
