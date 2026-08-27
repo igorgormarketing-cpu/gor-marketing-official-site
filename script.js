@@ -466,6 +466,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCalculator();
 
+    
+    // Toggle All 19 Google Reviews
+    const toggleReviewsBtn = document.getElementById('toggle-all-reviews-btn');
+    if (toggleReviewsBtn) {
+        let isExpanded = false;
+        toggleReviewsBtn.addEventListener('click', () => {
+            const hiddenReviews = document.querySelectorAll('.review-card-gmb.hidden-review');
+            isExpanded = !isExpanded;
+            hiddenReviews.forEach(card => {
+                if (isExpanded) {
+                    card.classList.add('show-all');
+                } else {
+                    card.classList.remove('show-all');
+                }
+            });
+            toggleReviewsBtn.innerHTML = isExpanded 
+                ? '<i class="fas fa-chevron-up"></i> הצג פחות ביקורות' 
+                : '<i class="fas fa-chevron-down"></i> הצג את כל 19 הביקורות המלאות';
+        });
+    }
+
+
     // 4. Case Studies Category Filter Logic
     const filterBtns = document.querySelectorAll('.case-filter-btn');
     const caseCards = document.querySelectorAll('.case-study-card');
