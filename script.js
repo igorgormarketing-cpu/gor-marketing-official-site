@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(moveCarousel, 4500);
     }
 
-        // 3. Advanced Multi-Channel Growth & ROI Simulator Logic
+            // 3. Advanced Multi-Channel & Dual-Mode ROI Simulator Logic
     const channelPresets = {
         omnichannel: {
             name: 'שילוב 360° Omnichannel',
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 10000, maxBudget: 250000, stepBudget: 2500, defaultBudget: 25000,
             minDeal: 1000, maxDeal: 60000, stepDeal: 500, defaultDeal: 6000,
             minLeads: 50, maxLeads: 1500, stepLeads: 10, defaultLeads: 380,
+            baseCpl: 65,
             baseConvRate: 0.22,
             aiBoostFactor: 0.45,
             volumeLabel: 'צפי פניות / לידים איכותיים בחודש:',
@@ -109,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 3000, maxBudget: 120000, stepBudget: 1000, defaultBudget: 12000,
             minDeal: 800, maxDeal: 50000, stepDeal: 500, defaultDeal: 4500,
             minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            baseCpl: 92,
             baseConvRate: 0.17,
             aiBoostFactor: 0.40,
             volumeLabel: 'צפי הקלקות ופניות מחיפוש ממוקד:',
@@ -120,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 3500, maxBudget: 60000, stepBudget: 500, defaultBudget: 8000,
             minDeal: 1000, maxDeal: 50000, stepDeal: 500, defaultDeal: 5000,
             minLeads: 30, maxLeads: 900, stepLeads: 10, defaultLeads: 180,
+            baseCpl: 45,
             baseConvRate: 0.15,
             aiBoostFactor: 0.35,
             volumeLabel: 'צפי פניות חודשיות מתנועה אורגנית:',
@@ -131,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 3000, maxBudget: 100000, stepBudget: 1000, defaultBudget: 10000,
             minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3800,
             minLeads: 30, maxLeads: 1000, stepLeads: 10, defaultLeads: 145,
+            baseCpl: 70,
             baseConvRate: 0.13,
             aiBoostFactor: 0.45,
             volumeLabel: 'צפי לידים ממשפכי המרה ממומנים:',
@@ -142,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 2500, maxBudget: 40000, stepBudget: 500, defaultBudget: 6000,
             minDeal: 500, maxDeal: 30000, stepDeal: 500, defaultDeal: 3000,
             minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 120,
+            baseCpl: 50,
             baseConvRate: 0.12,
             aiBoostFactor: 0.30,
             volumeLabel: 'צפי פניות מאינטראקציה וקהילה:',
@@ -153,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 4000, maxBudget: 80000, stepBudget: 1000, defaultBudget: 9000,
             minDeal: 1500, maxDeal: 70000, stepDeal: 500, defaultDeal: 7500,
             minLeads: 20, maxLeads: 700, stepLeads: 5, defaultLeads: 135,
+            baseCpl: 68,
             baseConvRate: 0.20,
             aiBoostFactor: 0.45,
             volumeLabel: 'צפי פניות חמות מתוכן וידאו:',
@@ -164,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 3000, maxBudget: 70000, stepBudget: 1000, defaultBudget: 8000,
             minDeal: 500, maxDeal: 40000, stepDeal: 500, defaultDeal: 3200,
             minLeads: 25, maxLeads: 800, stepLeads: 5, defaultLeads: 130,
+            baseCpl: 62,
             baseConvRate: 0.14,
             aiBoostFactor: 0.35,
             volumeLabel: 'צפי פניות והמרות מרילס ומיתוג:',
@@ -175,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 6000, maxBudget: 150000, stepBudget: 1000, defaultBudget: 15000,
             minDeal: 2000, maxDeal: 100000, stepDeal: 1000, defaultDeal: 9000,
             minLeads: 20, maxLeads: 600, stepLeads: 5, defaultLeads: 135,
+            baseCpl: 110,
             baseConvRate: 0.18,
             aiBoostFactor: 0.40,
             volumeLabel: 'צפי מתעניינים מכתבות תוכן:',
@@ -186,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             minBudget: 2000, maxBudget: 40000, stepBudget: 500, defaultBudget: 5000,
             minDeal: 500, maxDeal: 35000, stepDeal: 500, defaultDeal: 3500,
             minLeads: 40, maxLeads: 1200, stepLeads: 10, defaultLeads: 250,
+            baseCpl: 20,
             baseConvRate: 0.25,
             aiBoostFactor: 0.45,
             volumeLabel: 'צפי פניות ממאגר לקוחות קיים:',
@@ -194,16 +203,39 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     let activeChannelKey = 'omnichannel';
+    let currentCalcMode = 'forward'; // 'forward' or 'reverse'
+
+    const modeForwardBtn = document.getElementById('mode-forward-btn');
+    const modeReverseBtn = document.getElementById('mode-reverse-btn');
+
+    const channelWrapper = document.getElementById('calc-channel-wrapper');
+    const budgetGroup = document.getElementById('calc-budget-group');
+    const targetLeadsGroup = document.getElementById('calc-target-leads-group');
+    const leadsGroup = document.getElementById('calc-leads-group');
+    const reversePlatformsWrap = document.getElementById('calc-reverse-platforms-wrap');
+    const reversePlatformsGrid = document.getElementById('calc-reverse-platforms-grid');
+
+    const controlsHeading = document.getElementById('calc-controls-heading');
+    const resultsHeading = document.getElementById('calc-results-heading');
+    const summaryBannerLabel = document.getElementById('calc-summary-banner-label');
+    const ctaBtnText = document.getElementById('calc-cta-btn-text');
+
+    const metric1Lbl = document.getElementById('calc-metric-1-lbl');
+    const metric2Lbl = document.getElementById('calc-metric-2-lbl');
+    const metric3Lbl = document.getElementById('calc-metric-3-lbl');
+    const metric4Lbl = document.getElementById('calc-metric-4-lbl');
 
     const channelBtns = document.querySelectorAll('.calc-channel-btn');
     const currentChannelBadge = document.getElementById('calc-current-channel-badge');
 
     const budgetSlider = document.getElementById('calc-budget');
+    const targetLeadsSlider = document.getElementById('calc-target-leads');
     const dealSlider = document.getElementById('calc-deal');
     const leadsSlider = document.getElementById('calc-leads');
     const aiBoostCheckbox = document.getElementById('calc-ai-boost');
 
     const budgetDisplay = document.getElementById('calc-budget-val');
+    const targetLeadsDisplay = document.getElementById('calc-target-leads-val');
     const dealDisplay = document.getElementById('calc-deal-val');
     const leadsDisplay = document.getElementById('calc-leads-val');
 
@@ -220,6 +252,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const resProfit = document.getElementById('calc-res-profit');
     const resInsight = document.getElementById('calc-res-insight');
     const calcCtaBtn = document.getElementById('calc-cta-btn');
+
+    function setCalcMode(mode) {
+        currentCalcMode = mode;
+        if (mode === 'forward') {
+            if (modeForwardBtn) modeForwardBtn.classList.add('active');
+            if (modeReverseBtn) modeReverseBtn.classList.remove('active');
+            if (channelWrapper) channelWrapper.style.display = 'block';
+            if (budgetGroup) budgetGroup.style.display = 'block';
+            if (leadsGroup) leadsGroup.style.display = 'block';
+            if (targetLeadsGroup) targetLeadsGroup.style.display = 'none';
+            if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'none';
+
+            if (controlsHeading) controlsHeading.textContent = 'התאמת פרמטרים לפעילות';
+            if (resultsHeading) resultsHeading.textContent = 'תחזית ביצועים ותשואה חודשית';
+            if (metric1Lbl) metric1Lbl.textContent = 'צפי הכנסות חודשיות';
+            if (metric2Lbl) metric2Lbl.textContent = 'עסקאות סגורות משוערות';
+            if (metric3Lbl) metric3Lbl.textContent = 'תשואה על השקעה (ROAS)';
+            if (metric4Lbl) metric4Lbl.textContent = 'חיסכון זמן עבודה חודשי';
+            if (summaryBannerLabel) summaryBannerLabel.textContent = 'רווח גולמי משוער מפעילות (לאחר ניכוי הוצאות שיווק):';
+            if (ctaBtnText) ctaBtnText.textContent = 'קבל תוכנית פעולה לערוץ זה בוואטסאפ';
+        } else {
+            if (modeForwardBtn) modeForwardBtn.classList.remove('active');
+            if (modeReverseBtn) modeReverseBtn.classList.add('active');
+            if (channelWrapper) channelWrapper.style.display = 'block';
+            if (budgetGroup) budgetGroup.style.display = 'none';
+            if (leadsGroup) leadsGroup.style.display = 'none';
+            if (targetLeadsGroup) targetLeadsGroup.style.display = 'block';
+            if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'block';
+
+            if (controlsHeading) controlsHeading.textContent = 'הגדרת יעד שיחות ופניות מבוקש';
+            if (resultsHeading) resultsHeading.textContent = 'תקציב השקעה נדרש ותחזית תוצאות';
+            if (metric1Lbl) metric1Lbl.textContent = 'תקציב חודשי נדרש (לערוץ הנבחר)';
+            if (metric2Lbl) metric2Lbl.textContent = 'צפי עסקאות שיסגרו מהיעד';
+            if (metric3Lbl) metric3Lbl.textContent = 'צפי הכנסות כולל מהיעד';
+            if (metric4Lbl) metric4Lbl.textContent = 'עלות ממוצעת לפנייה (CPL)';
+            if (summaryBannerLabel) summaryBannerLabel.textContent = 'רווח נקי משוער לאחר ניכוי התקציב הנדרש:';
+            if (ctaBtnText) ctaBtnText.textContent = 'קבל תוכנית תקציב ליעד זה בוואטסאפ';
+        }
+        updateCalculator();
+    }
+
+    if (modeForwardBtn) modeForwardBtn.addEventListener('click', () => setCalcMode('forward'));
+    if (modeReverseBtn) modeReverseBtn.addEventListener('click', () => setCalcMode('reverse'));
 
     function applyChannelPreset(channelKey) {
         const preset = channelPresets[channelKey];
@@ -270,49 +345,107 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCalculator();
     }
 
-    function updateCalculator() {
-        if (!budgetSlider || !dealSlider || !leadsSlider) return;
+    function renderReversePlatformCards(targetLeads, dealVal, isAiBoost) {
+        if (!reversePlatformsGrid) return;
+        let html = '';
+        Object.keys(channelPresets).forEach(key => {
+            const p = channelPresets[key];
+            const effCpl = isAiBoost ? Math.round(p.baseCpl * 0.85) : p.baseCpl;
+            const reqBudget = Math.round(targetLeads * effCpl);
+            const effConv = p.baseConvRate * (isAiBoost ? (1 + p.aiBoostFactor) : 1);
+            const deals = Math.max(1, Math.round(targetLeads * effConv));
+            const isSelected = key === activeChannelKey ? 'selected' : '';
 
+            html += '<div class="calc-platform-cost-card ' + isSelected + '" onclick="window.selectReversePlatform(\'' + key + '\')">' +
+                    '<div class="calc-platform-header">' + p.name + '</div>' +
+                    '<div class="calc-platform-budget-val">₪' + reqBudget.toLocaleString('he-IL') + '</div>' +
+                    '<div class="calc-platform-cpl-label">עלות משוערת: ~₪' + effCpl + ' לפנייה (' + deals + ' עסקאות)</div>' +
+                    '</div>';
+        });
+        reversePlatformsGrid.innerHTML = html;
+    }
+
+    window.selectReversePlatform = function(key) {
+        applyChannelPreset(key);
+    };
+
+    function updateCalculator() {
         const preset = channelPresets[activeChannelKey] || channelPresets.omnichannel;
-        const budget = parseInt(budgetSlider.value, 10);
-        const dealVal = parseInt(dealSlider.value, 10);
-        const leads = parseInt(leadsSlider.value, 10);
+        const dealVal = dealSlider ? parseInt(dealSlider.value, 10) : 6000;
         const isAiBoost = aiBoostCheckbox ? aiBoostCheckbox.checked : true;
 
-        if (budgetDisplay) budgetDisplay.textContent = '₪' + budget.toLocaleString('he-IL');
         if (dealDisplay) dealDisplay.textContent = '₪' + dealVal.toLocaleString('he-IL');
-        if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' פניות';
 
-        const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
-        const estimatedDeals = Math.max(1, Math.round(leads * effectiveConvRate));
-        const estimatedRevenue = estimatedDeals * dealVal;
-        const roas = budget > 0 ? Math.round((estimatedRevenue / budget) * 100) : 0;
-        const netProfit = Math.max(0, estimatedRevenue - budget);
+        if (currentCalcMode === 'forward') {
+            if (!budgetSlider || !leadsSlider) return;
+            const budget = parseInt(budgetSlider.value, 10);
+            const leads = parseInt(leadsSlider.value, 10);
 
-        const timeSavedHours = Math.round(leads * (isAiBoost ? 1.8 : 0.8) + estimatedDeals * (isAiBoost ? 2.5 : 1.2));
+            if (budgetDisplay) budgetDisplay.textContent = '₪' + budget.toLocaleString('he-IL');
+            if (leadsDisplay) leadsDisplay.textContent = leads.toLocaleString('he-IL') + ' פניות';
 
-        if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
-        if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
-        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
-        if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
-        if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
-        if (resInsight) resInsight.textContent = preset.insight;
+            const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
+            const estimatedDeals = Math.max(1, Math.round(leads * effectiveConvRate));
+            const estimatedRevenue = estimatedDeals * dealVal;
+            const roas = budget > 0 ? Math.round((estimatedRevenue / budget) * 100) : 0;
+            const netProfit = Math.max(0, estimatedRevenue - budget);
+            const timeSavedHours = Math.round(leads * (isAiBoost ? 1.8 : 0.8) + estimatedDeals * (isAiBoost ? 2.5 : 1.2));
 
-        if (window.trackGorEvent) {
-            window.trackGorEvent('roi_calculated', { channel: activeChannelKey, budget: budget, deals: estimatedDeals, revenue: estimatedRevenue });
+            if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
+            if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
+            if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
+            if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
+            if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
+            if (resInsight) resInsight.textContent = preset.insight;
+
+            if (calcCtaBtn) {
+                const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
+                const msg = 'היי איגור, ביצעתי סימולציה במחשבון ה-ROI של GOR MARKETING:' + '\n' +
+                            '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
+                            '• תקציב חודשי: ₪' + budget.toLocaleString('he-IL') + '\n' +
+                            '• שווי ממוצע לעסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
+                            '• צפי פניות: ' + leads.toLocaleString('he-IL') + '\n' +
+                            '• צפי הכנסות: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)' + '\n' +
+                            '• צפי עסקאות: ' + estimatedDeals + ' עסקאות' + '\n' +
+                            'אשמח לבנות יחד תוכנית עבודה מותאמת להזנקת הפעילות!';
+                calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+            }
+        } else {
+            // REVERSE TARGET GOAL MODE
+            const targetLeads = targetLeadsSlider ? parseInt(targetLeadsSlider.value, 10) : 120;
+            if (targetLeadsDisplay) targetLeadsDisplay.textContent = targetLeads.toLocaleString('he-IL') + ' שיחות/פניות';
+
+            const effCpl = isAiBoost ? Math.round(preset.baseCpl * 0.85) : preset.baseCpl;
+            const requiredBudget = Math.round(targetLeads * effCpl);
+            const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
+            const estimatedDeals = Math.max(1, Math.round(targetLeads * effectiveConvRate));
+            const estimatedRevenue = estimatedDeals * dealVal;
+            const netProfit = Math.max(0, estimatedRevenue - requiredBudget);
+
+            if (resRevenue) resRevenue.textContent = '₪' + requiredBudget.toLocaleString('he-IL');
+            if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
+            if (resRoas) resRoas.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
+            if (resTimeSaved) resTimeSaved.textContent = '₪' + effCpl + ' לפנייה';
+            if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
+            if (resInsight) resInsight.textContent = 'עבור יעד של ' + targetLeads + ' פניות ב-' + preset.name + ', התקציב הנדרש הוא כ-₪' + requiredBudget.toLocaleString('he-IL') + '. תוכנית זו צפויה להניב ' + estimatedDeals + ' עסקאות סגורות בשווי כולל של ₪' + estimatedRevenue.toLocaleString('he-IL') + '.';
+
+            renderReversePlatformCards(targetLeads, dealVal, isAiBoost);
+
+            if (calcCtaBtn) {
+                const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
+                const msg = 'היי איגור, הגדרתי יעד במחשבון של GOR MARKETING:' + '\n' +
+                            '• יעד מבוקש: ' + targetLeads + ' שיחות/פניות בחודש' + '\n' +
+                            '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
+                            '• תקציב מחושב נדרש: ₪' + requiredBudget.toLocaleString('he-IL') + '\n' +
+                            '• שווי עסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
+                            '• צפי סגירות: ' + estimatedDeals + ' עסקאות (₪' + estimatedRevenue.toLocaleString('he-IL') + ' הכנסות)' + '\n' +
+                            'אשמח לבנות איתך תוכנית פעולה להשגת יעד זה!';
+                calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+            }
         }
 
-        if (calcCtaBtn) {
-            const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
-            const msg = 'היי איגור, ביצעתי סימולציה במחשבון ה-ROI של GOR MARKETING:' + '\n' +
-                        '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
-                        '• תקציב חודשי: ₪' + budget.toLocaleString('he-IL') + '\n' +
-                        '• שווי ממוצע לעסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
-                        '• צפי פניות: ' + leads.toLocaleString('he-IL') + '\n' +
-                        '• צפי הכנסות: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)' + '\n' +
-                        '• צפי עסקאות: ' + estimatedDeals + ' עסקאות' + '\n' +
-                        'אשמח לבנות יחד תוכנית עבודה מותאמת להזנקת הפעילות!';
-            calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+        if (window.trackGorEvent) {
+            window.trackGorEvent('roi_calculated', { mode: currentCalcMode, channel: activeChannelKey });
         }
     }
 
@@ -326,6 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (budgetSlider) budgetSlider.addEventListener('input', updateCalculator);
+    if (targetLeadsSlider) targetLeadsSlider.addEventListener('input', updateCalculator);
     if (dealSlider) dealSlider.addEventListener('input', updateCalculator);
     if (leadsSlider) leadsSlider.addEventListener('input', updateCalculator);
     if (aiBoostCheckbox) aiBoostCheckbox.addEventListener('change', updateCalculator);
