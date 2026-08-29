@@ -803,3 +803,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+/* ===== GOR: login-to-dashboard button (site-wide, added via PR) ===== */
+(function(){
+  var APP_URL = "https://gormarketing.netlify.app/";
+  function add(){
+    if (document.getElementById("gor-login-btn")) return;
+    var css = ".gor-login-btn{position:fixed;top:14px;inset-inline-start:50%;transform:translateX(-50%);z-index:99999;display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:700;font-size:15px;line-height:1;padding:11px 20px;border-radius:999px;text-decoration:none;cursor:pointer;color:#04110b;background:linear-gradient(90deg,#28e6c8,#7bed6b);box-shadow:0 6px 20px rgba(40,230,200,.35);transition:transform .15s}.gor-login-btn:hover{transform:translateX(-50%) translateY(-1px)}.gor-login-btn svg{width:17px;height:17px}@media(max-width:600px){.gor-login-btn{font-size:13px;padding:9px 15px;top:10px}}";
+    var s = document.createElement("style"); s.textContent = css; document.head.appendChild(s);
+    var a = document.createElement("a");
+    a.id = "gor-login-btn"; a.className = "gor-login-btn";
+    a.href = APP_URL; a.target = "_blank"; a.rel = "noopener";
+    a.setAttribute("aria-label", "כניסה למערכת");
+    a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg><span>כניסה למערכת</span>';
+    document.body.appendChild(a);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", add); else add();
+})();
