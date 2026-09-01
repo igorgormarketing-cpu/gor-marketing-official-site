@@ -3,22 +3,26 @@
    ========================================================================== */
 
 /* Skip to content link */
+/* Skip to content link - 100% offscreen until keyboard tab focus */
 .skip-to-content {
-    position: absolute;
-    top: -100px;
-    right: 20px;
-    background: #ffc107;
-    color: #06070a;
-    font-weight: 800;
-    padding: 12px 20px;
-    border-radius: 8px;
-    z-index: 1000000;
-    text-decoration: none;
-    transition: top 0.2s ease;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    background: #ffc107 !important;
+    color: #06070a !important;
+    font-weight: 800 !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    z-index: 10000000 !important;
+    text-decoration: none !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.8) !important;
+    transition: none !important;
 }
-.skip-to-content:focus {
-    top: 15px;
+.skip-to-content:focus,
+.skip-to-content:focus-visible {
+    top: 15px !important;
+    right: 20px !important;
+    left: auto !important;
 }
 
 /* Accessibility Floating Button */
@@ -217,4 +221,336 @@ body.a11y-stop-animations *::after {
 body.a11y-big-cursor,
 body.a11y-big-cursor * {
     cursor: crosshair !important;
+}
+
+
+/* Accessible Keyboard Focus for Images & Media */
+img[tabindex="0"]:focus,
+img:focus-visible {
+    outline: 3px solid #ffc107 !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6) !important;
+    border-radius: 8px !important;
+}
+
+/* Keyboard Accessible Elements Focus Visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--emerald-primary, #00ff88) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.5) !important;
+}
+
+
+/* ==========================================================================
+   PERFECT FLOATING BUTTONS LAYOUT (ACCESSIBILITY ON RIGHT, WHATSAPP ON LEFT)
+   ========================================================================== */
+
+#gor-a11y-fab,
+.accessibility-trigger {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6), 0 0 15px rgba(0, 191, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#gor-a11y-fab:hover,
+#gor-a11y-fab:focus-visible,
+.accessibility-trigger:hover,
+.accessibility-trigger:focus-visible {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
+    outline: 3px solid #ffd700 !important;
+}
+
+/* Secondary right floating button (e.g., Back to Top or Quick Call) stacked above a11y */
+.btn-back-to-top,
+.floating-secondary-right {
+    position: fixed !important;
+    bottom: 90px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: 48px !important;
+    height: 48px !important;
+    z-index: 999998 !important;
+}
+
+@media (max-width: 768px) {
+    #gor-a11y-fab,
+    .accessibility-trigger {
+        bottom: 16px !important;
+        right: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 22px !important;
+    }
+    .btn-back-to-top,
+    .floating-secondary-right {
+        bottom: 74px !important;
+        right: 16px !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+}
+
+
+/* ==========================================================================
+   UNIFIED LEFT-SIDE VERTICAL FLOATING STACK (מהפינה השמאלית התחתונה כלפי מעלה)
+   ========================================================================== */
+
+/* 1. WHATSAPP (Bottom-most on the left) */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 50% !important;
+    background: #25d366 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 28px !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
+    z-index: 999999 !important;
+    text-decoration: none !important;
+    border: 2px solid #ffffff !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.8) !important;
+    outline: 3px solid #00ff88 !important;
+}
+
+/* 2. ACCESSIBILITY (Stacked above WhatsApp on the left) */
+#gor-a11y-fab,
+.accessibility-trigger {
+    position: fixed !important;
+    bottom: 88px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6), 0 0 15px rgba(0, 191, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#gor-a11y-fab:hover,
+#gor-a11y-fab:focus-visible,
+.accessibility-trigger:hover,
+.accessibility-trigger:focus-visible {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
+    outline: 3px solid #ffd700 !important;
+}
+
+/* 3. PHONE / BACK TO TOP (Stacked above Accessibility on the left) */
+.phone-float,
+.btn-back-to-top,
+.floating-secondary-left {
+    position: fixed !important;
+    bottom: 152px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5) !important;
+    z-index: 999998 !important;
+    text-decoration: none !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+/* MOBILE RESPONSIVE (Screen width <= 768px) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 16px !important;
+        left: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 24px !important;
+    }
+    #gor-a11y-fab,
+    .accessibility-trigger {
+        bottom: 72px !important;
+        left: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 22px !important;
+    }
+    .phone-float,
+    .btn-back-to-top,
+    .floating-secondary-left {
+        bottom: 128px !important;
+        left: 16px !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+    }
+}
+
+
+/* ==========================================================================
+   PERFECT CORNER LAYOUT: WHATSAPP ON BOTTOM-RIGHT, ACCESSIBILITY ON BOTTOM-LEFT
+   ========================================================================== */
+
+/* 1. WHATSAPP (Bottom-Right Corner) */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: #25d366 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 30px !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
+    z-index: 999999 !important;
+    text-decoration: none !important;
+    border: 2px solid #ffffff !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+    transform: scale(1.1) rotate(6deg) !important;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.8) !important;
+    outline: 3px solid #00ff88 !important;
+}
+
+/* 2. ACCESSIBILITY (Bottom-Left Corner) */
+#gor-a11y-fab,
+.accessibility-trigger {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6), 0 0 15px rgba(0, 191, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#gor-a11y-fab:hover,
+#gor-a11y-fab:focus-visible,
+.accessibility-trigger:hover,
+.accessibility-trigger:focus-visible {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
+    outline: 3px solid #ffd700 !important;
+}
+
+/* MOBILE RESPONSIVE (Screen width <= 768px) */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 16px !important;
+        right: 16px !important;
+        left: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 26px !important;
+    }
+    #gor-a11y-fab,
+    .accessibility-trigger {
+        bottom: 16px !important;
+        left: 16px !important;
+        right: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 22px !important;
+    }
+}
+
+
+/* BULLETPROOF ACCESSIBILITY SKIP LINK (Completely invisible off-screen until Tab focused) */
+.skip-to-content,
+#gor-skip,
+a.skip-link {
+    position: absolute !important;
+    top: -99999px !important;
+    left: -99999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    background: #ffc107 !important;
+    color: #06070a !important;
+    font-weight: 800 !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    z-index: 100000000 !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.9) !important;
+}
+
+.skip-to-content:focus,
+.skip-to-content:focus-visible,
+#gor-skip:focus,
+#gor-skip:focus-visible,
+a.skip-link:focus,
+a.skip-link:focus-visible {
+    top: 15px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
 }

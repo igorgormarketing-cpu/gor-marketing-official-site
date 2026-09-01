@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Auto-track App Launches & Downloads
-    document.querySelectorAll('a[href*="gorcrm.netlify.app"], .btn-app-action').forEach(link => {
+    document.querySelectorAll('a[href*="gormarketing.netlify.app"], .btn-app-action').forEach(link => {
         link.addEventListener('click', () => {
             window.trackGorEvent('saas_app_action', {
                 target_url: link.getAttribute('href'),
@@ -90,164 +90,160 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(moveCarousel, 4500);
     }
 
-                // 3. Advanced Multi-Channel & Dual-Mode ROI Simulator Logic
+                // 3. Interactive Target Lead Goal & Marketing Budget Simulator (כדי לקבל X לידים - כמה תקציב פרסום Y צריך לשלם?)
     const channelPresets = {
         omnichannel: {
-            name: 'שילוב 360° Omnichannel',
-            badge: '🌐 שילוב 360° Omnichannel',
-            minBudget: 100, maxBudget: 250000, stepBudget: 100, defaultBudget: 25000,
-            minDeal: 100, maxDeal: 60000, stepDeal: 50, defaultDeal: 6000,
-            minLeads: 1, maxLeads: 1500, stepLeads: 1, defaultLeads: 380,
+            name: 'מערך 360° Omnichannel',
+            badge: '🌐 מערך 360° Omnichannel',
+            icon: 'fa-network-wired',
+            color: '#00ff88',
             baseCpl: 65,
             baseConvRate: 0.22,
-            aiBoostFactor: 0.45,
-            volumeLabel: 'צפי פניות / לידים איכותיים בחודש:',
-            insight: 'המערך השלם של GOR MARKETING: סינרגיה מושלמת בין גוגל, מטא, יוטיוב, אוטומציות וואטסאפ וסוכני AI לסגירה הרמטית של לקוחות בכל נקודת מגע.'
+            aiBoostFactor: 0.40,
+            insight: 'השילוב האולטימטיבי של GOR MARKETING: חיבור גוגל, מטא, תוכן ו-CRM עם מענה AI תוך 60 שניות מבטיח סגירה הרמטית בעלות המשתלמת ביותר.'
         },
         google_ppc: {
             name: 'גוגל ממומן (Google Ads)',
             badge: '🎯 גוגל ממומן (PPC / Shopping)',
-            minBudget: 100, maxBudget: 120000, stepBudget: 100, defaultBudget: 12000,
-            minDeal: 100, maxDeal: 50000, stepDeal: 50, defaultDeal: 4500,
-            minLeads: 1, maxLeads: 800, stepLeads: 1, defaultLeads: 130,
+            icon: 'fab fa-google',
+            color: '#4285F4',
             baseCpl: 92,
             baseConvRate: 0.17,
-            aiBoostFactor: 0.40,
-            volumeLabel: 'צפי הקלקות ופניות מחיפוש ממוקד:',
-            insight: 'תנועת חיפוש ממוקדת של לקוחות בעלי כוונת רכישה מיידית (High Commercial Intent). היתרון המרכזי: תוצאות מהירות וסגירה מיידית.'
+            aiBoostFactor: 0.35,
+            insight: 'תנועת חיפוש ממוקדת של לקוחות בעלי כוונת רכישה גבוהה ("High Intent"). איכות לידים מעולה עם יחס סגירה מהיר.'
         },
         google_seo: {
-            name: 'גוגל אורגני (SEO)',
-            badge: '🔍 גוגל אורגני (SEO & Top Rank)',
-            minBudget: 100, maxBudget: 60000, stepBudget: 100, defaultBudget: 8000,
-            minDeal: 100, maxDeal: 50000, stepDeal: 50, defaultDeal: 5000,
-            minLeads: 1, maxLeads: 900, stepLeads: 1, defaultLeads: 180,
+            name: 'קידום אורגני (SEO)',
+            badge: '📈 קידום אורגני (SEO Top Rank)',
+            icon: 'fa-magnifying-glass-chart',
+            color: '#34A853',
             baseCpl: 45,
             baseConvRate: 0.15,
-            aiBoostFactor: 0.35,
-            volumeLabel: 'צפי פניות חודשיות מתנועה אורגנית:',
-            insight: 'אפקט "הריבית דריבית" של השיווק הדיגיטלי: עלות הליד הולכת ופוחתת לאורך זמן ללא תשלום על כל קליק, ויוצרת נכס דיגיטלי בעל ערך מצטבר.'
+            aiBoostFactor: 0.30,
+            insight: 'השקעה נכונה בנכס דיגיטלי מניב לאורך זמן. עלות לליד הנמוכה ביותר שממשיכה לייצר פניות גם ללא תשלום יומי לקליקים.'
         },
         meta_ads: {
-            name: 'קמפיין פייסבוק ממומן (Meta Ads)',
-            badge: '🚀 קמפיין ממומן מטא / פייסבוק',
-            minBudget: 100, maxBudget: 100000, stepBudget: 100, defaultBudget: 10000,
-            minDeal: 100, maxDeal: 40000, stepDeal: 50, defaultDeal: 3800,
-            minLeads: 1, maxLeads: 1000, stepLeads: 1, defaultLeads: 145,
+            name: 'מטא (פייסבוק ואינסטגרם)',
+            badge: '📢 קמפיין מטא (Facebook & IG)',
+            icon: 'fa-bullhorn',
+            color: '#0081FB',
             baseCpl: 70,
             baseConvRate: 0.13,
             aiBoostFactor: 0.45,
-            volumeLabel: 'צפי לידים ממשפכי המרה ממומנים:',
-            insight: 'ווליום לידים מהיר באמצעות פילוח קהלים מדויק, Lookalike ומשפכי המרה מדורגים (Retargeting) להבשלת מתעניינים.'
+            insight: 'חשיפה רחבה וטירגוט מדויק לפי תחומי עניין והתנהגות. מתאים במיוחד לפניות ממוקדות ב-B2C ו-B2B.'
         },
-        fb_organic: {
-            name: 'ניהול עמוד וקהילה בפייסבוק',
-            badge: '📘 עמוד וקהילה בפייסבוק',
-            minBudget: 100, maxBudget: 40000, stepBudget: 100, defaultBudget: 6000,
-            minDeal: 100, maxDeal: 30000, stepDeal: 50, defaultDeal: 3000,
-            minLeads: 1, maxLeads: 600, stepLeads: 1, defaultLeads: 120,
+        tiktok_ads: {
+            name: 'טיקטוק ממומן (TikTok Ads)',
+            badge: '📱 טיקטוק ממומן (TikTok Ads)',
+            icon: 'fab fa-tiktok',
+            color: '#00f2fe',
             baseCpl: 50,
             baseConvRate: 0.12,
-            aiBoostFactor: 0.30,
-            volumeLabel: 'צפי פניות מאינטראקציה וקהילה:',
-            insight: 'בניית נאמנות, Social Proof ושימור קהילה לאורך זמן: מענה מושלם לחיזוק המותג, לקוחות חוזרים והפניות מפה לאוזן.'
+            aiBoostFactor: 0.45,
+            insight: 'הפלטפורמה הצומחת ביותר עם עלות חשיפה זולה משמעותית. מצוין לווידאו קצר שמייצר נפח פניות גבוה.'
         },
         youtube: {
-            name: 'ניהול ושיווק ערוץ יוטיוב',
-            badge: '🎥 ערוץ יוטיוב (YouTube Video)',
-            minBudget: 100, maxBudget: 80000, stepBudget: 100, defaultBudget: 9000,
-            minDeal: 100, maxDeal: 70000, stepDeal: 50, defaultDeal: 7500,
-            minLeads: 1, maxLeads: 700, stepLeads: 1, defaultLeads: 135,
+            name: 'פרסום וידאו ביוטיוב',
+            badge: '🎬 פרסום וידאו (YouTube Ads)',
+            icon: 'fab fa-youtube',
+            color: '#FF0000',
             baseCpl: 68,
             baseConvRate: 0.20,
-            aiBoostFactor: 0.45,
-            volumeLabel: 'צפי פניות חמות מתוכן וידאו:',
-            insight: 'עוצמת האמון בווידאו: לידים שמגיעים מתוכן יוטיוב מגיעים "חמים" ומוכנים לרכישה, ומאפשרים סגירת עסקאות בשווי גבוה (High-Ticket) בהרבה.'
+            aiBoostFactor: 0.40,
+            insight: 'בניית אמון וסמכות מקצועית באמצעות סרטוני ערך. הלקוחות מגיעים מחוממים ומוכנים לסגירה בעסקה גבוהה.'
         },
         instagram: {
-            name: 'אינסטגרם ומיתוג ויזואלי',
-            badge: '📸 אינסטגרם ומיתוג ויזואלי',
-            minBudget: 100, maxBudget: 70000, stepBudget: 100, defaultBudget: 8000,
-            minDeal: 100, maxDeal: 40000, stepDeal: 50, defaultDeal: 3200,
-            minLeads: 1, maxLeads: 800, stepLeads: 1, defaultLeads: 130,
+            name: 'אינסטגרם ומשפיענים',
+            badge: '✨ אינסטגרם ומיתוג ויזואלי',
+            icon: 'fab fa-instagram',
+            color: '#E1306C',
             baseCpl: 62,
             baseConvRate: 0.14,
             aiBoostFactor: 0.35,
-            volumeLabel: 'צפי פניות והמרות מרילס ומיתוג:',
-            insight: 'מיתוג ויזואלי סוחף, Reels ויראליים ומשיכת קהל פרימיום: מושלם לעסקי B2C, לייפסטייל, עיצוב, נדל"ן ושירותי בוטיק.'
+            insight: 'מיתוג פרימיום ומיצוב יוקרתי שמושך לקוחות שמעריכים איכות. מחזק את המותג ומעלה את השווי הממוצע לעסקה.'
         },
         native_news: {
-            name: 'אתרי חדשות וטאבולה/אאוטבריין',
-            badge: '📰 אתרי חדשות ויח"צ (Native Ads)',
-            minBudget: 100, maxBudget: 150000, stepBudget: 100, defaultBudget: 15000,
-            minDeal: 100, maxDeal: 100000, stepDeal: 100, defaultDeal: 9000,
-            minLeads: 1, maxLeads: 600, stepLeads: 1, defaultLeads: 135,
+            name: 'כתבות תוכן וטאבולה',
+            badge: '📰 תוכן ממומן (Native Ads)',
+            icon: 'fa-newspaper',
+            color: '#00bcd4',
             baseCpl: 110,
             baseConvRate: 0.18,
-            aiBoostFactor: 0.40,
-            volumeLabel: 'צפי מתעניינים מכתבות תוכן:',
-            insight: 'סמכות עיתונאית יוקרתית: כתבות תוכן ממומנות מחנכות את השוק והופכות קהל קר ללקוחות פרימיום בעסקאות גדולות במיוחד.'
+            aiBoostFactor: 0.35,
+            insight: 'כתבות תוכן מעמיקות באתרי חדשות מובילים. מתאים לעסקאות יקרות (High-Ticket) ומחקר מעמיק של הרוכשים.'
         },
         whatsapp_retention: {
-            name: 'שיווק בוואטסאפ וניוזלטרים',
-            badge: '💬 שיווק בוואטסאפ וניוזלטרים',
-            minBudget: 100, maxBudget: 40000, stepBudget: 100, defaultBudget: 5000,
-            minDeal: 100, maxDeal: 35000, stepDeal: 50, defaultDeal: 3500,
-            minLeads: 1, maxLeads: 1200, stepLeads: 1, defaultLeads: 250,
+            name: 'מועדון וואטסאפ ושימור',
+            badge: '💬 מועדון לקוחות וסוכני AI',
+            icon: 'fab fa-whatsapp',
+            color: '#25D366',
             baseCpl: 20,
             baseConvRate: 0.25,
-            aiBoostFactor: 0.45,
-            volumeLabel: 'צפי פניות ממאגר לקוחות קיים:',
-            insight: 'מיצוי מקסימלי של הדאטה הקיימת: 98% אחוזי פתיחה בוואטסאפ ואפס עלות על רכישת מדיה חיצונית מייצרים את ה-ROI הגבוה ביותר בעסק.'
+            aiBoostFactor: 0.50,
+            insight: 'הרווחיות הגבוהה ביותר: מעל 95% אחוזי פתיחה בוואטסאפ עם סוכני AI שמבצעים שימור ומכירה חוזרת ללקוחות קיימים.'
+        }
+    };
+
+    // SEO Position Matrix Data
+    const seoPosConfig = {
+        current: {
+            unranked: { label: 'אתר חדש / מיקום 50+', factor: 1.40, timeMin: 5, timeMax: 7, effortText: 'בניית תשתית מקיפה, 8-12 מאמרים וקישורים חזקים' },
+            page3_5: { label: 'עמודים 3-5 (21-50)', factor: 1.20, timeMin: 4, timeMax: 6, effortText: 'אופטימיזציית תוכן, שיפור טכני וחיזוק פרופיל קישורים' },
+            page2: { label: 'עמוד 2 (11-20)', factor: 1.00, timeMin: 3, timeMax: 4, effortText: 'דחיפת מילות מפתח, שיפור Core Web Vitals וקישורים סמכותיים' },
+            page1_bottom: { label: 'תחתית עמוד 1 (7-10)', factor: 0.85, timeMin: 2, timeMax: 3, effortText: 'אופטימיזציית On-Page ממוקדת והרחבת סמכות דומיין' }
+        },
+        target: {
+            top3: { label: '🥇 מקומות 1-3 (פודיום גוגל)', baseCpl: 42, ctr: '~32% (מקומות 1-3)', convBoost: 0.22, note: 'כיבוש שלישיית הצמרת של גוגל: מייצר מעל 60% מכלל התנועה והפניות האורגניות בתחום.' },
+            top6: { label: '🥈 מקומות 4-6 (עמוד 1 מרכזי)', baseCpl: 52, ctr: '~14% (מקומות 4-6)', convBoost: 0.16, note: 'נוכחות יציבה במרכז העמוד הראשון של גוגל עם זרימת לידים שוטפת.' },
+            top10: { label: '🥉 מקומות 7-10 (חדירה לעמוד 1)', baseCpl: 65, ctr: '~6% (מקומות 7-10)', convBoost: 0.12, note: 'חדירה ראשונית לעמוד התוצאות הראשון של גוגל.' },
+            top3_maps: { label: '🗺️ מקומות 1-3 + Google Maps', baseCpl: 36, ctr: '~38% (פודיום + מפות)', convBoost: 0.25, note: 'שליטה לוקאלית מלאה: תוצאה אורגנית עליונה יחד עם נוכחות בולטת ב-Google Maps.' }
+        }
+    };
+
+    // Social Media Growth Config
+    const socialGrowthConfig = {
+        strategy: {
+            hybrid: { label: 'שילוב 8-12 פוסטים + מאיץ ממומן', costPerFollower: 2.0, postText: '8-12 פוסטים/חודש', timeText: '7-14 ימים', note: 'האסטרטגיה המנצחת: שילוב סמכות ומיתוג עם מאיץ ממומן זעיר להשגת עוקבים מדויקים ומהירים.' },
+            organic_only: { label: 'אורגני בלבד (ללא מימון)', costPerFollower: 0, postMultiplier: 0.25, timeText: '4-8 שבועות', note: 'פעילות אורגנית טהורה: 20-30 פוסטים/רילס איכותיים לשיתוף בקבוצות וקהילות.' },
+            boost_heavy: { label: 'מאיץ ממומן אגרסיבי', costPerFollower: 2.5, postText: '4-6 פוסטים ממוקדים', timeText: '3-7 ימים', note: 'צמיחה מואצת: קמפיין ממומן ממוקד המקפיץ את מספר העוקבים והחשיפה בזמן שיא.' }
         }
     };
 
     let activeChannelKey = 'omnichannel';
-    let currentCalcMode = 'forward';
 
-    const modeForwardBtn = document.getElementById('mode-forward-btn');
-    const modeReverseBtn = document.getElementById('mode-reverse-btn');
-
-    const channelWrapper = document.getElementById('calc-channel-wrapper');
-    const budgetGroup = document.getElementById('calc-budget-group');
-    const targetLeadsGroup = document.getElementById('calc-target-leads-group');
-    const leadsGroup = document.getElementById('calc-leads-group');
-    const reversePlatformsWrap = document.getElementById('calc-reverse-platforms-wrap');
-    const reversePlatformsGrid = document.getElementById('calc-reverse-platforms-grid');
-
-    const controlsHeading = document.getElementById('calc-controls-heading');
-    const resultsHeading = document.getElementById('calc-results-heading');
-    const summaryBannerLabel = document.getElementById('calc-summary-banner-label');
-    const ctaBtnText = document.getElementById('calc-cta-btn-text');
-
-    const metric1Lbl = document.getElementById('calc-metric-1-lbl');
-    const metric2Lbl = document.getElementById('calc-metric-2-lbl');
-    const metric3Lbl = document.getElementById('calc-metric-3-lbl');
-    const metric4Lbl = document.getElementById('calc-metric-4-lbl');
-
-    const channelBtns = document.querySelectorAll('.calc-channel-btn');
-    const currentChannelBadge = document.getElementById('calc-current-channel-badge');
-
-    const budgetSlider = document.getElementById('calc-budget');
-    const budgetInput = document.getElementById('calc-budget-input');
-
-    const targetLeadsSlider = document.getElementById('calc-target-leads');
     const targetLeadsInput = document.getElementById('calc-target-leads-input');
+    const targetLeadsSlider = document.getElementById('calc-target-leads');
+    const titleLeadsDisp = document.getElementById('calc-title-leads-disp');
+    const gridLeadsLabel = document.getElementById('calc-grid-leads-label');
 
-    const dealSlider = document.getElementById('calc-deal');
     const dealInput = document.getElementById('calc-deal-input');
-
-    const leadsSlider = document.getElementById('calc-leads');
-    const leadsInput = document.getElementById('calc-leads-input');
-
+    const dealSlider = document.getElementById('calc-deal');
     const aiBoostCheckbox = document.getElementById('calc-ai-boost');
 
-    const budgetMinDisp = document.getElementById('calc-budget-min');
-    const budgetMaxDisp = document.getElementById('calc-budget-max');
-    const leadsMinDisp = document.getElementById('calc-leads-min');
-    const leadsMaxDisp = document.getElementById('calc-leads-max');
-    const volumeLabelDisp = document.getElementById('calc-volume-label');
+    const channelBtns = document.querySelectorAll('.calc-channel-btn');
+    const channelBadge = document.getElementById('calc-current-channel-badge');
 
+    // SEO Rank Target Elements
+    const seoRankWrapper = document.getElementById('calc-seo-rank-wrapper');
+    const seoCurrentPosSelect = document.getElementById('calc-seo-current-pos');
+    const seoTargetPosSelect = document.getElementById('calc-seo-target-pos');
+    const seoCtrValDisp = document.getElementById('calc-seo-ctr-val');
+    const seoTimelineValDisp = document.getElementById('calc-seo-timeline-val');
+    const seoEffortValDisp = document.getElementById('calc-seo-effort-val');
+
+    // Social Media Growth Elements
+    const socialGrowthWrapper = document.getElementById('calc-social-growth-wrapper');
+    const socialFollowersTargetSelect = document.getElementById('calc-social-followers-target');
+    const socialStrategySelect = document.getElementById('calc-social-strategy');
+    const socialPostsValDisp = document.getElementById('calc-social-posts-val');
+    const socialBoostValDisp = document.getElementById('calc-social-boost-val');
+    const socialTimeValDisp = document.getElementById('calc-social-time-val');
+
+    const reversePlatformsGrid = document.getElementById('calc-reverse-platforms-grid');
+
+    // Output Result Elements
+    const resRequiredBudget = document.getElementById('calc-res-required-budget');
+    const resCplBadge = document.getElementById('calc-res-cpl-badge');
     const resRevenue = document.getElementById('calc-res-revenue');
     const resDeals = document.getElementById('calc-res-deals');
     const resRoas = document.getElementById('calc-res-roas');
@@ -256,105 +252,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const resInsight = document.getElementById('calc-res-insight');
     const calcCtaBtn = document.getElementById('calc-cta-btn');
 
-    function setCalcMode(mode) {
-        currentCalcMode = mode;
-        if (mode === 'forward') {
-            if (modeForwardBtn) modeForwardBtn.classList.add('active');
-            if (modeReverseBtn) modeReverseBtn.classList.remove('active');
-            if (channelWrapper) channelWrapper.style.display = 'block';
-            if (budgetGroup) budgetGroup.style.display = 'block';
-            if (leadsGroup) leadsGroup.style.display = 'block';
-            if (targetLeadsGroup) targetLeadsGroup.style.display = 'none';
-            if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'none';
+    // Quick Pill Presets
+    const leadPills = document.querySelectorAll('#calc-lead-pills .calc-pill');
+    const dealPills = document.querySelectorAll('#calc-deal-pills .calc-pill');
 
-            if (controlsHeading) controlsHeading.textContent = 'התאמת פרמטרים לפעילות (הקלד או גרור)';
-            if (resultsHeading) resultsHeading.textContent = 'תחזית ביצועים ותשואה חודשית';
-            if (metric1Lbl) metric1Lbl.textContent = 'צפי הכנסות חודשיות';
-            if (metric2Lbl) metric2Lbl.textContent = 'עסקאות סגורות משוערות';
-            if (metric3Lbl) metric3Lbl.textContent = 'תשואה על השקעה (ROAS)';
-            if (metric4Lbl) metric4Lbl.textContent = 'חיסכון זמן עבודה חודשי';
-            if (summaryBannerLabel) summaryBannerLabel.textContent = 'רווח גולמי משוער מפעילות (לאחר ניכוי הוצאות שיווק):';
-            if (ctaBtnText) ctaBtnText.textContent = 'קבל תוכנית פעולה לערוץ זה בוואטסאפ';
-        } else {
-            if (modeForwardBtn) modeForwardBtn.classList.remove('active');
-            if (modeReverseBtn) modeReverseBtn.classList.add('active');
-            if (channelWrapper) channelWrapper.style.display = 'block';
-            if (budgetGroup) budgetGroup.style.display = 'none';
-            if (leadsGroup) leadsGroup.style.display = 'none';
-            if (targetLeadsGroup) targetLeadsGroup.style.display = 'block';
-            if (reversePlatformsWrap) reversePlatformsWrap.style.display = 'block';
-
-            if (controlsHeading) controlsHeading.textContent = 'הגדרת יעד שיחות ופניות (הקלד או גרור)';
-            if (resultsHeading) resultsHeading.textContent = 'תקציב השקעה נדרש ותחזית תוצאות';
-            if (metric1Lbl) metric1Lbl.textContent = 'תקציב חודשי נדרש (לערוץ הנבחר)';
-            if (metric2Lbl) metric2Lbl.textContent = 'צפי עסקאות שיסגרו מהיעד';
-            if (metric3Lbl) metric3Lbl.textContent = 'צפי הכנסות כולל מהיעד';
-            if (metric4Lbl) metric4Lbl.textContent = 'עלות ממוצעת לפנייה (CPL)';
-            if (summaryBannerLabel) summaryBannerLabel.textContent = 'רווח נקי משוער לאחר ניכוי התקציב הנדרש:';
-            if (ctaBtnText) ctaBtnText.textContent = 'קבל תוכנית תקציב ליעד זה בוואטסאפ';
-        }
-        updateCalculator();
-    }
-
-    if (modeForwardBtn) modeForwardBtn.addEventListener('click', () => setCalcMode('forward'));
-    if (modeReverseBtn) modeReverseBtn.addEventListener('click', () => setCalcMode('reverse'));
-
-    function applyChannelPreset(channelKey) {
-        const preset = channelPresets[channelKey];
-        if (!preset) return;
-        activeChannelKey = channelKey;
+    function applyChannel(key) {
+        if (!channelPresets[key]) key = 'omnichannel';
+        activeChannelKey = key;
+        const preset = channelPresets[key];
 
         channelBtns.forEach(btn => {
-            if (btn.dataset.channel === channelKey) {
+            if (btn.getAttribute('data-channel') === key) {
                 btn.classList.add('active');
             } else {
                 btn.classList.remove('active');
             }
         });
 
-        if (currentChannelBadge) {
-            currentChannelBadge.textContent = preset.badge;
+        if (channelBadge) {
+            channelBadge.innerHTML = preset.badge;
         }
 
-        if (volumeLabelDisp && preset.volumeLabel) {
-            volumeLabelDisp.textContent = preset.volumeLabel;
-        }
-
-        if (budgetSlider) {
-            budgetSlider.min = 100;
-            budgetSlider.max = preset.maxBudget;
-            budgetSlider.step = 100;
-            budgetSlider.value = preset.defaultBudget;
-            if (budgetInput) {
-                budgetInput.value = preset.defaultBudget;
-                budgetInput.min = 100;
-            }
-            if (budgetMinDisp) budgetMinDisp.textContent = '₪100';
-            if (budgetMaxDisp) budgetMaxDisp.textContent = '₪' + preset.maxBudget.toLocaleString('he-IL');
-        }
-
-        if (dealSlider) {
-            dealSlider.min = 100;
-            dealSlider.max = preset.maxDeal;
-            dealSlider.step = 50;
-            dealSlider.value = preset.defaultDeal;
-            if (dealInput) {
-                dealInput.value = preset.defaultDeal;
-                dealInput.min = 100;
+        // Show/Hide SEO Rank Box
+        if (seoRankWrapper) {
+            if (key === 'google_seo' || key === 'omnichannel') {
+                seoRankWrapper.style.display = 'block';
+            } else {
+                seoRankWrapper.style.display = 'none';
             }
         }
 
-        if (leadsSlider) {
-            leadsSlider.min = 1;
-            leadsSlider.max = preset.maxLeads;
-            leadsSlider.step = 1;
-            leadsSlider.value = preset.defaultLeads;
-            if (leadsInput) {
-                leadsInput.value = preset.defaultLeads;
-                leadsInput.min = 1;
+        // Show/Hide Social Media Growth Box
+        if (socialGrowthWrapper) {
+            if (key === 'meta_ads' || key === 'tiktok_ads' || key === 'instagram') {
+                socialGrowthWrapper.style.display = 'block';
+            } else {
+                socialGrowthWrapper.style.display = 'none';
             }
-            if (leadsMinDisp) leadsMinDisp.textContent = '1';
-            if (leadsMaxDisp) leadsMaxDisp.textContent = preset.maxLeads.toLocaleString('he-IL');
         }
 
         updateCalculator();
@@ -365,183 +299,228 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '';
         Object.keys(channelPresets).forEach(key => {
             const p = channelPresets[key];
-            const effCpl = isAiBoost ? Math.round(p.baseCpl * 0.85) : p.baseCpl;
+            let baseCplVal = p.baseCpl;
+            
+            if (key === 'google_seo' && seoTargetPosSelect && seoPosConfig.target[seoTargetPosSelect.value]) {
+                baseCplVal = seoPosConfig.target[seoTargetPosSelect.value].baseCpl;
+            }
+
+            const effCpl = isAiBoost ? Math.round(baseCplVal * 0.85) : baseCplVal;
             const reqBudget = Math.round(targetLeads * effCpl);
             const effConv = p.baseConvRate * (isAiBoost ? (1 + p.aiBoostFactor) : 1);
             const deals = Math.max(1, Math.round(targetLeads * effConv));
             const isSelected = key === activeChannelKey ? 'selected' : '';
 
             html += '<div class="calc-platform-cost-card ' + isSelected + '" onclick="window.selectReversePlatform(\'' + key + '\')">' +
-                    '<div class="calc-platform-header">' + p.name + '</div>' +
+                    '<div class="calc-platform-header"><i class="' + (p.icon.includes('fa-') ? (p.icon.startsWith('fab') ? p.icon : 'fas ' + p.icon) : 'fas fa-check') + '" style="color: ' + p.color + '"></i> ' + p.name + '</div>' +
                     '<div class="calc-platform-budget-val">₪' + reqBudget.toLocaleString('he-IL') + '</div>' +
-                    '<div class="calc-platform-cpl-label">עלות משוערת: ~₪' + effCpl + ' לפנייה (' + deals + ' עסקאות)</div>' +
+                    '<div class="calc-platform-cpl-label">~₪' + effCpl + ' לליד (' + deals + ' עסקאות)</div>' +
                     '</div>';
         });
         reversePlatformsGrid.innerHTML = html;
     }
 
     window.selectReversePlatform = function(key) {
-        applyChannelPreset(key);
+        applyChannel(key);
     };
 
     function updateCalculator() {
         const preset = channelPresets[activeChannelKey] || channelPresets.omnichannel;
+        const targetLeads = targetLeadsInput ? Math.max(1, parseInt(targetLeadsInput.value, 10) || 1) : (targetLeadsSlider ? parseInt(targetLeadsSlider.value, 10) : 100);
         const dealVal = dealInput ? Math.max(100, parseInt(dealInput.value, 10) || 100) : (dealSlider ? parseInt(dealSlider.value, 10) : 6000);
         const isAiBoost = aiBoostCheckbox ? aiBoostCheckbox.checked : true;
 
-        if (currentCalcMode === 'forward') {
-            const budget = budgetInput ? Math.max(100, parseInt(budgetInput.value, 10) || 100) : (budgetSlider ? parseInt(budgetSlider.value, 10) : 25000);
-            const leads = leadsInput ? Math.max(1, parseInt(leadsInput.value, 10) || 1) : (leadsSlider ? parseInt(leadsSlider.value, 10) : 380);
+        if (titleLeadsDisp) titleLeadsDisp.textContent = targetLeads.toLocaleString('he-IL');
+        if (gridLeadsLabel) gridLeadsLabel.textContent = targetLeads.toLocaleString('he-IL') + ' לידים';
 
-            const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
-            const estimatedDeals = Math.max(1, Math.round(leads * effectiveConvRate));
-            const estimatedRevenue = estimatedDeals * dealVal;
-            const roas = budget > 0 ? Math.round((estimatedRevenue / budget) * 100) : 0;
-            const netProfit = Math.max(0, estimatedRevenue - budget);
-            const timeSavedHours = Math.round(leads * (isAiBoost ? 1.8 : 0.8) + estimatedDeals * (isAiBoost ? 2.5 : 1.2));
+        // 1. Calculate Channel CPL & Efficiencies
+        let baseCpl = preset.baseCpl;
+        let baseConv = preset.baseConvRate;
+        let channelInsight = preset.insight;
 
-            if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
-            if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
-            if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
-            if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
-            if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
-            if (resInsight) resInsight.textContent = preset.insight;
+        // SEO Custom Rank Calculation
+        let seoCurInfo = null;
+        let seoTgtInfo = null;
+        if (activeChannelKey === 'google_seo' || activeChannelKey === 'omnichannel') {
+            const curPosKey = seoCurrentPosSelect ? seoCurrentPosSelect.value : 'page2';
+            const tgtPosKey = seoTargetPosSelect ? seoTargetPosSelect.value : 'top3';
+            seoCurInfo = seoPosConfig.current[curPosKey] || seoPosConfig.current.page2;
+            seoTgtInfo = seoPosConfig.target[tgtPosKey] || seoPosConfig.target.top3;
 
-            if (calcCtaBtn) {
-                const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
-                const msg = 'היי איגור, ביצעתי סימולציה במחשבון ה-ROI של GOR MARKETING:' + '\n' +
-                            '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
-                            '• תקציב חודשי: ₪' + budget.toLocaleString('he-IL') + '\n' +
-                            '• שווי ממוצע לעסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
-                            '• צפי פניות: ' + leads.toLocaleString('he-IL') + '\n' +
-                            '• צפי הכנסות: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)' + '\n' +
-                            '• צפי עסקאות: ' + estimatedDeals + ' עסקאות' + '\n' +
-                            'אשמח לבנות יחד תוכנית עבודה מותאמת להזנקת הפעילות!';
-                calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+            if (activeChannelKey === 'google_seo') {
+                baseCpl = Math.round(seoTgtInfo.baseCpl * seoCurInfo.factor);
+                baseConv = seoTgtInfo.convBoost;
+                channelInsight = 'יעד מיקום ' + seoTgtInfo.label + ': ' + seoTgtInfo.note;
             }
-        } else {
-            // REVERSE TARGET GOAL MODE
-            const targetLeads = targetLeadsInput ? Math.max(1, parseInt(targetLeadsInput.value, 10) || 1) : (targetLeadsSlider ? parseInt(targetLeadsSlider.value, 10) : 120);
 
-            const effCpl = isAiBoost ? Math.round(preset.baseCpl * 0.85) : preset.baseCpl;
-            const requiredBudget = Math.round(targetLeads * effCpl);
-            const effectiveConvRate = preset.baseConvRate * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
-            const estimatedDeals = Math.max(1, Math.round(targetLeads * effectiveConvRate));
-            const estimatedRevenue = estimatedDeals * dealVal;
-            const netProfit = Math.max(0, estimatedRevenue - requiredBudget);
+            if (seoCtrValDisp) seoCtrValDisp.textContent = seoTgtInfo.ctr;
+            if (seoTimelineValDisp) seoTimelineValDisp.textContent = seoCurInfo.timeMin + '-' + seoCurInfo.timeMax + ' חודשים';
+            if (seoEffortValDisp) seoEffortValDisp.textContent = seoCurInfo.effortText;
+        }
 
-            if (resRevenue) resRevenue.textContent = '₪' + requiredBudget.toLocaleString('he-IL');
-            if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות';
-            if (resRoas) resRoas.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
-            if (resTimeSaved) resTimeSaved.textContent = '₪' + effCpl + ' לפנייה';
-            if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
-            if (resInsight) resInsight.textContent = 'עבור יעד של ' + targetLeads + ' פניות ב-' + preset.name + ', התקציב הנדרש הוא כ-₪' + requiredBudget.toLocaleString('he-IL') + '. תוכנית זו צפויה להניב ' + estimatedDeals + ' עסקאות סגורות בשווי כולל של ₪' + estimatedRevenue.toLocaleString('he-IL') + '.';
+        // Social Media Custom Growth Calculation
+        let socialTargetVal = 100;
+        let socialStratInfo = null;
+        if (activeChannelKey === 'meta_ads' || activeChannelKey === 'tiktok_ads' || activeChannelKey === 'instagram') {
+            socialTargetVal = socialFollowersTargetSelect ? parseInt(socialFollowersTargetSelect.value, 10) : 100;
+            const stratKey = socialStrategySelect ? socialStrategySelect.value : 'hybrid';
+            socialStratInfo = socialGrowthConfig.strategy[stratKey] || socialGrowthConfig.strategy.hybrid;
 
-            renderReversePlatformCards(targetLeads, dealVal, isAiBoost);
+            const boostBudget = Math.round(socialTargetVal * socialStratInfo.costPerFollower);
+            const postsDisplay = stratKey === 'organic_only' ? Math.max(15, Math.round(socialTargetVal * 0.22)) + ' פוסטים/רילס' : (socialStratInfo.postText || '8-12 פוסטים');
 
-            if (calcCtaBtn) {
-                const aiText = isAiBoost ? 'כולל מערך סוכני AI ו-CRM' : 'ללא שדרוג AI';
-                const msg = 'היי איגור, הגדרתי יעד במחשבון של GOR MARKETING:' + '\n' +
-                            '• יעד מבוקש: ' + targetLeads + ' שיחות/פניות בחודש' + '\n' +
-                            '• ערוץ נבחר: ' + preset.name + ' (' + aiText + ')' + '\n' +
-                            '• תקציב מחושב נדרש: ₪' + requiredBudget.toLocaleString('he-IL') + '\n' +
-                            '• שווי עסקה: ₪' + dealVal.toLocaleString('he-IL') + '\n' +
-                            '• צפי סגירות: ' + estimatedDeals + ' עסקאות (₪' + estimatedRevenue.toLocaleString('he-IL') + ' הכנסות)' + '\n' +
-                            'אשמח לבנות איתך תוכנית פעולה להשגת יעד זה!';
-                calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+            if (socialPostsValDisp) socialPostsValDisp.textContent = postsDisplay;
+            if (socialBoostValDisp) socialBoostValDisp.textContent = boostBudget > 0 ? '~₪' + boostBudget.toLocaleString('he-IL') : '₪0 (אורגני)';
+            if (socialTimeValDisp) socialTimeValDisp.textContent = socialStratInfo.timeText;
+
+            channelInsight = 'יעד ' + socialTargetVal + ' עוקבים: ' + socialStratInfo.note;
+        }
+
+        const effCpl = isAiBoost ? Math.round(baseCpl * 0.85) : baseCpl;
+        const requiredBudget = Math.round(targetLeads * effCpl);
+
+        // 2. Calculate Deals & Revenue
+        const effectiveConvRate = baseConv * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
+        const estimatedDeals = Math.max(1, Math.round(targetLeads * effectiveConvRate));
+        const estimatedRevenue = estimatedDeals * dealVal;
+        const roas = requiredBudget > 0 ? Math.round((estimatedRevenue / requiredBudget) * 100) : 0;
+        const netProfit = Math.max(0, estimatedRevenue - requiredBudget);
+        const timeSavedHours = Math.round(targetLeads * (isAiBoost ? 1.5 : 0.6) + estimatedDeals * (isAiBoost ? 2.0 : 1.0));
+
+        // 3. Update DOM
+        if (resRequiredBudget) resRequiredBudget.textContent = '₪' + requiredBudget.toLocaleString('he-IL');
+        if (resCplBadge) {
+            const aiSaveText = isAiBoost ? ' (כולל חיסכון של 15% במאיץ AI)' : '';
+            resCplBadge.innerHTML = 'לפי עלות ממוצעת של <strong style="color: #fff;">₪' + effCpl + '</strong> לפנייה בערוץ הנבחר' + aiSaveText;
+        }
+
+        if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
+        if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות (' + Math.round(effectiveConvRate * 100) + '% סגירה)';
+        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
+        if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
+        if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
+        if (resInsight) resInsight.textContent = channelInsight;
+
+        // 4. Render Cross-Channel Comparison Grid
+        renderReversePlatformCards(targetLeads, dealVal, isAiBoost);
+
+        // 5. Update WhatsApp CTA
+        if (calcCtaBtn) {
+            const aiText = isAiBoost ? 'כולל מאיץ AI ו-GOR CRM' : 'ללא מאיץ AI';
+            let extraDetail = '';
+            if (activeChannelKey === 'google_seo' && seoCurInfo && seoTgtInfo) {
+                extraDetail = '\n🎯 מיקום נוכחי: ' + seoCurInfo.label + ' ➡️ יעד מבוקש: ' + seoTgtInfo.label + ' (' + seoTgtInfo.ctr + ')';
+            } else if ((activeChannelKey === 'meta_ads' || activeChannelKey === 'tiktok_ads' || activeChannelKey === 'instagram') && socialStratInfo) {
+                extraDetail = '\n👥 יעד עוקבים: ' + socialTargetVal + ' עוקבים (' + socialStratInfo.label + ')';
             }
+
+            const msgLines = [
+                'היי איגור, ביצעתי תחזית במחשבון הלידים של GOR MARKETING:',
+                '🎯 יעד מבוקש (X): ' + targetLeads.toLocaleString('he-IL') + ' לידים/פניות בחודש',
+                '🌐 ערוץ שיווק: ' + preset.name + ' (' + aiText + ')' + extraDetail,
+                '💰 תקציב פרסום/השקעה נדרש (Y): ₪' + requiredBudget.toLocaleString('he-IL') + ' (~₪' + effCpl + ' לליד)',
+                '🤝 צפי עסקאות: ' + estimatedDeals + ' עסקאות',
+                '📈 מחזור הכנסות משוער: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)',
+                '💎 רווח נקי משוער: ₪' + netProfit.toLocaleString('he-IL'),
+                'אשמח שנתאם שיחה לבניית תוכנית עבודה מנצחת!'
+            ];
+            calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msgLines.join('\n'));
         }
 
         if (window.trackGorEvent) {
-            window.trackGorEvent('roi_calculated', { mode: currentCalcMode, channel: activeChannelKey });
+            window.trackGorEvent('roi_target_leads_calculated', { targetLeads: targetLeads, channel: activeChannelKey, budget: requiredBudget });
         }
     }
 
-    if (channelBtns.length > 0) {
-        channelBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const ch = btn.dataset.channel;
-                if (ch) applyChannelPreset(ch);
-            });
-        });
-    }
-
-    // Two-way synchronization for budget
-    if (budgetSlider && budgetInput) {
-        budgetSlider.addEventListener('input', () => {
-            budgetInput.value = budgetSlider.value;
+    // Event Listeners for Target Leads
+    if (targetLeadsInput && targetLeadsSlider) {
+        targetLeadsInput.addEventListener('input', () => {
+            const val = parseInt(targetLeadsInput.value, 10) || 5;
+            targetLeadsSlider.value = Math.min(1000, Math.max(5, val));
+            updateActiveLeadPill(val);
             updateCalculator();
         });
-        budgetInput.addEventListener('input', () => {
-            const val = Math.max(100, parseInt(budgetInput.value, 10) || 100);
-            budgetSlider.value = val;
-            updateCalculator();
-        });
-    }
-
-    // Two-way synchronization for deal value
-    if (dealSlider && dealInput) {
-        dealSlider.addEventListener('input', () => {
-            dealInput.value = dealSlider.value;
-            updateCalculator();
-        });
-        dealInput.addEventListener('input', () => {
-            const val = Math.max(100, parseInt(dealInput.value, 10) || 100);
-            dealSlider.value = val;
-            updateCalculator();
-        });
-    }
-
-    // Two-way synchronization for forward leads
-    if (leadsSlider && leadsInput) {
-        leadsSlider.addEventListener('input', () => {
-            leadsInput.value = leadsSlider.value;
-            updateCalculator();
-        });
-        leadsInput.addEventListener('input', () => {
-            const val = Math.max(1, parseInt(leadsInput.value, 10) || 1);
-            leadsSlider.value = val;
-            updateCalculator();
-        });
-    }
-
-    // Two-way synchronization for reverse target leads
-    if (targetLeadsSlider && targetLeadsInput) {
         targetLeadsSlider.addEventListener('input', () => {
             targetLeadsInput.value = targetLeadsSlider.value;
-            updateCalculator();
-        });
-        targetLeadsInput.addEventListener('input', () => {
-            const val = Math.max(1, parseInt(targetLeadsInput.value, 10) || 1);
-            targetLeadsSlider.value = val;
+            updateActiveLeadPill(parseInt(targetLeadsSlider.value, 10));
             updateCalculator();
         });
     }
 
-    if (aiBoostCheckbox) aiBoostCheckbox.addEventListener('change', updateCalculator);
-
-    updateCalculator();
-
-    // Toggle All 19 Google Reviews
-    const toggleReviewsBtn = document.getElementById('toggle-all-reviews-btn');
-    if (toggleReviewsBtn) {
-        let isExpanded = false;
-        toggleReviewsBtn.addEventListener('click', () => {
-            const hiddenReviews = document.querySelectorAll('.review-card-gmb.hidden-review');
-            isExpanded = !isExpanded;
-            hiddenReviews.forEach(card => {
-                if (isExpanded) {
-                    card.classList.add('show-all');
-                } else {
-                    card.classList.remove('show-all');
-                }
-            });
-            toggleReviewsBtn.innerHTML = isExpanded 
-                ? '<i class="fas fa-chevron-up"></i> הצג פחות ביקורות' 
-                : '<i class="fas fa-chevron-down"></i> הצג את כל 19 הביקורות המלאות';
+    // Event Listeners for Deal Value
+    if (dealInput && dealSlider) {
+        dealInput.addEventListener('input', () => {
+            const val = parseInt(dealInput.value, 10) || 500;
+            dealSlider.value = Math.min(50000, Math.max(500, val));
+            updateActiveDealPill(val);
+            updateCalculator();
+        });
+        dealSlider.addEventListener('input', () => {
+            dealInput.value = dealSlider.value;
+            updateActiveDealPill(parseInt(dealSlider.value, 10));
+            updateCalculator();
         });
     }
 
+    if (seoCurrentPosSelect) seoCurrentPosSelect.addEventListener('change', updateCalculator);
+    if (seoTargetPosSelect) seoTargetPosSelect.addEventListener('change', updateCalculator);
+
+    if (socialFollowersTargetSelect) socialFollowersTargetSelect.addEventListener('change', updateCalculator);
+    if (socialStrategySelect) socialStrategySelect.addEventListener('change', updateCalculator);
+
+    function updateActiveLeadPill(val) {
+        leadPills.forEach(p => {
+            if (parseInt(p.getAttribute('data-val'), 10) === val) {
+                p.classList.add('active');
+            } else {
+                p.classList.remove('active');
+            }
+        });
+    }
+
+    function updateActiveDealPill(val) {
+        dealPills.forEach(p => {
+            if (parseInt(p.getAttribute('data-deal'), 10) === val) {
+                p.classList.add('active');
+            } else {
+                p.classList.remove('active');
+            }
+        });
+    }
+
+    leadPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const val = parseInt(pill.getAttribute('data-val'), 10);
+            if (targetLeadsInput) targetLeadsInput.value = val;
+            if (targetLeadsSlider) targetLeadsSlider.value = Math.min(1000, val);
+            updateActiveLeadPill(val);
+            updateCalculator();
+        });
+    });
+
+    dealPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const val = parseInt(pill.getAttribute('data-deal'), 10);
+            if (dealInput) dealInput.value = val;
+            if (dealSlider) dealSlider.value = Math.min(50000, val);
+            updateActiveDealPill(val);
+            updateCalculator();
+        });
+    });
+
+    if (aiBoostCheckbox) {
+        aiBoostCheckbox.addEventListener('change', updateCalculator);
+    }
+
+    channelBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const channelKey = btn.getAttribute('data-channel');
+            applyChannel(channelKey);
+        });
+    });
+
+    // Initialize Calculator
+    applyChannel('omnichannel');
 
     // 4. Case Studies Category Filter Logic
     const filterBtns = document.querySelectorAll('.case-filter-btn');
@@ -664,7 +643,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnText: 'כניסה ל-GOR CRM / פתיחת דמו',
             btnIcon: 'fa-crown',
             btnClass: 'btn-emerald',
-            btnHref: 'https://gorcrm.netlify.app/'
+            btnHref: 'https://gormarketing.netlify.app/'
         },
         {
             keywords: ['roi', 'מחשבון', 'תקציב', 'תחזית', 'כדאיות', 'חישוב'],
@@ -803,3 +782,470 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 });
+
+
+/* Interactive Quote & Package Builder Logic */
+(function initQuoteBuilder() {
+    const grid = document.getElementById('quote-services-grid');
+    if (!grid) return;
+
+    const checkboxes = grid.querySelectorAll('.quote-checkbox');
+    const totalMonthlyEl = document.getElementById('quote-total-monthly');
+    const totalOnetimeEl = document.getElementById('quote-total-onetime');
+    const onetimeContainer = document.getElementById('quote-total-onetime-container');
+    const discountBadge = document.getElementById('quote-discount-badge');
+    const selectedCountEl = document.getElementById('quote-selected-count');
+    const whatsappBtn = document.getElementById('quote-whatsapp-btn');
+    const gmailBtn = document.getElementById('quote-gmail-btn');
+
+    function calculateQuote() {
+        let monthlyTotal = 0;
+        let onetimeTotal = 0;
+        let selectedServices = [];
+        let monthlyCount = 0;
+
+        checkboxes.forEach(cb => {
+            const card = cb.closest('.quote-service-card');
+            if (cb.checked) {
+                const price = parseFloat(cb.getAttribute('data-price')) || 0;
+                const type = cb.getAttribute('data-type');
+                const name = cb.getAttribute('data-service');
+
+                selectedServices.push({ name, price, type });
+
+                if (type === 'monthly') {
+                    monthlyTotal += price;
+                    monthlyCount++;
+                } else {
+                    onetimeTotal += price;
+                }
+
+                if (card) card.style.borderColor = 'var(--gold-bright)';
+            } else {
+                if (card) card.style.borderColor = 'rgba(255,255,255,0.08)';
+            }
+        });
+
+        // Apply discount if 2 or more monthly services selected
+        let discountRate = 0;
+        if (monthlyCount >= 3) {
+            discountRate = 0.15; // 15% discount
+            discountBadge.textContent = '15% הנחת חבילה מוחלת!';
+            discountBadge.style.display = 'inline-block';
+        } else if (monthlyCount === 2) {
+            discountRate = 0.10; // 10% discount
+            discountBadge.textContent = '10% הנחת חבילה מוחלת!';
+            discountBadge.style.display = 'inline-block';
+        } else {
+            discountBadge.style.display = 'none';
+        }
+
+        const discountedMonthly = Math.round(monthlyTotal * (1 - discountRate));
+
+        totalMonthlyEl.innerHTML = '₪' + discountedMonthly.toLocaleString() + ' <span style="font-size: 0.95rem; color: #94a3b8; font-weight: 400;">/ חודש</span>';
+        selectedCountEl.textContent = 'נבחרו ' + selectedServices.length + ' שירותים מותאמים';
+
+        if (onetimeTotal > 0) {
+            onetimeContainer.style.display = 'block';
+            totalOnetimeEl.textContent = '₪' + onetimeTotal.toLocaleString();
+        } else {
+            onetimeContainer.style.display = 'none';
+        }
+
+        // WhatsApp trigger
+        whatsappBtn.onclick = function() {
+            let msg = 'היי איגור, הרכבתי חבילת שיווק מותאמת באתר GOR MARKETING:%0A%0A';
+            selectedServices.forEach((s, idx) => {
+                msg += (idx + 1) + '. ' + s.name + ' (₪' + s.price.toLocaleString() + ')%0A';
+            });
+            if (discountRate > 0) {
+                msg += '%0A🎁 הנחת חבילה: ' + (discountRate * 100) + '%%0A';
+            }
+            msg += '💰 סה"כ חודשי משוער: ₪' + discountedMonthly.toLocaleString() + '%0A';
+            if (onetimeTotal > 0) {
+                msg += '⚡ הקמה חד-פעמית: ₪' + onetimeTotal.toLocaleString() + '%0A';
+            }
+            msg += '%0Aאשמח לקבוע פגישת אפיון ולסגור את החבילה!';
+            window.open('https://wa.me/972525155598?text=' + msg, '_blank');
+        };
+
+                // Gmail trigger
+        gmailBtn.onclick = function() {
+            let body = 'היי איגור,\n\nהרכבתי חבילת שיווק באתר GOR MARKETING:\n\n';
+            selectedServices.forEach((s, idx) => {
+                body += (idx + 1) + '. ' + s.name + ' (₪' + s.price.toLocaleString() + ')\n';
+            });
+            body += '\nסה"כ חודשי משוער: ₪' + discountedMonthly.toLocaleString() + '\n';
+            if (onetimeTotal > 0) body += 'הקמה חד-פעמית: ₪' + onetimeTotal.toLocaleString() + '\n';
+            body += '\nאשמח לתאם פגישת אפיון ביומן.\nשם:\nטלפון:\nשם העסק:';
+            const url = 'mailto:igorgor.marketing@gmail.com?subject=' + encodeURIComponent('הצעת מחיר מותאמת מחשבון GOR MARKETING') + '&body=' + encodeURIComponent(body);
+            window.location.href = url;
+        };
+    }
+
+    checkboxes.forEach(cb => cb.addEventListener('change', calculateQuote));
+    calculateQuote();
+})();
+
+
+
+// ==========================================================================
+// GOR CRM - UNIVERSAL AUTH & USER PROFILE ENGINE (Gmail / SaaS Style)
+// ==========================================================================
+(function initGorCrmAuthEngine() {
+    const STORAGE_KEY = 'gor_crm_session_v1';
+
+    function getSession() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            return raw ? JSON.parse(raw) : null;
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function setSession(userData) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+        } catch (e) {
+            console.error('Failed to save CRM session', e);
+        }
+    }
+
+    function clearSession() {
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+        } catch (e) {
+            console.error('Failed to clear CRM session', e);
+        }
+    }
+
+    // 1. Ensure Modal Exists in DOM
+    function ensureModal() {
+        if (document.getElementById('gorCrmModal')) return;
+
+        const modalHtml = `
+        <div class="crm-modal-backdrop" id="gorCrmModal" role="dialog" aria-modal="true" aria-labelledby="crmModalTitle">
+            <div class="crm-modal-card">
+                <button type="button" class="crm-modal-close" id="gorCrmModalClose" aria-label="סגור חלון">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="crm-modal-header">
+                    <div class="crm-modal-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="crm-modal-title" id="crmModalTitle">כניסה למערכת GOR CRM</h3>
+                    <p class="crm-modal-subtitle">פורטל ניהול לקוחות, לידים, פרויקטים ואוטומציות</p>
+                </div>
+
+                <div class="crm-login-alert" id="crmLoginAlert"></div>
+
+                <form id="gorCrmLoginForm">
+                    <div class="crm-form-group">
+                        <label class="crm-form-label" for="crmInputEmail">דוא״ל / שם משתמש</label>
+                        <div class="crm-input-wrapper">
+                            <i class="fas fa-envelope crm-field-icon"></i>
+                            <input type="text" id="crmInputEmail" class="crm-input" placeholder="igor@gormarketing.com / משתמש" required autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="crm-form-group">
+                        <label class="crm-form-label" for="crmInputPassword">סיסמת כניסה</label>
+                        <div class="crm-input-wrapper">
+                            <i class="fas fa-lock crm-field-icon"></i>
+                            <input type="password" id="crmInputPassword" class="crm-input" placeholder="••••••••" required autocomplete="current-password">
+                            <button type="button" class="crm-toggle-password" id="crmTogglePassword" aria-label="הצג סיסמה">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="crm-form-options">
+                        <label class="crm-remember-label">
+                            <input type="checkbox" id="crmRememberMe" checked>
+                            <span>זכור אותי במכשיר זה</span>
+                        </label>
+                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%A9%D7%9B%D7%97%D7%AA%D7%99%20%D7%A1%D7%99%D7%A1%D7%9E%D7%94%20%D7%9C-GOR%20CRM" target="_blank" rel="noopener" class="crm-forgot-link">שכחת סיסמה?</a>
+                    </div>
+
+                    <button type="submit" class="btn-crm-submit" id="crmSubmitBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>כניסה מאובטחת ל-CRM</span>
+                    </button>
+
+                    <button type="button" class="btn-crm-quick-admin" id="crmQuickAdminBtn">
+                        <i class="fas fa-bolt" style="color: var(--gold-bright);"></i>
+                        <span>כניסה מהירה כמנהל (איגור גורלקין)</span>
+                    </button>
+                </form>
+
+                <div class="crm-modal-footer">
+                    <span>פלטפורמת GOR CRM פועלת בענן מאובטח. </span>
+                    <a href="https://gormarketing.netlify.app/" target="_blank" rel="noopener">פתיחה ישירה בטאב נפרד ←</a>
+                </div>
+            </div>
+        </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        setupModalEvents();
+    }
+
+    function openModal() {
+        ensureModal();
+        const modal = document.getElementById('gorCrmModal');
+        if (modal) {
+            modal.classList.add('active');
+            const alertBox = document.getElementById('crmLoginAlert');
+            if (alertBox) {
+                alertBox.className = 'crm-login-alert';
+                alertBox.style.display = 'none';
+            }
+            setTimeout(() => {
+                const emailInput = document.getElementById('crmInputEmail');
+                if (emailInput) emailInput.focus();
+            }, 100);
+        }
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('gorCrmModal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
+    }
+
+    function setupModalEvents() {
+        const modal = document.getElementById('gorCrmModal');
+        const closeBtn = document.getElementById('gorCrmModalClose');
+        const togglePass = document.getElementById('crmTogglePassword');
+        const passInput = document.getElementById('crmInputPassword');
+        const form = document.getElementById('gorCrmLoginForm');
+        const quickAdminBtn = document.getElementById('crmQuickAdminBtn');
+
+        if (closeBtn) closeBtn.onclick = closeModal;
+
+        if (modal) {
+            modal.onclick = (e) => {
+                if (e.target === modal) closeModal();
+            };
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        if (togglePass && passInput) {
+            togglePass.onclick = () => {
+                const isPass = passInput.type === 'password';
+                passInput.type = isPass ? 'text' : 'password';
+                togglePass.innerHTML = isPass ? '<i class="fas fa-eye-slash"></i>' : '<i class="fas fa-eye"></i>';
+            };
+        }
+
+        if (quickAdminBtn) {
+            quickAdminBtn.onclick = () => {
+                const emailInput = document.getElementById('crmInputEmail');
+                if (emailInput) emailInput.value = 'igor@gormarketing.com';
+                if (passInput) passInput.value = '••••••••';
+                handleSuccessfulLogin({
+                    name: 'איגור גורלקין',
+                    email: 'igor@gormarketing.com',
+                    role: 'מנהל מערכת ראשי',
+                    initials: 'אי'
+                });
+            };
+        }
+
+        if (form) {
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                const emailInput = document.getElementById('crmInputEmail');
+                const emailVal = emailInput ? emailInput.value.trim() : '';
+
+                if (!emailVal) return;
+
+                const nameVal = emailVal.includes('@') ? emailVal.split('@')[0] : emailVal;
+                const initials = nameVal.length >= 2 ? nameVal.substring(0, 2).toUpperCase() : nameVal.toUpperCase();
+
+                const isIgor = emailVal.toLowerCase().includes('igor') || emailVal.toLowerCase().includes('admin');
+
+                handleSuccessfulLogin({
+                    name: isIgor ? 'איגור גורלקין' : nameVal,
+                    email: emailVal.includes('@') ? emailVal : emailVal + '@gormarketing.com',
+                    role: isIgor ? 'מנהל מערכת ראשי' : 'משתמש מורשה',
+                    initials: isIgor ? 'אי' : initials
+                });
+            };
+        }
+    }
+
+    function handleSuccessfulLogin(user) {
+        const alertBox = document.getElementById('crmLoginAlert');
+        const submitBtn = document.getElementById('crmSubmitBtn');
+
+        if (alertBox) {
+            alertBox.className = 'crm-login-alert success';
+            alertBox.innerHTML = '<i class="fas fa-check-circle"></i> <span>התחברת בהצלחה! מעביר ל-GOR CRM...</span>';
+            alertBox.style.display = 'flex';
+        }
+
+        if (submitBtn) {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>טוען פרופיל...</span>';
+        }
+
+        user.loginTime = Date.now();
+        user.isLoggedIn = true;
+        setSession(user);
+
+        setTimeout(() => {
+            closeModal();
+            renderNavbarAuth();
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-sign-in-alt"></i> <span>כניסה מאובטחת ל-CRM</span>';
+            }
+            // Prompt to open CRM or direct tab
+            window.open('https://gormarketing.netlify.app/', '_blank');
+        }, 700);
+    }
+
+    function handleLogout() {
+        clearSession();
+        renderNavbarAuth();
+        const tray = document.getElementById('gorCrmUserTray');
+        if (tray) tray.classList.remove('active');
+    }
+
+    // 2. Render Auth Controls in Navbar (Gmail Avatar & Login Button)
+    function renderNavbarAuth() {
+        ensureModal();
+        const session = getSession();
+        const navContainers = document.querySelectorAll('.nav-links');
+
+        navContainers.forEach(nav => {
+            // Remove previous instances if any
+            const existingBtn = nav.querySelector('.btn-crm-nav');
+            const existingWidget = nav.querySelector('.crm-user-profile-widget');
+            if (existingBtn) existingBtn.remove();
+            if (existingWidget) existingWidget.remove();
+
+            if (session && session.isLoggedIn) {
+                // Render Gmail-Style User Profile Avatar (Top Left / Nav)
+                const widget = document.createElement('div');
+                widget.className = 'crm-user-profile-widget';
+                widget.id = 'gorCrmUserWidget';
+                widget.innerHTML = `
+                    <button type="button" class="crm-user-avatar-btn" id="gorCrmAvatarBtn" aria-label="תפריט משתמש ${session.name}" aria-expanded="false">
+                        <div class="crm-avatar-circle">
+                            <span>${session.initials || 'G'}</span>
+                            <span class="crm-online-dot" title="מחובר ל-CRM"></span>
+                        </div>
+                        <div class="crm-user-info-text">
+                            <span class="crm-user-name">${session.name}</span>
+                            <span class="crm-user-status-text">GOR CRM</span>
+                        </div>
+                        <i class="fas fa-chevron-down" style="font-size: 0.65rem; color: var(--gold-bright); margin-right: 4px;"></i>
+                    </button>
+                    <div class="crm-user-tray" id="gorCrmUserTray">
+                        <div class="crm-tray-header">
+                            <div class="crm-tray-avatar">${session.initials || 'G'}</div>
+                            <div class="crm-tray-user-details">
+                                <span class="crm-tray-name">${session.name}</span>
+                                <span class="crm-tray-email">${session.email}</span>
+                                <span class="crm-tray-badge"><i class="fas fa-bolt"></i> ${session.role || 'משתמש מורשה'}</span>
+                            </div>
+                        </div>
+                        <div class="crm-tray-actions">
+                            <a href="https://gormarketing.netlify.app/" target="_blank" rel="noopener" class="crm-tray-btn crm-tray-btn-primary">
+                                <span><i class="fas fa-external-link-alt"></i> כניסה לאפליקציית GOR CRM</span>
+                                <i class="fas fa-arrow-left"></i>
+                            </a>
+                            <a href="https://gormarketing.netlify.app/" target="_blank" rel="noopener" class="crm-tray-btn">
+                                <span><i class="fas fa-users-cog"></i> ניהול לידים ופרויקטים</span>
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                            <button type="button" class="crm-tray-btn crm-tray-logout" id="gorCrmLogoutAction">
+                                <span><i class="fas fa-sign-out-alt"></i> התנתקות מהמערכת</span>
+                                <i class="fas fa-power-off"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                // Insert at the beginning or end of nav
+                const contactBtn = nav.querySelector('.btn-nav');
+                if (contactBtn) {
+                    nav.insertBefore(widget, contactBtn);
+                } else {
+                    nav.appendChild(widget);
+                }
+
+                // Setup Tray toggle
+                const avatarBtn = widget.querySelector('#gorCrmAvatarBtn');
+                const tray = widget.querySelector('#gorCrmUserTray');
+                const logoutBtn = widget.querySelector('#gorCrmLogoutAction');
+
+                if (avatarBtn && tray) {
+                    avatarBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        const isActive = tray.classList.toggle('active');
+                        avatarBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                    };
+                }
+
+                if (logoutBtn) {
+                    logoutBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        handleLogout();
+                    };
+                }
+            } else {
+                // Render "כניסה ל-CRM" Button
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'btn-crm-nav';
+                btn.id = 'gorCrmTrigger';
+                btn.setAttribute('aria-label', 'כניסה למערכת GOR CRM');
+                btn.innerHTML = '<i class="fas fa-user-shield"></i> <span>כניסה ל-CRM</span>';
+
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    openModal();
+                };
+
+                const contactBtn = nav.querySelector('.btn-nav');
+                if (contactBtn) {
+                    nav.insertBefore(btn, contactBtn);
+                } else {
+                    nav.appendChild(btn);
+                }
+            }
+        });
+    }
+
+    // Close user tray on outside click
+    document.addEventListener('click', (e) => {
+        const tray = document.getElementById('gorCrmUserTray');
+        const avatarBtn = document.getElementById('gorCrmAvatarBtn');
+        if (tray && tray.classList.contains('active')) {
+            if (!tray.contains(e.target) && (!avatarBtn || !avatarBtn.contains(e.target))) {
+                tray.classList.remove('active');
+            }
+        }
+    });
+
+    // Expose Global Helper
+    window.openGorCrmLogin = openModal;
+    window.gorCrmLogout = handleLogout;
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNavbarAuth();
+        });
+    } else {
+        renderNavbarAuth();
+    }
+})();

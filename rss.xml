@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>GOR MARKETING — חדשות שיווק דיגיטלי, סוכני AI ופיתוח SaaS</title>
+  <link>https://www.gormarketing.com</link>
+  <description>מרכז הידע, המדריכים וחדשות השיווק הדיגיטלי, הבינה המלאכותית ופיתוח התוכנה של סוכנות GOR MARKETING בהובלת איגור גורלקין.</description>
+  <language>he</language>
+  <lastBuildDate>Fri, 28 Aug 2026 07:58:14 GMT</lastBuildDate>
+  <atom:link href="https://www.gormarketing.com/rss.xml" rel="self" type="application/rss+xml" />
+
+  <item>
+    <title>המדריך המלא לפרסום ממומן בטיקטוק (TikTok Ads) לעסקים</title>
+    <link>https://www.gormarketing.com/tiktok-ads-guide.html</link>
+    <description>איך לנצל את עלויות החשיפה הזולות בטיקטוק, להשתמש בפורמט Spark Ads ולסגור לידים תוך 60 שניות עם אוטומציה.</description>
+    <pubDate>Fri, 28 Aug 2026 07:58:14 GMT</pubDate>
+    <guid>https://www.gormarketing.com/tiktok-ads-guide.html</guid>
+  </item>
+
+  <item>
+    <title>סוכני AI ואוטומציות מכירה: המהפכה בעסקים בישראל</title>
+    <link>https://www.gormarketing.com/ai.html</link>
+    <description>הטמעת סוכני בינה מלאכותית, צ'אטבוטים בוואטסאפ וחיבור ל-GOR CRM שמגדילים את המכירות ב-300%.</description>
+    <pubDate>Fri, 28 Aug 2026 07:58:14 GMT</pubDate>
+    <guid>https://www.gormarketing.com/ai.html</guid>
+  </item>
+
+  <item>
+    <title>שיווק ופרסום בלינקדאין (LinkedIn B2B Marketing)</title>
+    <link>https://www.gormarketing.com/linkedin-ads-guide.html</link>
+    <description>איך לפנות ישירות למקבלי החלטות, להשתמש בטפסי Lead Gen מובנים ולסגור עסקאות High-Ticket.</description>
+    <pubDate>Fri, 28 Aug 2026 07:58:14 GMT</pubDate>
+    <guid>https://www.gormarketing.com/linkedin-ads-guide.html</guid>
+  </item>
+
+  <item>
+    <title>המדריך המלא להקמת אתר מכירות ואיקומרס (Shopify vs WooCommerce)</title>
+    <link>https://www.gormarketing.com/ecommerce-guide.html</link>
+    <description>איך להקים חנות אינטרנטית מנצחת, לשחזר עגלות נטושות בוואטסאפ ולהגדיל את ערך ההזמנה הממוצע.</description>
+    <pubDate>Fri, 28 Aug 2026 07:58:14 GMT</pubDate>
+    <guid>https://www.gormarketing.com/ecommerce-guide.html</guid>
+  </item>
+
+  <item>
+    <title>קידום לוקאלי בגוגל מפות (Google Maps Local SEO)</title>
+    <link>https://www.gormarketing.com/local-seo-gmb-guide.html</link>
+    <description>מדריך מעשי לכיבוש שלישיית המפות (Map Pack) ואופטימיזציית פרופיל עסק בגוגל.</description>
+    <pubDate>Fri, 28 Aug 2026 07:58:14 GMT</pubDate>
+    <guid>https://www.gormarketing.com/local-seo-gmb-guide.html</guid>
+  </item>
+</channel>
+</rss>
