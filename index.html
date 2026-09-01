@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20260901_crm_v3">
+    <link rel="stylesheet" href="styles.css?v=20260901_crm_v4">
     
     <style>
         /* Form & Review Specific Enhancements */
@@ -97,7 +97,7 @@
             margin: 4px 2px;
         }
     </style>
-    <link rel="stylesheet" href="assets/accessibility.css">
+    <link rel="stylesheet" href="assets/accessibility.css?v=20260901_crm_v4">
     <link rel="alternate" type="application/rss+xml" title="GOR MARKETING RSS Feed" href="rss.xml">
     <script type="application/ld+json">
 {
@@ -251,9 +251,14 @@
                 </a>
             </div>
 
-            <button class="mobile-nav-toggle" aria-label="פתח תפריט ניווט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="navbar-mobile-controls">
+                <button type="button" class="btn-crm-nav btn-crm-mobile-bar" id="gorCrmTriggerMobile" aria-label="כניסה ל-CRM">
+                    <i class="fas fa-user-shield"></i> <span>CRM</span>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="פתח תפריט ניווט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
 
             <nav class="nav-links">
                 <a href="index.html">בית</a>
@@ -491,9 +496,9 @@
             
             <!-- Top Feature Badges (Strict 1 Line - 3 in a Row) -->
             <div style="display: flex; justify-content: center; align-items: center; gap: clamp(6px, 1vw, 12px); flex-wrap: nowrap; white-space: nowrap; margin-bottom: 24px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 4px 0;">
-                <a href="#booking" class="badge-gold-emerald" style="margin: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.72rem, 0.88vw, 0.84rem); padding: 5px clamp(8px, 1.2vw, 14px); white-space: nowrap;">
-                    <i class="fas fa-bolt" style="color: var(--gold-bright);"></i> 47 עסקים קיבלו ייעוץ החודש ←
-                </a>
+                <a href="#booking" class="badge-gold-emerald" id="heroConsultationBadge" style="margin: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.72rem, 0.88vw, 0.84rem); padding: 5px clamp(8px, 1.2vw, 14px); white-space: nowrap;">
+        <i class="fas fa-bolt" style="color: var(--gold-bright);"></i> <span id="heroConsultationsNum">2</span> עסקים קיבלו ייעוץ החודש ←
+    </a>
                 <div class="badge-gold-emerald" style="margin: 0; display: inline-flex; align-items: center; gap: 6px; font-size: clamp(0.72rem, 0.88vw, 0.84rem); padding: 5px clamp(8px, 1.2vw, 14px); white-space: nowrap;">
                     <i class="fas fa-crown" style="color: var(--gold-bright);"></i> ניסיון מוכח בכל עולמות השיווק מאז 2008 ופיתוח SaaS מתקדם
                 </div>
@@ -2186,13 +2191,13 @@
     </a>
 
     <!-- GOR-Bot Floating AI Concierge Widget (Bottom: 24px) -->
-    <div id="gor-bot-trigger" class="gor-bot-trigger" style="position: fixed !important; bottom: 24px !important; left: 24px !important; z-index: 99998 !important;" title="צ'אט עם סוכן GOR">
+    <div id="gor-bot-trigger" class="gor-bot-trigger" style="position: fixed !important; bottom: 92px !important; right: 24px !important; left: auto !important; z-index: 999998 !important;" title="צ'אט עם סוכן GOR">
         <div class="gor-bot-pulse"></div>
         <span class="gor-bot-badge">AI</span>
         <i class="fas fa-robot"></i>
     </div>
 
-    <div id="gor-bot-modal" class="gor-bot-modal" style="position: fixed !important; bottom: 168px !important; left: 24px !important; z-index: 100000 !important;">
+    <div id="gor-bot-modal" class="gor-bot-modal" style="position: fixed !important; bottom: 160px !important; right: 24px !important; left: auto !important; z-index: 1000000 !important;">
         <div class="gor-bot-header">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900;">G</div>
@@ -2243,7 +2248,7 @@
     <!-- Scripts -->
     <script src="assets/motion.js?v=20260901_crm_v2" defer></script>
     <script src="assets/accessibility.js?v=20260901_crm_v2" defer></script>
-    <script src="script.js?v=20260901_crm_v3"></script>
+    <script src="script.js?v=20260901_crm_v4"></script>
     <script defer src="assets/a11y.js"></script>
 </body>
 </html>

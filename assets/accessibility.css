@@ -1,436 +1,8 @@
-/* ==========================================================================
-   ISRAELI ACCESSIBILITY STANDARD (תקן ת"י 5568 ברמה AA / WCAG 2.1)
-   ========================================================================== */
-
-/* Skip to content link */
-/* Skip to content link - 100% offscreen until keyboard tab focus */
-.skip-to-content {
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
-    background: #ffc107 !important;
-    color: #06070a !important;
-    font-weight: 800 !important;
-    padding: 12px 20px !important;
-    border-radius: 8px !important;
-    z-index: 10000000 !important;
-    text-decoration: none !important;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.8) !important;
-    transition: none !important;
-}
-.skip-to-content:focus,
-.skip-to-content:focus-visible {
-    top: 15px !important;
-    right: 20px !important;
-    left: auto !important;
-}
-
-/* Accessibility Floating Button */
-.accessibility-trigger {
-    position: fixed;
-    bottom: clamp(18px, 3vh, 28px);
-    right: clamp(18px, 3vw, 28px);
-    width: clamp(50px, 6vw, 60px);
-    height: clamp(50px, 6vw, 60px);
-    border-radius: 50%;
-    background: #0056b3;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: clamp(24px, 3.5vw, 30px);
-    box-shadow: 0 10px 25px rgba(0, 86, 179, 0.5), 0 0 15px rgba(0, 191, 255, 0.4);
-    z-index: 999998;
-    border: 2px solid #ffffff;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-.accessibility-trigger:hover,
-.accessibility-trigger:focus {
-    transform: scale(1.1) rotate(-8deg);
-    background: #0077ff;
-    outline: 3px solid #ffd700;
-}
-
-/* Accessibility Modal Dialog */
-.accessibility-modal {
-    display: none;
-    position: fixed;
-    bottom: 95px;
-    right: 25px;
-    width: min(360px, calc(100vw - 32px));
-    max-height: 80vh;
-    background: #0a0e17;
-    border: 2px solid var(--border-gold);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 30px rgba(255, 193, 7, 0.25);
-    z-index: 1000000;
-    overflow-y: auto;
-    backdrop-filter: blur(20px);
-    color: #ffffff;
-}
-
-.accessibility-modal.active {
-    display: block;
-    animation: a11yFadeIn 0.25s ease-out;
-}
-
-@keyframes a11yFadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.a11y-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    padding-bottom: 12px;
-    margin-bottom: 16px;
-}
-.a11y-header h3 {
-    font-size: 1.15rem;
-    color: #ffd700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0;
-}
-.a11y-close {
-    background: none;
-    border: none;
-    color: #94a3b8;
-    font-size: 1.4rem;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 6px;
-}
-.a11y-close:hover, .a11y-close:focus {
-    color: #fff;
-    background: rgba(255,255,255,0.1);
-}
-
-.a11y-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-.a11y-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 12px 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 12px;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 0.82rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-}
-.a11y-btn i {
-    font-size: 1.25rem;
-    color: var(--emerald-primary);
-}
-.a11y-btn:hover, .a11y-btn:focus {
-    background: rgba(255, 193, 7, 0.15);
-    border-color: #ffd700;
-    outline: 2px solid #ffd700;
-    transform: translateY(-2px);
-}
-.a11y-btn.active-setting {
-    background: #00ff88;
-    color: #06070a;
-    border-color: #00ff88;
-    font-weight: 800;
-}
-.a11y-btn.active-setting i {
-    color: #06070a;
-}
-
-.a11y-footer-links {
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.85rem;
-}
-.a11y-footer-links a {
-    color: #ffd700;
-    text-decoration: underline;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* Accessibility Modifications applied to body */
-body.a11y-font-large { font-size: 120% !important; }
-body.a11y-font-xlarge { font-size: 135% !important; }
-
-body.a11y-high-contrast {
-    background: #000000 !important;
-    color: #ffffff !important;
-}
-body.a11y-high-contrast * {
-    background-color: #000000 !important;
-    color: #ffff00 !important;
-    border-color: #ffffff !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-}
-
-body.a11y-bright-contrast {
-    background: #ffffff !important;
-    color: #000000 !important;
-}
-body.a11y-bright-contrast * {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-    border-color: #000000 !important;
-    box-shadow: none !important;
-}
-
-body.a11y-highlight-links a {
-    background: #ffff00 !important;
-    color: #000000 !important;
-    text-decoration: underline !important;
-    font-weight: 900 !important;
-}
-
-body.a11y-readable-font * {
-    font-family: Arial, Helvetica, sans-serif !important;
-    letter-spacing: 0.5px !important;
-}
-
-body.a11y-stop-animations *,
-body.a11y-stop-animations *::before,
-body.a11y-stop-animations *::after {
-    animation: none !important;
-    transition: none !important;
-}
-
-body.a11y-big-cursor,
-body.a11y-big-cursor * {
-    cursor: crosshair !important;
-}
-
-
-/* Accessible Keyboard Focus for Images & Media */
-img[tabindex="0"]:focus,
-img:focus-visible {
-    outline: 3px solid #ffc107 !important;
-    outline-offset: 4px !important;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6) !important;
-    border-radius: 8px !important;
-}
-
-/* Keyboard Accessible Elements Focus Visible */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid var(--emerald-primary, #00ff88) !important;
-    outline-offset: 3px !important;
-    box-shadow: 0 0 12px rgba(0, 255, 136, 0.5) !important;
-}
-
 
 /* ==========================================================================
-   PERFECT FLOATING BUTTONS LAYOUT (ACCESSIBILITY ON RIGHT, WHATSAPP ON LEFT)
-   ========================================================================== */
-
-#gor-a11y-fab,
-.accessibility-trigger {
-    position: fixed !important;
-    bottom: 24px !important;
-    right: 24px !important;
-    left: auto !important;
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
-    border: 2px solid #ffffff !important;
-    color: #ffffff !important;
-    font-size: 26px !important;
-    cursor: pointer !important;
-    z-index: 999999 !important;
-    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6), 0 0 15px rgba(0, 191, 255, 0.4) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-#gor-a11y-fab:hover,
-#gor-a11y-fab:focus-visible,
-.accessibility-trigger:hover,
-.accessibility-trigger:focus-visible {
-    transform: scale(1.1) !important;
-    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
-    outline: 3px solid #ffd700 !important;
-}
-
-/* Secondary right floating button (e.g., Back to Top or Quick Call) stacked above a11y */
-.btn-back-to-top,
-.floating-secondary-right {
-    position: fixed !important;
-    bottom: 90px !important;
-    right: 24px !important;
-    left: auto !important;
-    width: 48px !important;
-    height: 48px !important;
-    z-index: 999998 !important;
-}
-
-@media (max-width: 768px) {
-    #gor-a11y-fab,
-    .accessibility-trigger {
-        bottom: 16px !important;
-        right: 16px !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 22px !important;
-    }
-    .btn-back-to-top,
-    .floating-secondary-right {
-        bottom: 74px !important;
-        right: 16px !important;
-        width: 42px !important;
-        height: 42px !important;
-    }
-}
-
-
-/* ==========================================================================
-   UNIFIED LEFT-SIDE VERTICAL FLOATING STACK (מהפינה השמאלית התחתונה כלפי מעלה)
-   ========================================================================== */
-
-/* 1. WHATSAPP (Bottom-most on the left) */
-.whatsapp-float {
-    position: fixed !important;
-    bottom: 24px !important;
-    left: 24px !important;
-    right: auto !important;
-    width: 54px !important;
-    height: 54px !important;
-    border-radius: 50% !important;
-    background: #25d366 !important;
-    color: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 28px !important;
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
-    z-index: 999999 !important;
-    text-decoration: none !important;
-    border: 2px solid #ffffff !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-.whatsapp-float:hover,
-.whatsapp-float:focus-visible {
-    transform: scale(1.1) !important;
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.8) !important;
-    outline: 3px solid #00ff88 !important;
-}
-
-/* 2. ACCESSIBILITY (Stacked above WhatsApp on the left) */
-#gor-a11y-fab,
-.accessibility-trigger {
-    position: fixed !important;
-    bottom: 88px !important;
-    left: 24px !important;
-    right: auto !important;
-    width: 54px !important;
-    height: 54px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
-    border: 2px solid #ffffff !important;
-    color: #ffffff !important;
-    font-size: 24px !important;
-    cursor: pointer !important;
-    z-index: 999999 !important;
-    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.6), 0 0 15px rgba(0, 191, 255, 0.4) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-#gor-a11y-fab:hover,
-#gor-a11y-fab:focus-visible,
-.accessibility-trigger:hover,
-.accessibility-trigger:focus-visible {
-    transform: scale(1.1) !important;
-    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
-    outline: 3px solid #ffd700 !important;
-}
-
-/* 3. PHONE / BACK TO TOP (Stacked above Accessibility on the left) */
-.phone-float,
-.btn-back-to-top,
-.floating-secondary-left {
-    position: fixed !important;
-    bottom: 152px !important;
-    left: 24px !important;
-    right: auto !important;
-    width: 54px !important;
-    height: 54px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #d97706, #f59e0b) !important;
-    border: 2px solid #ffffff !important;
-    color: #ffffff !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 22px !important;
-    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5) !important;
-    z-index: 999998 !important;
-    text-decoration: none !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-
-/* MOBILE RESPONSIVE (Screen width <= 768px) */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 16px !important;
-        left: 16px !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 24px !important;
-    }
-    #gor-a11y-fab,
-    .accessibility-trigger {
-        bottom: 72px !important;
-        left: 16px !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 22px !important;
-    }
-    .phone-float,
-    .btn-back-to-top,
-    .floating-secondary-left {
-        bottom: 128px !important;
-        left: 16px !important;
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 20px !important;
-    }
-}
-
-
-/* ==========================================================================
-   PERFECT CORNER LAYOUT: WHATSAPP ON BOTTOM-RIGHT, ACCESSIBILITY ON BOTTOM-LEFT
+   GOR MARKETING - PERFECT FLOATING WIDGET LAYOUT (Zero Overlap Guaranteed)
+   - RIGHT CORNER: WhatsApp (Bottom: 24px) + AI Bot (Bottom: 94px)
+   - LEFT CORNER:  Accessibility (Bottom: 24px) + Phone/Top (Bottom: 94px)
    ========================================================================== */
 
 /* 1. WHATSAPP (Bottom-Right Corner) */
@@ -462,7 +34,46 @@ textarea:focus-visible {
     outline: 3px solid #00ff88 !important;
 }
 
-/* 2. ACCESSIBILITY (Bottom-Left Corner) */
+/* 2. AI BOT TRIGGER (Right Corner - Above WhatsApp) */
+#gor-bot-trigger,
+.gor-bot-trigger,
+.ai-float-right {
+    position: fixed !important;
+    bottom: 92px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.6), 0 0 18px rgba(255, 215, 0, 0.5) !important;
+    z-index: 999998 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+#gor-bot-trigger:hover,
+.gor-bot-trigger:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(255, 193, 7, 0.9) !important;
+}
+
+#gor-bot-modal,
+.gor-bot-modal {
+    position: fixed !important;
+    bottom: 160px !important;
+    right: 24px !important;
+    left: auto !important;
+    z-index: 1000000 !important;
+}
+
+/* 3. ACCESSIBILITY (Bottom-Left Corner) */
 #gor-a11y-fab,
 .accessibility-trigger {
     position: fixed !important;
@@ -494,6 +105,30 @@ textarea:focus-visible {
     outline: 3px solid #ffd700 !important;
 }
 
+/* 4. PHONE / TOP (Left Corner - Above Accessibility) */
+.phone-float,
+.btn-back-to-top,
+.floating-secondary-left {
+    position: fixed !important;
+    bottom: 92px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5) !important;
+    z-index: 999998 !important;
+    text-decoration: none !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
 /* MOBILE RESPONSIVE (Screen width <= 768px) */
 @media (max-width: 768px) {
     .whatsapp-float {
@@ -504,6 +139,23 @@ textarea:focus-visible {
         height: 48px !important;
         font-size: 26px !important;
     }
+    #gor-bot-trigger,
+    .gor-bot-trigger,
+    .ai-float-right {
+        bottom: 74px !important;
+        right: 16px !important;
+        left: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+    }
+    #gor-bot-modal,
+    .gor-bot-modal {
+        bottom: 130px !important;
+        right: 16px !important;
+        left: auto !important;
+        max-width: calc(100vw - 32px) !important;
+    }
     #gor-a11y-fab,
     .accessibility-trigger {
         bottom: 16px !important;
@@ -513,10 +165,19 @@ textarea:focus-visible {
         height: 48px !important;
         font-size: 22px !important;
     }
+    .phone-float,
+    .btn-back-to-top,
+    .floating-secondary-left {
+        bottom: 74px !important;
+        left: 16px !important;
+        right: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+    }
 }
 
-
-/* BULLETPROOF ACCESSIBILITY SKIP LINK (Completely invisible off-screen until Tab focused) */
+/* BULLETPROOF ACCESSIBILITY SKIP LINK */
 .skip-to-content,
 #gor-skip,
 a.skip-link {

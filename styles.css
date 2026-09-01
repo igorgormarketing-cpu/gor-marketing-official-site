@@ -3458,3 +3458,41 @@ a.skip-link:focus-visible {
     color: #00ff88 !important;
     display: flex !important;
 }
+
+
+/* Mobile Header CRM & Nav Alignment */
+.navbar-mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-crm-mobile-bar {
+    display: none !important;
+}
+
+@media (max-width: 992px) {
+    .navbar-mobile-controls {
+        display: inline-flex !important;
+    }
+    .btn-crm-mobile-bar {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 6px 14px !important;
+        border-radius: 9999px !important;
+        font-weight: 800 !important;
+        font-size: 0.82rem !important;
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2)) !important;
+        color: var(--gold-bright) !important;
+        border: 1px solid var(--border-gold) !important;
+        box-shadow: 0 0 14px rgba(255, 193, 7, 0.3) !important;
+        cursor: pointer !important;
+        font-family: inherit !important;
+    }
+    .btn-crm-mobile-bar:hover {
+        background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+        color: #000 !important;
+    }
+}
