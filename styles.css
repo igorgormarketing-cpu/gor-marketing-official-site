@@ -718,10 +718,8 @@ footer {
         text-align: center;
     }
 
-    .hero div[style*="flex"] {
-        flex-direction: column;
-        width: 100%;
-    }
+    /* Fixed: Do not force all hero flex containers into column */
+    .hero-cta-group { flex-direction: column; width: 100%; }
 
     .btn-gold, .btn-emerald, .btn-cyan, .btn-action-secondary {
         width: 100%;
@@ -3494,5 +3492,167 @@ a.skip-link:focus-visible {
     .btn-crm-mobile-bar:hover {
         background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
         color: #000 !important;
+    }
+}
+
+
+/* ==========================================================================
+   PERFECT PROPORTIONS & MOBILE RESPONSIVENESS SYSTEM (Hero Badges & Header)
+   ========================================================================== */
+
+.navbar .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 clamp(12px, 3vw, 24px) !important;
+    width: 100% !important;
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+}
+
+.navbar-mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-crm-mobile-bar {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    background: rgba(255, 193, 7, 0.12);
+    color: var(--gold-bright);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    line-height: 1;
+    height: 34px;
+    transition: all 0.2s ease;
+}
+
+.btn-crm-mobile-bar:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
+    color: #000;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-bright);
+    font-size: 1.1rem;
+    width: 36px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-toggle:hover {
+    background: rgba(255, 193, 7, 0.15);
+    border-color: #ffd700;
+}
+
+@media (max-width: 992px) {
+    .navbar-mobile-controls {
+        display: inline-flex !important;
+    }
+    .btn-crm-mobile-bar,
+    .mobile-nav-toggle {
+        display: inline-flex !important;
+    }
+}
+
+/* Hero Badges Container & Responsive Pills */
+.hero-badges-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px 10px !important;
+    margin: 0 auto 24px auto !important;
+    max-width: 920px !important;
+    padding: 0 8px !important;
+    width: 100% !important;
+}
+
+.hero-badge-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    font-size: clamp(0.72rem, 1.8vw, 0.84rem) !important;
+    font-weight: 700 !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    text-decoration: none !important;
+    border: 1px solid var(--border-gold) !important;
+    background: rgba(255, 193, 7, 0.08) !important;
+    color: var(--gold-bright) !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.12) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    width: auto !important;
+    max-width: 100% !important;
+}
+
+.hero-badge-pill:hover {
+    background: rgba(255, 193, 7, 0.18) !important;
+    border-color: #ffd700 !important;
+    box-shadow: 0 0 18px rgba(255, 193, 7, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+.hero-badge-emerald {
+    background: rgba(0, 255, 136, 0.08) !important;
+    border-color: var(--border-emerald) !important;
+    color: var(--emerald-primary) !important;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.12) !important;
+}
+
+.hero-badge-emerald:hover {
+    background: rgba(0, 255, 136, 0.18) !important;
+    border-color: #00ff88 !important;
+    box-shadow: 0 0 18px rgba(0, 255, 136, 0.3) !important;
+}
+
+/* Hero CTA Group */
+.hero-cta-group {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+    margin: 0 auto 40px auto !important;
+    padding: 0 12px !important;
+    width: 100% !important;
+    max-width: 700px !important;
+}
+
+@media (max-width: 640px) {
+    .hero-cta-group {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    .hero-cta-group a {
+        width: 100% !important;
+        max-width: 380px !important;
+        padding: 12px 20px !important;
+        font-size: 0.95rem !important;
+        margin: 0 auto !important;
     }
 }
