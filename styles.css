@@ -2922,8 +2922,328 @@ a.skip-link:focus-visible {
 }
 
 
+
+
 /* ==========================================================================
-   GOR CRM AUTH & USER PROFILE WIDGET (Gmail / Google Account Style)
+   GOR MARKETING - ULTIMATE PIXEL-PERFECT DESIGN SYSTEM & MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+/* Navbar Container */
+.navbar .container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 clamp(14px, 3vw, 28px) !important;
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.logo-container a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+
+.logo-container img {
+    width: 36px !important;
+    height: 36px !important;
+    object-fit: contain !important;
+}
+
+.logo-text {
+    font-size: clamp(1.05rem, 2vw, 1.3rem) !important;
+    font-weight: 900 !important;
+    color: #fff !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* Mobile Header Controls */
+.navbar-mobile-controls {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-crm-mobile-bar {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    background: rgba(255, 193, 7, 0.12);
+    color: var(--gold-bright);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.btn-crm-mobile-bar:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
+    color: #000;
+}
+
+.mobile-nav-toggle {
+    display: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-bright);
+    font-size: 1rem;
+    width: 36px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-toggle:hover {
+    background: rgba(255, 193, 7, 0.15);
+}
+
+@media (max-width: 992px) {
+    .navbar-mobile-controls {
+        display: inline-flex !important;
+    }
+    .btn-crm-mobile-bar,
+    .mobile-nav-toggle {
+        display: inline-flex !important;
+    }
+}
+
+/* ==========================================================================
+   HERO BADGES - CLEAN, STREAMLINED PILL STRUCTURE (Zero Ugly Boxes)
+   ========================================================================== */
+
+.hero-badge-clean {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px 12px !important;
+    padding: 6px 16px !important;
+    background: rgba(14, 18, 28, 0.85) !important;
+    border: 1px solid var(--border-gold) !important;
+    border-radius: 9999px !important;
+    margin: 0 auto 24px auto !important;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.15) !important;
+    max-width: 95% !important;
+    box-sizing: border-box !important;
+}
+
+.hero-badge-tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: clamp(0.72rem, 2vw, 0.82rem) !important;
+    font-weight: 700 !important;
+    color: var(--gold-bright) !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+}
+
+.hero-badge-divider {
+    color: rgba(255, 255, 255, 0.2) !important;
+    font-size: 0.8rem !important;
+}
+
+.hero-tag-link {
+    color: var(--emerald-primary) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.hero-tag-link:hover {
+    color: #fff !important;
+    text-decoration: underline !important;
+}
+
+/* Hero CTA Group */
+.hero-cta-group {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    margin: 0 auto 36px auto !important;
+    max-width: 500px !important;
+    width: 100% !important;
+}
+
+@media (max-width: 640px) {
+    .hero-badge-clean {
+        border-radius: 16px !important;
+        padding: 8px 12px !important;
+        gap: 6px 10px !important;
+    }
+    .hero-badge-divider {
+        display: none !important;
+    }
+    .hero-cta-group {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    .hero-cta-group a {
+        width: 100% !important;
+        max-width: 300px !important;
+        padding: 12px 18px !important;
+        font-size: 0.92rem !important;
+        box-sizing: border-box !important;
+    }
+    /* Enforce 1 Column on Mobile Bento Grid & Metrics */
+    .hero div[style*="grid-template-columns"],
+    .container div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+    }
+    .bento-card {
+        padding: 20px 16px !important;
+    }
+}
+
+/* ==========================================================================
+   FLOATING BUTTONS - PERFECT GEOMETRY (WhatsApp & AI on Right, A11y on Left)
+   ========================================================================== */
+
+/* 1. WHATSAPP (Bottom-Right) */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: #25d366 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 26px !important;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5) !important;
+    z-index: 999999 !important;
+    text-decoration: none !important;
+    border: 2px solid #ffffff !important;
+    transition: transform 0.2s ease !important;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.08) !important;
+}
+
+/* 2. AI BOT (Right Side - Above WhatsApp) */
+#gor-bot-trigger,
+.gor-bot-trigger {
+    position: fixed !important;
+    bottom: 78px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 22px !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.5) !important;
+    z-index: 999998 !important;
+    transition: transform 0.2s ease !important;
+}
+
+#gor-bot-trigger:hover {
+    transform: scale(1.08) !important;
+}
+
+#gor-bot-modal,
+.gor-bot-modal {
+    position: fixed !important;
+    bottom: 140px !important;
+    right: 20px !important;
+    left: auto !important;
+    z-index: 1000000 !important;
+}
+
+/* 3. ACCESSIBILITY (Bottom-Left) */
+#gor-a11y-fab,
+.accessibility-trigger {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    right: auto !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0056b3, #0077ff) !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    font-size: 22px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: 0 6px 20px rgba(0, 86, 179, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.2s ease !important;
+}
+
+#gor-a11y-fab:hover {
+    transform: scale(1.08) !important;
+}
+
+@media (max-width: 640px) {
+    .whatsapp-float {
+        bottom: 14px !important;
+        right: 14px !important;
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 22px !important;
+    }
+    #gor-bot-trigger,
+    .gor-bot-trigger {
+        bottom: 64px !important;
+        right: 14px !important;
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 18px !important;
+    }
+    #gor-bot-modal,
+    .gor-bot-modal {
+        bottom: 115px !important;
+        right: 14px !important;
+        left: auto !important;
+        max-width: calc(100vw - 28px) !important;
+    }
+    #gor-a11y-fab,
+    .accessibility-trigger {
+        bottom: 14px !important;
+        left: 14px !important;
+        width: 42px !important;
+        height: 42px !important;
+        font-size: 18px !important;
+    }
+    /* Add extra padding at the bottom of the body so floating buttons never cover content */
+    body {
+        padding-bottom: 70px !important;
+    }
+}
+
+/* ==========================================================================
+   DESKTOP NAVBAR AUTH & CRM BUTTONS
    ========================================================================== */
 
 .btn-crm-nav {
@@ -2946,8 +3266,7 @@ a.skip-link:focus-visible {
     font-family: inherit !important;
 }
 
-.btn-crm-nav:hover,
-.btn-crm-nav:focus {
+.btn-crm-nav:hover {
     background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
     color: #000000 !important;
     border-color: #ffffff !important;
@@ -2955,11 +3274,6 @@ a.skip-link:focus-visible {
     transform: translateY(-2px) !important;
 }
 
-.btn-crm-nav:hover i {
-    color: #000000 !important;
-}
-
-/* User Profile Badge (Gmail Style) */
 .crm-user-profile-widget {
     position: relative !important;
     display: inline-flex !important;
@@ -2981,12 +3295,6 @@ a.skip-link:focus-visible {
     font-family: inherit !important;
 }
 
-.crm-user-avatar-btn:hover {
-    border-color: var(--emerald-primary) !important;
-    box-shadow: 0 0 22px rgba(0, 255, 136, 0.45) !important;
-    transform: translateY(-1px) !important;
-}
-
 .crm-avatar-circle {
     position: relative !important;
     width: 32px !important;
@@ -3000,7 +3308,6 @@ a.skip-link:focus-visible {
     align-items: center !important;
     justify-content: center !important;
     text-transform: uppercase !important;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5) !important;
 }
 
 .crm-online-dot {
@@ -3012,13 +3319,6 @@ a.skip-link:focus-visible {
     background: #00ff88 !important;
     border: 2px solid #06070a !important;
     border-radius: 50% !important;
-    animation: crmPulse 2s infinite !important;
-}
-
-@keyframes crmPulse {
-    0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
-    70% { box-shadow: 0 0 0 6px rgba(0, 255, 136, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
 }
 
 .crm-user-info-text {
@@ -3040,24 +3340,21 @@ a.skip-link:focus-visible {
     font-weight: 600 !important;
 }
 
-/* Dropdown Menu (Gmail Tray Style) */
 .crm-user-tray {
     position: absolute !important;
     top: calc(100% + 12px) !important;
     left: 0 !important;
-    width: 310px !important;
+    width: 300px !important;
     background: rgba(10, 13, 22, 0.98) !important;
     backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid var(--border-gold) !important;
     border-radius: 18px !important;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 193, 7, 0.18) !important;
-    padding: 20px !important;
+    padding: 18px !important;
     display: none !important;
     flex-direction: column !important;
-    gap: 14px !important;
+    gap: 12px !important;
     z-index: 100000 !important;
-    animation: crmTrayFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
     direction: rtl !important;
     text-align: right !important;
 }
@@ -3066,61 +3363,50 @@ a.skip-link:focus-visible {
     display: flex !important;
 }
 
-@keyframes crmTrayFade {
-    from { opacity: 0; transform: translateY(-10px) scale(0.96); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 .crm-tray-header {
     display: flex !important;
     align-items: center !important;
-    gap: 14px !important;
-    padding-bottom: 14px !important;
+    gap: 12px !important;
+    padding-bottom: 12px !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .crm-tray-avatar {
-    width: 48px !important;
-    height: 48px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 50% !important;
     background: linear-gradient(135deg, var(--gold-bright), #ff9800) !important;
     color: #000 !important;
     font-weight: 900 !important;
-    font-size: 1.2rem !important;
+    font-size: 1.1rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
-.crm-tray-user-details {
-    display: flex !important;
-    flex-direction: column !important;
-    text-align: right !important;
-}
-
 .crm-tray-name {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
     font-weight: 800 !important;
     color: #ffffff !important;
 }
 
 .crm-tray-email {
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     color: var(--text-muted) !important;
 }
 
 .crm-tray-badge {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 5px !important;
-    padding: 3px 8px !important;
+    gap: 4px !important;
+    padding: 2px 7px !important;
     background: rgba(0, 255, 136, 0.12) !important;
     border: 1px solid var(--border-emerald) !important;
     border-radius: 6px !important;
-    font-size: 0.72rem !important;
+    font-size: 0.7rem !important;
     color: var(--emerald-primary) !important;
     font-weight: 700 !important;
-    margin-top: 4px !important;
+    margin-top: 3px !important;
     width: fit-content !important;
 }
 
@@ -3134,15 +3420,14 @@ a.skip-link:focus-visible {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding: 10px 14px !important;
+    padding: 9px 12px !important;
     background: rgba(255, 255, 255, 0.04) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 10px !important;
     color: #ffffff !important;
-    font-size: 0.88rem !important;
+    font-size: 0.85rem !important;
     font-weight: 600 !important;
     text-decoration: none !important;
-    transition: all 0.2s ease !important;
     cursor: pointer !important;
     font-family: inherit !important;
 }
@@ -3151,21 +3436,12 @@ a.skip-link:focus-visible {
     background: rgba(255, 193, 7, 0.15) !important;
     border-color: var(--border-gold) !important;
     color: var(--gold-bright) !important;
-    transform: translateX(-3px) !important;
 }
 
 .crm-tray-btn-primary {
     background: linear-gradient(135deg, #00ff88 0%, #00e5ff 100%) !important;
     color: #000000 !important;
     font-weight: 800 !important;
-    border: none !important;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3) !important;
-}
-
-.crm-tray-btn-primary:hover {
-    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
-    color: #000000 !important;
-    transform: scale(1.02) !important;
 }
 
 .crm-tray-logout {
@@ -3174,58 +3450,42 @@ a.skip-link:focus-visible {
     background: rgba(255, 85, 85, 0.05) !important;
 }
 
-.crm-tray-logout:hover {
-    background: rgba(255, 85, 85, 0.15) !important;
-    border-color: #ff5555 !important;
-    color: #ff7777 !important;
-}
-
 /* Modal Popup */
 .crm-modal-backdrop {
     position: fixed !important;
     inset: 0 !important;
     background: rgba(3, 4, 7, 0.88) !important;
     backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
     display: none !important;
     align-items: center !important;
     justify-content: center !important;
     z-index: 1000000 !important;
-    padding: 20px !important;
-    opacity: 0 !important;
-    transition: opacity 0.3s ease !important;
+    padding: 16px !important;
 }
 
 .crm-modal-backdrop.active {
     display: flex !important;
-    opacity: 1 !important;
 }
 
 .crm-modal-card {
     position: relative !important;
     width: 100% !important;
-    max-width: 440px !important;
+    max-width: 420px !important;
     background: rgba(12, 16, 26, 0.98) !important;
     border: 1px solid var(--border-gold) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 193, 7, 0.2) !important;
-    padding: clamp(24px, 4vw, 36px) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 193, 7, 0.2) !important;
+    padding: clamp(20px, 4vw, 32px) !important;
     direction: rtl !important;
     text-align: right !important;
-    animation: crmModalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-}
-
-@keyframes crmModalPop {
-    from { opacity: 0; transform: scale(0.92) translateY(20px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .crm-modal-close {
     position: absolute !important;
-    top: 18px !important;
-    left: 18px !important;
-    width: 34px !important;
-    height: 34px !important;
+    top: 16px !important;
+    left: 16px !important;
+    width: 32px !important;
+    height: 32px !important;
     border-radius: 50% !important;
     background: rgba(255, 255, 255, 0.06) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -3234,59 +3494,49 @@ a.skip-link:focus-visible {
     align-items: center !important;
     justify-content: center !important;
     cursor: pointer !important;
-    font-size: 1rem !important;
-    transition: all 0.2s ease !important;
-}
-
-.crm-modal-close:hover {
-    background: rgba(255, 85, 85, 0.2) !important;
-    border-color: #ff5555 !important;
-    color: #fff !important;
-    transform: rotate(90deg) !important;
 }
 
 .crm-modal-header {
     text-align: center !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 20px !important;
 }
 
 .crm-modal-icon {
-    width: 56px !important;
-    height: 56px !important;
-    margin: 0 auto 12px !important;
-    border-radius: 16px !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 0 auto 10px !important;
+    border-radius: 14px !important;
     background: linear-gradient(135deg, rgba(255, 193, 7, 0.15), rgba(0, 255, 136, 0.15)) !important;
     border: 1px solid var(--border-gold) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 1.6rem !important;
+    font-size: 1.4rem !important;
     color: var(--gold-bright) !important;
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3) !important;
 }
 
 .crm-modal-title {
-    font-size: 1.45rem !important;
+    font-size: 1.35rem !important;
     font-weight: 900 !important;
     color: #ffffff !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 4px !important;
 }
 
 .crm-modal-subtitle {
-    font-size: 0.88rem !important;
+    font-size: 0.82rem !important;
     color: var(--text-muted) !important;
 }
 
 .crm-form-group {
-    margin-bottom: 16px !important;
+    margin-bottom: 14px !important;
 }
 
 .crm-form-label {
     display: block !important;
-    font-size: 0.85rem !important;
+    font-size: 0.82rem !important;
     font-weight: 700 !important;
     color: #e2e8f0 !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 5px !important;
 }
 
 .crm-input-wrapper {
@@ -3297,129 +3547,87 @@ a.skip-link:focus-visible {
 
 .crm-input-wrapper i.crm-field-icon {
     position: absolute !important;
-    right: 14px !important;
+    right: 12px !important;
     color: var(--text-dim) !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     pointer-events: none !important;
 }
 
 .crm-input {
     width: 100% !important;
-    padding: 12px 42px 12px 40px !important;
+    padding: 10px 38px 10px 36px !important;
     background: rgba(6, 8, 14, 0.8) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     color: #ffffff !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     font-family: inherit !important;
-    transition: all 0.25s ease !important;
     box-sizing: border-box !important;
 }
 
 .crm-input:focus {
     outline: none !important;
     border-color: var(--gold-bright) !important;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.25) !important;
-    background: rgba(10, 14, 24, 0.95) !important;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.25) !important;
 }
 
 .crm-toggle-password {
     position: absolute !important;
-    left: 14px !important;
+    left: 12px !important;
     background: none !important;
     border: none !important;
     color: var(--text-dim) !important;
     cursor: pointer !important;
-    font-size: 0.9rem !important;
-    padding: 4px !important;
-    transition: color 0.2s !important;
-}
-
-.crm-toggle-password:hover {
-    color: var(--gold-bright) !important;
+    font-size: 0.85rem !important;
 }
 
 .crm-form-options {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    margin-bottom: 20px !important;
-    font-size: 0.82rem !important;
-}
-
-.crm-remember-label {
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    color: var(--text-muted) !important;
-    cursor: pointer !important;
-}
-
-.crm-forgot-link {
-    color: var(--gold-bright) !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-}
-
-.crm-forgot-link:hover {
-    text-decoration: underline !important;
+    margin-bottom: 16px !important;
+    font-size: 0.8rem !important;
 }
 
 .btn-crm-submit {
     width: 100% !important;
-    padding: 14px !important;
+    padding: 12px !important;
     background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
     color: #000000 !important;
     border: none !important;
-    border-radius: 12px !important;
+    border-radius: 10px !important;
     font-weight: 900 !important;
-    font-size: 1.05rem !important;
-    font-family: inherit !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    box-shadow: 0 0 25px rgba(255, 193, 7, 0.4) !important;
-    transition: all 0.25s ease !important;
-    margin-bottom: 12px !important;
-}
-
-.btn-crm-submit:hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 0 35px rgba(255, 193, 7, 0.7) !important;
-}
-
-.btn-crm-quick-admin {
-    width: 100% !important;
-    padding: 11px !important;
-    background: rgba(0, 255, 136, 0.08) !important;
-    border: 1px solid var(--border-emerald) !important;
-    color: var(--emerald-primary) !important;
-    border-radius: 12px !important;
-    font-weight: 700 !important;
-    font-size: 0.9rem !important;
-    font-family: inherit !important;
+    font-size: 0.98rem !important;
     cursor: pointer !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
-    transition: all 0.2s ease !important;
+    margin-bottom: 10px !important;
 }
 
-.btn-crm-quick-admin:hover {
-    background: rgba(0, 255, 136, 0.18) !important;
-    border-color: var(--emerald-primary) !important;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3) !important;
+.btn-crm-quick-admin {
+    width: 100% !important;
+    padding: 10px !important;
+    background: rgba(0, 255, 136, 0.08) !important;
+    border: 1px solid var(--border-emerald) !important;
+    color: var(--emerald-primary) !important;
+    border-radius: 10px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
 }
 
 .crm-modal-footer {
-    margin-top: 20px !important;
-    padding-top: 16px !important;
+    margin-top: 16px !important;
+    padding-top: 14px !important;
     border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
     text-align: center !important;
-    font-size: 0.82rem !important;
+    font-size: 0.78rem !important;
     color: var(--text-dim) !important;
 }
 
@@ -3429,230 +3637,18 @@ a.skip-link:focus-visible {
     font-weight: 600 !important;
 }
 
-.crm-modal-footer a:hover {
-    text-decoration: underline !important;
-}
-
 .crm-login-alert {
-    padding: 10px 14px !important;
-    border-radius: 10px !important;
-    font-size: 0.85rem !important;
-    margin-bottom: 14px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    font-size: 0.82rem !important;
+    margin-bottom: 12px !important;
     display: none;
-    align-items: center !important;
-    gap: 8px !important;
+    align-items: center;
+    gap: 6px;
 }
-
-.crm-login-alert.error {
-    background: rgba(255, 68, 68, 0.15) !important;
-    border: 1px solid #ff4444 !important;
-    color: #ff8888 !important;
-    display: flex !important;
-}
-
 .crm-login-alert.success {
     background: rgba(0, 255, 136, 0.15) !important;
     border: 1px solid #00ff88 !important;
     color: #00ff88 !important;
     display: flex !important;
-}
-
-
-/* Mobile Header CRM & Nav Alignment */
-.navbar-mobile-controls {
-    display: none;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-crm-mobile-bar {
-    display: none !important;
-}
-
-@media (max-width: 992px) {
-    .navbar-mobile-controls {
-        display: inline-flex !important;
-    }
-    .btn-crm-mobile-bar {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        padding: 6px 14px !important;
-        border-radius: 9999px !important;
-        font-weight: 800 !important;
-        font-size: 0.82rem !important;
-        background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2)) !important;
-        color: var(--gold-bright) !important;
-        border: 1px solid var(--border-gold) !important;
-        box-shadow: 0 0 14px rgba(255, 193, 7, 0.3) !important;
-        cursor: pointer !important;
-        font-family: inherit !important;
-    }
-    .btn-crm-mobile-bar:hover {
-        background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
-        color: #000 !important;
-    }
-}
-
-
-/* ==========================================================================
-   PERFECT PROPORTIONS & MOBILE RESPONSIVENESS SYSTEM (Hero Badges & Header)
-   ========================================================================== */
-
-.navbar .container {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 0 clamp(12px, 3vw, 24px) !important;
-    width: 100% !important;
-    max-width: 1300px !important;
-    margin: 0 auto !important;
-}
-
-.navbar-mobile-controls {
-    display: none;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-crm-mobile-bar {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 5px 12px;
-    border-radius: 9999px;
-    font-weight: 800;
-    font-size: 0.78rem;
-    background: rgba(255, 193, 7, 0.12);
-    color: var(--gold-bright);
-    border: 1px solid var(--border-gold);
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-    line-height: 1;
-    height: 34px;
-    transition: all 0.2s ease;
-}
-
-.btn-crm-mobile-bar:hover {
-    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
-    color: #000;
-}
-
-.mobile-nav-toggle {
-    display: none;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-gold);
-    color: var(--gold-bright);
-    font-size: 1.1rem;
-    width: 36px;
-    height: 34px;
-    border-radius: 8px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    transition: all 0.2s ease;
-}
-
-.mobile-nav-toggle:hover {
-    background: rgba(255, 193, 7, 0.15);
-    border-color: #ffd700;
-}
-
-@media (max-width: 992px) {
-    .navbar-mobile-controls {
-        display: inline-flex !important;
-    }
-    .btn-crm-mobile-bar,
-    .mobile-nav-toggle {
-        display: inline-flex !important;
-    }
-}
-
-/* Hero Badges Container & Responsive Pills */
-.hero-badges-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    flex-direction: row !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px 10px !important;
-    margin: 0 auto 24px auto !important;
-    max-width: 920px !important;
-    padding: 0 8px !important;
-    width: 100% !important;
-}
-
-.hero-badge-pill {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 6px !important;
-    padding: 6px 14px !important;
-    border-radius: 9999px !important;
-    font-size: clamp(0.72rem, 1.8vw, 0.84rem) !important;
-    font-weight: 700 !important;
-    white-space: normal !important;
-    text-align: center !important;
-    line-height: 1.3 !important;
-    text-decoration: none !important;
-    border: 1px solid var(--border-gold) !important;
-    background: rgba(255, 193, 7, 0.08) !important;
-    color: var(--gold-bright) !important;
-    box-shadow: 0 0 12px rgba(255, 193, 7, 0.12) !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    width: auto !important;
-    max-width: 100% !important;
-}
-
-.hero-badge-pill:hover {
-    background: rgba(255, 193, 7, 0.18) !important;
-    border-color: #ffd700 !important;
-    box-shadow: 0 0 18px rgba(255, 193, 7, 0.3) !important;
-    transform: translateY(-1px) !important;
-}
-
-.hero-badge-emerald {
-    background: rgba(0, 255, 136, 0.08) !important;
-    border-color: var(--border-emerald) !important;
-    color: var(--emerald-primary) !important;
-    box-shadow: 0 0 12px rgba(0, 255, 136, 0.12) !important;
-}
-
-.hero-badge-emerald:hover {
-    background: rgba(0, 255, 136, 0.18) !important;
-    border-color: #00ff88 !important;
-    box-shadow: 0 0 18px rgba(0, 255, 136, 0.3) !important;
-}
-
-/* Hero CTA Group */
-.hero-cta-group {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 14px !important;
-    flex-wrap: wrap !important;
-    margin: 0 auto 40px auto !important;
-    padding: 0 12px !important;
-    width: 100% !important;
-    max-width: 700px !important;
-}
-
-@media (max-width: 640px) {
-    .hero-cta-group {
-        flex-direction: column !important;
-        gap: 10px !important;
-    }
-    .hero-cta-group a {
-        width: 100% !important;
-        max-width: 380px !important;
-        padding: 12px 20px !important;
-        font-size: 0.95rem !important;
-        margin: 0 auto !important;
-    }
 }
