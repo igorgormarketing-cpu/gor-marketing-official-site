@@ -189,6 +189,19 @@
 }
     </script>
   <link rel="preload" as="image" href="assets/home_hero_visual.webp" type="image/webp" fetchpriority="high">
+
+  <style id="critical-hero-css">
+    :root { --bg-dark: #030712; --gold-bright: #F59E0B; --emerald-primary: #10B981; --cyan-accent: #06B6D4; --text-white: #F8FAFC; }
+    body { background-color: var(--bg-dark); color: var(--text-white); margin: 0; font-family: 'Heebo', system-ui, -apple-system, sans-serif; text-rendering: optimizeSpeed; }
+    .hero-clean-section { min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; contain: layout paint; }
+    .hero-title-main { font-size: 2.8rem; font-weight: 900; line-height: 1.15; margin: 0 0 16px 0; }
+    .hero-badge-clean { min-height: 38px; display: inline-flex; align-items: center; }
+    @media (max-width: 768px) {
+      .hero-title-main { font-size: 1.95rem; line-height: 1.25; }
+      .hero-clean-section { min-height: 480px; }
+    }
+  </style>
+
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
