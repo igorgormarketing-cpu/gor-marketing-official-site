@@ -62,7 +62,7 @@ body {
     background: radial-gradient(circle at 50% -20%, rgba(22, 32, 65, 0.85) 0%, #06070a 65%) !important;
     background-color: #06070a !important;
     color: #ffffff !important;
-    font-family: 'Heebo', sans-serif !important;
+    font-family: 'Heebo', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
@@ -1648,7 +1648,7 @@ footer {
     color: #ffffff;
     font-size: 0.85rem;
     font-weight: 700;
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Heebo', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     cursor: pointer;
     transition: all 0.25s ease;
     text-align: center;
@@ -3651,4 +3651,13 @@ a.skip-link:focus-visible {
     border: 1px solid #00ff88 !important;
     color: #00ff88 !important;
     display: flex !important;
+}
+
+
+/* Performance & Layout Stability */
+.bento-section, .services-matrix, .calculators-section, .founder-section {
+    contain: content;
+}
+.client-logos-row {
+    min-height: 48px;
 }
