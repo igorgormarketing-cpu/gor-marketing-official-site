@@ -1,25 +1,27 @@
 User-agent: *
 Allow: /
+Allow: /favicon.ico
+Allow: /favicon*.png
+Allow: /assets/
+Allow: /client-logos/
 
-# Priority Crawlers
+# Allow Google Favicon and Image bots
 User-agent: Googlebot
 Allow: /
 
-User-agent: Google-InspectionTool
+User-agent: Googlebot-Image
 Allow: /
 
-User-agent: Bingbot
+User-agent: Google-Extended
 Allow: /
 
-# AI Crawlers
 User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://gormarketing.com/sitemap.xml
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://www.gormarketing.com/sitemap.xml
