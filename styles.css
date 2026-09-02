@@ -3670,3 +3670,18 @@ img[loading="lazy"] {
 .hero, .header, .hero-badge-clean, .client-logos-row {
     contain: layout style;
 }
+
+
+/* Mobile GPU Acceleration & Zero Blur Thrashing */
+@media (max-width: 768px) {
+    .mesh-blob {
+        animation: none !important;
+        filter: blur(40px) !important;
+        transform: none !important;
+        will-change: auto !important;
+    }
+    .blob-1, .blob-2, .blob-3 {
+        animation: none !important;
+    }
+}
+
