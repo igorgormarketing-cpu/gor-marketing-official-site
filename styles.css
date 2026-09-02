@@ -3661,3 +3661,12 @@ a.skip-link:focus-visible {
 .client-logos-row {
     min-height: 48px;
 }
+
+
+/* Mobile Performance & Zero CLS */
+img[loading="lazy"] {
+    content-visibility: auto;
+}
+.hero, .header, .hero-badge-clean, .client-logos-row {
+    contain: layout style;
+}

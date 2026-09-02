@@ -31,8 +31,10 @@
     <meta name="twitter:image" content="https://igorgormarketing-cpu.github.io/gor-marketing-official-site/assets/hero_full.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="stylesheet" href="styles.css?v=20260901_crm_v8">
     
     <style>
@@ -190,17 +192,36 @@
     </script>
   <link rel="preload" as="image" href="assets/home_hero_visual.webp" type="image/webp" fetchpriority="high">
 
-  <style id="critical-hero-css">
-    :root { --bg-dark: #030712; --gold-bright: #F59E0B; --emerald-primary: #10B981; --cyan-accent: #06B6D4; --text-white: #F8FAFC; }
-    body { background-color: var(--bg-dark); color: var(--text-white); margin: 0; font-family: 'Heebo', system-ui, -apple-system, sans-serif; text-rendering: optimizeSpeed; }
-    .hero-clean-section { min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; contain: layout paint; }
-    .hero-title-main { font-size: 2.8rem; font-weight: 900; line-height: 1.15; margin: 0 0 16px 0; }
-    .hero-badge-clean { min-height: 38px; display: inline-flex; align-items: center; }
+  
+  <style id="mobile-perf-critical-css">
+    :root {
+      --bg-dark: #030712;
+      --gold-bright: #F59E0B;
+      --emerald-primary: #10B981;
+      --cyan-accent: #06B6D4;
+      --text-white: #F8FAFC;
+    }
+    html { background-color: #030712; }
+    body {
+      background-color: #030712;
+      color: #F8FAFC;
+      margin: 0;
+      font-family: 'Heebo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      text-rendering: optimizeSpeed;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header { min-height: 70px; contain: layout size style; }
+    .hero { min-height: 520px; contain: layout style; }
+    .hero-badge-clean { min-height: 38px; display: inline-flex; align-items: center; contain: layout size; }
+    .hero h1 { min-height: 80px; font-size: 2.8rem; font-weight: 900; line-height: 1.18; margin: 0 0 16px 0; }
+    .client-logos-row { min-height: 48px; contain: layout size; }
     @media (max-width: 768px) {
-      .hero-title-main { font-size: 1.95rem; line-height: 1.25; }
-      .hero-clean-section { min-height: 480px; }
+      .header { min-height: 60px; }
+      .hero { min-height: 480px; }
+      .hero h1 { font-size: 1.95rem; line-height: 1.25; min-height: 70px; }
     }
   </style>
+
 
 </head>
 <body>
@@ -2250,7 +2271,7 @@
     <!-- Scripts -->
     <script src="assets/motion.js?v=20260901_crm_v2" defer></script>
     <script src="assets/accessibility.js?v=20260901_crm_v2" defer></script>
-    <script src="script.js?v=20260901_crm_v8"></script>
+    <script src="script.js?v=20260901_crm_v8" defer></script>
     <script defer src="assets/a11y.js"></script>
 </body>
 </html>
