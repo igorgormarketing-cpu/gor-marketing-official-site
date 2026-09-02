@@ -2,7 +2,7 @@
 // GOR MARKETING - OFFICIAL CORE INTERACTIVE SCRIPT
 // ==========================================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+function initGorMarketingInteractive() {
 
     // ========================================================
     // GOR Analytics & Conversion Event Engine (GTM / GA4 / Meta)
