@@ -3710,3 +3710,100 @@ img[loading="lazy"] {
     }
 }
 
+
+
+/* ==========================================================================
+   GOR MARKETING - PIXEL-PERFECT ALIGNMENT, SPACING & FRAME CONTAINMENT
+   ========================================================================== */
+
+/* 1. Services Grid Balanced Responsive Layout (4x2 on Desktop, 2x4 on Tablet, 1x8 on Mobile) */
+.services-matrix, .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+}
+
+@media (max-width: 1024px) {
+    .services-matrix, .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .services-matrix, .services-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* 2. Client Logos Frame & Carousel Containment */
+.client-logos-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 24px !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    background: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    margin: 20px auto !important;
+    max-width: 1200px !important;
+    overflow: hidden !important;
+}
+
+/* 3. Calculator Results Box Frame & Alignment */
+.calc-results-card, .calc-output-box, .calc-seo-results {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    margin-top: 24px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 4. Form Labels & Input Padding Fix */
+.form-group {
+    margin-bottom: 18px !important;
+    position: relative !important;
+}
+.form-input, input.form-input, select.form-input, textarea.form-input {
+    width: 100% !important;
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    color: #F8FAFC !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+}
+
+/* 5. Mobile Channel Selector Grid Alignment */
+@media (max-width: 768px) {
+    .calc-channel-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+    .calc-channel-btn {
+        padding: 12px 10px !important;
+        font-size: 0.82rem !important;
+        min-height: 52px !important;
+    }
+    
+    /* Extra Bottom Padding to prevent Floating Badges from blocking content */
+    body {
+        padding-bottom: 90px !important;
+    }
+    .footer {
+        padding-bottom: 110px !important;
+    }
+    
+    /* Adjust Floating Badges size on Mobile */
+    .floating-whatsapp-btn, .floating-ai-btn, .whatsapp-float, .ai-float {
+        bottom: 20px !important;
+        width: 52px !important;
+        height: 52px !important;
+    }
+}
+
