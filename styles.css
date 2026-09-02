@@ -3687,3 +3687,26 @@ img[loading="lazy"] {
 
 
 .hero h1 { text-rendering: optimizeSpeed !important; font-display: swap !important; }
+
+
+/* Ultra-Fast Mobile LCP Acceleration */
+@media (max-width: 768px) {
+    .hero h1, .hero h1 * {
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        -webkit-text-fill-color: #ffffff !important;
+        color: #ffffff !important;
+        text-shadow: none !important;
+        transform: translateZ(0) !important;
+        will-change: auto !important;
+    }
+    .hero h1 span.highlight-gold {
+        color: #F59E0B !important;
+        -webkit-text-fill-color: #F59E0B !important;
+    }
+    .hero h1 span.highlight-emerald {
+        color: #10B981 !important;
+        -webkit-text-fill-color: #10B981 !important;
+    }
+}
+
