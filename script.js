@@ -1628,3 +1628,56 @@ function initMonthlyConsultationsCounter() {
         initMonthlyConsultationsCounter();
     }
 })();
+
+
+/* Global Accessibility Widget Handler */
+var S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false };
+try { Object.assign(S_A11Y, JSON.parse(localStorage.getItem('gor-a11y-prefs') || '{}')); } catch(e){}
+
+function applyA11yStyles() {
+    var css = document.getElementById('ga-custom-css') || document.createElement('style');
+    css.id = 'ga-custom-css';
+    if (!document.head.contains(css)) document.head.appendChild(css);
+    
+    var c = '';
+    if (S_A11Y.fontSize) c += 'html { font-size: ' + (100 + S_A11Y.fontSize * 10) + '% !important; } ';
+    if (S_A11Y.contrast) c += 'body, div, section, p, h1, h2, h3, h4, h5, span, li, article { background: #000000 !important; color: #ffffff !important; } a { color: #ffff00 !important; } ';
+    if (S_A11Y.grayscale) c += 'html { filter: grayscale(1) !important; } ';
+    if (S_A11Y.dyslexia) c += '* { font-family: Arial, sans-serif !important; letter-spacing: .04em !important; line-height: 1.7 !important; } ';
+    if (S_A11Y.links) c += 'a { text-decoration: underline !important; text-underline-offset: 4px !important; } ';
+    if (S_A11Y.animations) c += '*, *::before, *::after { animation: none !important; transition: none !important; } ';
+    css.textContent = c;
+    try { localStorage.setItem('gor-a11y-prefs', JSON.stringify(S_A11Y)); } catch(e){}
+}
+
+window.toggleA11yFeature = function(feature, val) {
+    if (feature === 'fontSize') {
+        S_A11Y.fontSize = Math.max(-2, Math.min(3, S_A11Y.fontSize + (val || 1)));
+    } else {
+        S_A11Y[feature] = !S_A11Y[feature];
+    }
+    applyA11yStyles();
+};
+
+window.resetA11y = function() {
+    S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false };
+    applyA11yStyles();
+};
+
+// Toggle accessibility panel
+document.addEventListener('click', function(e) {
+    var toggleBtn = e.target.closest('#accessibilityToggleBtn');
+    var closeBtn = e.target.closest('#a11yCloseBtn');
+    var panel = document.getElementById('accessibilityPanel');
+    
+    if (toggleBtn && panel) {
+        panel.style.display = (panel.style.display === 'none' || !panel.style.display) ? 'block' : 'none';
+    } else if (closeBtn && panel) {
+        panel.style.display = 'none';
+    }
+});
+
+if (Object.values(S_A11Y).some(Boolean)) {
+    applyA11yStyles();
+}
+
