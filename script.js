@@ -55,18 +55,7 @@ function initGorMarketingInteractive() {
     });
 
     // 1. Reveal Animations on Scroll
-    const reveals = document.querySelectorAll('.reveal');
-    function reveal() {
-        reveals.forEach(element => {
-            const windowHeight = window.innerHeight;
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 100;
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    }
-    window.addEventListener('scroll', reveal);
+    // Scroll reveal optimized to pure CSS
     reveal(); // Run once on load
 
     // 2. Reviews Carousel Logic
@@ -1242,7 +1231,7 @@ function initGorMarketingInteractive() {
 
     // Run on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
+        function initSubFeature() {
             renderNavbarAuth();
         });
     } else {
@@ -1630,7 +1619,7 @@ function initMonthlyConsultationsCounter() {
     window.gorCrmLogout = handleLogout;
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
+        function initSubFeature() {
             renderNavbarAuth();
             initMonthlyConsultationsCounter();
         });
