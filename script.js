@@ -76,7 +76,7 @@ function initGorMarketingInteractive() {
             }
             track.style.transform = `translateX(${index * slideWidth}px)`;
         }
-        setInterval(moveCarousel, 4500);
+        // Interval removed
     }
 
                 // 3. Interactive Target Lead Goal & Marketing Budget Simulator (כדי לקבל X לידים - כמה תקציב פרסום Y צריך לשלם?)
