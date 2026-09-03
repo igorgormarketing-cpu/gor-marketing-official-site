@@ -3866,3 +3866,12 @@ img[loading="lazy"] {
     transform: translateZ(0) !important;
     backface-visibility: hidden !important;
 }
+
+/* Dropdown icon crisp styles */
+.dropdown-tray .dropdown-icon svg,
+.dropdown-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+}
