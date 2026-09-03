@@ -3860,3 +3860,9 @@ img[loading="lazy"] {
     z-index: 5 !important;
 }
 
+
+/* GPU Acceleration for Hero Pills */
+.hero-pill-badge {
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+}

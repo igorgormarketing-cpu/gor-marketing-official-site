@@ -1254,39 +1254,16 @@ function initGorMarketingInteractive() {
 // ==========================================================================
 // DYNAMIC MONTHLY CONSULTATIONS COUNTER (Resets on 1st of month, +2 per day)
 // ==========================================================================
+
 function initMonthlyConsultationsCounter() {
     const now = new Date();
-    const dayOfMonth = now.getDate(); // 1 to 31
-    const targetCount = dayOfMonth * 2; // 2 consultations per day cumulative
+    const dayOfMonth = now.getDate();
+    const targetCount = dayOfMonth * 2;
 
     const numEl = document.getElementById('heroConsultationsNum');
-    const badge = document.getElementById('heroConsultationBadge');
-    const counterElements = document.querySelectorAll('.monthly-consultations-counter, [data-counter="monthly-consultations"]');
-
-    function animateCount(el, target, duration) {
-        if (!el) return;
-        let startTime = null;
-        const step = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const val = Math.floor(progress * target);
-            el.textContent = val;
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            } else {
-                el.textContent = target;
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-
     if (numEl) {
-        animateCount(numEl, targetCount, 1400);
-    } else if (badge) {
-        badge.innerHTML = '<i class="fas fa-bolt" style="color: var(--gold-bright);"></i> <span id="heroConsultationsNum">' + targetCount + '</span> עסקים קיבלו ייעוץ החודש ←';
+        numEl.textContent = targetCount; // Instant static set, 0 layout thrashing!
     }
-
-    counterElements.forEach(el => animateCount(el, targetCount, 1400));
 }
 
 
