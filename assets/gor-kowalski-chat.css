@@ -1,0 +1,354 @@
+/* ==========================================================================
+   GOR MARKETING - KOWALSKI ZERO-PENALTY CHAT WIDGET (AESTHETICS & PERFORMANCE)
+   ========================================================================== */
+
+#gor-chat-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  direction: rtl;
+}
+
+/* Floating Launcher Button */
+.gor-chat-launcher {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border: 2px solid #f97316;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35), 0 4px 12px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  position: relative;
+  outline: none;
+}
+
+.gor-chat-launcher:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(249, 115, 22, 0.5), 0 6px 16px rgba(0, 0, 0, 0.6);
+}
+
+.gor-chat-launcher:active {
+  transform: scale(0.95);
+}
+
+.gor-launcher-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  background: #22c55e;
+  border: 2px solid #0f172a;
+  border-radius: 50%;
+  animation: gor-pulse 2s infinite;
+}
+
+@keyframes gor-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* Chat Window Modal */
+.gor-chat-modal {
+  display: none;
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: 540px;
+  max-height: calc(100vh - 120px);
+  background: #0B0F19;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-radius: 20px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(249, 115, 22, 0.15);
+  flex-direction: column;
+  overflow: hidden;
+  animation: gor-slide-up 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(16px);
+}
+
+.gor-chat-modal.open {
+  display: flex;
+}
+
+@keyframes gor-slide-up {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header */
+.gor-chat-header {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+  border-bottom: 1px solid rgba(249, 115, 22, 0.25);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gor-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gor-avatar {
+  width: 38px;
+  height: 38px;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid #f97316;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.gor-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.gor-header-title {
+  color: #f97316;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+.gor-header-sub {
+  color: #9ca3af;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gor-status-dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.gor-close-btn {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.gor-close-btn:hover {
+  color: #f97316;
+}
+
+/* Body / Messages */
+.gor-chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: radial-gradient(circle at top right, rgba(249, 115, 22, 0.04), transparent 60%);
+}
+
+.gor-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.gor-msg-bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f3f4f6;
+  border-bottom-right-radius: 3px;
+}
+
+.gor-msg-user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+  color: #ffffff;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+/* Quick Action Chips */
+.gor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.gor-chip {
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #fdba74;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gor-chip:hover {
+  background: #f97316;
+  color: #ffffff;
+  border-color: #f97316;
+  transform: translateY(-1px);
+}
+
+/* WhatsApp Lead Card */
+.gor-wa-card {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.gor-wa-card p {
+  margin: 0 0 10px 0;
+  font-size: 12.5px;
+  color: #86efac;
+}
+
+.gor-wa-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.gor-wa-inputs input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  outline: none;
+  direction: rtl;
+}
+
+.gor-wa-inputs input:focus {
+  border-color: #22c55e;
+}
+
+.gor-wa-btn {
+  background: #22c55e;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.gor-wa-btn:hover {
+  background: #16a34a;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Footer / Input Area */
+.gor-chat-footer {
+  padding: 12px 14px;
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gor-chat-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 8px 14px;
+  color: #f3f4f6;
+  font-size: 13px;
+  outline: none;
+  direction: rtl;
+  transition: border-color 0.2s;
+}
+
+.gor-chat-input:focus {
+  border-color: #f97316;
+}
+
+.gor-send-btn {
+  background: #f97316;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.gor-send-btn:hover {
+  background: #ea580c;
+  transform: scale(1.05);
+}
+
+.gor-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Typing Indicator */
+.gor-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.gor-typing-dot {
+  width: 6px;
+  height: 6px;
+  background: #f97316;
+  border-radius: 50%;
+  animation: gor-bounce 1.4s infinite ease-in-out both;
+}
+
+.gor-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.gor-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes gor-bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
