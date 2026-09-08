@@ -55,8 +55,7 @@ function initGorMarketingInteractive() {
     });
 
     // 1. Reveal Animations on Scroll
-    // Scroll reveal optimized to pure CSS
-    reveal(); // Run once on load
+    // Scroll reveal optimized to pure CSS (0ms JS overhead)
 
     // 2. Reviews Carousel Logic
     const track = document.getElementById('review-carousel');
@@ -1212,6 +1211,27 @@ function initGorMarketingInteractive() {
                 }
             }
         });
+
+        // 2. Render / Bind in Mobile Header Controls
+        const mobileTriggers = document.querySelectorAll('#gorCrmTriggerMobile, .btn-crm-mobile-bar');
+        mobileTriggers.forEach(mobBtn => {
+            if (session && session.isLoggedIn) {
+                mobBtn.innerHTML = '<span style="font-size:0.75rem; font-weight:900;">' + (session.initials || 'G') + '</span> <i class="fas fa-circle" style="color:var(--emerald-primary); font-size:0.5rem; margin-right:2px;"></i>';
+                mobBtn.title = 'מחובר: ' + session.name;
+                mobBtn.onclick = (e) => {
+                    e.preventDefault();
+                    window.open('https://gormarketing.netlify.app/', '_blank');
+                };
+            } else {
+                mobBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <span>CRM</span>';
+                mobBtn.title = 'כניסה למערכת GOR CRM';
+                mobBtn.onclick = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openModal();
+                };
+            }
+        });
     }
 
     // Close user tray on outside click
@@ -1231,7 +1251,7 @@ function initGorMarketingInteractive() {
 
     // Run on DOM ready
     if (document.readyState === 'loading') {
-        function initSubFeature() {
+        document.addEventListener('DOMContentLoaded', () => {
             renderNavbarAuth();
         });
     } else {
@@ -1307,3 +1327,70 @@ if (Object.values(S_A11Y).some(Boolean)) {
     applyA11yStyles();
 }
 
+
+
+// ==========================================================================
+// UNIVERSAL MOBILE NAVIGATION & INTERACTION ENGINE
+// ==========================================================================
+function initMobileNavigation() {
+    const mobileToggles = document.querySelectorAll('#mobileNavToggle, .mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (!mobileToggles.length || !navLinks) return;
+
+    function setMobileMenu(open) {
+        const shouldOpen = (open !== undefined) ? open : !navLinks.classList.contains('active-mobile');
+        if (shouldOpen) {
+            navLinks.classList.add('active-mobile');
+        } else {
+            navLinks.classList.remove('active-mobile');
+        }
+        mobileToggles.forEach(btn => {
+            btn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+            btn.classList.toggle('is-active', shouldOpen);
+        });
+    }
+
+    mobileToggles.forEach(btn => {
+        btn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            setMobileMenu();
+        };
+    });
+
+    // Close mobile nav when clicking any link inside the nav
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMobileMenu(false));
+    });
+
+    // Close when tapping outside navbar
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.navbar')) {
+            setMobileMenu(false);
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active-mobile')) {
+            setMobileMenu(false);
+        }
+    });
+}
+
+// Global Core Boot Sequence
+function bootGorMarketing() {
+    if (typeof initGorMarketingInteractive === 'function') {
+        try { initGorMarketingInteractive(); } catch(e) { console.warn('[Interactive Init Error]', e); }
+    }
+    initMobileNavigation();
+    if (typeof initMonthlyConsultationsCounter === 'function') {
+        try { initMonthlyConsultationsCounter(); } catch(e) { console.warn('[Counter Init Error]', e); }
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootGorMarketing);
+} else {
+    bootGorMarketing();
+}

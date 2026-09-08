@@ -2965,55 +2965,67 @@ a.skip-link:focus-visible {
     display: none;
     align-items: center;
     gap: 8px;
+    z-index: 100000;
 }
 
 .btn-crm-mobile-bar {
     display: none;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    height: 32px;
-    padding: 0 12px;
+    gap: 6px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0 13px;
     border-radius: 9999px;
     font-weight: 800;
-    font-size: 0.78rem;
-    background: rgba(255, 193, 7, 0.12);
+    font-size: 0.82rem;
+    background: rgba(255, 193, 7, 0.14);
     color: var(--gold-bright);
     border: 1px solid var(--border-gold);
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.25);
     cursor: pointer;
     text-decoration: none;
     font-family: inherit;
     white-space: nowrap;
     transition: all 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.btn-crm-mobile-bar:hover {
+.btn-crm-mobile-bar:hover,
+.btn-crm-mobile-bar:active {
     background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%);
     color: #000;
 }
 
 .mobile-nav-toggle {
     display: none;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--border-gold);
     color: var(--gold-bright);
-    font-size: 1rem;
-    width: 36px;
-    height: 32px;
+    font-size: 1.1rem;
+    width: 42px;
+    min-width: 42px;
+    height: 38px;
+    min-height: 38px;
     border-radius: 8px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     padding: 0;
     transition: all 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-nav-toggle:hover {
-    background: rgba(255, 193, 7, 0.15);
+.mobile-nav-toggle:hover,
+.mobile-nav-toggle:active,
+.mobile-nav-toggle.is-active {
+    background: rgba(255, 193, 7, 0.2);
+    border-color: var(--gold-bright);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
     .navbar-mobile-controls {
         display: inline-flex !important;
     }
