@@ -3902,3 +3902,39 @@ img[loading="lazy"] {
     color: var(--gold-bright, #F59E0B) !important;
     margin-right: 4px !important;
 }
+
+.btn-phone-mobile-bar {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0 12px;
+    border-radius: 9999px;
+    font-weight: 800;
+    font-size: 0.82rem;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--emerald-primary);
+    border: 1px solid var(--emerald-primary);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s ease;
+}
+.btn-phone-mobile-bar:hover,
+.btn-phone-mobile-bar:active {
+    background: var(--emerald-primary);
+    color: #000;
+}
+.phone-float-btn:hover {
+    transform: scale(1.1);
+}
+@media (max-width: 1024px) {
+    .btn-phone-mobile-bar {
+        display: inline-flex !important;
+    }
+}
