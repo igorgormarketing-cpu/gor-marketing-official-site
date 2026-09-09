@@ -62,6 +62,10 @@
     }
     </script>
   <link rel="preload" as="image" href="assets/home_hero_visual.webp" type="image/webp" fetchpriority="high">
+    <!-- Official GOR Brand Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <a href="#main-content" id="gor-skip" class="skip-to-content">דלג לתוכן המרכזי</a>
@@ -71,54 +75,10 @@
         <div class="container">
             <div class="logo-container">
                 <a href="../../index.html">
-                    <img src="../../assets/hero_full.png" alt="GOR MARKETING Logo" width="44" height="44">
+                    <img src="../../assets/gor_logo.png" alt="לוגו רשמי - GOR MARKETING" width="44" height="44" role="img" tabindex="0">
                     <div class="logo-text">GOR <span>MARKETING</span></div>
                 </a>
             </div>
-
-            <div class="navbar-mobile-controls">
-                <button type="button" class="btn-crm-nav btn-crm-mobile-bar" id="gorCrmTriggerMobile" aria-label="כניסה ל-CRM">
-                    <i class="fas fa-user-shield"></i> <span>CRM</span>
-                </button>
-                <button class="mobile-nav-toggle" aria-label="פתח תפריט ניווט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-
-            <nav class="nav-links">
-                <a href="../../index.html">בית</a>
-                <a href="../../websites.html">בניית אתרים</a>
-                <a href="../../seo-guide.html">קידום SEO</a>
-                <a href="../../sem-guide.html">פרסום ממומן</a>
-                <a href="../../articles/">כל המאמרים</a>
-                <button type="button" class="btn-crm-nav" id="gorCrmTrigger" aria-label="כניסה למערכת GOR CRM"><i class="fas fa-user-shield"></i> <span>כניסה ל-CRM</span></button>
-                <a href="../../index.html#contact" class="btn-nav"><i class="fas fa-paper-plane"></i> צור קשר</a>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main-content" class="container" style="padding: 40px 16px 80px; max-width: 920px;">
-        <nav aria-label="פירורי לחם" style="margin-bottom: 24px; font-size: 0.85rem; color: var(--text-muted);">
-            <a href="../../index.html" style="color: var(--text-muted); text-decoration: none;">בית</a> &gt; 
-            <a href="../" style="color: var(--text-muted); text-decoration: none;">מאמרים</a> &gt; 
-            <span style="color: var(--gold-bright);">קידום אורגני מול ממומן בגוגל</span>
-        </nav>
-
-        <div class="hero-badge-clean" style="margin-bottom: 20px;">
-            <span class="hero-badge-tag"><i class="fas fa-chart-line" style="color: var(--gold-bright);"></i> אסטרטגיית צמיחה וניהול תקציב פרסום</span>
-            <span class="hero-badge-divider">•</span>
-            <span class="hero-badge-tag"><i class="fas fa-calendar-alt"></i> עודכן לספטמבר 2026</span>
-        </div>
-
-        <h1 style="font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.2; margin-bottom: 24px;">
-            קידום אורגני מול קידום ממומן בגוגל: <br>
-            <span class="gradient-title">איפה שווה להשקיע את תקציב השיווק ב-2026?</span>
-        </h1>
-
-        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 36px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; color: var(--text-muted);">
-            <div>✍️ מאת: <strong>איגור גורלקין</strong> | GOR MARKETING</div>
-            <div>⏱️ זמן קריאה: 5 דקות</div>
-        </div>
 
         <div class="article-body" style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.85;">
             <p style="font-size: 1.15rem; color: #fff; margin-bottom: 24px; font-weight: 500;">
@@ -195,5 +155,10 @@
     <script src="../../assets/motion.js?v=20260901_crm_v7" defer></script>
     <script src="../../assets/accessibility.js?v=20260901_crm_v7" defer></script>
     <script src="../../script.js?v=20260901_crm_v8"></script>
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ איגור גורלקין">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <script defer src="../../assets/a11y.js"></script>
 </body>
 </html>
