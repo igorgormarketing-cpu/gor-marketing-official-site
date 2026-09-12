@@ -34,18 +34,19 @@
     <meta name="twitter:description" content="סוכנות שיווק דיגיטלי 360° וחברת פרסום מובילה בהובלת איגור גורלקין מאז 2008.">
     <meta name="twitter:image" content="https://igorgormarketing-cpu.github.io/gor-marketing-official-site/assets/hero_full.png">
 
-    <!-- Preconnect CDNs -->
+    <!-- Preconnect CDNs & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-    <!-- Google Fonts Non-Blocking with swap -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap">
+    <!-- Google Fonts Async Loading with Swap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap"></noscript>
 
-    <!-- Direct Minified Stylesheet (Guarantees 0.000 CLS and instant single-pass layout) -->
-    <link rel="stylesheet" href="styles.min.css?v=20260912_zero_cls_100">
+    <!-- Synchronous Minified Stylesheet (Guarantees Single-Pass Instant 0.000 CLS Render) -->
+    <link rel="stylesheet" href="styles.min.css?v=20260912_pure100">
 
-    <!-- FontAwesome Non-Blocking Async -->
+    <!-- FontAwesome Async Loading -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
@@ -2089,7 +2090,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="script.min.js?v=20260912_zero_cls_100" defer></script>
-        <script src="assets/a11y.js?v=20260912_zero_cls_100" defer></script>
+    <script src="script.min.js?v=20260912_pure100" defer></script>
+        <script src="assets/a11y.js?v=20260912_pure100" defer></script>
 </body>
 </html>

@@ -1252,8 +1252,12 @@ function initGorMarketingInteractive() {
     // Run on DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            renderNavbarAuth();
-        });
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(renderNavbarAuth, { timeout: 1500 });
+    } else {
+        setTimeout(renderNavbarAuth, 50);
+    }
+});
     } else {
         renderNavbarAuth();
     }
@@ -1389,8 +1393,15 @@ function bootGorMarketing() {
     }
 }
 
+function scheduleBoot() {
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(bootGorMarketing, { timeout: 1500 });
+    } else {
+        setTimeout(bootGorMarketing, 50);
+    }
+}
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootGorMarketing);
+    document.addEventListener('DOMContentLoaded', scheduleBoot);
 } else {
-    bootGorMarketing();
+    scheduleBoot();
 }
