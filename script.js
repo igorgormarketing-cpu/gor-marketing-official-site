@@ -537,10 +537,25 @@ function initGorMarketingInteractive() {
     if (leadForm) {
         leadForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById('form-name')?.value || '';
-            const phone = document.getElementById('form-phone')?.value || '';
-            const service = document.getElementById('form-service')?.value || '';
-            const msg = document.getElementById('form-msg')?.value || '';
+            // Security: Anti-Spam Honeypot Verification
+            const hpField = document.getElementById('form-website-hp');
+            if (hpField && hpField.value) {
+                console.warn('[Security Guard] Spam bot submission rejected.');
+                return;
+            }
+
+            // Security: HTML & XSS Sanitization
+            function sanitize(str) {
+                if (typeof str !== 'string') return '';
+                return str.replace(/[&<>"']/g, function(m) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+                }).trim();
+            }
+
+            const name = sanitize(document.getElementById('form-name')?.value || '');
+            const phone = sanitize(document.getElementById('form-phone')?.value || '');
+            const service = sanitize(document.getElementById('form-service')?.value || '');
+            const msg = sanitize(document.getElementById('form-msg')?.value || '');
 
             // Save lead to local storage backup
             try {

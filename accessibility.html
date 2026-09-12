@@ -1,543 +1,194 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-      <!-- Google Search & Browser Identity Favicons (Google Search Console Spec) -->
-  <link rel="icon" href="https://www.gormarketing.com/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="48x48" href="https://www.gormarketing.com/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://www.gormarketing.com/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="144x144" href="https://www.gormarketing.com/favicon-144x144.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="https://www.gormarketing.com/favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="https://www.gormarketing.com/favicon-512x512.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://www.gormarketing.com/apple-touch-icon.png">
-  <link rel="shortcut icon" href="https://www.gormarketing.com/favicon.ico">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#06070a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הצהרת נגישות | GOR MARKETING (תקן ישראלי ת"י 1918 חלק 2 & ת"י 5568 רמה AA)</title>
-    <meta name="description" content="הצהרת הנגישות הרשמית של GOR MARKETING בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקן ת"י 5568 ברמה AA.">
+    <meta name="theme-color" content="#06070a">
+    <meta name="google-site-verification" content="googlecc0cd1064c2ae336">
+    <title>הצהרת נגישות | GOR MARKETING (תקן ישראלי ת"י 5568 רמה AA & WCAG 2.1/2.2)</title>
+    <meta name="description" content="הצהרת הנגישות הרשמית של סוכנות GOR MARKETING בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, תקנות הנגישות לשירות ותקן ישראלי ת&quot;י 5568 ברמת AA.">
     <link rel="canonical" href="https://www.gormarketing.com/accessibility.html">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://www.gormarketing.com/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="https://www.gormarketing.com/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.gormarketing.com/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="https://www.gormarketing.com/favicon-144x144.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.gormarketing.com/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://www.gormarketing.com/favicon-512x512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.gormarketing.com/apple-touch-icon.png">
+    <link rel="shortcut icon" href="https://www.gormarketing.com/favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Preconnect CDNs & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap"></noscript></noscript>
-    
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript></noscript>
-    <link rel="preload" href="styles.min.css?v=20260912_speed100" as="style"><link rel="stylesheet" href="styles.min.css?v=20260912_speed100" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260912_speed100" as="style"><link rel="stylesheet" href="styles.min.css?v=20260912_speed100" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260912_speed100"></noscript></noscript>
-    <link rel="stylesheet" href="assets/accessibility.css?v=20260908_mobilefix_v1">
-    <!-- OpenGraph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gormarketing.com/accessibility.html">
-    <meta property="og:title" content="הצהרת נגישות | GOR MARKETING (תקן ת"י 5568 רמה AA)">
-    <meta property="og:description" content="הצהרת הנגישות הרשמית של GOR MARKETING בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקן ת"י 5568 ברמה AA.">
-    <meta property="og:image" content="https://igorgormarketing-cpu.github.io/gor-marketing-official-site/assets/hero_full.png">
-    <meta property="og:locale" content="he_IL">
-    <meta name="twitter:card" content="summary_large_image">
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "GOR MARKETING",
-    "alternateName": [
-        "גור מרקטינג",
-        "GOR Marketing Agency",
-        "איגור גורלקין שיווק דיגיטלי"
-    ],
-    "url": "https://www.gormarketing.com/",
-    "logo": "https://www.gormarketing.com/favicon-512x512.png",
-    "image": "https://www.gormarketing.com/assets/hero_full.png",
-    "founder": {
-        "@type": "Person",
-        "name": "איגור גורלקין",
-        "alternateName": "Igor Goralkin",
-        "jobTitle": "מייסד ומנכ״ל GOR MARKETING",
-        "url": "https://www.gormarketing.com",
-        "sameAs": [
-            "https://share.google/1yfqsihbng2PGnXTg",
-            "https://wa.me/972525155598"
-        ]
-    },
-    "foundingDate": "2008",
-    "telephone": "+972-52-5155598",
-    "email": "igor@gormarketing.com",
-    "priceRange": "$$",
-    "sameAs": [
-        "https://share.google/1yfqsihbng2PGnXTg",
-        "https://gormarketing.netlify.app/",
-        "https://wa.me/972525155598"
-    ],
-    "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "IL",
-        "addressLocality": "ישראל"
-    },
-    "areaServed": [
-        {
-            "@type": "Country",
-            "name": "Israel"
-        },
-        {
-            "@type": "Country",
-            "name": "Global"
-        }
-    ],
-    "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-    }
-}
-    </script>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "בית",
-            "item": "https://www.gormarketing.com/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "הצהרת נגישות",
-            "item": "https://www.gormarketing.com/accessibility.html"
-        }
-    ]
-}
-    </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Async Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap"></noscript>
+
+    <!-- Full Stylesheet -->
+    <link rel="stylesheet" href="styles.min.css?v=20260912_pure100">
+
+    <!-- FontAwesome Async -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
-    <!-- Universal Navbar -->
-        <!-- Standard Universal Navbar (100% Unified across ALL pages) -->
-        <!-- Standard Universal Navbar (100% Unified across ALL pages) -->
-    <header class="navbar">
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-to-content" style="position: absolute; top: -100px; left: 16px; background: #ffd700; color: #000; padding: 10px 16px; font-weight: 800; z-index: 9999999; border-radius: 8px; transition: top 0.2s;" onfocus="this.style.top='16px'" onblur="this.style.top='-100px'">
+        דלג לתוכן המרכזי
+    </a>
+
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
         <div class="container">
             <div class="logo-container">
-                <a href="index.html">
-                    <img src="assets/gor-logo-3d.png?v=20260827_04" alt="GOR MARKETING" width="44" height="44" role="img" tabindex="0">
-                    <div class="logo-text">GOR <span>MARKETING</span></div>
+                <a href="index.html" aria-label="דף הבית - GOR MARKETING">
+                    <img src="logo-gor.svg" alt="לוגו GOR MARKETING" width="44" height="44" loading="eager">
+                    <span class="logo-text">GOR <span>MARKETING</span></span>
                 </a>
             </div>
-
-            <div class="navbar-mobile-controls">
-                <button type="button" class="btn-crm-nav btn-crm-mobile-bar" id="gorCrmTriggerMobile" aria-label="כניסה ל-CRM" onclick="if(window.openGorCrmLogin){window.openGorCrmLogin();}else{var m=document.getElementById('crmLoginModal');if(m)m.style.display='flex';}">
-                    <i class="fas fa-user-shield"></i> <span>CRM</span>
-                </button>
-                <button class="mobile-nav-toggle" aria-label="פתח תפריט ניווט" onclick="document.querySelector('.nav-links').classList.toggle('active-mobile')">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-
-            <nav class="nav-links">
-                <a href="index.html">בית</a>
-
-                <!-- 1. שירותי 360° -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger">
-                        שירותי 360° <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray">
-                        <a href="websites.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-laptop-code"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>בניית אתרים & דפי נחיתה</strong>
-                                <span>אתרי תדמית, E-Commerce ומשפכי המרה</span>
-                            </div>
-                        </a>
-                        <a href="seo-guide.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-chart-line"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>קידום אורגני בגוגל SEO</strong>
-                                <span>הובלה לתוצאות הראשונות ללא תלות בתקציב יומי</span>
-                            </div>
-                        </a>
-                        <a href="sem-guide.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-google"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום ממומן Google Ads</strong>
-                                <span>קמפיינים ממוקדי המרות ו-ROI מקסימלי</span>
-                            </div>
-                        </a>
-                        <a href="meta-ads-guide.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fab fa-facebook-f"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום במטא & טיקטוק</strong>
-                                <span>קריאייטיב ומשפכי לידים חמים</span>
-                            </div>
-                        </a>
-                        <a href="youtube-ads-guide.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fab fa-youtube"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק וידאו ב-YouTube</strong>
-                                <span>סרטוני פרסומת ומיתוג מעסיק</span>
-                            </div>
-                        </a>
-                        <a href="ai.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-robot"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>סוכני AI ואוטומציה</strong>
-                                <span>מענה שירות, סינון לידים ותיאום פגישות</span>
-                            </div>
-                        </a>
-                        <a href="graphics.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-paint-brush"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>עיצוב גרפי & מיתוג</strong>
-                                <span>שפת מותג, לוגואים וקריאייטיב מנצח</span>
-                            </div>
-                        </a>
-                        <a href="photography.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-camera-retro"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>צילום תדמית & הפקות שטח</strong>
-                                <span>צילומי רחפן 4K, וידאו ותיעוד פרויקטים</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. אפליקציות SaaS -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger">
-                        אפליקציות SaaS <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray">
-                        <a href="websites.html#gor-crm" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-crown"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>GOR CRM</strong>
-                                <span>ניהול לידים, לקוחות ואוטומציית WhatsApp</span>
-                            </div>
-                        </a>
-                        <a href="websites.html#twin-proptech" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-building"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>TWIN PropTech</strong>
-                                <span>תאום דיגיטלי לבניינים וגבייה אוטומטית לוועדים</span>
-                            </div>
-                        </a>
-                        <a href="websites.html#am-building" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-hard-hat"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>AM BUILDING ConTech</strong>
-                                <span>ניהול פרויקטי בנייה, כתבי כמויות ויומני שטח</span>
-                            </div>
-                        </a>
-                        <a href="hakablanim.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-tools"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>HAKABLANIM</strong>
-                                <span>זירת מכרזים חכמה וסנכרון קבלנים וספקים</span>
-                            </div>
-                        </a>
-                        <a href="apps.html" class="dropdown-item" style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; padding-top: 8px;">
-                            <div class="dropdown-icon"><i class="fas fa-th-large"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>לכל האפליקציות והמערכות</strong>
-                                <span>צפייה בלוח השליטה המלא</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. סוכני AI -->
+            <nav class="nav-links" aria-label="ניווט ראשי">
+                <a href="index.html">דף הבית</a>
+                <a href="websites.html">בניית אתרים</a>
+                <a href="seo-guide.html">קידום אורגני SEO</a>
+                <a href="sem-guide.html">פרסום Google Ads</a>
                 <a href="ai.html">סוכני AI</a>
-
-                <!-- 4. מרכז ידע & מאמרים (14 מאמרים) -->
-                <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger">
-                        מרכז ידע & מאמרים <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="dropdown-tray mega-tray">
-                        <a href="articles/seo-kiddum-organi-google/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-search"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>קידום אורגני בגוגל SEO</strong>
-                                <span>המדריך המלא לכיבוש המקום הראשון</span>
-                            </div>
-                        </a>
-                        <a href="articles/sem-google-ads-prsoom-mamoon/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fab fa-google"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום ממומן Google Ads</strong>
-                                <span>אופטימיזציית PPC ו-ROI מקסימלי</span>
-                            </div>
-                        </a>
-                        <a href="articles/meta-ads-facebook-instagram/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-facebook"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>פרסום במטא פייסבוק & אינסטגרם</strong>
-                                <span>משפכי המרות וסגירת עסקאות</span>
-                            </div>
-                        </a>
-                        <a href="articles/shivuk-binah-melakutit-ai/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-brain"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק ובינה מלאכותית AI</strong>
-                                <span>הטמעת סוכנים חכמים בעסק</span>
-                            </div>
-                        </a>
-                        <a href="articles/prompt-engineering-handasat/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-code"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>הנדסת פרומפטים מעשית</strong>
-                                <span>מינוף מודלי שפה להאצת תהליכים</span>
-                            </div>
-                        </a>
-                        <a href="articles/lama-haluach-lo-tamid-tzodek/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-balance-scale"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>למה הלקוח לא תמיד צודק?</strong>
-                                <span>אוטוריטה מקצועית מובילה</span>
-                            </div>
-                        </a>
-                        <a href="articles/psychologia-kabalat-hachlata/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-head-side-virus"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>הפסיכולוגיה של קבלת החלטות</strong>
-                                <span>טריגרים רגשיים וקוגניטיביים לקנייה</span>
-                            </div>
-                        </a>
-                        <a href="articles/omanut-hamechirot-2025/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-handshake"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>אמנות המכירות 2025</strong>
-                                <span>טכניקות סגירה וטיפול בהתנגדויות</span>
-                            </div>
-                        </a>
-                        <a href="articles/mechirot-frontaliot/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fas fa-users"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>מכירות פרונטליות ומשא ומתן</strong>
-                                <span>הובלת פגישות וסגירת עסקאות</span>
-                            </div>
-                        </a>
-                        <a href="articles/nochchut-digitalit/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-globe"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>נוכחות דיגיטלית דומיננטית</strong>
-                                <span>הפיכת המותג לבחירה הטבעית</span>
-                            </div>
-                        </a>
-                        <a href="articles/shivuk-digitalit-maqtzoi/index.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><i class="fas fa-bullseye"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק דיגיטלי מקצועי לתוצאות</strong>
-                                <span>בניית תוכנית עבודה ו-KPIs מדידים</span>
-                            </div>
-                        </a>
-                        <a href="articles/youtube-ads-video-marketing/index.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><i class="fab fa-youtube"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>שיווק וידאו ב-YouTube</strong>
-                                <span>קמפיינים וסרטוני וידאו ממירים</span>
-                            </div>
-                        </a>
-                        <a href="articles/hakablanim-contech-digital/index.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><i class="fas fa-tools"></i></div>
-                            <div class="dropdown-item-text">
-                                <strong>מהפכת הקבלנים ב-ConTech</strong>
-                                <span>פלטפורמת HAKABLANIM לדיגיטציית ענף הבנייה</span>
-                            </div>
-                        </a>
-                        <a href="articles/index.html" class="dropdown-item" style="grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px; text-align: center; color: var(--gold-bright); font-weight: 700;">
-                            <span>📚 צפייה בכל 14 המאמרים והמדריכים באינדקס הראשי ←</span>
-                        </a>
-                    </div>
-                </div>
-
-                <a href="index.html#case-studies">תוצאות</a>
-                <a href="index.html#roi-calculator">מחשבון ROI</a>
-                <a href="index.html#about">אודות</a>
-                <a href="index.html#reviews">המלצות</a>
-                <button type="button" class="btn-crm-nav" id="gorCrmTrigger" aria-label="כניסה למערכת GOR CRM"><i class="fas fa-user-shield"></i> <span>כניסה ל-CRM</span></button>
-                <a href="index.html#contact" class="btn-nav"><i class="fas fa-paper-plane"></i> צור קשר</a>
+                <a href="business.html">אודות</a>
+                <a href="sitemap.html">מפת אתר</a>
             </nav>
+            <a href="https://wa.me/972525155598" class="nav-cta-btn" target="_blank" rel="noopener noreferrer" aria-label="שיחה ישירה בוואטסאפ עם איגור">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i> וואטסאפ ישיר
+            </a>
         </div>
     </header>
 
-    <main id="main-content" class="container" style="padding: 50px 20px 80px;">
-        <div class="hero-badge-pill">
-            <i class="fas fa-universal-access"></i> עמידה בתקן ת"י 5568 ברמה AA
-        </div>
+    <!-- Main Content -->
+    <main id="main-content" class="container" style="padding-top: 40px; padding-bottom: 80px; max-width: 1000px;">
+        <article style="background: rgba(12, 14, 22, 0.95); border: 1px solid var(--border-gold); border-radius: 24px; padding: clamp(24px, 4vw, 48px); box-shadow: 0 10px 40px rgba(0,0,0,0.5);">
+            
+            <header style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 24px; margin-bottom: 32px;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.4); color: var(--cyan-accent); padding: 6px 14px; border-radius: 9999px; font-size: 0.85rem; font-weight: 700; margin-bottom: 14px;">
+                    <i class="fas fa-universal-access" aria-hidden="true"></i> תקן נגישות ישראלי ת"י 5568 (AA) & WCAG 2.1/2.2
+                </div>
+                <h1 style="font-family: var(--font-heading); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 12px;">
+                    הצהרת נגישות רשמית
+                </h1>
+                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                    עודכן לאחרונה: <strong>12 בספטמבר 2026</strong> | סוכנות GOR MARKETING בהובלת איגור גורלקין
+                </p>
+            </header>
 
-        <h1 style="font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; color: #fff; margin-bottom: 20px;">
-            הצהרת נגישות — <span class="gradient-title">GOR MARKETING</span>
-        </h1>
+            <section style="margin-bottom: 32px;">
+                <h2 style="color: var(--gold-bright); font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">
+                    1. מחויבות הארגון לנגישות שוויונית
+                </h2>
+                <p style="color: #cbd5e1; line-height: 1.8; font-size: 1.05rem;">
+                    סוכנות <strong>GOR MARKETING</strong> רואה חשיבות עליונה במתן שירות שוויוני, מכבד, נגיש ומקצועי לכלל הציבור, לרבות אנשים עם מוגבלויות (ראייה, שמיעה, מוטוריקה וקוגניציה).
+                    אנו משקיעים משאבים טכנולוגיים מתקדמים על מנת להבטיח שהאתר, השירותים הדיגיטליים ומערכות ה-SaaS שלנו יהיו נגישים במלואם, בהתאם ל<strong>חוק שוויון זכויות לאנשים עם מוגבלות, תשנ"ח-1998</strong>, תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג-2013, והנחיות <strong>תקן ישראלי ת"י 5568</strong> ברמת <strong>AA</strong> (התואם ל-WCAG 2.1 ו-WCAG 2.2 של ארגון W3C הבינלאומי).
+                </p>
+            </section>
 
-        <div class="bento-card card-gold" style="line-height: 1.9; font-size: 1.05rem; color: #cbd5e1; margin-bottom: 30px;">
-            <h2 style="color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 12px;">מבוא ומחויבות לאתר נגיש ושוויוני</h2>
-            <p style="margin-bottom: 16px;">
-                סוכנות <strong>GOR MARKETING</strong> רואה חשיבות עליונה במתן שירות שוויוני ונגיש לכלל האוכלוסייה, לרבות אנשים עם מוגבלות. אנו פועלים ללא לאות להנגיש את אתר האינטרנט ואת השירותים הדיגיטליים שלנו בהתאם להוראות <strong>חוק שוויון זכויות לאנשים עם מוגבלות, תשנ"ח-1998</strong>, תקנות הנגישות לשירות (תשע"ג-2013), ובהתאם להנחיות התקן הישראלי <strong>ת"י 5568</strong> המבוסס על הנחיות WCAG 2.1 ברמה AA.
-            </p>
+            <section style="margin-bottom: 32px;">
+                <h2 style="color: var(--emerald-primary); font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">
+                    2. התאמות הנגישות שבוצעו באתר
+                </h2>
+                <ul style="color: #cbd5e1; line-height: 1.9; font-size: 1.02rem; padding-right: 20px;">
+                    <li><strong>ניווט מקלדת מלא:</strong> תמיכה מלאה בניווט ללא עכבר באמצעות מקשי <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Tab</kbd>, <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Shift+Tab</kbd>, מקשי החיצים, <kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Enter</kbd>, ו-<kbd style="background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px;">Escape</kbd> לסגירת תפריטים ומודאלים.</li>
+                    <li><strong>נראות פוקוס ברורה:</strong> כל רכיב אינטראקטיבי מקבל מסגרת פוקוס בולטת וברורה בזמן ניווט מקלדת.</li>
+                    <li><strong>תוכנות קורא מסך:</strong> האתר נבדק ונמצא תואם לתוכנות קוראי מסך מובילות (NVDA, JAWS, VoiceOver ב-iOS/macOS ו-TalkBack ב-Android) תוך שימוש במבנה סמנטי תקין (HTML5 Landmarks, כותרות H1–H4, תגיות ARIA).</li>
+                    <li><strong>תיאורי תמונות (Alt Text):</strong> כל התמונות והתרשימים בעלי משמעות כוללים תיאור טקסטואלי חלופי מפורט. אלמנטים גרפיים דקורטיביים מוסתרים מקוראי מסך בעזרת <code>aria-hidden="true"</code>.</li>
+                    <li><strong>ניגודיות צבעים גבוהה:</strong> יחסי הניגודיות בין הטקסט לרקע עומדים בתקן המחמיר (לפחות 4.5:1 לטקסט רגיל ו-3:1 לטקסט מוגדל/כפתורים).</li>
+                    <li><strong>סרגל נגישות אינטראקטיבי:</strong> כפתור נגישות מובנה המאפשר שינוי גודל גופן, מצב ניגודיות גבוהה, גווני אפור, הדגשת קישורים, גופן קריא לדיסלקציה ועצירת אנימציות.</li>
+                    <li><strong>התאמה מלאה למובייל והגדלת תצוגה:</strong> תמיכה מלאה בהגדלת תצוגה (Zoom) עד 200% מבלי לשבור את מבנה הדף ומבלי לחייב גלילה אופקית.</li>
+                    <li><strong>טפסים נגישים:</strong> לכל שדה טופס יש תווית (Label), הנחיות ברורות, והודעות שגיאה נגישות.</li>
+                </ul>
+            </section>
 
-            <h2 style="color: var(--emerald-primary); font-size: 1.4rem; margin-top: 28px; margin-bottom: 12px;">התאמות הנגישות שבוצעו באתר</h2>
-            <ul style="padding-right: 24px; margin-bottom: 20px; line-height: 2;">
-                <li><strong>תוסף נגישות מובנה:</strong> תפריט נגישות מתקדם הכולל שינוי גדלי טקסט, ניגודיות כהה/בהירה, הדגשת קישורים, גופן קריא ועצירת הבהובים.</li>
-                <li><strong>ניווט מקלדת מלא:</strong> האתר תומך בניווט מלא באמצעות מקש Tab, מקשי החצים, Enter ו-Escape, לרבות קישור ייעודי לדילוג ישיר לתוכן המרכזי (Skip to Content).</li>
-                <li><strong>קריאות והיררכיית תוכן:</strong> כותרות סמנטיות (H1-H6), תגיות ARIA מותאמות לקוראי מסך (כגון NVDA ו-JAWS) וטקסטים חלופיים (Alt) לכל התמונות והתרשימים.</li>
-                <li><strong>ניגודיות צבעים:</strong> עמידה ביחסי ניגודיות גבוהים של לפחות 4.5:1 בין טקסטים לרקע.</li>
-                <li><strong>רספונסיביות והתאמה למכשירים:</strong> האתר מותאם להגדלה (Zoom) עד 200% ללא פגיעה במבנה ובפונקציונליות בכל דפדפן ומכשיר.</li>
-            </ul>
+            <section style="margin-bottom: 32px;">
+                <h2 style="color: var(--cyan-accent); font-size: 1.4rem; font-weight: 800; margin-bottom: 12px;">
+                    3. הסדרי נגישות פיזיים וערוצי שירות
+                </h2>
+                <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 20px; color: #cbd5e1; line-height: 1.8;">
+                    <p style="margin-bottom: 10px;">
+                        סוכנות GOR MARKETING פועלת במודל דיגיטלי היברידי מתקדם ומספקת שירות בפריסה ארצית:
+                    </p>
+                    <ul style="padding-right: 20px; margin-bottom: 10px;">
+                        <li><strong>פגישות מקוונות ונגישות:</strong> שיחות ייעוץ ואפיון נערכות ב-Zoom / Google Meet עם תמיכה בכתוביות חיות (Live Captions) ושיתוף מסך ברור.</li>
+                        <li><strong>ערוצי תקשורת חלופיים:</strong> מענה טלפוני, התכתבות בוואטסאפ (טקסט/הודעות קוליות), ודואר אלקטרוני.</li>
+                        <li><strong>פגישות פרונטליות:</strong> נערכות במתחמי משרדים נגישים לחלוטין (חניות נכים מסומנות, מעליות נגישות, שירותי נכים ומעברים רחבים לכיסאות גלגלים) בתיאום מראש.</li>
+                    </ul>
+                </div>
+            </section>
 
-            <h2 style="color: var(--cyan-accent); font-size: 1.4rem; margin-top: 28px; margin-bottom: 12px;">פרטי רכז הנגישות ויצירת קשר</h2>
-            <p style="margin-bottom: 16px;">
-                אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם הצעה לשיפור הנגישות, נשמח מאוד לעמוד לרשותכם ולטפל בפנייתכם בהקדם האפשרי:
-            </p>
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-cyan); border-radius: 14px; padding: 20px; color: #fff;">
-                <div>👤 <strong>רכז הנגישות:</strong> איגור גורלקין (מייסד ומנכ"ל GOR MARKETING)</div>
-                <div>📞 <strong>טלפון ישיר / וואטסאפ:</strong> <a href="tel:0525155598" style="color: var(--emerald-primary); text-decoration: none;">052-515-5598</a></div>
-                <div>✉️ <strong>דואר אלקטרוני:</strong> <a href="mailto:igorgor.marketing@gmail.com" style="color: var(--gold-bright); text-decoration: none;">igorgor.marketing@gmail.com</a> / <a href="mailto:igorgor.marketing@gmail.com" style="color: var(--gold-bright); text-decoration: none;">igorgor.marketing@gmail.com</a></div>
-                <div>🕒 <strong>שעות פעילות:</strong> ימים א׳–ה׳ 09:00–17:00 (פניות מעבר לשעות הפעילות בתיאום מראש)</div>
-            </div>
+            <!-- Accessibility Coordinator Card -->
+            <section style="background: linear-gradient(135deg, rgba(255,193,7,0.1), rgba(0,255,136,0.05)); border: 1.5px solid var(--border-gold); border-radius: 20px; padding: 28px; margin-bottom: 32px;">
+                <h2 style="color: #fff; font-size: 1.35rem; font-weight: 800; margin-bottom: 14px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-id-card" style="color: var(--gold-bright);" aria-hidden="true"></i> פרטי רכז הנגישות של הסוכנות
+                </h2>
+                <p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 16px;">
+                    אם נתקלתם בקושי בגלישה באתר, או שיש לכם הצעה לשיפור הנגישות, נשמח מאוד לשמוע מכם! רכז הנגישות של הסוכנות עומד לרשותכם:
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                    <div style="background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                        <strong style="color: var(--gold-bright); display: block; margin-bottom: 4px;">רכז הנגישות:</strong>
+                        <span style="color: #fff; font-weight: 700;">איגור גורלקין (מייסד ומנכ"ל)</span>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                        <strong style="color: var(--emerald-primary); display: block; margin-bottom: 4px;">טלפון ישיר:</strong>
+                        <a href="tel:0525155598" style="color: #fff; text-decoration: none; font-weight: 700;">052-515-5598</a>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                        <strong style="color: var(--cyan-accent); display: block; margin-bottom: 4px;">וואטסאפ:</strong>
+                        <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%A4%D7%A0%D7%99%D7%99%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%A0%D7%92%D7%99%D7%A8%D7%95%D7%AA" target="_blank" rel="noopener noreferrer" style="color: #fff; text-decoration: none; font-weight: 700;">הודעה ישירה לרכז הנגישות</a>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.4); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+                        <strong style="color: #cbd5e1; display: block; margin-bottom: 4px;">דואר אלקטרוני:</strong>
+                        <a href="mailto:igor@gormarketing.com" style="color: #fff; text-decoration: none; font-weight: 700;">igor@gormarketing.com</a>
+                    </div>
+                </div>
+            </section>
 
-            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-dim);">
-                📅 תאריך עדכון הצהרת הנגישות: 25 באוגוסט 2026.
-            </p>
-        </div>
+            <section>
+                <h2 style="color: #fff; font-size: 1.25rem; font-weight: 800; margin-bottom: 10px;">
+                    4. פניות והצעות לשיפור
+                </h2>
+                <p style="color: #cbd5e1; line-height: 1.8;">
+                    אנו ממשיכים במאמצים מתמידים לשפר ולייעל את נגישות האתר כחלק ממחויבותנו לאפשר שימוש נוח ושוויוני לכלל האוכלוסייה. פניות בנושא נגישות מטופלות במלוא הרצינות ונענות תוך <strong>24 עד 48 שעות</strong>.
+                </p>
+            </section>
+
+        </article>
     </main>
 
-    <!-- Master Footer -->
-
-        <!-- Master Unified Footer -->
-    <footer>
-        <div class="container footer-inner">
-            <div>
-                <div class="logo-text" style="font-size: 1.4rem; margin-bottom: 12px;">GOR <span>MARKETING</span></div>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">
-                    סוכנות שיווק דיגיטלי 360° עם ניסיון מעשי בכל עולמות השיווק מאז 2008, לצד סוכני AI ופיתוח מערכות SaaS בהובלת איגור גורלקין. שיווק 360° שמייצר תוצאות מוכחות.
-                </p>
-            </div>
-            <div>
-                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">מערכות SaaS</h4>
-                <ul style="list-style: none; line-height: 2.2; font-size: 0.95rem; color: var(--text-muted); padding: 0;">
-                    <li><a href="websites.html#gor-crm">👑 GOR CRM (ניהול לידים)</a></li>
-                    <li><a href="websites.html#twin-proptech">🏢 TWIN PropTech (בניינים)</a></li>
-                    <li><a href="websites.html#am-building">🏗️ AM BUILDING (קבלנים)</a></li>
-                    <li><a href="apps.html">🚀 לכל המערכות והאפליקציות</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">מדריכים וניווט מהיר</h4>
-                <ul style="list-style: none; line-height: 2.2; font-size: 0.95rem; color: var(--text-muted); padding: 0;">
-                    <li><a href="seo-guide.html">🔍 קידום אורגני SEO</a></li>
-                    <li><a href="sem-guide.html">📊 פרסום Google Ads</a></li>
-                    <li><a href="meta-ads-guide.html">📱 פרסום במטא & טיקטוק</a></li>
-                    <li><a href="articles/index.html">📚 כל 13 המאמרים המקצועיים</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 style="color: #fff; margin-bottom: 12px; font-weight: 700;">יצירת קשר ישירה</h4>
-                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">
-                    📞 טלפון ישיר: <strong style="color: #fff;">052-515-5598</strong><br>
-                    ✉️ דוא"ל: <strong style="color: #fff;">igorgor.marketing@gmail.com</strong><br>
-                    💬 מענה בוואטסאפ (א׳–ה׳ 09:00–17:00 | מעבר לכך בתיאום מראש)
-                </p>
-            </div>
-        </div>
-
-        <!-- Footer Bottom Bar (שורה תחתונה עם מפת אתר ונגישות) -->
-        <div class="container footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; margin-top: 30px;">
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" style="background: rgba(6,7,10,0.98); border-top: 1px solid var(--border-gold); padding: 40px 0 20px 0;">
+        <div class="container footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <div style="color: var(--text-muted); font-size: 0.9rem;">
                 © 2026 GOR MARKETING — כל הזכויות שמורות.
             </div>
             <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.92rem;">
-                <a href="sitemap.html" style="color: var(--gold-bright); text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
-                    <i class="fas fa-sitemap"></i> מפת אתר מלאה
-                </a>
-                <a href="accessibility.html" style="color: var(--cyan-accent); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-                    <i class="fas fa-universal-access"></i> הצהרת נגישות (AA)
-                </a>
-                <a href="privacy.html">מדיניות פרטיות ואבטחה</a>
-                <a href="index.html#roi-calculator" style="color: var(--emerald-primary); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-                    <i class="fas fa-calculator"></i> מחשבון ROI
-                </a>
-                <a href="index.html#case-studies" style="color: #cbd5e1; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
-                    <i class="fas fa-trophy"></i> תוצאות
-                </a>
+                <a href="index.html">דף הבית</a>
+                <a href="sitemap.html" style="color: var(--gold-bright); text-decoration: none; font-weight: 800;">מפת אתר</a>
+                <a href="accessibility.html" style="color: var(--cyan-accent); text-decoration: none; font-weight: 700;">הצהרת נגישות (AA)</a>
+                <a href="privacy.html">מדיניות פרטיות</a>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button (Stacked above Bot at bottom: 98px) -->
-    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING" class="whatsapp-float" style="position: fixed !important; bottom: 98px !important; left: 24px !important; z-index: 99999 !important;" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+    <!-- Fixed Floating Actions (Touch Compliant) -->
+    <a href="tel:0525155598" class="phone-float-fixed" aria-label="חיוג ישיר לאיגור גורלקין" title="חייג עכשיו: 052-515-5598">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING" class="whatsapp-float-fixed" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ איגור גורלקין" title="וואטסאפ איגור גורלקין">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- GOR-Bot Floating AI Concierge Widget (Bottom: 24px) -->
-    <div id="gor-bot-trigger" class="gor-bot-trigger" style="position: fixed !important; bottom: 92px !important; right: 24px !important; left: auto !important; z-index: 999998 !important;" title="צ'אט עם סוכן GOR">
-        <div class="gor-bot-pulse"></div>
-        <span class="gor-bot-badge">AI</span>
-        <i class="fas fa-robot"></i>
-    </div>
-
-    <div id="gor-bot-modal" class="gor-bot-modal" style="position: fixed !important; bottom: 160px !important; right: 24px !important; left: auto !important; z-index: 1000000 !important;">
-        <div class="gor-bot-header">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900;">G</div>
-                <div>
-                    <strong style="color: #fff; font-size: 0.95rem;">סוכן העל GOR</strong>
-                    <div style="color: var(--emerald-primary); font-size: 0.75rem; font-weight: 600;">● מחובר | מענה מיידי</div>
-                </div>
-            </div>
-            <button id="gor-bot-close" aria-label="סגירת חלון הצ'אט"&times;</button>
-        </div>
-
-        <div id="gor-bot-body" class="gor-bot-body">
-            <div class="gor-msg bot">
-                היי, אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
-            </div>
-
-            <div class="gor-quick-options">
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')">
-                    <span>⚡ מה סל השירותים של הסוכנות?</span>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')">
-                    <span>💰 כמה עולה פגישת אפיון אסטרטגית?</span>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')">
-                    <span>💼 מה היכולות של מערכת GOR CRM?</span>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')">
-                    <span>🚀 פיתוח אפליקציות ומערכות מותאמות</span>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="gor-bot-footer">
-            <div class="gor-bot-input-box">
-                <input type="text" id="gor-bot-input" class="gor-bot-input" aria-label="שאלת שאלה לנציג GOR AI" placeholder="שאל אותי כל דבר על שיווק, פיתוח ו-AI..." autocomplete="off">
-                <button id="gor-bot-send-btn" type="button" class="gor-bot-send" aria-label="שלח שאלה"><i class="fas fa-paper-plane"></i></button>
-            </div>
-            <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 9px; font-size: 0.85rem; text-decoration: none; border-radius: 10px;">
-                <i class="fab fa-whatsapp"></i> שיחה ישירה עם איגור בוואטסאפ
-            </a>
-        </div>
-    </div>
-
     <!-- Scripts -->
-    <script src="assets/motion.js?v=20260912_01" defer></script>
-    <script src="assets/accessibility.js?v=20260912_01" defer></script>
-    <script src="script.min.js?v=20260912_speed100" defer></script>
-    <script defer src="assets/a11y.js"></script>
+    <script src="script.min.js?v=20260912_inlined100" defer></script>
+    <script src="assets/a11y.js?v=20260912_inlined100" defer></script>
 </body>
 </html>

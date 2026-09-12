@@ -1947,6 +1947,10 @@
 
                 <!-- Interactive Form -->
                 <form id="gor-lead-form" itemscope itemtype="https://schema.org/ContactAction" data-webmcp="tool" data-tool-name="submit_lead_inquiry" data-tool-description="Submit a consultation inquiry to GOR MARKETING agency" method="POST" action="javascript:void(0);"  style="background: rgba(10, 12, 20, 0.9); border: 1px solid var(--border-emerald); border-radius: 20px; padding: 28px;">
+                    <!-- Anti-Spam Security Honeypot (Hidden from human users & screen readers) -->
+                    <div style="position: absolute; left: -9999px; top: -9999px; visibility: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
+                        <input type="text" id="form-website-hp" name="website_hp" tabindex="-1" autocomplete="off">
+                    </div>
                     <h3 style="color: #fff; font-size: 1.3rem; margin-bottom: 18px;">השאירו פרטים לחזרה מהירה</h3>
                     
                     <input type="text" id="form-name" name="name" autocomplete="name" data-webmcp-param="fullName" data-webmcp-description="Client full name" itemprop="name" class="form-input" placeholder="שם מלא *" aria-label="שם מלא" required>
