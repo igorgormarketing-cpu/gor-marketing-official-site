@@ -70,7 +70,6 @@
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
 }
-
 .whatsapp-float-fixed:hover,
 .whatsapp-float:hover {
     transform: scale(1.08) translateY(-2px) !important;
@@ -100,13 +99,11 @@
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
 }
-
 #gor-bot-trigger:hover,
 .gor-bot-trigger:hover {
     transform: scale(1.08) translateY(-2px) !important;
     box-shadow: 0 10px 25px rgba(245, 158, 11, 0.6) !important;
 }
-
 .gor-bot-badge {
     position: absolute !important;
     top: -4px !important;
@@ -146,13 +143,147 @@
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
 }
-
 #gor-a11y-fab:hover,
 .accessibility-trigger:hover {
     transform: scale(1.08) translateY(-2px) !important;
     box-shadow: 0 12px 30px rgba(2, 132, 199, 0.7) !important;
 }
 
+/* GOR-Bot Modal */
+.gor-bot-modal,
+#gor-bot-modal {
+    position: fixed !important;
+    bottom: 146px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: clamp(310px, 90vw, 380px) !important;
+    max-height: min(520px, calc(100vh - 170px)) !important;
+    background: rgba(10, 14, 24, 0.98) !important;
+    border: 1px solid rgba(245, 158, 11, 0.45) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.2) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1000000 !important;
+    display: none;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+.gor-bot-modal.active,
+#gor-bot-modal.active {
+    display: flex !important;
+    animation: botSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+@keyframes botSlideUp {
+    from { opacity: 0; transform: translateY(16px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.gor-bot-header {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(16, 185, 129, 0.12)) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+.gor-bot-body {
+    padding: 16px !important;
+    overflow-y: auto !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    max-height: 300px !important;
+}
+.gor-msg {
+    padding: 10px 14px !important;
+    border-radius: 14px !important;
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+    max-width: 88% !important;
+}
+.gor-msg.bot {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e2e8f0 !important;
+    align-self: flex-start !important;
+}
+.gor-msg.user {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    color: #000 !important;
+    font-weight: 600 !important;
+    align-self: flex-end !important;
+}
+.gor-quick-options {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 6px !important;
+}
+.gor-quick-btn {
+    background: rgba(245, 158, 11, 0.08) !important;
+    border: 1px solid rgba(245, 158, 11, 0.25) !important;
+    color: #fff !important;
+    padding: 8px 12px !important;
+    border-radius: 10px !important;
+    font-size: 0.82rem !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+.gor-quick-btn:hover {
+    background: rgba(245, 158, 11, 0.22) !important;
+    border-color: var(--gold-bright) !important;
+    transform: translateX(-3px) !important;
+}
+.gor-bot-footer {
+    padding: 12px 16px !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+.gor-bot-input-box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    padding: 4px 6px 4px 10px !important;
+}
+.gor-bot-input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 0.85rem !important;
+    outline: none !important;
+    font-family: inherit !important;
+}
+.gor-bot-send {
+    background: var(--gold-bright, #F59E0B) !important;
+    color: #000 !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+}
+.gor-bot-send:hover { transform: scale(1.08) !important; }
+
+/* Accessibility Modal */
 .accessibility-modal,
 #accessibilityPanel {
     position: fixed !important;
@@ -162,26 +293,110 @@
     width: clamp(290px, 85vw, 350px) !important;
     max-height: min(500px, calc(100vh - 110px)) !important;
     background: rgba(10, 14, 26, 0.98) !important;
-    border: 1px solid rgba(0, 240, 255, 0.3) !important;
+    border: 1px solid rgba(0, 240, 255, 0.35) !important;
     border-radius: 18px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.15) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 240, 255, 0.2) !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
-    z-index: 9999999 !important;
+    z-index: 1000000 !important;
     display: none;
     flex-direction: column !important;
     overflow-y: auto !important;
-    padding: 18px !important;
+    padding: 16px !important;
     direction: rtl !important;
     text-align: right !important;
 }
-
 .accessibility-modal.active,
 #accessibilityPanel.active {
     display: flex !important;
     animation: a11ySlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
+@keyframes a11ySlideUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.a11y-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 14px !important;
+}
+.a11y-header h3 {
+    font-size: 0.98rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+}
+.a11y-close {
+    background: none !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.4rem !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+.a11y-close:hover { color: #ffffff !important; }
+.a11y-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+}
+.a11y-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 9px 6px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    text-align: center !important;
+}
+.a11y-btn:hover {
+    background: rgba(0, 240, 255, 0.15) !important;
+    border-color: var(--cyan-accent) !important;
+    color: var(--cyan-accent) !important;
+}
+.a11y-btn-reset {
+    width: 100% !important;
+    margin-bottom: 8px !important;
+    background: rgba(245, 158, 11, 0.12) !important;
+    border-color: rgba(245, 158, 11, 0.35) !important;
+    color: var(--gold-bright) !important;
+    padding: 10px !important;
+}
+.a11y-btn-reset:hover {
+    background: rgba(245, 158, 11, 0.25) !important;
+    color: #ffffff !important;
+}
 
+@media (max-width: 768px) {
+    #gor-bot-modal,
+    .gor-bot-modal {
+        bottom: 140px !important;
+        right: 14px !important;
+        left: auto !important;
+        width: calc(100vw - 28px) !important;
+    }
+    #accessibilityPanel,
+    .accessibility-modal {
+        bottom: 80px !important;
+        left: 14px !important;
+        right: auto !important;
+        width: calc(100vw - 28px) !important;
+    }
+}
 
 /* ==========================================================================
    MOBILE NAVBAR & HAMBURGER NAVIGATION DRAWER (PERFECTED & TESTED)
@@ -2452,19 +2667,14 @@
     <!-- Floating Action Buttons (Strict Placement: WhatsApp & AI Right, Accessibility Left) -->
     
     <!-- 1. WhatsApp Floating Button (Bottom Right) -->
-    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20GOR%20MARKETING" 
-       class="whatsapp-float-fixed whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       aria-label="וואטסאפ איגור גורלקין"
-       title="וואטסאפ איגור גורלקין">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" rel="noopener noreferrer" class="whatsapp-float-fixed" aria-label="פתיחת שיחת WhatsApp עם איגור" title="שוחח ישירות עם איגור בוואטסאפ">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
     <!-- 2. GOR AI Bot Floating Trigger (Bottom Right, Stacked above WhatsApp) -->
-    <div id="gor-bot-trigger" class="gor-bot-trigger" aria-label="פתח צ'אט עם סוכן ה-AI" role="button" tabindex="0" onclick="if(window.toggleGorBot){window.toggleGorBot();}else{var m=document.getElementById('gor-bot-modal');if(m)m.classList.toggle('active');}">
+    <div id="gor-bot-trigger" class="gor-bot-trigger" aria-label="פתח צ'אט עם סוכן ה-AI" role="button" tabindex="0" onclick="toggleGorBot()">
         <span class="gor-bot-badge">AI</span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg>
     </div>
 
     <!-- 3. Accessibility Floating Button (Bottom Left) -->
@@ -2473,41 +2683,45 @@
        class="accessibility-trigger" 
        aria-label="פתח סרגל נגישות" 
        title="סרגל נגישות תקן 1918"
-       onclick="var p=document.getElementById('accessibilityPanel')||document.querySelector('.accessibility-modal');if(p)p.classList.toggle('active');">
+       onclick="toggleA11yPanel()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M16 8h-8a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg>
     </button>
 
-    <div id="gor-bot-modal" class="gor-bot-modal" style="position: fixed !important; bottom: 160px !important; right: 24px !important; left: auto !important; z-index: 1000000 !important;">
+    <!-- GOR AI Bot Modal -->
+    <div id="gor-bot-modal" class="gor-bot-modal" role="dialog" aria-modal="true" aria-label="צ'אט סוכן AI">
         <div class="gor-bot-header">
             <div style="display: flex; align-items: center; gap: 10px;">
-                <div style="width: 34px; height: 34px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900;">G</div>
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: #000; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 900;">G</div>
                 <div>
-                    <strong style="color: #fff; font-size: 0.95rem;">סוכן העל GOR</strong>
-                    <div style="color: var(--emerald-primary); font-size: 0.75rem; font-weight: 600;">● מחובר | מענה מיידי</div>
+                    <h3 style="margin: 0; font-size: 0.95rem; font-weight: 800; color: #fff;">GOR AI Concierge</h3>
+                    <div style="font-size: 0.72rem; color: #10B981; display: flex; align-items: center; gap: 4px;">
+                        <span style="width: 6px; height: 6px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                        מחובר ומוכן לעזור בלייב
+                    </div>
                 </div>
             </div>
-            <button id="gor-bot-close" aria-label="סגירת חלון הצ'אט" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            <button id="gor-bot-close" aria-label="סגירת חלון הצ'אט" onclick="toggleGorBot(false)" style="background: none; border: none; color: #94a3b8; font-size: 1.4rem; cursor: pointer; line-height: 1;">&times;</button>
         </div>
 
         <div id="gor-bot-body" class="gor-bot-body">
             <div class="gor-msg bot">
-                היי, אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
+                היי! אני <strong>GOR</strong>, סוכן ה-AI של סוכנות GOR MARKETING. איך אוכל לעזור לך להצמיח את העסק היום?
             </div>
 
             <div class="gor-quick-options">
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')" aria-label="שאלה על שירותי הסוכנות" aria-label="שאלה על שירותי הסוכנות" aria-label="שאלה על שירותי הסוכנות">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('services')" aria-label="שאלה על שירותי הסוכנות">
                     <span>⚡ מה סל השירותים של הסוכנות?</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')" aria-label="שאלה על מחירון וחבילות" aria-label="שאלה על מחירון וחבילות" aria-label="שאלה על מחירון וחבילות">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('pricing')" aria-label="שאלה על מחיר פגישת אפיון">
                     <span>💰 כמה עולה פגישת אפיון אסטרטגית?</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')" aria-label="שאלה על מערכת GOR CRM" aria-label="שאלה על מערכת GOR CRM" aria-label="שאלה על מערכת GOR CRM">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('crm')" aria-label="שאלה על מערכת GOR CRM">
                     <span>💼 מה היכולות של מערכת GOR CRM?</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')" aria-label="שאלה על פיתוח אפליקציות ו-SaaS" aria-label="שאלה על פיתוח אפליקציות ו-SaaS" aria-label="שאלה על פיתוח אפליקציות ו-SaaS">
+                <button type="button" class="gor-quick-btn" onclick="askGorBot('apps')" aria-label="שאלה על פיתוח אפליקציות">
                     <span>🚀 פיתוח אפליקציות ומערכות מותאמות</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
@@ -2517,10 +2731,58 @@
         <div class="gor-bot-footer">
             <div class="gor-bot-input-box">
                 <input type="text" id="gor-bot-input" class="gor-bot-input" aria-label="שאלת שאלה לנציג GOR AI" placeholder="שאל אותי כל דבר על שיווק, פיתוח ו-AI..." autocomplete="off">
-                <button id="gor-bot-send-btn" type="button" class="gor-bot-send" aria-label="שלח שאלה"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
+                <button id="gor-bot-send-btn" type="button" class="gor-bot-send" aria-label="שלח שאלה" onclick="sendGorBotMsg()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></button>
             </div>
-            <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 9px; font-size: 0.85rem; text-decoration: none; border-radius: 10px;">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> שיחה ישירה עם איגור בוואטסאפ
+            <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 9px; font-size: 0.85rem; text-decoration: none; border-radius: 10px; font-weight: 700;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg> שיחה ישירה עם איגור בוואטסאפ
+            </a>
+        </div>
+    </div>
+
+    <!-- Accessibility Modal (תקן 1918) -->
+    <div id="accessibilityPanel" class="accessibility-modal" role="dialog" aria-modal="true" aria-label="סרגל נגישות">
+        <div class="a11y-header">
+            <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M16 8h-8a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg>
+                סרגל נגישות (תקן 1918)
+            </h3>
+            <button id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות" onclick="toggleA11yPanel(false)">&times;</button>
+        </div>
+        
+        <div class="a11y-grid">
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('fontSize', 1)">
+                <span>🔍 הגדלת טקסט</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('fontSize', -1)">
+                <span>🔎 הקטנת טקסט</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('contrast')">
+                <span>🌓 ניגודיות גבוהה</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('grayscale')">
+                <span>🔘 גווני אפור</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('dyslexia')">
+                <span>📖 גופן קריא</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('links')">
+                <span>🔗 הדגשת קישורים</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('animations')">
+                <span>⏸️ עצירת אנימציות</span>
+            </button>
+            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('invert')">
+                <span>🔄 היפוך צבעים</span>
+            </button>
+        </div>
+        
+        <button type="button" class="a11y-btn a11y-btn-reset" onclick="resetA11y()">
+            <span>🔄 איפוס כל ההגדרות</span>
+        </button>
+        
+        <div style="text-align: center; margin-top: 4px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <a href="accessibility.html" style="color: var(--cyan-accent); font-size: 0.82rem; font-weight: 700; text-decoration: none;">
+                📄 הצהרת נגישות מלאה (AA)
             </a>
         </div>
     </div>
@@ -2528,28 +2790,175 @@
     <!-- Scripts -->
     <!-- Zero-Blocking Performance Script Loader (0ms TBT Guaranteed) -->
     <script>
-    (function() {
-        function loadDeferredScripts() {
-            var s1 = document.createElement('script');
-            s1.src = 'script.min.js?v=20260912_perf100';
-            s1.defer = true;
-            document.body.appendChild(s1);
+// === 1. GOR-Bot AI Controller ===
+window.toggleGorBot = function(open) {
+    var modal = document.getElementById('gor-bot-modal');
+    if (!modal) return;
+    if (open === undefined) {
+        modal.classList.toggle('active');
+    } else if (open) {
+        modal.classList.add('active');
+    } else {
+        modal.classList.remove('active');
+    }
+    if (modal.classList.contains('active')) {
+        var input = document.getElementById('gor-bot-input');
+        if (input) setTimeout(function() { input.focus(); }, 150);
+    }
+};
 
-            var s2 = document.createElement('script');
-            s2.src = 'assets/a11y.js?v=20260912_perf100';
-            s2.defer = true;
-            document.body.appendChild(s2);
+window.askGorBot = function(topic) {
+    var body = document.getElementById('gor-bot-body');
+    if (!body) return;
+    var responses = {
+        'services': {
+            q: 'מה סל השירותים של הסוכנות?',
+            a: '<strong>GOR MARKETING</strong> מספקת מעטפת שיווק 360° הכוללת: פרסום ממומן בגוגל וברשתות, קידום אורגני (SEO), פיתוח מערכות SaaS ואפליקציות, וסוכני AI מותאמים אישית.',
+            wa: 'היי איגור, אשמח לשמוע על מעטפת שיווק 360° לעסק שלי.'
+        },
+        'pricing': {
+            q: 'כמה עולה פגישת אפיון אסטרטגית?',
+            a: 'פגישת אפיון וייעוץ אסטרטגי אישית עם איגור עולה <strong>150 ₪ + מע"מ</strong>. בפגישה ננתח את צפי ה-ROI, ערוצי הפרסום ונבנה תוכנית צמיחה מנצחת.',
+            wa: 'היי איגור, אני רוצה לתאם פגישת אפיון אסטרטגית (150 ש"ח + מע"מ).'
+        },
+        'crm': {
+            q: 'מה היכולות של מערכת GOR CRM?',
+            a: '<strong>GOR CRM</strong> היא מערכת ניהול לידים מתקדמת עם מענה תוך 60 שניות, חיבור ישיר לוואטסאפ וסנכרון סוכני AI להגדלת אחוזי הסגירה.',
+            wa: 'היי איגור, אשמח לקבל הדגמה חיה של מערכת GOR CRM.'
+        },
+        'apps': {
+            q: 'פיתוח אפליקציות ומערכות מותאמות',
+            a: 'אנחנו מפתחים אפליקציות Web ו-Mobile, מערכות SaaS ומוצרים דיגיטליים מתקדמים בסטנדרט ביצועים וטכנולוגיה מהגבוהים בעולם.',
+            wa: 'היי איגור, אני מעוניין בפיתוח אפליקציה / מערכת SaaS מותאמת אישית.'
         }
+    };
+    var data = responses[topic];
+    if (!data) return;
 
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadDeferredScripts, { timeout: 2000 });
-        } else {
-            window.addEventListener('load', function() {
-                setTimeout(loadDeferredScripts, 100);
-            });
-        }
-    })();
-    </script>
+    var userBubble = document.createElement('div');
+    userBubble.className = 'gor-msg user';
+    userBubble.textContent = data.q;
+    body.appendChild(userBubble);
+
+    setTimeout(function() {
+        var botBubble = document.createElement('div');
+        botBubble.className = 'gor-msg bot';
+        botBubble.innerHTML = data.a + '<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent(data.wa) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;">📲 לחץ כאן להמשך שיחה ישירה עם איגור</a>';
+        body.appendChild(botBubble);
+        body.scrollTop = body.scrollHeight;
+    }, 200);
+    body.scrollTop = body.scrollHeight;
+};
+
+window.sendGorBotMsg = function() {
+    var input = document.getElementById('gor-bot-input');
+    var body = document.getElementById('gor-bot-body');
+    if (!input || !body || !input.value.trim()) return;
+    var userText = input.value.trim();
+    input.value = '';
+
+    var userBubble = document.createElement('div');
+    userBubble.className = 'gor-msg user';
+    userBubble.textContent = userText;
+    body.appendChild(userBubble);
+
+    setTimeout(function() {
+        var botBubble = document.createElement('div');
+        botBubble.className = 'gor-msg bot';
+        botBubble.innerHTML = 'תודה על פנייתך! איגור גורלקין זמין כעת בוואטסאפ למענה אישי ומדויק:<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent('היי איגור, שאלתי בצ\'אט ה-AI באתר: ' + userText) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;">📲 שיחה ישירה עם איגור בוואטסאפ</a>';
+        body.appendChild(botBubble);
+        body.scrollTop = body.scrollHeight;
+    }, 250);
+    body.scrollTop = body.scrollHeight;
+};
+
+// === 2. Accessibility Engine (תקן 1918) ===
+var S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false, invert: false };
+try { Object.assign(S_A11Y, JSON.parse(localStorage.getItem('gor-a11y-prefs') || '{}')); } catch(e){}
+
+function applyA11yStyles() {
+    var css = document.getElementById('ga-custom-css') || document.createElement('style');
+    css.id = 'ga-custom-css';
+    if (!document.head.contains(css)) document.head.appendChild(css);
+    
+    var c = '';
+    if (S_A11Y.fontSize) c += 'html { font-size: ' + (100 + S_A11Y.fontSize * 10) + '% !important; } ';
+    if (S_A11Y.contrast) c += 'body, div, section, p, h1, h2, h3, h4, h5, span, li, article { background: #000000 !important; color: #ffffff !important; border-color: #ffffff !important; } a { color: #ffff00 !important; } ';
+    if (S_A11Y.grayscale) c += 'html { filter: grayscale(100%) !important; } ';
+    if (S_A11Y.invert) c += 'html { filter: invert(100%) hue-rotate(180deg) !important; background: #000 !important; } img, video { filter: invert(100%) hue-rotate(180deg) !important; } ';
+    if (S_A11Y.dyslexia) c += '* { font-family: Arial, sans-serif !important; letter-spacing: .04em !important; line-height: 1.8 !important; } ';
+    if (S_A11Y.links) c += 'a { text-decoration: underline !important; text-underline-offset: 4px !important; } ';
+    if (S_A11Y.animations) c += '*, *::before, *::after { animation: none !important; transition: none !important; } ';
+    css.textContent = c;
+    try { localStorage.setItem('gor-a11y-prefs', JSON.stringify(S_A11Y)); } catch(e){}
+}
+
+window.toggleA11yFeature = function(feature, val) {
+    if (feature === 'fontSize') {
+        S_A11Y.fontSize = Math.max(-2, Math.min(3, S_A11Y.fontSize + (val || 1)));
+    } else {
+        S_A11Y[feature] = !S_A11Y[feature];
+    }
+    applyA11yStyles();
+};
+
+window.resetA11y = function() {
+    S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false, invert: false };
+    applyA11yStyles();
+};
+
+window.toggleA11yPanel = function(open) {
+    var panel = document.getElementById('accessibilityPanel');
+    if (!panel) return;
+    if (open === undefined) {
+        panel.classList.toggle('active');
+    } else if (open) {
+        panel.classList.add('active');
+    } else {
+        panel.classList.remove('active');
+    }
+};
+
+if (Object.values(S_A11Y).some(Boolean)) {
+    applyA11yStyles();
+}
+
+// Enter key support for input
+document.addEventListener('DOMContentLoaded', function() {
+    var botInput = document.getElementById('gor-bot-input');
+    if (botInput) {
+        botInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                window.sendGorBotMsg();
+            }
+        });
+    }
+});
+
+// Zero-Blocking Deferred Script Loader
+(function() {
+    function loadDeferredScripts() {
+        var s1 = document.createElement('script');
+        s1.src = 'script.min.js?v=20260912_perf100';
+        s1.defer = true;
+        document.body.appendChild(s1);
+
+        var s2 = document.createElement('script');
+        s2.src = 'assets/a11y.js?v=20260912_perf100';
+        s2.defer = true;
+        document.body.appendChild(s2);
+    }
+
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferredScripts, { timeout: 2000 });
+    } else {
+        window.addEventListener('load', function() {
+            setTimeout(loadDeferredScripts, 100);
+        });
+    }
+})();
+</script>
 
 <script>
 (function() {

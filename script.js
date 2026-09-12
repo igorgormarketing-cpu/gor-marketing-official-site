@@ -595,6 +595,7 @@ function initGorMarketingInteractive() {
     const botInput = document.getElementById('gor-bot-input');
     const botSendBtn = document.getElementById('gor-bot-send-btn');
 
+    window.toggleGorBot = toggleBotModal;
     function toggleBotModal(open) {
         if (!botModal) return;
         if (open === undefined) {
