@@ -22,11 +22,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap"></noscript>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap"></noscript></noscript>
     
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="styles.css?v=20260908_mobilefix_v1">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript></noscript>
+    <link rel="preload" href="styles.min.css?v=20260912_speed100" as="style"><link rel="stylesheet" href="styles.min.css?v=20260912_speed100" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260912_speed100" as="style"><link rel="stylesheet" href="styles.min.css?v=20260912_speed100" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260912_speed100"></noscript></noscript>
         <style>
         .article-hero { padding: clamp(120px, 15vh, 160px) 0 clamp(30px, 5vh, 50px); text-align: center; }
         .article-hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 1.2rem; color: var(--gold-bright); line-height: 1.2; }
@@ -126,7 +126,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;600;700&display=swap"></noscript>
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=swap"></noscript></noscript>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
@@ -380,7 +380,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <script src="script.js?v=20260912_01" defer></script>
+    <script src="script.min.js?v=20260912_speed100" defer></script>
     <script src="assets/motion.js?v=20260912_01" defer></script>
 
         <!-- Master Unified Footer -->
@@ -464,7 +464,7 @@
                     <div style="color: var(--emerald-primary); font-size: 0.75rem; font-weight: 600;">● מחובר | מענה מיידי</div>
                 </div>
             </div>
-            <button id="gor-bot-close" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer;">&times;</button>
+            <button id="gor-bot-close" aria-label="סגירת חלון הצ'אט"&times;</button>
         </div>
 
         <div id="gor-bot-body" class="gor-bot-body">
@@ -494,7 +494,7 @@
 
         <div class="gor-bot-footer">
             <div class="gor-bot-input-box">
-                <input type="text" id="gor-bot-input" class="gor-bot-input" placeholder="שאל אותי כל דבר על שיווק, פיתוח ו-AI..." autocomplete="off">
+                <input type="text" id="gor-bot-input" class="gor-bot-input" aria-label="שאלת שאלה לנציג GOR AI" placeholder="שאל אותי כל דבר על שיווק, פיתוח ו-AI..." autocomplete="off">
                 <button id="gor-bot-send-btn" type="button" class="gor-bot-send" aria-label="שלח שאלה"><i class="fas fa-paper-plane"></i></button>
             </div>
             <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%95%D7%9B%D7%9F%20GOR%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%90%D7%99%D7%AA%D7%9A" target="_blank" class="btn-gold" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 9px; font-size: 0.85rem; text-decoration: none; border-radius: 10px;">
@@ -506,7 +506,7 @@
     <!-- Scripts -->
     <script src="assets/motion.js?v=20260912_01" defer></script>
     <script src="assets/accessibility.js?v=20260912_01" defer></script>
-    <script src="script.js?v=20260912_01" defer></script>
+    <script src="script.min.js?v=20260912_speed100" defer></script>
     <script defer src="assets/a11y.js"></script>
 </body>
 </html>
