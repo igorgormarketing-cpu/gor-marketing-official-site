@@ -1,7 +1,8 @@
 /**
- * GOR MARKETING - Interactive Motion Engine (Optimized)
+ * GOR MARKETING - HIGH PERFORMANCE DEFERRED INITIALIZER
  */
-document.addEventListener('DOMContentLoaded', () => {
+function initGorMotionEngine() {
+
     // Only enable mouse cursor spotlights on desktop devices with a fine pointer
     if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 768) {
         const spotlight = document.createElement('div');
@@ -21,4 +22,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { passive: true });
     }
-});
+
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(initGorMotionEngine, { timeout: 1500 });
+    } else {
+        setTimeout(initGorMotionEngine, 50);
+    }
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(initGorMotionEngine, { timeout: 1500 });
+        } else {
+            setTimeout(initGorMotionEngine, 50);
+        }
+    });
+}

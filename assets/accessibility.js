@@ -1,8 +1,8 @@
 /**
- * GOR MARKETING - Accessibility Plugin (תקן נגישות ת"י 5568 / 1918 ברמת AA)
- * רכיב נגישות צף מונגש עם תפריט כלים מתקדם וקיצורי מקלדת
+ * GOR MARKETING - HIGH PERFORMANCE DEFERRED INITIALIZER
  */
-document.addEventListener('DOMContentLoaded', () => {
+function initGorA11yWidget() {
+
     // 1. Create Skip to Content
     if (!document.querySelector('.skip-to-content')) {
         const skip = document.createElement('a');
@@ -143,4 +143,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     }
-});
+
+}
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(initGorA11yWidget, { timeout: 1500 });
+    } else {
+        setTimeout(initGorA11yWidget, 50);
+    }
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(initGorA11yWidget, { timeout: 1500 });
+        } else {
+            setTimeout(initGorA11yWidget, 50);
+        }
+    });
+}
