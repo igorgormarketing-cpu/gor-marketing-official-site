@@ -5431,3 +5431,321 @@ main#main-content > .container {
         left: auto !important;
     }
 }
+
+
+/* ==========================================================================
+   GOR MARKETING - PERFECT UNIFIED FLOATING ACTION BUTTONS (2026 Master Standard)
+   - LEFT SIDE (שמאל):  WhatsApp (Bottom: 24px) + AI Bot (Bottom: 88px) + AI Modal (Bottom: 150px)
+   - RIGHT SIDE (ימין): Accessibility Trigger (Bottom: 24px) + Accessibility Panel (Bottom: 88px)
+   ========================================================================== */
+
+/* 1. WHATSAPP (Bottom-Left Corner) */
+.whatsapp-float-fixed,
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    border-radius: 50% !important;
+    background: #25D366 !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 30px !important;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6) !important;
+    z-index: 999999 !important;
+    text-decoration: none !important;
+    border: 2px solid #ffffff !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+.whatsapp-float-fixed:hover,
+.whatsapp-float:hover,
+.whatsapp-float-fixed:focus-visible,
+.whatsapp-float:focus-visible {
+    transform: scale(1.1) rotate(6deg) !important;
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.8) !important;
+    outline: 3px solid #00ff88 !important;
+}
+
+/* 2. AI BOT TRIGGER (Bottom-Left Corner - Directly Stacked Above WhatsApp) */
+#gor-bot-trigger,
+.gor-bot-trigger {
+    position: fixed !important;
+    bottom: 88px !important;
+    left: 26px !important;
+    right: auto !important;
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    min-height: 52px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%) !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 24px !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6), 0 0 18px rgba(255, 215, 0, 0.5) !important;
+    z-index: 999999 !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    padding: 0 !important;
+}
+
+#gor-bot-trigger:hover,
+.gor-bot-trigger:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.9) !important;
+}
+
+.gor-bot-badge {
+    position: absolute !important;
+    top: -4px !important;
+    left: -4px !important;
+    right: auto !important;
+    background: #10B981 !important;
+    color: #ffffff !important;
+    font-size: 0.62rem !important;
+    font-weight: 900 !important;
+    padding: 2px 5px !important;
+    border-radius: 9999px !important;
+    line-height: 1 !important;
+    border: 2px solid #06070a !important;
+}
+
+/* AI BOT MODAL (Docked above AI Trigger on Bottom-Left) */
+.gor-bot-modal,
+#gor-bot-modal {
+    position: fixed !important;
+    bottom: 148px !important;
+    left: 24px !important;
+    right: auto !important;
+    width: clamp(310px, 90vw, 380px) !important;
+    max-height: min(520px, calc(100vh - 165px)) !important;
+    background: rgba(10, 14, 24, 0.98) !important;
+    border: 1px solid rgba(245, 158, 11, 0.45) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.92), 0 0 30px rgba(245, 158, 11, 0.2) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1000000 !important;
+    display: none;
+    flex-direction: column !important;
+    overflow: visible !important;
+    direction: rtl !important;
+    text-align: right !important;
+    transform-origin: bottom left !important;
+}
+.gor-bot-modal.active,
+#gor-bot-modal.active {
+    display: flex !important;
+    animation: botSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+#gor-bot-modal::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    left: 36px;
+    width: 14px;
+    height: 14px;
+    background: rgba(10, 14, 24, 0.98);
+    border-left: 1px solid rgba(245, 158, 11, 0.45);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.45);
+    transform: rotate(45deg);
+    z-index: 1000001;
+    pointer-events: none;
+}
+
+/* 3. ACCESSIBILITY TRIGGER (Bottom-Right Corner) */
+#gor-a11y-fab,
+.accessibility-trigger {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-width: 56px !important;
+    min-height: 56px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+    color: #ffffff !important;
+    font-size: 26px !important;
+    cursor: pointer !important;
+    z-index: 999999 !important;
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.55), 0 0 15px rgba(0, 191, 255, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    padding: 0 !important;
+}
+
+#gor-a11y-fab:hover,
+#gor-a11y-fab:focus-visible,
+.accessibility-trigger:hover,
+.accessibility-trigger:focus-visible {
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(255, 215, 0, 0.6) !important;
+    outline: 3px solid #00f0ff !important;
+}
+
+/* ACCESSIBILITY PANEL MODAL (Docked above A11y Trigger on Bottom-Right) */
+.accessibility-modal,
+#accessibilityPanel {
+    position: fixed !important;
+    bottom: 88px !important;
+    right: 24px !important;
+    left: auto !important;
+    width: clamp(290px, 85vw, 350px) !important;
+    max-height: min(500px, calc(100vh - 105px)) !important;
+    background: rgba(10, 14, 26, 0.98) !important;
+    border: 1px solid rgba(0, 240, 255, 0.35) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.92), 0 0 30px rgba(0, 240, 255, 0.2) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
+    z-index: 1000000 !important;
+    display: none;
+    flex-direction: column !important;
+    overflow: visible !important;
+    padding: 16px !important;
+    direction: rtl !important;
+    text-align: right !important;
+    transform-origin: bottom right !important;
+}
+.accessibility-modal.active,
+#accessibilityPanel.active {
+    display: flex !important;
+    animation: a11ySlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+#accessibilityPanel::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    right: 36px;
+    width: 14px;
+    height: 14px;
+    background: rgba(10, 14, 26, 0.98);
+    border-right: 1px solid rgba(0, 240, 255, 0.35);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.35);
+    transform: rotate(-45deg);
+    z-index: 1000001;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE OVERRIDES (Screen width <= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .whatsapp-float-fixed,
+    .whatsapp-float {
+        bottom: 16px !important;
+        left: 16px !important;
+        right: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        font-size: 26px !important;
+    }
+    #gor-bot-trigger,
+    .gor-bot-trigger {
+        bottom: 72px !important;
+        left: 18px !important;
+        right: auto !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        font-size: 20px !important;
+    }
+    #gor-bot-modal,
+    .gor-bot-modal {
+        bottom: 124px !important;
+        left: 12px !important;
+        right: auto !important;
+        width: calc(100vw - 24px) !important;
+        max-width: 380px !important;
+    }
+    #gor-bot-modal::after {
+        left: 28px !important;
+        right: auto !important;
+    }
+    #gor-a11y-fab,
+    .accessibility-trigger {
+        bottom: 16px !important;
+        right: 16px !important;
+        left: auto !important;
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        font-size: 22px !important;
+    }
+    #accessibilityPanel,
+    .accessibility-modal {
+        bottom: 72px !important;
+        right: 12px !important;
+        left: auto !important;
+        width: calc(100vw - 24px) !important;
+        max-width: 360px !important;
+    }
+    #accessibilityPanel::after {
+        right: 28px !important;
+        left: auto !important;
+    }
+}
+
+/* Bulletproof Accessibility Skip Link */
+.skip-to-content,
+#gor-skip,
+a.skip-link {
+    position: absolute !important;
+    top: -99999px !important;
+    left: -99999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    background: #ffc107 !important;
+    color: #06070a !important;
+    font-weight: 800 !important;
+    padding: 12px 20px !important;
+    border-radius: 8px !important;
+    z-index: 100000000 !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.9) !important;
+}
+
+.skip-to-content:focus,
+.skip-to-content:focus-visible,
+#gor-skip:focus,
+#gor-skip:focus-visible,
+a.skip-link:focus,
+a.skip-link:focus-visible {
+    top: 15px !important;
+    right: 20px !important;
+    left: auto !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+}
