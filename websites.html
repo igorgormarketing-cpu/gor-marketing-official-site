@@ -35,16 +35,55 @@
             display: flex;
             justify-content: center;
             margin-bottom: 50px;
-            padding: 10px 0;
-            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            background: rgba(5, 5, 16, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .app-switcher-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-switcher {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 22px;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-switcher:hover {
+            background: rgba(255, 193, 7, 0.15);
+            border-color: var(--gold-bright);
+            color: var(--gold-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        }
+        .btn-switcher.active-gold {
+            background: rgba(255, 193, 7, 0.15);
+            border-color: var(--gold-bright);
+            color: var(--gold-bright);
         }
 
         .bento-app-block {
-            margin-bottom: 80px;
-            scroll-margin-top: 150px;
-            background: var(--bg-card);
+            margin-bottom: 70px;
+            scroll-margin-top: 160px;
+            background: #0b0f19 !important;
             border-radius: 26px;
-            padding: 38px;
+            padding: clamp(24px, 4vw, 42px);
             border: 1px solid var(--border-subtle);
             backdrop-filter: blur(16px);
             box-shadow: var(--shadow-card);
@@ -53,21 +92,23 @@
         .app-header {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
             margin-bottom: 28px;
             padding-bottom: 18px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .app-header-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 14px;
-            padding: 3px;
-            background: #000;
-            object-fit: contain;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 60px !important;
+            height: 60px !important;
+            border-radius: 14px !important;
+            padding: 4px !important;
+            background: #000 !important;
+            object-fit: contain !important;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            flex-shrink: 0 !important;
+            display: block !important;
         }
 
         .bento-row {
@@ -98,9 +139,11 @@
             align-items: flex-start;
             gap: 12px;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         }
-        .feature-box:last-child { border-bottom: none; }
+        .feature-box:last-child {
+            border-bottom: none;
+        }
 
         .feature-ico {
             width: 36px;
@@ -109,25 +152,35 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
             flex-shrink: 0;
+            font-size: 16px;
         }
 
         .chips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-            gap: 14px;
-            margin-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
         }
 
         .chip-card {
-            background: rgba(20, 22, 34, 0.6);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 16px;
+            border-radius: 14px;
+            padding: 18px;
         }
-        .chip-card h5 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; }
-        .chip-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.5; }
+        .chip-card h5 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        .chip-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin: 0;
+        }
     </style>
     <link rel="stylesheet" href="assets/accessibility.css?v=20260908_mobilefix_v1">
     <!-- OpenGraph Meta Tags -->
@@ -542,17 +595,21 @@
         <!-- Sticky App Switcher Bar -->
         <div class="switcher-wrap">
             <div class="app-switcher-bar">
-                <a href="#gor-crm" class="switcher-btn active-gold">
-                    <img src="assets/gor_crm_logo.webp" alt="GOR CRM" role="img" tabindex="0">
-                    GOR CRM
+                <a href="#gor-crm" class="btn-switcher active-gold">
+                    <img src="assets/gor_crm_logo.webp" alt="GOR CRM" style="width: 22px; height: 22px; object-fit: contain; border-radius: 4px;" role="img" tabindex="0">
+                    <span>GOR CRM</span>
                 </a>
-                <a href="#twin-proptech" class="switcher-btn" style="color: var(--cyan-accent); border-color: rgba(0, 240, 255, 0.3);">
-                    <img src="assets/twin_logo.webp" loading="lazy" decoding="async" alt="TWIN" role="img" tabindex="0">
-                    TWIN PropTech
+                <a href="#twin-proptech" class="btn-switcher" style="color: var(--cyan-accent); border-color: rgba(0, 240, 255, 0.3);">
+                    <img src="assets/twin_logo.webp" loading="lazy" decoding="async" alt="TWIN PropTech" style="width: 22px; height: 22px; object-fit: contain; border-radius: 4px;" role="img" tabindex="0">
+                    <span>TWIN PropTech</span>
                 </a>
-                <a href="#am-building" class="switcher-btn" style="color: var(--gold-bright); border-color: rgba(255, 193, 7, 0.3);">
-                    <img src="assets/am_building_logo.webp" style="width: 52px; height: 52px; object-fit: contain; border-radius: 10px; background: #000; padding: 4px; border: 1px solid rgba(255,193,7,0.4);" loading="lazy" decoding="async" alt="AM BUILDING" role="img" tabindex="0">
-                    AM BUILDING
+                <a href="#am-building" class="btn-switcher" style="color: var(--gold-bright); border-color: rgba(255, 193, 7, 0.3);">
+                    <img src="assets/am_building_logo.webp" loading="lazy" decoding="async" alt="AM BUILDING" style="width: 22px; height: 22px; object-fit: contain; border-radius: 4px;" role="img" tabindex="0">
+                    <span>AM BUILDING</span>
+                </a>
+                <a href="#hakablanim" class="btn-switcher" style="color: var(--emerald-primary); border-color: rgba(0, 255, 136, 0.3);">
+                    <img src="assets/hakablanim_logo.webp" loading="lazy" decoding="async" alt="HAKABLANIM" style="width: 22px; height: 22px; object-fit: contain; border-radius: 4px;" role="img" tabindex="0">
+                    <span>HAKABLANIM</span>
                 </a>
             </div>
         </div>
@@ -740,7 +797,7 @@
         <!-- 3. AM BUILDING (Gold & Emerald) -->
         <section id="am-building" class="bento-app-block card-gold">
             <div class="app-header">
-                <img src="assets/am_building_logo.webp" style="width: 52px; height: 52px; object-fit: contain; border-radius: 10px; background: #000; padding: 4px; border: 1px solid rgba(255,193,7,0.4);" loading="lazy" decoding="async" alt="AM BUILDING Logo" class="app-header-logo pulse-gold" style="border-color: var(--gold-primary); box-shadow: var(--shadow-gold);" role="img" tabindex="0">
+                <img src="assets/am_building_logo.webp" loading="lazy" decoding="async" alt="AM BUILDING Logo" class="app-header-logo" style="border: 1.5px solid rgba(255,193,7,0.5); box-shadow: 0 0 20px rgba(255,193,7,0.3);" role="img" tabindex="0">
                 <div>
                     <h2 style="font-size: 2rem; font-weight: 900; color: #fff;">AM BUILDING — ניהול פרויקטי בנייה ותשתיות</h2>
                     <span style="color: var(--gold-bright); font-weight: 600;">Construction & Contractor Project Management Platform</span>
@@ -825,28 +882,10 @@
             </div>
         </section>
 
-        <!-- Final CTA Banner -->
-        <section class="bento-card card-gold" style="text-align: center; padding: 48px; margin-top: 40px;">
-            <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 14px;">רוצים לפתח מערכת מותאמת אישית לעסק שלכם?</h2>
-            <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 680px; margin: 0 auto 28px;">
-                צוות הפיתוח של GOR MARKETING בונה מערכות SaaS, דשבורדים ואפליקציות Web מתקדמות שמחברות בינה מלאכותית ותוצאות עסקיות מוכחות.
-            </p>
-            <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A4%D7%AA%D7%97%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-emerald" style="padding: 16px 36px; font-size: 1.1rem;">
-                <i class="fab fa-whatsapp"></i> שיחת ייעוץ ואפיון אישית עם איגור
-            </a>
-        </section>
-
-    </div>
-</div>
-</main>
-
-    <!-- Footer -->
-
-        
         <!-- 4. HAKABLANIM (ConTech & Smart Tenders) -->
         <section id="hakablanim" class="bento-app-block card-gold" style="margin-top: 50px;">
             <div class="app-header">
-                <img src="assets/hakablanim_logo.webp" style="width: 52px; height: 52px; object-fit: contain; border-radius: 10px; background: #000; padding: 4px; border: 1px solid rgba(0,255,136,0.4);" loading="lazy" decoding="async" alt="HAKABLANIM Logo" class="app-header-logo" style="background: rgba(255,255,255,0.06); padding: 2px;" role="img" tabindex="0">
+                <img src="assets/hakablanim_logo.webp" loading="lazy" decoding="async" alt="HAKABLANIM Logo" class="app-header-logo" style="border: 1.5px solid rgba(0,255,136,0.5); box-shadow: 0 0 20px rgba(0,255,136,0.3);" role="img" tabindex="0">
                 <div>
                     <h2 style="font-size: 2rem; font-weight: 900; color: #fff;">HAKABLANIM — זירת מכרזים חכמה וסנכרון קבלנים</h2>
                     <span style="color: var(--gold-bright); font-weight: 600;">B2B Contractor Ecosystem & Tender Management Platform</span>
@@ -911,13 +950,23 @@
             </div>
         </section>
 
-    <!-- Master Unified Footer -->
-    
+        <!-- Final CTA Banner -->
+        <section class="bento-card card-gold" style="text-align: center; padding: 48px; margin-top: 40px;">
+            <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 14px;">רוצים לפתח מערכת מותאמת אישית לעסק שלכם?</h2>
+            <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 680px; margin: 0 auto 28px;">
+                צוות הפיתוח של GOR MARKETING בונה מערכות SaaS, דשבורדים ואפליקציות Web מתקדמות שמחברות בינה מלאכותית ותוצאות עסקיות מוכחות.
+            </p>
+            <a rel="noopener noreferrer" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A4%D7%AA%D7%97%20%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%9E%D7%95%D7%AA%D7%90%D7%9E%D7%AA%20%D7%9C%D7%A2%D7%A1%D7%A7%20%D7%A9%D7%9C%D7%99" target="_blank" class="btn-emerald" style="padding: 16px 36px; font-size: 1.1rem;">
+                <i class="fab fa-whatsapp"></i> שיחת ייעוץ ואפיון אישית עם איגור
+            </a>
+        </section>
+
     </div>
 </div>
 </main>
 
-<footer>
+    <!-- Master Unified Footer -->
+    <footer>
         <div class="container footer-inner">
             <div>
                 <div class="logo-text" style="font-size: 1.4rem; margin-bottom: 12px;">GOR <span>MARKETING</span></div>
