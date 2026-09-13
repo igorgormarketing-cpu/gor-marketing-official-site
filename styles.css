@@ -6363,3 +6363,32 @@ p, span, li, label, div {
         display: flex !important;
     }
 }
+
+
+/* ==========================================================================
+   CLIENT LOGOS MARQUEE & HERO SHOWCASE ANIMATIONS
+   ========================================================================== */
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+}
+
+.client-logos-track:hover {
+    animation-play-state: paused !important;
+}
+
+.client-logos-track img:hover {
+    opacity: 1 !important;
+    filter: grayscale(0%) brightness(1) drop-shadow(0 4px 12px rgba(255,193,7,0.3)) !important;
+    transform: scale(1.08) !important;
+}
+
+.hero-visual-showcase {
+    animation: floatHero 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatHero {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+}
+

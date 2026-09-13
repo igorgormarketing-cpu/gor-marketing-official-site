@@ -40,28 +40,100 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=optional" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Outfit:wght@600;700;800;900&display=optional"></noscript>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EntryPoint",
-      "name": "GOR MARKETING Lead Consultation Tool",
-      "description": "Autonomous AI agent interface for submitting consultation requests and quote inquiries",
-      "actionPlatform": [
-        "http://schema.org/DesktopWebPlatform",
-        "http://schema.org/MobileWebPlatform"
-      ],
-      "potentialAction": {
-        "@type": "ContactAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.gormarketing.com/#contact-section",
-          "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
-        },
-        "name": "submit_lead_inquiry"
-      }
-    }
-    </script>
+    
 
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "GOR MARKETING",
+    "alternateName": [
+        "גור מרקטינג",
+        "GOR Marketing Agency",
+        "איגור גורלקין שיווק דיגיטלי"
+    ],
+    "url": "https://www.gormarketing.com/",
+    "logo": "https://www.gormarketing.com/assets/hero_full.png",
+    "image": "https://www.gormarketing.com/assets/hero_full.png",
+    "founder": {
+        "@type": "Person",
+        "name": "איגור גורלקין",
+        "alternateName": "Igor Goralkin",
+        "jobTitle": "מייסד ומנכ״ל GOR MARKETING",
+        "url": "https://www.gormarketing.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/igor-goralkin-9a740713b/",
+            "https://share.google/1yfqsihbng2PGnXTg",
+            "https://wa.me/972525155598"
+        ]
+    },
+    "foundingDate": "2008",
+    "telephone": "+972-52-5155598",
+    "email": "igor@gormarketing.com",
+    "priceRange": "$$",
+    "sameAs": [
+        "https://gorcrm.netlify.app/",
+        "https://www.linkedin.com/in/igor-goralkin-9a740713b/",
+        "https://easy.co.il/page/10137592",
+        "https://share.google/1yfqsihbng2PGnXTg",
+        "https://wa.me/972525155598"
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IL",
+        "addressLocality": "ישראל"
+    },
+    "areaServed": [
+        {
+            "@type": "Country",
+            "name": "Israel"
+        },
+        {
+            "@type": "Country",
+            "name": "Global"
+        }
+    ],
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
+    }
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GOR MARKETING",
+    "url": "https://www.gormarketing.com/",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.gormarketing.com/articles/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "בית",
+            "item": "https://www.gormarketing.com/"
+        }
+    ]
+}
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">דלג ישירות לתוכן הראשי</a>
@@ -400,6 +472,14 @@
                 </a>
             </div>
 
+            <!-- Hero Dashboard Showcase Visual (Luxury 3D Glow) -->
+            <div class="hero-visual-showcase" style="margin: 45px auto 10px auto; max-width: 1020px; position: relative; z-index: 5;">
+                <div style="position: relative; border-radius: 18px; padding: 6px; background: linear-gradient(135deg, rgba(255,193,7,0.4) 0%, rgba(0,255,136,0.3) 50%, rgba(0,240,255,0.4) 100%); box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255,193,7,0.15);">
+                    <img src="assets/home_hero_visual.webp" alt="GOR MARKETING Digital Ecosystem Dashboard" width="1000" height="550" loading="eager" fetchpriority="high" decoding="async" style="width: 100%; height: auto; border-radius: 14px; display: block; background: #07090e;">
+                </div>
+            </div>
+
+
             <!-- Metrics Bar -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 20px; margin-bottom: 60px;">
                 <div class="bento-card card-gold" style="padding: 22px; text-align: center;">
@@ -427,6 +507,35 @@
         </section>
 
         <!-- 2. About Section: מי עומד מאחורי GOR? -->
+        
+        <!-- Client Logos Infinite Showcase (100% Transparent & High-Impact) -->
+        <section class="client-logos-section" style="padding: 35px 0 45px 0; margin-bottom: 60px; overflow: hidden; position: relative;">
+            <div style="text-align: center; margin-bottom: 22px;">
+                <span style="font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; color: var(--gold-bright, #F59E0B); text-transform: uppercase;">חברות ומותגים מובילים שבחרו ב-GOR MARKETING</span>
+            </div>
+            <div class="client-logos-marquee-wrapper" style="width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
+                <div class="client-logos-track" style="display: flex; align-items: center; gap: 40px; width: max-content; animation: scrollLogos 35s linear infinite;">
+                    <img src="client-logos/client_logo_1.webp" alt="Client Partner 1" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_2.webp" alt="Client Partner 2" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_3.webp" alt="Client Partner 3" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_4.webp" alt="Client Partner 4" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_5.webp" alt="Client Partner 5" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_6.webp" alt="Client Partner 6" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_7.webp" alt="Client Partner 7" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_8.webp" alt="Client Partner 8" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_9.webp" alt="Client Partner 9" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_10.webp" alt="Client Partner 10" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <img src="client-logos/client_logo_11.webp" alt="Client Partner 11" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6); transition: all 0.3s ease;">
+                    <!-- Repeat for seamless loop -->
+                    <img src="client-logos/client_logo_1.webp" alt="Client Partner 1" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6);">
+                    <img src="client-logos/client_logo_2.webp" alt="Client Partner 2" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6);">
+                    <img src="client-logos/client_logo_3.webp" alt="Client Partner 3" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6);">
+                    <img src="client-logos/client_logo_4.webp" alt="Client Partner 4" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6);">
+                    <img src="client-logos/client_logo_5.webp" alt="Client Partner 5" width="130" height="50" loading="lazy" decoding="async" style="height: 42px; width: auto; opacity: 0.75; filter: grayscale(100%) brightness(1.6);">
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="bento-card card-gold" style="padding: clamp(24px, 4vw, 48px); margin-bottom: 80px;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 40px; align-items: center;">
                 <div>
