@@ -612,8 +612,8 @@ function initGorMarketingInteractive() {
         }
     }
 
-    if (botTrigger) botTrigger.addEventListener('click', () => toggleBotModal());
-    if (botClose) botClose.addEventListener('click', () => toggleBotModal(false));
+    /* botTrigger handled in unified init */
+    /* botClose handled in unified init */
 
     setTimeout(() => {
         if (!botModal || botModal.classList.contains('active')) return;

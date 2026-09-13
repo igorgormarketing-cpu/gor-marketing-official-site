@@ -42,33 +42,9 @@
             apply();
         };
 
-        window.toggleA11yPanel = function(open) {
-            var panel = document.getElementById('accessibilityPanel');
-            if (!panel) return;
-            if (open === undefined) {
-                panel.classList.toggle('active');
-            } else if (open) {
-                panel.classList.add('active');
-            } else {
-                panel.classList.remove('active');
-            }
-        };
-
         if (Object.values(S).some(Boolean)) {
             apply();
         }
-
-        document.addEventListener('click', function(e) {
-            var toggleBtn = e.target.closest('#gor-a11y-fab, #accessibilityToggleBtn, .accessibility-trigger');
-            var closeBtn = e.target.closest('#a11yCloseBtn, .a11y-close');
-            if (toggleBtn) {
-                e.preventDefault();
-                window.toggleA11yPanel();
-            } else if (closeBtn) {
-                e.preventDefault();
-                window.toggleA11yPanel(false);
-            }
-        });
     }
 
     if ('requestIdleCallback' in window) {
