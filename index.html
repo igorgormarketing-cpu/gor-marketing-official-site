@@ -870,7 +870,7 @@
                                     <span class="calc-unit-label">לידים</span>
                                 </div>
                             </div>
-                            <input type="range" id="calc-target-leads" aria-label="סרגל כמות לידים חודשית" class="calc-range" min="5" max="1000" step="5" value="100" aria-label="סרגל כמות לידים מבוקשת">
+                            <input type="range" id="calc-target-leads" aria-label="סרגל כמות לידים חודשית מבוקשת" class="calc-range" min="5" max="1000" step="5" value="100">
                             <div class="calc-slider-limits">
                                 <span>5 לידים</span>
                                 <span>1,000 לידים</span>
@@ -894,7 +894,7 @@
                                     <input type="number" id="calc-deal-input" class="calc-number-input" min="100" max="100000" step="100" value="6000" aria-label="שווי עסקה ממוצעת">
                                 </div>
                             </div>
-                            <input type="range" id="calc-deal" aria-label="סרגל שווי עסקה ממוצעת" class="calc-range" min="500" max="50000" step="250" value="6000" aria-label="סרגל שווי עסקה">
+                            <input type="range" id="calc-deal" aria-label="סרגל שווי עסקה ממוצעת" class="calc-range" min="500" max="50000" step="250" value="6000">
                             <div class="calc-slider-limits">
                                 <span>₪500</span>
                                 <span>₪50,000</span>
@@ -1031,7 +1031,7 @@
             </div>
 
             <!-- Filter Bar -->
-            <div class="case-filter-bar">
+            <div class="case-filter-bar" id="caseFilters" style="display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;">
                 <button type="button" class="case-filter-btn active" data-filter="all" aria-label="סינון פרויקטים לפי קטגוריה all">הכל (6)</button>
                 <button type="button" class="case-filter-btn" data-filter="ppc" aria-label="סינון פרויקטים לפי קטגוריה ppc">פרסום ממומן PPC</button>
                 <button type="button" class="case-filter-btn" data-filter="seo" aria-label="סינון פרויקטים לפי קטגוריה seo">קידום אורגני SEO</button>
@@ -1756,7 +1756,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="פרסום ממומן בגוגל + קידום אורגני SEO" aria-label="בחירת שירות: פרסום ממומן בגוגל + קידום אורגני SEO" data-price="2500" data-type="monthly" style="width: 20px; height: 20px; accent-color: var(--gold-bright); cursor: pointer;" checked>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         ניהול קמפיין Google Ads מבוסס המרות, מחקר מילות מפתח ואופטימיזציית SEO שוטפת.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1773,7 +1773,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="קמפיינים ממומנים במטא (פייסבוק ואינסטגרם)" aria-label="בחירת שירות: קמפיינים ממומנים במטא (פייסבוק ואינסטגרם)" data-price="2200" data-type="monthly" style="width: 20px; height: 20px; accent-color: #60a5fa !important; cursor: pointer;" checked>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         קמפיינים Advantage+, קריאייטיבים ממירים, ריטרגטינג ומשפכי לידים ממוקדי קהל יעד.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1790,7 +1790,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="סוכן AI אוטונומי למענה בוואטסאפ וקביעת פגישות" aria-label="בחירת שירות: סוכן AI אוטונומי למענה בוואטסאפ וקביעת פגישות" data-price="1800" data-type="monthly" style="width: 20px; height: 20px; accent-color: var(--emerald-primary); cursor: pointer;" checked>
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         מענה ללידים תוך 60 שניות, סינון שאלות, שליחת הצעות מחיר וסנכרון יומן פגישות 24/7.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1807,7 +1807,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="מערכת GOR CRM לניהול לידים ואוטומציות" aria-label="בחירת שירות: מערכת GOR CRM לניהול לידים ואוטומציות" data-price="950" data-type="monthly" style="width: 20px; height: 20px; accent-color: var(--cyan-accent); cursor: pointer;">
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         דשבורד מכירות, מעקב שיחות, ניהול סטטוסי לקוחות, אוטומציות SMS/וואטסאפ ודוחות ROI.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1824,7 +1824,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="פרסום ממומן בטיקטוק (TikTok Ads)" aria-label="בחירת שירות: פרסום ממומן בטיקטוק (TikTok Ads)" data-price="1900" data-type="monthly" style="width: 20px; height: 20px; accent-color: #ff0050; cursor: pointer;">
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         קמפיינים בפורמט Spark Ads, טירגוט קהל צעיר ובוגר ועלויות חשיפה זולות במיוחד.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1841,7 +1841,7 @@
                         </div>
                         <input type="checkbox" class="quote-checkbox" data-service="פיתוח אתר או דף נחיתה ממיר (חד פעמי)" aria-label="בחירת שירות: פיתוח אתר או דף נחיתה ממיר (חד פעמי)" data-price="3900" data-type="onetime" style="width: 20px; height: 20px; accent-color: #a855f7; cursor: pointer;">
                     </div>
-                    <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 14px;">
+                    <p style="color: #f1f5f9 !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
                         עיצוב UI/UX מותאם אישית, קוד נקי וסופר-מהיר, נגישות תקן 1918 וחיבור מלא ל-CRM.
                     </p>
                     <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px;">
@@ -1859,7 +1859,7 @@
                         <span style="font-size: 1.1rem; color: #ffffff; font-weight: 700;">סיכום חבילה מותאמת:</span>
                         <span id="quote-discount-badge" style="background: #064e3b !important; color: #ecfdf5 !important; border: 1.5px solid #10b981 !important; font-weight: 800; padding: 4px 10px; border-radius: 9999px;">15% הנחת חבילה מוחלת!</span>
                     </div>
-                    <div style="font-size: 0.92rem; color: var(--text-muted);" id="quote-selected-count">נבחרו 3 שירותים מותאמים</div>
+                    <div style="font-size: 0.95rem; color: #ffd700 !important; font-weight: 700;" id="quote-selected-count">נבחרו 3 שירותים מותאמים</div>
                 </div>
 
                 <div style="text-align: left; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">

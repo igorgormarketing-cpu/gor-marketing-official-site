@@ -6199,3 +6199,167 @@ p, span, li, label, .review-quote, .contact-item-val {
         justify-content: center !important;
     }
 }
+
+
+/* ==========================================================================
+   PERFECT 100/100 GOAL COMPLIANCE ENGINE (WCAG 2.1 AAA + MOBILE & DESKTOP)
+   ========================================================================== */
+
+/* 1. Universal Contrast Guarantee */
+:root {
+    --text-main: #ffffff !important;
+    --text-muted: #f1f5f9 !important;
+    --text-dim: #cbd5e1 !important;
+}
+
+.quote-service-card p,
+.quote-service-card span,
+.quote-service-card div,
+.calc-card p,
+.calc-card span,
+.bento-card p,
+.bento-card span,
+.review-card p,
+.case-study-card p,
+p, span, li, label, div {
+    color: #f1f5f9;
+}
+
+/* 2. Touch Target Perfection (All Clickables >= 48px with >= 8px margin/gap) */
+.case-filter-bar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 40px !important;
+}
+
+.case-filter-btn {
+    min-height: 48px !important;
+    min-width: 52px !important;
+    padding: 14px 22px !important;
+    margin: 4px !important;
+    font-size: 0.95rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.calc-quick-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    margin-top: 14px !important;
+    margin-bottom: 14px !important;
+}
+
+.calc-pill {
+    min-height: 48px !important;
+    min-width: 54px !important;
+    padding: 12px 18px !important;
+    margin: 4px !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+}
+
+.calc-range {
+    min-height: 48px !important;
+    padding: 12px 0 !important;
+    margin: 12px 0 !important;
+    cursor: pointer !important;
+    accent-color: #ffd700 !important;
+    width: 100% !important;
+}
+
+.calc-number-input {
+    min-height: 48px !important;
+    min-width: 90px !important;
+    padding: 10px 16px !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+}
+
+.gor-quick-options {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.gor-quick-btn {
+    min-height: 48px !important;
+    padding: 14px 18px !important;
+    margin: 4px 0 !important;
+    font-size: 0.92rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+}
+
+.a11y-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    margin-bottom: 16px !important;
+}
+
+.a11y-btn {
+    min-height: 48px !important;
+    padding: 14px 12px !important;
+    font-size: 0.9rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+}
+
+.a11y-btn-reset {
+    min-height: 48px !important;
+    padding: 14px !important;
+    margin-bottom: 16px !important;
+}
+
+.gor-bot-send {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+}
+
+.gor-bot-close-btn,
+.a11y-close {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    font-size: 1.6rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.btn-crm-nav {
+    min-height: 48px !important;
+    padding: 10px 18px !important;
+    margin: 0 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 3. Mobile Header & Drawer Isolation */
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none !important;
+    }
+    .nav-links.active-mobile {
+        display: flex !important;
+    }
+}
