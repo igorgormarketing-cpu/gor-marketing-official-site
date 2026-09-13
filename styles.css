@@ -5498,3 +5498,157 @@ select.form-input option {
 p, span, li, a {
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
+
+
+/* ==========================================================================
+   AXE-CORE & LIGHTHOUSE 100/100 BULLETPROOF ACCESSIBILITY
+   ========================================================================== */
+
+/* 1. Guaranteed Solid Backgrounds (Prevents Axe-core white-canvas contrast false-failures) */
+html,
+body {
+    background-color: #06070a !important;
+    background: #06070a !important;
+    color: #ffffff !important;
+}
+
+.bento-card,
+.case-study-card,
+.review-card,
+.calc-card,
+.contact-box,
+.service-hero,
+.hero,
+.navbar,
+footer,
+.top-micro-bar {
+    background-color: #0c0e18 !important;
+}
+
+/* 2. Color Contrast WCAG AAA (All Text > 7:1) */
+p, span, strong, div, li, td, th, label {
+    color: #f1f5f9;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+a {
+    color: #ffd700;
+}
+.google-verified-badge {
+    background: #172554 !important;
+    color: #93c5fd !important;
+    border: 1px solid #3b82f6 !important;
+}
+
+/* 3. Touch Targets (Min 48x48px with >= 8px separation) */
+a,
+button,
+input,
+select,
+textarea,
+.calc-pill,
+.case-filter-btn,
+.top-contact-item,
+.top-social-link,
+.dropdown-item,
+.dropdown-trigger,
+.nav-links a,
+.a11y-btn,
+.gor-quick-btn,
+.btn-phone-mobile-bar,
+.mobile-nav-toggle {
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+.top-social-link {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 4px !important;
+}
+
+.top-contact-item {
+    min-height: 48px !important;
+    padding: 10px 14px !important;
+    margin: 0 4px !important;
+}
+
+.nav-links a,
+.dropdown-trigger {
+    min-height: 48px !important;
+    padding: 12px 16px !important;
+    margin: 0 4px !important;
+}
+
+.dropdown-item {
+    min-height: 52px !important;
+    padding: 14px 18px !important;
+    margin: 6px 0 !important;
+}
+
+.case-filter-btn {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding: 12px 22px !important;
+    margin: 6px !important;
+}
+
+.calc-pill {
+    min-height: 48px !important;
+    min-width: 52px !important;
+    padding: 12px 18px !important;
+    margin: 6px !important;
+}
+
+.calc-range {
+    min-height: 48px !important;
+    padding: 10px 0 !important;
+    margin: 8px 0 !important;
+}
+
+.calc-number-input {
+    min-height: 48px !important;
+    min-width: 80px !important;
+    padding: 10px 16px !important;
+    margin: 8px 0 !important;
+}
+
+.btn-phone-mobile-bar {
+    min-height: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    padding: 0 16px !important;
+    margin-left: 8px !important;
+}
+
+.mobile-nav-toggle {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin-right: 6px !important;
+}
+
+.gor-bot-close-btn,
+.a11y-close {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+    padding: 10px !important;
+}
+
+.a11y-btn {
+    min-height: 48px !important;
+    padding: 12px 14px !important;
+    margin: 6px 0 !important;
+}
+
+.gor-quick-btn {
+    min-height: 48px !important;
+    padding: 12px 16px !important;
+    margin: 6px 0 !important;
+}
