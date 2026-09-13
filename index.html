@@ -654,7 +654,7 @@
                 <div class="bento-card card-emerald" style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
                         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <img decoding="async" src="assets/gor_crm_logo.webp" alt="GOR CRM" width="48" height="48" style="border-radius: 10px; border: 1px solid var(--border-emerald);" role="img" tabindex="0">
+                            <img src="assets/gor_crm_logo.webp" loading="lazy" decoding="async" alt="GOR CRM" width="48" height="48" style="border-radius: 10px; border: 1px solid var(--border-emerald);" role="img" tabindex="0">
                             <div>
                                 <h3 style="font-size: 1.35rem; color: #fff;">GOR CRM</h3>
                                 <span style="color: var(--emerald-primary); font-size: 0.85rem; font-weight: 600;">ניהול לידים ואוטומציית מכירות</span>
@@ -2137,33 +2137,33 @@
         </div>
         
         <div class="a11y-grid">
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('fontSize', 1)">
+            <button type="button" class="a11y-btn" aria-label="הגדל גודל טקסט" onclick="toggleA11yFeature('fontSize', 1)">
                 <span>🔍 הגדלת טקסט</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('fontSize', -1)">
+            <button type="button" class="a11y-btn" aria-label="הקטן גודל טקסט" onclick="toggleA11yFeature('fontSize', -1)">
                 <span>🔎 הקטנת טקסט</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('contrast')">
+            <button type="button" class="a11y-btn" aria-label="ניגודיות צבעים גבוהה" onclick="toggleA11yFeature('contrast')">
                 <span>🌓 ניגודיות גבוהה</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('grayscale')">
+            <button type="button" class="a11y-btn" aria-label="תצוגת גווני אפור" onclick="toggleA11yFeature('grayscale')">
                 <span>🔘 גווני אפור</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('dyslexia')">
+            <button type="button" class="a11y-btn" aria-label="גופן מותאם לדיסלקציה" onclick="toggleA11yFeature('dyslexia')">
                 <span>📖 גופן קריא</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('links')">
+            <button type="button" class="a11y-btn" aria-label="הדגשת קישורים בעמוד" onclick="toggleA11yFeature('links')">
                 <span>🔗 הדגשת קישורים</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('animations')">
+            <button type="button" class="a11y-btn" aria-label="עצירת כל ההנפשות" onclick="toggleA11yFeature('animations')">
                 <span>⏸️ עצירת אנימציות</span>
             </button>
-            <button type="button" class="a11y-btn" onclick="toggleA11yFeature('invert')">
+            <button type="button" class="a11y-btn" aria-label="היפוך צבעי תצוגה" onclick="toggleA11yFeature('invert')">
                 <span>🔄 היפוך צבעים</span>
             </button>
         </div>
         
-        <button type="button" class="a11y-btn a11y-btn-reset" onclick="resetA11y()">
+        <button type="button" class="a11y-btn a11y-btn-reset" aria-label="איפוס כל הגדרות הנגישות" onclick="resetA11y()">
             <span>🔄 איפוס כל ההגדרות</span>
         </button>
         
