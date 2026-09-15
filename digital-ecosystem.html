@@ -27,7 +27,7 @@
     
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript></noscript>
-    <link rel="preload" href="styles.min.css?v=20260913_desktop_fix" as="style"><link rel="stylesheet" href="styles.min.css?v=20260913_desktop_fix" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260913_desktop_fix" as="style"><link rel="stylesheet" href="styles.min.css?v=20260913_desktop_fix" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260913_desktop_fix"></noscript></noscript>
+    <link rel="preload" href="styles.min.css?v=20260915_v2" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v2" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260915_v2" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v2" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260915_v2"></noscript></noscript>
         <style>
         .article-hero { padding: clamp(120px, 15vh, 160px) 0 clamp(30px, 5vh, 50px); text-align: center; }
         .article-hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 1.2rem; color: var(--gold-bright); line-height: 1.2; }
@@ -147,6 +147,8 @@
         <!-- Main Navigation Header -->
         <!-- Main Navigation Header -->
         <!-- Main Navigation Header -->
+        <!-- Main Navigation Header -->
+        <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
     <header class="navbar">
         <div class="container nav-container">
             <!-- 1. Logo (Right in RTL / Start) -->
@@ -157,7 +159,7 @@
                 </a>
             </div>
 
-            <!-- 2. Mobile Actions Group (Left in RTL on Mobile <= 1024px: WhatsApp + Hamburger) -->
+            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: WhatsApp + Hamburger) -->
             <div class="mobile-actions-group">
                 <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-wa-mobile-bar" aria-label="וואטסאפ איגור גורלקין" title="וואטסאפ איגור">
                     <i class="fab fa-whatsapp"></i>
@@ -167,23 +169,13 @@
                 </button>
             </div>
 
-            <!-- 3. Navigation Links (Center in Desktop > 1024px) -->
+            <!-- 3. Navigation Links (Centered in Desktop - ONLY clean links!) -->
             <nav class="nav-links" id="mainNavLinks">
-                <!-- Mobile Drawer Featured Actions -->
-                <div class="mobile-drawer-top-actions">
-                    <a href="tel:0525155598" class="mobile-drawer-btn call">
-                        <i class="fas fa-phone-alt"></i> 052-515-5598
-                    </a>
-                    <button type="button" class="mobile-drawer-btn crm" onclick="if(window.openGorCrmLogin){window.openGorCrmLogin();}else{window.open('https://gorcrm.netlify.app/','_blank');}">
-                        <i class="fas fa-shield-alt"></i> כניסה ל-CRM
-                    </button>
-                </div>
-
                 <a href="index.html">בית</a>
 
                 <!-- 1. שירותי 360° -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger">
+                    <button class="dropdown-trigger" type="button">
                         שירותי 360° <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -223,24 +215,10 @@
                             </div>
                         </a>
                         <a href="ai.html" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8.01" y2="16"></line><line x1="16" y1="16" x2="16.01" y2="16"></line></svg></div>
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg></div>
                             <div class="dropdown-item-text">
-                                <strong>סוכני AI ואוטומציה</strong>
-                                <span>מענה שירות, סינון לידים ותיאום פגישות</span>
-                            </div>
-                        </a>
-                        <a href="graphics.html" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.375 2.625a3.875 3.875 0 0 0-5.48 0L3.5 12v5h5l9.395-9.395a3.875 3.875 0 0 0 0-5.48z"></path></svg></div>
-                            <div class="dropdown-item-text">
-                                <strong>עיצוב גרפי & מיתוג</strong>
-                                <span>שפת מותג, לוגואים וקריאייטיב מנצח</span>
-                            </div>
-                        </a>
-                        <a href="photography.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
-                            <div class="dropdown-item-text">
-                                <strong>צילום תדמית & הפקות שטח</strong>
-                                <span>צילומי רחפן 4K, וידאו ותיעוד פרויקטים</span>
+                                <strong>סוכני AI & אוטומציות</strong>
+                                <span>צ'אטבוטים, CRM חכם ומענה 24/7</span>
                             </div>
                         </a>
                     </div>
@@ -248,61 +226,146 @@
 
                 <!-- 2. אפליקציות SaaS -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger">
+                    <button class="dropdown-trigger" type="button">
                         אפליקציות SaaS <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
-                        <a href="websites.html#gor-crm" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14v2H5v-2z"></path></svg></div>
+                        <a href="apps.html" class="dropdown-item item-gold">
+                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg></div>
                             <div class="dropdown-item-text">
-                                <strong>GOR CRM</strong>
-                                <span>ניהול לידים, לקוחות ואוטומציית WhatsApp</span>
+                                <strong>סקירת כל מוצרי SaaS</strong>
+                                <span>פורטפוליו האפליקציות והמערכות של GOR</span>
                             </div>
                         </a>
-                        <a href="websites.html#twin-proptech" class="dropdown-item item-cyan">
-                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="9" y1="22" x2="9" y2="2"></line><line x1="8" y1="6" x2="8.01" y2="6"></line><line x1="15" y1="6" x2="15.01" y2="6"></line><line x1="15" y1="10" x2="15.01" y2="10"></line><line x1="15" y1="14" x2="15.01" y2="14"></line></svg></div>
+                        <a href="https://gorcrm.netlify.app/" target="_blank" rel="noopener noreferrer" class="dropdown-item item-emerald">
+                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                             <div class="dropdown-item-text">
-                                <strong>TWIN PropTech</strong>
-                                <span>תאום דיגיטלי לבניינים וגבייה אוטומטית לוועדים</span>
+                                <strong>GOR CRM AI</strong>
+                                <span>ניהול לידים, לקוחות וקמפיינים</span>
                             </div>
                         </a>
-                        <a href="websites.html#am-building" class="dropdown-item item-gold">
-                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h20M4 18v-4a8 8 0 0 1 16 0v4M12 6V2"></path></svg></div>
+                        <a href="digital-ecosystem.html" class="dropdown-item item-cyan">
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></div>
                             <div class="dropdown-item-text">
-                                <strong>AM BUILDING ConTech</strong>
-                                <span>ניהול פרויקטי בנייה, כתבי כמויות ויומני שטח</span>
-                            </div>
-                        </a>
-                        <a href="hakablanim.html" class="dropdown-item item-emerald">
-                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
-                            <div class="dropdown-item-text">
-                                <strong>HAKABLANIM</strong>
-                                <span>זירת מכרזים חכמה וסנכרון קבלנים וספקים</span>
-                            </div>
-                        </a>
-                        <a href="apps.html" class="dropdown-item" style="border-top: 1px solid rgba(255,255,255,0.08); margin-top: 4px; padding-top: 8px;">
-                            <div class="dropdown-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></div>
-                            <div class="dropdown-item-text">
-                                <strong>לכל האפליקציות והמערכות</strong>
-                                <span>צפייה בלוח השליטה המלא</span>
+                                <strong>אקו-סיסטם דיגיטלי</strong>
+                                <span>אינטגרציות Webhooks ו-API</span>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 <!-- 3. סוכני AI -->
-                <a href="ai.html">סוכני AI</a>
+                <div class="nav-item-dropdown">
+                    <button class="dropdown-trigger" type="button">
+                        סוכני AI <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="dropdown-tray">
+                        <a href="ai.html" class="dropdown-item item-emerald">
+                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>סוכן GOR WhatsApp AI</strong>
+                                <span>מענה אנושי מהיר ומכירות 24/7 בוואטסאפ</span>
+                            </div>
+                        </a>
+                        <a href="ai.html#voice" class="dropdown-item item-cyan">
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>סוכן קולי טלפוני AI</strong>
+                                <span>שיחות טלפון נכנסות ויוצאות בזמן אמת</span>
+                            </div>
+                        </a>
+                        <a href="ai.html#integrations" class="dropdown-item item-gold">
+                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>הטמעה וחיבור ל-CRM</strong>
+                                <span>אינטגרציה חלקה לכל מערכות העסק</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-                <!-- 4. מרכז ידע & מאמרים -->
-                <a href="articles/index.html">מרכז הידע</a>
+                <!-- 4. מרכז הידע -->
+                <div class="nav-item-dropdown">
+                    <button class="dropdown-trigger" type="button">
+                        מרכז הידע <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="dropdown-tray mega-tray">
+                        <a href="seo-guide.html" class="dropdown-item item-emerald">
+                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך SEO המלא 2026</strong>
+                                <span>איך להגיע למקום 1 בגוגל</span>
+                            </div>
+                        </a>
+                        <a href="sem-guide.html" class="dropdown-item item-cyan">
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך Google Ads</strong>
+                                <span>אופטימיזציית PPC והמרות</span>
+                            </div>
+                        </a>
+                        <a href="meta-ads-guide.html" class="dropdown-item item-gold">
+                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך פרסום במטא & פייסבוק</strong>
+                                <span>משפכי המרה מתקדמים</span>
+                            </div>
+                        </a>
+                        <a href="tiktok-ads-guide.html" class="dropdown-item item-cyan">
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.5 6.3 6.3 0 0 0 1.86-4.5V8.69a8.18 8.18 0 0 0 4.77 1.52A8.36 8.36 0 0 0 21 10.1V6.65a4.88 4.88 0 0 1-1.41.04z"/></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך TikTok Ads</strong>
+                                <span>קריאייטיב ויראלי ומשפכים</span>
+                            </div>
+                        </a>
+                        <a href="youtube-ads-guide.html" class="dropdown-item item-emerald">
+                            <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך YouTube Ads</strong>
+                                <span>פרסום וידאו ממיר</span>
+                            </div>
+                        </a>
+                        <a href="local-seo-gmb-guide.html" class="dropdown-item item-gold">
+                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך Google Maps & GMB</strong>
+                                <span>שליטה בחיפושים מקומיים</span>
+                            </div>
+                        </a>
+                        <a href="ecommerce-guide.html" class="dropdown-item item-cyan">
+                            <div class="dropdown-icon" style="color: var(--cyan-accent);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מדריך E-Commerce & חנויות</strong>
+                                <span>הגדלת סל קנייה ומכירות</span>
+                            </div>
+                        </a>
+                        <a href="articles/lama-haluach-lo-tamid-tzodek/index.html" class="dropdown-item item-gold">
+                            <div class="dropdown-icon" style="color: var(--gold-bright);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                            <div class="dropdown-item-text">
+                                <strong>מאמר: למה הלקוח לא תמיד צודק?</strong>
+                                <span>ניתוח מקצועי מעמיק</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-                <a href="index.html#case-studies">תוצאות</a>
+                <a href="index.html#results">תוצאות</a>
                 <a href="index.html#roi-calculator">מחשבון ROI</a>
                 <a href="index.html#about">אודות</a>
                 <a href="index.html#reviews">המלצות</a>
+
+                <!-- Mobile Drawer Actions (Visible ONLY inside Mobile Drawer <= 1024px at the bottom of the drawer) -->
+                <div class="mobile-drawer-bottom-actions">
+                    <a href="tel:0525155598" class="mobile-drawer-btn call">
+                        <i class="fas fa-phone-alt"></i> 052-515-5598
+                    </a>
+                    <button type="button" class="mobile-drawer-btn crm" onclick="if(window.openGorCrmLogin){window.openGorCrmLogin();}else{window.open('https://gorcrm.netlify.app/','_blank');}">
+                        <i class="fas fa-shield-alt"></i> כניסה ל-CRM
+                    </button>
+                </div>
             </nav>
 
-            <!-- 4. Desktop Action Buttons (Left in RTL: CRM + Contact) -->
+            <!-- 4. Desktop Action Buttons (Left in RTL / End - EXACTLY 2 BUTTONS: CRM + Contact) -->
             <div class="nav-actions-desktop">
                 <button type="button" class="btn-crm-nav" id="gorCrmTrigger" aria-label="כניסה למערכת GOR CRM" onclick="if(window.openGorCrmLogin){window.openGorCrmLogin();}else{window.open('https://gorcrm.netlify.app/','_blank');}">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
