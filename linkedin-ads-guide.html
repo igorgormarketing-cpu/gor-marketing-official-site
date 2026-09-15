@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta charset="UTF-8">
   <!-- Google Search & Browser Identity Favicons (Google Search Console Spec) -->
   <link rel="icon" href="https://www.gormarketing.com/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="https://www.gormarketing.com/favicon-48x48.png">
@@ -169,57 +170,117 @@
     <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
     <div class="top-glow-line"></div>
 
-    
-    <!-- Top Luxury Micro-Bar (Social & Contact) -->
+    <!-- Top Micro Bar -->
     <div class="top-micro-bar">
-        <div class="container">
-            <!-- Right Side: Contact Details & Online Status -->
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
             <div class="top-contact-info">
-                <a href="mailto:igorgor.marketing@gmail.com" class="top-contact-item" title="שלח דוא״ל">
-                    <i class="fas fa-envelope" style="color: var(--gold-bright);"></i> igorgor.marketing@gmail.com
-                </a>
                 <a href="tel:0525155598" class="top-contact-item" title="חייג עכשיו">
                     <i class="fas fa-phone-alt" style="color: var(--emerald-primary);"></i> 052-515-5598
                 </a>
+                <a href="mailto:igor@gormarketing.com" class="top-contact-item" title="שלח דוא״ל">
+                    <i class="fas fa-envelope" style="color: var(--gold-bright);"></i> igor@gormarketing.com
+                </a>
                 <span class="top-status-badge">
                     <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--emerald-primary);box-shadow:0 0 6px var(--emerald-primary);"></span>
-                    א׳–ה׳ 09:00–17:00 | מעבר לכך בתיאום מראש
+                    א׳–ה׳ 09:00–19:00 | ייעוץ אסטרטגי 360°
                 </span>
             </div>
-
-            <!-- Left Side: Social Media Icons -->
             <div class="top-social-icons">
-                <span style="font-size: 0.78rem; color: #94a3b8; margin-left: 6px;">עקבו אחרינו:</span>
-                <a href="https://www.facebook.com/gormarketing" target="_blank" rel="noopener noreferrer" class="top-social-link fb" aria-label="פייסבוק GOR MARKETING" title="פייסבוק">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/gormarketing" target="_blank" rel="noopener noreferrer" class="top-social-link ig" aria-label="אינסטגרם GOR MARKETING" title="אינסטגרם">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.youtube.com/@gormarketing" target="_blank" rel="noopener noreferrer" class="top-social-link yt" aria-label="יוטיוב GOR MARKETING" title="יוטיוב">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="mailto:igorgor.marketing@gmail.com" class="top-social-link em" aria-label="שלח אימייל" title="אימייל">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%A1%D7%A8%D7%92%D7%9C%20%D7%94%D7%9B%D7%9C%D7%99%D7%9D%20%D7%91%D7%90%D7%AA%D7%A8" target="_blank" rel="noopener noreferrer" class="top-social-link wa" aria-label="וואטסאפ" title="וואטסאפ">
+                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8" target="_blank" rel="noopener noreferrer" class="top-social-link wa" aria-label="וואטסאפ איגור">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </div>
         </div>
     </div>
 
+    <!-- Main Navigation Header -->
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo-container">
-                <a href="index.html">
-                    <img src="assets/gor_logo.png" alt="לוגו רשמי - GOR MARKETING" width="44" height="44" role="img" tabindex="0">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="favicon-48x48.png" alt="GOR MARKETING" width="38" height="38" style="border-radius: 8px;">
                     <div class="logo-text">GOR <span>MARKETING</span></div>
                 </a>
+            </div>
+
+            <!-- Mobile Phone Button -->
+            <a href="tel:0525155598" class="btn-phone-mobile-bar" aria-label="התקשר לאיגור גורלקין">
+                <i class="fas fa-phone-alt"></i>
+                <span>052-515-5598</span>
+            </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="פתח תפריט ניווט">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Nav Links -->
+            <nav class="nav-links" id="mainNavLinks">
+                <a href="index.html"><i class="fas fa-home"></i> בית</a>
+                <a href="websites.html"><i class="fas fa-laptop-code"></i> בניית אתרים</a>
+                <a href="apps.html"><i class="fas fa-cubes"></i> פיתוח SaaS & AI</a>
+                <a href="articles/index.html"><i class="fas fa-book-open"></i> מרכז הידע</a>
+                <a href="sitemap.html"><i class="fas fa-sitemap"></i> מפת אתר</a>
+                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8" target="_blank" rel="noopener noreferrer" class="btn-nav">
+                    <i class="fab fa-whatsapp"></i> שיחת ייעוץ אישית
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <article class="container" style="max-width: 860px; padding: 60px 20px 80px;">
+            <div class="hero-badge-pill" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                <i class="fab fa-linkedin"></i> מדריך B2B לשיווק בלינקדאין
+            </div>
+            <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.2; color: #fff; margin-bottom: 20px;">
+                שיווק ופרסום בלינקדאין (LinkedIn B2B): <span class="gradient-title">איך לפנות ישירות למקבלי החלטות ולסגור עסקאות ענק</span>
+            </h1>
+            <div style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; display: flex; gap: 20px; flex-wrap: wrap;">
+                <span><i class="fas fa-user-edit" style="color: var(--gold-bright);"></i> מאת: איגור גורלקין | מנכ"ל GOR MARKETING</span>
+                <span><i class="fas fa-clock" style="color: var(--cyan-accent);"></i> זמן קריאה: 6 דקות</span>
+                <span><i class="fas fa-tag" style="color: var(--emerald-primary);"></i> נושא: LinkedIn Ads & B2B Lead Generation</span>
+            </div>
+
+            <div style="color: #cbd5e1; font-size: 1.08rem; line-height: 1.85; display: flex; flex-direction: column; gap: 24px;">
+                <p>
+                    כשמדובר בעסקאות B2B בשווי עשרות ומאות אלפי שקלים (Enterprise / High-Ticket), לינקדאין היא הפלטפורמה האולטימטיבית. בניגוד לרשתות חברתיות אחרות, בלינקדאין המשתמשים מציגים בדיוק את התפקיד הנוכחי שלהם, גודל החברה, תחום הפעילות והוותק המקצועי, מה שמאפשר טירגוט כירורגי של מקבלי ההחלטות בלבד.
+                </p>
+
+                <h2 style="font-size: 1.6rem; color: #fff; font-weight: 800; border-right: 4px solid #0077b5; padding-right: 12px; margin-top: 15px;">
+                    1. טירגוט כירורגי: פנייה למנכ"לים, סמנכ"לי שיווק ומנהלי רכש
+                </h2>
+                <p>
+                    במערכת ה-Campaign Manager של לינקדאין ניתן להגדיר פילוח לפי:
+                </p>
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
+                    <li><i class="fas fa-check" style="color: var(--emerald-primary); margin-left: 8px;"></i> <strong>Job Title & Seniority:</strong> מנכ"ל (CEO), סמנכ"ל (VP / C-Level), שותפים ומנהלי מחלקות.</li>
+                    <li><i class="fas fa-check" style="color: var(--emerald-primary); margin-left: 8px;"></i> <strong>Company Size & Industry:</strong> חברות 50-200 עובדים, הייטק, בנייה ונדל"ן, פיננסים ומסחר.</li>
+                    <li><i class="fas fa-check" style="color: var(--emerald-primary); margin-left: 8px;"></i> <strong>Account-Based Marketing (ABM):</strong> העלאת רשימת חברות יעד ספציפיות והצגת מודעות רק לעובדים ולמנהלים שלהן.</li>
+                </ul>
+
+                <h2 style="font-size: 1.6rem; color: #fff; font-weight: 800; border-right: 4px solid var(--gold-bright); padding-right: 12px; margin-top: 15px;">
+                    2. טפסי Lead Gen Forms מובנים
+                </h2>
+                <p>
+                    טפסי ה-Lead Gen של לינקדאין נפתחים ישירות בתוך האפליקציה ושואבים אוטומטית את פרטי הקשר, כתובת הדוא"ל העסקית והטלפון מתוך הפרופיל של המשתמש. התוצאה: שיעור המרה הגבוה פי 3 מדפי נחיתה חיצוניים, ולידים באיכות הגבוהה ביותר בשוק.
+                </p>
+
+                <div style="background: linear-gradient(135deg, rgba(16, 20, 32, 0.95), rgba(10, 14, 24, 0.95)); border: 1px solid rgba(0, 119, 181, 0.3); border-radius: 20px; padding: 32px; text-align: center; margin-top: 30px;">
+                    <i class="fab fa-linkedin" style="font-size: 2.5rem; color: #0077b5; margin-bottom: 12px;"></i>
+                    <h3 style="font-size: 1.5rem; color: #fff; font-weight: 800; margin-bottom: 10px;">רוצה לפתוח דלתות לחברות הגדולות במשק?</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">
+                        צוות GOR MARKETING בונה ומנהל קמפיינים ממוקדי B2B בלינקדאין עם תוצאות מוכחות ולידים מאומתים.
+                    </p>
+                    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%A7%D7%A8%D7%90%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%9C%D7%99%D7%A0%D7%A7%D7%93%D7%90%D7%99%D7%9F%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" class="btn-gold" style="display: inline-block; padding: 12px 28px; font-size: 1rem; border-radius: 12px; text-decoration: none; font-weight: 800;">
+                        <i class="fab fa-whatsapp"></i> שיחת אפיון קמפיין לינקדאין עם איגור
+                    </a>
+                </div>
             </div>
         </article>
     </main>
 
+    <!-- Official Footer -->
     <footer class="footer-custom" style="background: #06070a; border-top: 1px solid rgba(255, 255, 255, 0.08); padding: 40px 0 20px;">
         <div class="container footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
             <div style="color: var(--text-muted); font-size: 0.9rem;">
@@ -227,15 +288,29 @@
             </div>
             <div style="display: flex; gap: 20px; flex-wrap: wrap; font-size: 0.92rem;">
                 <a href="sitemap.html" style="color: var(--gold-bright); text-decoration: none;"><i class="fas fa-sitemap"></i> מפת אתר</a>
-                <a href="social.html" style="color: var(--cyan-accent); text-decoration: none;"><i class="fas fa-bullhorn"></i> קידום רשתות חברתיות</a>
-                <a href="index.html#roi-calculator" style="color: var(--emerald-primary); text-decoration: none;"><i class="fas fa-calculator"></i> מחשבון ROI</a>
+                <a href="websites.html" style="color: var(--cyan-accent); text-decoration: none;"><i class="fas fa-laptop-code"></i> בניית אתרים</a>
+                <a href="apps.html" style="color: var(--emerald-primary); text-decoration: none;"><i class="fas fa-cubes"></i> אפליקציות SaaS</a>
+                <a href="index.html#roi-calculator" style="color: var(--gold-bright); text-decoration: none;"><i class="fas fa-calculator"></i> מחשבון ROI</a>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%9E%D7%93%D7%A8%D7%99%D7%9A%20%D7%9C%D7%99%D7%A0%D7%A7%D7%93%D7%90%D7%99%D7%9F" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ איגור גורלקין">
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ איגור גורלקין">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggle = document.getElementById('mobileNavToggle');
+            var nav = document.getElementById('mainNavLinks');
+            if (toggle && nav) {
+                toggle.addEventListener('click', function() {
+                    nav.classList.toggle('active-mobile');
+                });
+            }
+        });
+    </script>
     <script defer src="assets/a11y.js"></script>
 </body>
 </html>
