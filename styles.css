@@ -2746,30 +2746,11 @@ a.skip-link:focus-visible {
 /* ==========================================================================
    LUXURY TOP MICRO-BAR (Social & Fast Contact)
    ========================================================================== */
-.top-micro-bar {
-    background: rgba(4, 5, 8, 0.98);
-    border-bottom: 1px solid rgba(255, 215, 0, 0.12);
-    padding: 6px 0;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    position: relative;
-    z-index: 100000;
-}
 
-.top-micro-bar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-}
 
-.top-contact-info {
-    display: flex;
-    align-items: center;
-    gap: clamp(12px, 2vw, 20px);
-    flex-wrap: wrap;
-}
+
+
+
 
 .top-contact-item {
     display: inline-flex;
@@ -2787,80 +2768,23 @@ a.skip-link:focus-visible {
     outline: none;
 }
 
-.top-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    color: var(--emerald-primary);
-    font-size: 0.76rem;
-    font-weight: 600;
-    background: rgba(0, 255, 136, 0.08);
-    border: 1px solid rgba(0, 255, 136, 0.2);
-    padding: 2px 8px;
-    border-radius: 100px;
-}
 
-.top-social-icons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
 
-.top-social-link {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    text-decoration: none;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-.top-social-link:hover,
-.top-social-link:focus-visible {
-    transform: translateY(-2px) scale(1.1);
-    outline: none;
-}
 
-.top-social-link.fb:hover {
-    background: #1877f2;
-    border-color: #1877f2;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(24, 119, 242, 0.5);
-}
 
-.top-social-link.ig:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    border-color: #dc2743;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(220, 39, 67, 0.5);
-}
 
-.top-social-link.yt:hover {
-    background: #ff0000;
-    border-color: #ff0000;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(255, 0, 0, 0.5);
-}
 
-.top-social-link.em:hover {
-    background: var(--gold-bright);
-    border-color: var(--gold-bright);
-    color: #06070a;
-    box-shadow: 0 4px 14px rgba(255, 193, 7, 0.5);
-}
 
-.top-social-link.wa:hover {
-    background: #25d366;
-    border-color: #25d366;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.5);
-}
+
+
+
+
+
+
+
+
+
 
 
 
