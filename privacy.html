@@ -27,7 +27,7 @@
     
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript></noscript>
-    <link rel="preload" href="styles.min.css?v=20260915_v2" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v2" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260915_v2" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v2" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260915_v2"></noscript></noscript>
+    <link rel="preload" href="styles.min.css?v=20260915_v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v4" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260915_v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260915_v4" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260915_v4"></noscript></noscript>
     <link rel="stylesheet" href="assets/accessibility.css?v=20260913_desktop_fix">
     
     <script type="application/ld+json">
@@ -60,23 +60,27 @@
         <!-- Main Navigation Header -->
         <!-- Main Navigation Header -->
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
+        <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
+        <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
     <header class="navbar">
         <div class="container nav-container">
-            <!-- 1. Logo (Right in RTL / Start) -->
+            <!-- 1. Logo (Right in RTL / Start): Text on Left, Cube Logo Image on Right -->
             <div class="logo-container">
                 <a href="index.html" class="logo-link" aria-label="GOR MARKETING דף הבית">
-                    <img src="favicon-48x48.png" alt="GOR MARKETING" width="38" height="38">
                     <div class="logo-text" dir="ltr"><span class="logo-white">GOR</span> <span class="logo-gold">MARKETING</span></div>
+                    <img src="favicon-48x48.png" alt="GOR MARKETING" width="38" height="38">
                 </a>
             </div>
 
-            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: WhatsApp + Hamburger) -->
+            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: WhatsApp + Menu with Clear SVGs & Labels) -->
             <div class="mobile-actions-group">
-                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-wa-mobile-bar" aria-label="וואטסאפ איגור גורלקין" title="וואטסאפ איגור">
-                    <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-wa-mobile-bar" aria-label="וואטסאפ" title="וואטסאפ">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.861.948 2.791.948 3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm10.009 5.767c-.002 5.49-4.469 9.957-9.959 9.957-1.748 0-3.373-.453-4.787-1.246l-5.334 1.398 1.423-5.201c-.886-1.464-1.392-3.176-1.392-5.008.002-5.49 4.469-9.957 9.959-9.957 5.49 0 9.958 4.467 9.959 9.957z"/></svg>
+                    <span>וואטסאפ</span>
                 </a>
-                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="פתח תפריט ניווט" aria-expanded="false" onclick="var nl=document.querySelector('.nav-links');if(nl){var open=nl.classList.toggle('active-mobile');this.setAttribute('aria-expanded',open);}">
-                    <i class="fas fa-bars"></i>
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="תפריט ניווט" title="תפריט" aria-expanded="false" onclick="var nl=document.querySelector('.nav-links');if(nl){var open=nl.classList.toggle('active-mobile');this.setAttribute('aria-expanded',open);}">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    <span>תפריט</span>
                 </button>
             </div>
 
@@ -151,7 +155,7 @@
                         <a href="https://gorcrm.netlify.app/" target="_blank" rel="noopener noreferrer" class="dropdown-item item-emerald">
                             <div class="dropdown-icon" style="color: var(--emerald-primary);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
                             <div class="dropdown-item-text">
-                                <strong>GOR CRM AI</strong>
+                                <strong>מערכת GOR CRM AI (מידע וסקירה)</strong>
                                 <span>ניהול לידים, לקוחות וקמפיינים</span>
                             </div>
                         </a>
@@ -268,10 +272,10 @@
                 <!-- Mobile Drawer Actions (Visible ONLY inside Mobile Drawer <= 1024px at the bottom of the drawer) -->
                 <div class="mobile-drawer-bottom-actions">
                     <a href="tel:0525155598" class="mobile-drawer-btn call">
-                        <i class="fas fa-phone-alt"></i> 052-515-5598
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 052-515-5598
                     </a>
                     <button type="button" class="mobile-drawer-btn crm" onclick="if(window.openGorCrmLogin){window.openGorCrmLogin();}else{window.open('https://gorcrm.netlify.app/','_blank');}">
-                        <i class="fas fa-shield-alt"></i> כניסה ל-CRM
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> כניסה ל-CRM
                     </button>
                 </div>
             </nav>
@@ -283,7 +287,8 @@
                     <span>כניסה ל-CRM</span>
                 </button>
                 <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-nav">
-                    <i class="fab fa-whatsapp"></i> שיחת ייעוץ
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#000000" style="display:inline-block; vertical-align:middle; margin-left:4px;"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.861.948 2.791.948 3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm10.009 5.767c-.002 5.49-4.469 9.957-9.959 9.957-1.748 0-3.373-.453-4.787-1.246l-5.334 1.398 1.423-5.201c-.886-1.464-1.392-3.176-1.392-5.008.002-5.49 4.469-9.957 9.959-9.957 5.49 0 9.958 4.467 9.959 9.957z"/></svg>
+                    <span>שיחת ייעוץ</span>
                 </a>
             </div>
         </div>
