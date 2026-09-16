@@ -6530,3 +6530,125 @@ main#main-content > .container {
     }
 }
 
+
+
+/* ==========================================================================
+   GOR MARKETING - CLEAN ICON-ONLY MOBILE HEADER BUTTONS (Option 2 Mobile)
+   ========================================================================== */
+
+/* 1. Logo: Text on Left, Cube Logo Image on Right */
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+.logo-container a.logo-link,
+.logo-container a {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+.logo-container img {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    object-fit: contain !important;
+    display: block !important;
+    order: 2 !important; /* Cube image on the RIGHT */
+}
+.logo-text {
+    order: 1 !important; /* Text on the LEFT of image */
+    font-family: var(--font-heading, 'Outfit', 'Heebo', sans-serif) !important;
+    font-weight: 900 !important;
+    font-size: clamp(1rem, 3.5vw, 1.25rem) !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+}
+.logo-white {
+    color: #ffffff !important;
+}
+.logo-gold {
+    color: #ffd700 !important;
+}
+
+/* Mobile Actions Group (<= 1024px) - Clean, Square Icon-Only Buttons with ZERO text overflow */
+@media (max-width: 1024px) {
+    .nav-actions-desktop {
+        display: none !important;
+    }
+    
+    .mobile-actions-group {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+    }
+    
+    /* WhatsApp Mobile Action Button - Pure Icon Square */
+    .btn-wa-mobile-bar {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        max-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 10px !important;
+        background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.4) !important;
+        flex-shrink: 0 !important;
+        cursor: pointer !important;
+        overflow: hidden !important;
+    }
+    .btn-wa-mobile-bar svg {
+        width: 19px !important;
+        height: 19px !important;
+        fill: #ffffff !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+    .btn-wa-mobile-bar span {
+        display: none !important; /* Hide any stray text */
+    }
+    
+    /* Hamburger Menu Button - Pure Icon Square */
+    .mobile-nav-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+        max-width: 38px !important;
+        padding: 0 !important;
+        border-radius: 10px !important;
+        background: rgba(255, 193, 7, 0.12) !important;
+        border: 1px solid rgba(255, 193, 7, 0.45) !important;
+        color: #ffd700 !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        overflow: hidden !important;
+    }
+    .mobile-nav-toggle svg {
+        width: 19px !important;
+        height: 19px !important;
+        stroke: #ffd700 !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+    .mobile-nav-toggle span {
+        display: none !important; /* Hide any stray text */
+    }
+}
+
