@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../../styles.min.css?v=20260916_v1">
+    <link rel="stylesheet" href="../../styles.min.css?v=20260916_v2">
     <link rel="stylesheet" href="../../assets/accessibility.css?v=20260901_crm_v8">
     <script type="application/ld+json">
 {
@@ -164,6 +164,7 @@
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
+        <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile - Clean & Functional) -->
     <header class="navbar">
         <div class="container nav-container">
             <!-- 1. Logo (Right in RTL / Start): Text on Left, Cube Logo Image on Right -->
@@ -174,23 +175,20 @@
                 </a>
             </div>
 
-            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: Clean Icon-Only Buttons) -->
+            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: Clean Hamburger Button Only) -->
             <div class="mobile-actions-group">
-                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-wa-mobile-bar" aria-label="וואטסאפ איגור" title="וואטסאפ">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.861.948 2.791.948 3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm10.009 5.767c-.002 5.49-4.469 9.957-9.959 9.957-1.748 0-3.373-.453-4.787-1.246l-5.334 1.398 1.423-5.201c-.886-1.464-1.392-3.176-1.392-5.008.002-5.49 4.469-9.957 9.959-9.957 5.49 0 9.958 4.467 9.959 9.957z"/></svg>
-                </a>
-                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="תפריט ניווט" title="תפריט" aria-expanded="false" onclick="var nl=document.querySelector('.nav-links');if(nl){var open=nl.classList.toggle('active-mobile');this.setAttribute('aria-expanded',open);}">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="פתח תפריט ניווט" title="תפריט" aria-expanded="false" onclick="window.toggleGorMobileMenu(event)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </div>
 
-            <!-- 3. Navigation Links (Centered in Desktop - ONLY clean links!) -->
+            <!-- 3. Navigation Links (Centered in Desktop - Working Accordion on Mobile) -->
             <nav class="nav-links" id="mainNavLinks">
                 <a href="../../index.html">בית</a>
 
                 <!-- 1. שירותי 360° -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         שירותי 360° <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -241,7 +239,7 @@
 
                 <!-- 2. אפליקציות SaaS -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         אפליקציות SaaS <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -271,7 +269,7 @@
 
                 <!-- 3. סוכני AI -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         סוכני AI <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -301,7 +299,7 @@
 
                 <!-- 4. מרכז הידע -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         מרכז הידע <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray mega-tray">
@@ -473,5 +471,58 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     <script defer src="../../assets/a11y.js"></script>
+
+<script>
+window.toggleGorMobileMenu = function(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    var toggleBtn = document.getElementById('mobileNavToggle');
+    var navLinks = document.getElementById('mainNavLinks') || document.querySelector('.nav-links');
+    if (!navLinks) return;
+    
+    var isOpen = navLinks.classList.contains('active-mobile');
+    if (isOpen) {
+        navLinks.classList.remove('active-mobile');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.classList.remove('is-active');
+        }
+    } else {
+        navLinks.classList.add('active-mobile');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            toggleBtn.classList.add('is-active');
+        }
+    }
+};
+
+window.toggleGorDropdown = function(btn, e) {
+    if (window.innerWidth <= 1024) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        var parent = btn.closest('.nav-item-dropdown');
+        if (parent) {
+            var wasOpen = parent.classList.contains('mobile-open');
+            document.querySelectorAll('.nav-item-dropdown.mobile-open').forEach(function(el) {
+                if (el !== parent) el.classList.remove('mobile-open');
+            });
+            parent.classList.toggle('mobile-open', !wasOpen);
+        }
+    }
+};
+
+document.addEventListener('click', function(e) {
+    var navLinks = document.getElementById('mainNavLinks') || document.querySelector('.nav-links');
+    var toggleBtn = document.getElementById('mobileNavToggle');
+    if (navLinks && navLinks.classList.contains('active-mobile')) {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active-mobile');
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                toggleBtn.classList.remove('is-active');
+            }
+        }
+    }
+});
+</script>
+
 </body>
 </html>

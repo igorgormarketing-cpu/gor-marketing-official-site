@@ -1544,6 +1544,487 @@
     }
 }
 
+
+
+/* ==========================================================================
+   GOR MARKETING - BULLETPROOF HEADER & MOBILE ACCORDION DRAWER
+   ========================================================================== */
+
+.navbar {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    background: rgba(6, 7, 10, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid var(--border-gold, rgba(255, 193, 7, 0.45)) !important;
+    z-index: 99999 !important;
+    padding: 10px 0 !important;
+}
+
+.navbar .container,
+.navbar .nav-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(14px, 3vw, 32px) !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* 1. Logo */
+.logo-container {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+.logo-container a.logo-link,
+.logo-container a {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+.logo-container img {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    object-fit: contain !important;
+    display: block !important;
+    order: 2 !important; /* Cube image on the RIGHT */
+}
+.logo-text {
+    order: 1 !important; /* Text on the LEFT of image */
+    font-family: var(--font-heading, 'Outfit', 'Heebo', sans-serif) !important;
+    font-weight: 900 !important;
+    font-size: clamp(1.05rem, 3.5vw, 1.25rem) !important;
+    letter-spacing: 0.5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+}
+.logo-white {
+    color: #ffffff !important;
+}
+.logo-gold {
+    color: #ffd700 !important;
+}
+
+/* 2. Desktop Navigation (Centered) */
+@media (min-width: 1025px) {
+    .nav-links {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: clamp(8px, 1.2vw, 18px) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        position: static !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+        flex: 1 1 auto !important;
+    }
+    
+    .nav-links > a,
+    .nav-links .dropdown-trigger {
+        color: var(--text-muted, #94a3b8) !important;
+        font-weight: 600 !important;
+        font-size: clamp(0.82rem, 0.98vw, 0.92rem) !important;
+        text-decoration: none !important;
+        transition: color 0.2s ease !important;
+        background: none !important;
+        border: none !important;
+        cursor: pointer !important;
+        white-space: nowrap !important;
+        padding: 6px 4px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        font-family: inherit !important;
+    }
+    
+    .nav-links > a:hover,
+    .nav-links > a.active,
+    .nav-links .dropdown-trigger:hover,
+    .nav-item-dropdown:hover .dropdown-trigger {
+        color: #ffd700 !important;
+    }
+    
+    /* Strict Desktop Hiding of Mobile Hamburger and Mobile Actions */
+    .mobile-actions-group,
+    .mobile-drawer-top-actions,
+    .mobile-drawer-bottom-actions,
+    .mobile-nav-toggle,
+    .btn-wa-mobile-bar {
+        display: none !important;
+    }
+    
+    /* Desktop Actions (CRM + Consultation) */
+    .nav-actions-desktop {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .nav-item-dropdown {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    .dropdown-tray {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        min-width: 290px;
+        background: #090b12;
+        border: 1px solid var(--border-gold, rgba(255, 193, 7, 0.45));
+        border-radius: 16px;
+        padding: 12px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95), 0 0 20px rgba(255, 193, 7, 0.2);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 100000;
+    }
+    .nav-item-dropdown:hover > .dropdown-tray,
+    .nav-item-dropdown:focus-within > .dropdown-tray {
+        display: flex !important;
+        flex-direction: column;
+        gap: 6px;
+    }
+    .dropdown-tray.mega-tray {
+        min-width: 620px;
+        right: -100px;
+    }
+    .nav-item-dropdown:hover > .dropdown-tray.mega-tray,
+    .nav-item-dropdown:focus-within > .dropdown-tray.mega-tray {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+}
+
+.dropdown-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    color: #cbd5e1 !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    border: 1px solid transparent !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    direction: rtl !important;
+    text-align: right !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+.dropdown-item:hover {
+    background: rgba(255, 193, 7, 0.1) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    color: #fff !important;
+    transform: translateX(-4px) !important;
+}
+.dropdown-item.item-emerald:hover {
+    background: rgba(0, 255, 136, 0.1) !important;
+    border-color: rgba(0, 255, 136, 0.3) !important;
+}
+.dropdown-item.item-cyan:hover {
+    background: rgba(0, 240, 255, 0.1) !important;
+    border-color: rgba(0, 240, 255, 0.3) !important;
+}
+.dropdown-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    margin: 0 !important;
+}
+.dropdown-item-text {
+    display: block !important;
+    text-align: right !important;
+    direction: rtl !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dropdown-item-text strong {
+    display: block !important;
+    font-size: 0.94rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 2px 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+}
+.dropdown-item-text span {
+    display: block !important;
+    font-size: 0.78rem !important;
+    color: #94a3b8 !important;
+    margin: 0 !important;
+    text-align: right !important;
+    direction: rtl !important;
+    line-height: 1.4 !important;
+    width: 100% !important;
+}
+
+/* Desktop CTA Buttons */
+.btn-crm-nav {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    padding: 7px 16px !important;
+    border-radius: 9999px !important;
+    font-weight: 800 !important;
+    font-size: clamp(0.82rem, 1vw, 0.9rem) !important;
+    background: rgba(255, 193, 7, 0.12) !important;
+    color: #ffd700 !important;
+    border: 1px solid rgba(255, 193, 7, 0.45) !important;
+    box-shadow: 0 0 16px rgba(255, 193, 7, 0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    font-family: inherit !important;
+}
+.btn-crm-nav:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    box-shadow: 0 0 25px rgba(255, 193, 7, 0.7) !important;
+    transform: translateY(-2px) !important;
+}
+
+.btn-nav {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 8px 20px !important;
+    border-radius: 9999px !important;
+    font-weight: 900 !important;
+    font-size: clamp(0.85rem, 1vw, 0.92rem) !important;
+    background: linear-gradient(135deg, #00ff88 0%, #00e5ff 100%) !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 0 22px rgba(0, 255, 136, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+}
+.btn-nav:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #ff9800 100%) !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px) scale(1.04) !important;
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.85) !important;
+}
+
+/* ==========================================================================
+   MOBILE HEADER BAR (<= 1024px) - Clean Hamburger Only + Working Drawer
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .nav-actions-desktop {
+        display: none !important;
+    }
+    
+    .mobile-actions-group {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0 !important;
+        flex-shrink: 0 !important;
+    }
+    
+    .btn-wa-mobile-bar {
+        display: none !important; /* Removed as requested */
+    }
+    
+    /* Hamburger Menu Button - Clean Square with High Contrast */
+    .mobile-nav-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        max-width: 42px !important;
+        padding: 0 !important;
+        border-radius: 12px !important;
+        background: rgba(255, 193, 7, 0.12) !important;
+        border: 1px solid rgba(255, 193, 7, 0.45) !important;
+        color: #ffd700 !important;
+        cursor: pointer !important;
+        flex-shrink: 0 !important;
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.2) !important;
+        transition: all 0.2s ease !important;
+    }
+    .mobile-nav-toggle:active,
+    .mobile-nav-toggle.is-active {
+        background: rgba(255, 193, 7, 0.25) !important;
+        border-color: #ffffff !important;
+        transform: scale(0.96) !important;
+    }
+    .mobile-nav-toggle svg {
+        width: 22px !important;
+        height: 22px !important;
+        stroke: #ffd700 !important;
+        display: block !important;
+        margin: 0 auto !important;
+        pointer-events: none !important;
+    }
+    .mobile-nav-toggle span {
+        display: none !important;
+    }
+    
+    /* Mobile Navigation Drawer */
+    .nav-links {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: #08090f !important;
+        border-bottom: 2px solid rgba(255, 193, 7, 0.45) !important;
+        padding: 20px clamp(16px, 4vw, 28px) 30px clamp(16px, 4vw, 28px) !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.98) !important;
+        z-index: 99999 !important;
+        max-height: 82vh !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .nav-links.active-mobile {
+        display: flex !important;
+    }
+    
+    .nav-links > a,
+    .nav-links .dropdown-trigger {
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        padding: 12px 6px !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        direction: rtl !important;
+        text-align: right !important;
+        color: #e2e8f0 !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+        background: none !important;
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        cursor: pointer !important;
+        font-family: inherit !important;
+    }
+    .nav-links > a:active,
+    .nav-links .dropdown-trigger:active {
+        color: #ffd700 !important;
+    }
+    
+    /* Mobile Dropdown Accordion Behavior */
+    .nav-item-dropdown {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .nav-item-dropdown .dropdown-tray,
+    .nav-item-dropdown .dropdown-tray.mega-tray {
+        display: none !important;
+        position: static !important;
+        box-shadow: none !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 193, 7, 0.25) !important;
+        border-radius: 12px !important;
+        padding: 8px !important;
+        margin: 6px 0 10px 0 !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+    
+    .nav-item-dropdown.mobile-open > .dropdown-tray,
+    .nav-item-dropdown.mobile-open > .dropdown-tray.mega-tray {
+        display: flex !important;
+    }
+    
+    .nav-item-dropdown .dropdown-trigger svg {
+        transition: transform 0.25s ease !important;
+    }
+    .nav-item-dropdown.mobile-open .dropdown-trigger svg {
+        transform: rotate(180deg) !important;
+        stroke: #ffd700 !important;
+    }
+    
+    .mobile-drawer-bottom-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px !important;
+        width: 100% !important;
+        margin-top: 16px !important;
+        padding-top: 16px !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+    
+    .mobile-drawer-btn {
+        flex: 1 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 12px 8px !important;
+        border-radius: 10px !important;
+        font-size: 0.9rem !important;
+        font-weight: 800 !important;
+        text-decoration: none !important;
+        cursor: pointer !important;
+        border: 1px solid transparent !important;
+        white-space: nowrap !important;
+    }
+    .mobile-drawer-btn.call {
+        background: rgba(0, 255, 136, 0.12) !important;
+        color: #00ff88 !important;
+        border-color: rgba(0, 255, 136, 0.35) !important;
+    }
+    .mobile-drawer-btn.crm {
+        background: rgba(255, 193, 7, 0.12) !important;
+        color: #ffd700 !important;
+        border-color: rgba(255, 193, 7, 0.35) !important;
+    }
+}
+
 </style>
     <!-- Async Non-blocking Full Production Stylesheet -->
     <noscript></noscript>
@@ -1570,7 +2051,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.min.css?v=20260916_v1">
+    <link rel="stylesheet" href="styles.min.css?v=20260916_v2">
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
@@ -1597,6 +2078,7 @@
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
         <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile) -->
+        <!-- Header / Navigation Bar (Option 1 Desktop & Option 2 Mobile - Clean & Functional) -->
     <header class="navbar">
         <div class="container nav-container">
             <!-- 1. Logo (Right in RTL / Start): Text on Left, Cube Logo Image on Right -->
@@ -1607,23 +2089,20 @@
                 </a>
             </div>
 
-            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: Clean Icon-Only Buttons) -->
+            <!-- 2. Mobile Actions Group (Hidden on Desktop > 1024px, Visible on Mobile <= 1024px: Clean Hamburger Button Only) -->
             <div class="mobile-actions-group">
-                <a href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%95%D7%97%D7%97" target="_blank" rel="noopener noreferrer" class="btn-wa-mobile-bar" aria-label="וואטסאפ איגור" title="וואטסאפ">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.586 1.861.948 2.791.948 3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.769-5.769-5.769zm10.009 5.767c-.002 5.49-4.469 9.957-9.959 9.957-1.748 0-3.373-.453-4.787-1.246l-5.334 1.398 1.423-5.201c-.886-1.464-1.392-3.176-1.392-5.008.002-5.49 4.469-9.957 9.959-9.957 5.49 0 9.958 4.467 9.959 9.957z"/></svg>
-                </a>
-                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="תפריט ניווט" title="תפריט" aria-expanded="false" onclick="var nl=document.querySelector('.nav-links');if(nl){var open=nl.classList.toggle('active-mobile');this.setAttribute('aria-expanded',open);}">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="פתח תפריט ניווט" title="תפריט" aria-expanded="false" onclick="window.toggleGorMobileMenu(event)">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffd700" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </div>
 
-            <!-- 3. Navigation Links (Centered in Desktop - ONLY clean links!) -->
+            <!-- 3. Navigation Links (Centered in Desktop - Working Accordion on Mobile) -->
             <nav class="nav-links" id="mainNavLinks">
                 <a href="index.html">בית</a>
 
                 <!-- 1. שירותי 360° -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         שירותי 360° <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -1674,7 +2153,7 @@
 
                 <!-- 2. אפליקציות SaaS -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         אפליקציות SaaS <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -1704,7 +2183,7 @@
 
                 <!-- 3. סוכני AI -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         סוכני AI <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray">
@@ -1734,7 +2213,7 @@
 
                 <!-- 4. מרכז הידע -->
                 <div class="nav-item-dropdown">
-                    <button class="dropdown-trigger" type="button">
+                    <button class="dropdown-trigger" type="button" onclick="window.toggleGorDropdown(this, event)">
                         מרכז הידע <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 4px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="dropdown-tray mega-tray">
@@ -3871,56 +4350,59 @@ if (Object.values(S_A11Y).some(Boolean)) {
 })();
 </script>
 
+
+
+
 <script>
-(function() {
-    function setupMobileMenu() {
-        var toggleBtn = document.getElementById('mobileNavToggle');
-        var navLinks = document.querySelector('.nav-links');
-        if (!toggleBtn || !navLinks) return;
-
-        // Clean any duplicate listeners by cloning or direct listener
-        toggleBtn.onclick = function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            var isOpen = navLinks.classList.contains('active-mobile');
-            if (isOpen) {
-                navLinks.classList.remove('active-mobile');
-                toggleBtn.setAttribute('aria-expanded', 'false');
-                toggleBtn.classList.remove('is-active');
-            } else {
-                navLinks.classList.add('active-mobile');
-                toggleBtn.setAttribute('aria-expanded', 'true');
-                toggleBtn.classList.add('is-active');
-            }
-        };
-
-        // Close on nav link click
-        navLinks.querySelectorAll('a').forEach(function(a) {
-            a.addEventListener('click', function() {
-                navLinks.classList.remove('active-mobile');
-                toggleBtn.setAttribute('aria-expanded', 'false');
-                toggleBtn.classList.remove('is-active');
-            });
-        });
-
-        // Close when tapping outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.navbar') && navLinks.classList.contains('active-mobile')) {
-                navLinks.classList.remove('active-mobile');
-                toggleBtn.setAttribute('aria-expanded', 'false');
-                toggleBtn.classList.remove('is-active');
-            }
-        });
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMobileMenu);
+window.toggleGorMobileMenu = function(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    var toggleBtn = document.getElementById('mobileNavToggle');
+    var navLinks = document.getElementById('mainNavLinks') || document.querySelector('.nav-links');
+    if (!navLinks) return;
+    
+    var isOpen = navLinks.classList.contains('active-mobile');
+    if (isOpen) {
+        navLinks.classList.remove('active-mobile');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.classList.remove('is-active');
+        }
     } else {
-        setupMobileMenu();
+        navLinks.classList.add('active-mobile');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-expanded', 'true');
+            toggleBtn.classList.add('is-active');
+        }
     }
-    // Re-verify on window load
-    window.addEventListener('load', setupMobileMenu);
-})();
+};
+
+window.toggleGorDropdown = function(btn, e) {
+    if (window.innerWidth <= 1024) {
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        var parent = btn.closest('.nav-item-dropdown');
+        if (parent) {
+            var wasOpen = parent.classList.contains('mobile-open');
+            document.querySelectorAll('.nav-item-dropdown.mobile-open').forEach(function(el) {
+                if (el !== parent) el.classList.remove('mobile-open');
+            });
+            parent.classList.toggle('mobile-open', !wasOpen);
+        }
+    }
+};
+
+document.addEventListener('click', function(e) {
+    var navLinks = document.getElementById('mainNavLinks') || document.querySelector('.nav-links');
+    var toggleBtn = document.getElementById('mobileNavToggle');
+    if (navLinks && navLinks.classList.contains('active-mobile')) {
+        if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('active-mobile');
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', 'false');
+                toggleBtn.classList.remove('is-active');
+            }
+        }
+    }
+});
 </script>
 
 </body>
