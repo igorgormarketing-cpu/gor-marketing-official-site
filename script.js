@@ -1126,107 +1126,27 @@ function initGorMarketingInteractive() {
     function renderNavbarAuth() {
         ensureModal();
         const session = getSession();
-        const navContainers = document.querySelectorAll('.nav-links');
 
-        navContainers.forEach(nav => {
-            // Remove previous instances if any
-            const existingBtn = nav.querySelector('.btn-crm-nav');
-            const existingWidget = nav.querySelector('.crm-user-profile-widget');
-            if (existingBtn) existingBtn.remove();
-            if (existingWidget) existingWidget.remove();
-
+        // 1. Bind to Desktop CRM Button (NEVER create duplicates inside .nav-links)
+        const desktopTriggers = document.querySelectorAll('.nav-actions-desktop #gorCrmTrigger, .nav-actions-desktop .btn-crm-nav');
+        desktopTriggers.forEach(btn => {
             if (session && session.isLoggedIn) {
-                // Render Gmail-Style User Profile Avatar (Top Left / Nav)
-                const widget = document.createElement('div');
-                widget.className = 'crm-user-profile-widget';
-                widget.id = 'gorCrmUserWidget';
-                widget.innerHTML = `
-                    <button type="button" class="crm-user-avatar-btn" id="gorCrmAvatarBtn" aria-label="תפריט משתמש ${session.name}" aria-expanded="false">
-                        <div class="crm-avatar-circle">
-                            <span>${session.initials || 'G'}</span>
-                            <span class="crm-online-dot" title="מחובר ל-CRM"></span>
-                        </div>
-                        <div class="crm-user-info-text">
-                            <span class="crm-user-name">${session.name}</span>
-                            <span class="crm-user-status-text">GOR CRM</span>
-                        </div>
-                        <i class="fas fa-chevron-down" style="font-size: 0.65rem; color: var(--gold-bright); margin-right: 4px;"></i>
-                    </button>
-                    <div class="crm-user-tray" id="gorCrmUserTray">
-                        <div class="crm-tray-header">
-                            <div class="crm-tray-avatar">${session.initials || 'G'}</div>
-                            <div class="crm-tray-user-details">
-                                <span class="crm-tray-name">${session.name}</span>
-                                <span class="crm-tray-email">${session.email}</span>
-                                <span class="crm-tray-badge"><i class="fas fa-bolt"></i> ${session.role || 'משתמש מורשה'}</span>
-                            </div>
-                        </div>
-                        <div class="crm-tray-actions">
-                            <a href="https://gormarketing.netlify.app/" target="_blank" rel="noopener" class="crm-tray-btn crm-tray-btn-primary">
-                                <span><i class="fas fa-external-link-alt"></i> כניסה לאפליקציית GOR CRM</span>
-                                <i class="fas fa-arrow-left"></i>
-                            </a>
-                            <a href="https://gormarketing.netlify.app/" target="_blank" rel="noopener" class="crm-tray-btn">
-                                <span><i class="fas fa-users-cog"></i> ניהול לידים ופרויקטים</span>
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                            <button type="button" class="crm-tray-btn crm-tray-logout" id="gorCrmLogoutAction">
-                                <span><i class="fas fa-sign-out-alt"></i> התנתקות מהמערכת</span>
-                                <i class="fas fa-power-off"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-
-                // Insert at the beginning or end of nav
-                const contactBtn = nav.querySelector('.btn-nav');
-                if (contactBtn) {
-                    nav.insertBefore(widget, contactBtn);
-                } else {
-                    nav.appendChild(widget);
-                }
-
-                // Setup Tray toggle
-                const avatarBtn = widget.querySelector('#gorCrmAvatarBtn');
-                const tray = widget.querySelector('#gorCrmUserTray');
-                const logoutBtn = widget.querySelector('#gorCrmLogoutAction');
-
-                if (avatarBtn && tray) {
-                    avatarBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        const isActive = tray.classList.toggle('active');
-                        avatarBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                    };
-                }
-
-                if (logoutBtn) {
-                    logoutBtn.onclick = (e) => {
-                        e.stopPropagation();
-                        handleLogout();
-                    };
-                }
+                btn.innerHTML = '<i class="fas fa-user-check"></i> <span>' + (session.name || 'מחובר ל-CRM') + '</span>';
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    window.open('https://gorcrm.netlify.app/', '_blank');
+                };
             } else {
-                // Render "כניסה ל-CRM" Button
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'btn-crm-nav';
-                btn.id = 'gorCrmTrigger';
-                btn.setAttribute('aria-label', 'כניסה למערכת GOR CRM');
-                btn.innerHTML = '<i class="fas fa-user-shield"></i> <span>כניסה ל-CRM</span>';
-
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> <span>כניסה ל-CRM</span>';
                 btn.onclick = (e) => {
                     e.preventDefault();
                     openModal();
                 };
-
-                const contactBtn = nav.querySelector('.btn-nav');
-                if (contactBtn) {
-                    nav.insertBefore(btn, contactBtn);
-                } else {
-                    nav.appendChild(btn);
-                }
             }
         });
+
+        // Remove any leftover duplicate injected buttons from .nav-links
+        document.querySelectorAll('.nav-links .btn-crm-nav, .nav-links #gorCrmTrigger, .nav-links .crm-user-profile-widget').forEach(el => el.remove());
 
         // 2. Render / Bind in Mobile Header Controls
         const mobileTriggers = document.querySelectorAll('#gorCrmTriggerMobile, .btn-crm-mobile-bar');
