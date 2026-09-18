@@ -1,163 +1,124 @@
 /**
- * GOR MARKETING - HIGH PERFORMANCE DEFERRED INITIALIZER
+ * GOR MARKETING - WCAG 2.1 AA & ISRAELI STANDARD 1918 ACCESSIBILITY ENGINE
  */
-function initGorA11yWidget() {
+(function() {
+    function initA11y() {
+        if (document.getElementById('gor-accessibility-widget')) return;
 
-    // 1. Create Skip to Content
-    if (!document.querySelector('.skip-to-content')) {
-        const skip = document.createElement('a');
-        skip.href = '#main-content';
-        skip.className = 'skip-to-content';
-        skip.innerText = 'דלג לתוכן המרכזי ⬇';
-        document.body.prepend(skip);
-    }
-
-    // Set id for main
-    const mainEl = document.querySelector('main');
-    if (mainEl && !mainEl.id) {
-        mainEl.id = 'main-content';
-    }
-
-    // 2. Remove any existing widget to prevent duplicates
-    const existing = document.getElementById('gor-accessibility-widget');
-    if (existing) existing.remove();
-
-    // 3. Create Floating Accessibility Trigger & Modal
-    const modalHtml = `
-    <button class="accessibility-trigger" aria-label="פתח תפריט נגישות" title="תפריט נגישות (תקן AA - Alt+A)">
-        <i class="fas fa-universal-access" aria-hidden="true"></i>
-    </button>
-
-    <div class="accessibility-modal" role="dialog" aria-modal="true" aria-labelledby="a11y-title" tabindex="-1">
-        <div class="a11y-header">
-            <h3 id="a11y-title"><i class="fas fa-universal-access" style="color: var(--cyan-accent);"></i> תפריט נגישות (תקן 5568)</h3>
-            <button class="a11y-close" aria-label="סגור תפריט נגישות">&times;</button>
-        </div>
-
-        <div class="a11y-grid">
-            <button type="button" class="a11y-btn" data-action="font-plus"><i class="fas fa-text-height"></i> הגדל טקסט</button>
-            <button type="button" class="a11y-btn" data-action="font-minus"><i class="fas fa-text-width"></i> הקטן טקסט</button>
-            <button type="button" class="a11y-btn" data-action="high-contrast"><i class="fas fa-adjust"></i> ניגודיות גבוהה</button>
-            <button type="button" class="a11y-btn" data-action="invert-colors"><i class="fas fa-eye"></i> ניגודיות הפוכה</button>
-            <button type="button" class="a11y-btn" data-action="highlight-links"><i class="fas fa-link"></i> הדגש קישורים</button>
-            <button type="button" class="a11y-btn" data-action="readable-font"><i class="fas fa-font"></i> גופן קריא</button>
-            <button type="button" class="a11y-btn" data-action="stop-animations"><i class="fas fa-pause"></i> עצור אנימציות</button>
-            <button type="button" class="a11y-btn" data-action="big-cursor"><i class="fas fa-mouse-pointer"></i> סמן מוגדל</button>
-        </div>
-
-        <div class="a11y-footer">
-            <button type="button" class="a11y-btn a11y-reset" data-action="reset"><i class="fas fa-redo"></i> איפוס הגדרות</button>
-            <a href="accessibility.html" class="a11y-statement-link"><i class="fas fa-file-alt"></i> הצהרת נגישות</a>
-        </div>
-    </div>`;
-
-    const widgetWrap = document.createElement('div');
-    widgetWrap.id = 'gor-accessibility-widget';
-    widgetWrap.innerHTML = modalHtml;
-    document.body.appendChild(widgetWrap);
-
-    const trigger = widgetWrap.querySelector('.accessibility-trigger');
-    const modal = widgetWrap.querySelector('.accessibility-modal');
-    const closeBtn = widgetWrap.querySelector('.a11y-close');
-    const buttons = widgetWrap.querySelectorAll('.a11y-btn');
-
-    let currentFontSize = 100;
-
-    function toggleModal() {
-        const isOpen = modal.classList.toggle('active');
-        trigger.setAttribute('aria-expanded', isOpen);
-        if (isOpen) {
-            modal.focus();
-        } else {
-            trigger.focus();
+        // 1. Create Skip-to-content
+        if (!document.querySelector('.skip-to-content')) {
+            const skip = document.createElement('a');
+            skip.href = '#main-content';
+            skip.className = 'skip-to-content';
+            skip.innerText = 'דלג לתוכן המרכזי ⬇';
+            document.body.prepend(skip);
         }
-    }
 
-    trigger.addEventListener('click', toggleModal);
-    closeBtn.addEventListener('click', toggleModal);
+        const main = document.querySelector('main');
+        if (main && !main.id) main.id = 'main-content';
 
-    // Keyboard Shortcut Alt+A
-    document.addEventListener('keydown', (e) => {
-        if (e.altKey && (e.key === 'a' || e.key === 'A' || e.key === 'ש')) {
-            e.preventDefault();
-            toggleModal();
+        // 2. Accessibility Widget DOM
+        const widgetContainer = document.createElement('div');
+        widgetContainer.id = 'gor-accessibility-widget';
+        widgetContainer.innerHTML = `
+            <button type="button" class="accessibility-trigger" id="gorA11yTriggerBtn" aria-label="פתח תפריט נגישות (תקן ישראלי 1918 - קיצור Alt+A)" title="תפריט נגישות (Alt+A)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M18 9h-4V7a2 2 0 0 0-4 0v2H6a2 2 0 0 0-2 2v2h2v7a2 2 0 0 0 2 2h2v-6h4v6h2a2 2 0 0 0 2-2v-7h2v-2a2 2 0 0 0-2-2z"></path></svg>
+            </button>
+            <div class="accessibility-panel" id="gorA11yPanel" role="dialog" aria-modal="true" aria-label="תפריט התאמת נגישות" style="display:none;">
+                <div class="a11y-header">
+                    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4M12 16h.01"></path></svg> כלי נגישות (תקן 1918)</h3>
+                    <button type="button" class="a11y-close" id="gorA11yCloseBtn" aria-label="סגור תפריט נגישות">✕</button>
+                </div>
+                <div class="a11y-grid">
+                    <button type="button" class="a11y-btn" data-a11y="contrast-high" aria-pressed="false"><span class="icon">🌓</span> <span>ניגודיות גבוהה</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="contrast-invert" aria-pressed="false"><span class="icon">🔄</span> <span>היפוך צבעים</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="contrast-mono" aria-pressed="false"><span class="icon">⬛</span> <span>גווני אפור</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="font-inc"><span class="icon">A+</span> <span>הגדל טקסט</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="font-dec"><span class="icon">A-</span> <span>הקטן טקסט</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="readable-font" aria-pressed="false"><span class="icon">🔤</span> <span>גופן קריא</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="highlight-links" aria-pressed="false"><span class="icon">🔗</span> <span>הדגש קישורים</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="big-cursor" aria-pressed="false"><span class="icon">🖱️</span> <span>סמן מוגדל</span></button>
+                    <button type="button" class="a11y-btn" data-a11y="stop-animations" aria-pressed="false"><span class="icon">⏹️</span> <span>עצור אנימציות</span></button>
+                    <button type="button" class="a11y-btn a11y-btn-reset" data-a11y="reset"><span class="icon">↺</span> <span>איפוס הגדרות</span></button>
+                </div>
+                <div class="a11y-footer">
+                    <a href="/accessibility.html" class="a11y-statement-link">הצהרת נגישות מפורטת ←</a>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(widgetContainer);
+
+        // 3. Logic & State Management
+        const trigger = document.getElementById('gorA11yTriggerBtn');
+        const panel = document.getElementById('gorA11yPanel');
+        const close = document.getElementById('gorA11yCloseBtn');
+
+        function togglePanel(open) {
+            const isVisible = open !== undefined ? open : panel.style.display !== 'none';
+            panel.style.display = isVisible ? 'none' : 'block';
+            trigger.setAttribute('aria-expanded', !isVisible);
         }
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            toggleModal();
-        }
-    });
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const action = btn.getAttribute('data-action');
-            handleAction(action, btn);
+        trigger.onclick = () => togglePanel();
+        close.onclick = () => togglePanel(false);
+
+        // Keyboard Shortcut Alt+A
+        document.addEventListener('keydown', (e) => {
+            if (e.altKey && (e.key === 'a' || e.key === 'A' || e.key === 'ש')) {
+                e.preventDefault();
+                togglePanel();
+            } else if (e.key === 'Escape' && panel.style.display === 'block') {
+                togglePanel(false);
+            }
         });
-    });
 
-    function handleAction(action, btn) {
-        const body = document.body;
-        const html = document.documentElement;
+        // Button Handlers
+        let fontScale = 100;
+        widgetContainer.querySelectorAll('.a11y-btn').forEach(btn => {
+            btn.onclick = () => {
+                const action = btn.dataset.a11y;
+                const html = document.documentElement;
 
-        switch (action) {
-            case 'font-plus':
-                if (currentFontSize < 130) {
-                    currentFontSize += 10;
-                    html.style.fontSize = currentFontSize + '%';
+                if (action === 'contrast-high') {
+                    html.classList.toggle('a11y-contrast-high');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-contrast-high'));
+                } else if (action === 'contrast-invert') {
+                    html.classList.toggle('a11y-contrast-invert');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-contrast-invert'));
+                } else if (action === 'contrast-mono') {
+                    html.classList.toggle('a11y-contrast-mono');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-contrast-mono'));
+                } else if (action === 'font-inc') {
+                    if (fontScale < 130) fontScale += 10;
+                    document.body.style.fontSize = fontScale + '%';
+                } else if (action === 'font-dec') {
+                    if (fontScale > 90) fontScale -= 10;
+                    document.body.style.fontSize = fontScale + '%';
+                } else if (action === 'readable-font') {
+                    html.classList.toggle('a11y-readable-font');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-readable-font'));
+                } else if (action === 'highlight-links') {
+                    html.classList.toggle('a11y-highlight-links');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-highlight-links'));
+                } else if (action === 'big-cursor') {
+                    html.classList.toggle('a11y-big-cursor');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-big-cursor'));
+                } else if (action === 'stop-animations') {
+                    html.classList.toggle('a11y-stop-animations');
+                    btn.setAttribute('aria-pressed', html.classList.contains('a11y-stop-animations'));
+                } else if (action === 'reset') {
+                    html.classList.remove('a11y-contrast-high', 'a11y-contrast-invert', 'a11y-contrast-mono', 'a11y-readable-font', 'a11y-highlight-links', 'a11y-big-cursor', 'a11y-stop-animations');
+                    fontScale = 100;
+                    document.body.style.fontSize = '';
+                    widgetContainer.querySelectorAll('.a11y-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
                 }
-                break;
-            case 'font-minus':
-                if (currentFontSize > 80) {
-                    currentFontSize -= 10;
-                    html.style.fontSize = currentFontSize + '%';
-                }
-                break;
-            case 'high-contrast':
-                body.classList.toggle('a11y-high-contrast');
-                btn.classList.toggle('active');
-                break;
-            case 'invert-colors':
-                body.classList.toggle('a11y-invert');
-                btn.classList.toggle('active');
-                break;
-            case 'highlight-links':
-                body.classList.toggle('a11y-highlight-links');
-                btn.classList.toggle('active');
-                break;
-            case 'readable-font':
-                body.classList.toggle('a11y-readable-font');
-                btn.classList.toggle('active');
-                break;
-            case 'stop-animations':
-                body.classList.toggle('a11y-stop-animations');
-                btn.classList.toggle('active');
-                break;
-            case 'big-cursor':
-                body.classList.toggle('a11y-big-cursor');
-                btn.classList.toggle('active');
-                break;
-            case 'reset':
-                currentFontSize = 100;
-                html.style.fontSize = '';
-                body.className = body.className.replace(/a11y-[\w-]+/g, '').trim();
-                buttons.forEach(b => b.classList.remove('active'));
-                break;
-        }
+            };
+        });
     }
 
-}
-
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    if ('requestIdleCallback' in window) {
-        requestIdleCallback(initGorA11yWidget, { timeout: 1500 });
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initA11y);
     } else {
-        setTimeout(initGorA11yWidget, 50);
+        initA11y();
     }
-} else {
-    document.addEventListener('DOMContentLoaded', () => {
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(initGorA11yWidget, { timeout: 1500 });
-        } else {
-            setTimeout(initGorA11yWidget, 50);
-        }
-    });
-}
+})();

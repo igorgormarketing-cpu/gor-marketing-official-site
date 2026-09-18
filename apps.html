@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
       <!-- Google Search & Browser Identity Favicons (Google Search Console Spec) -->
   <link rel="icon" href="https://www.gormarketing.com/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="48x48" href="https://www.gormarketing.com/favicon-48x48.png?v=20260918_01">
+  <link rel="icon" type="image/png" sizes="48x48" href="https://www.gormarketing.com/favicon-48x48.png?v=20260918_02">
   <link rel="icon" type="image/png" sizes="96x96" href="https://www.gormarketing.com/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="144x144" href="https://www.gormarketing.com/favicon-144x144.png">
   <link rel="icon" type="image/png" sizes="192x192" href="https://www.gormarketing.com/favicon-192x192.png">
@@ -28,7 +28,7 @@
     
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript></noscript>
-    <link rel="preload" href="styles.min.css?v=20260916_v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260916_v4" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260916_v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260916_v4" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260916_v4"></noscript></noscript>
+    <link rel="preload" href="styles.min.css?v=20260918_02v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260918_02v4" media="print" onload="this.media='all'"><noscript><link rel="preload" href="styles.min.css?v=20260918_02v4" as="style"><link rel="stylesheet" href="styles.min.css?v=20260918_02v4" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.min.css?v=20260918_02v4"></noscript></noscript>
     
     <style>
         body {
@@ -192,7 +192,7 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
         }
     </style>
-    <link rel="stylesheet" href="assets/accessibility.css?v=20260913_desktop_fix">
+    <link rel="stylesheet" href="assets/accessibility.css?v=20260918_02desktop_fix">
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -306,7 +306,7 @@
             <div class="logo-container">
                 <a href="index.html" class="logo-link" aria-label="GOR MARKETING דף הבית">
                     <div class="logo-text" dir="ltr"><span class="logo-white">GOR</span> <span class="logo-gold">MARKETING</span></div>
-                    <img src="favicon-48x48.png?v=20260918_01" alt="GOR MARKETING" width="38" height="38">
+                    <img src="favicon-48x48.png?v=20260918_02" alt="GOR MARKETING" width="38" height="38">
                 </a>
             </div>
 
@@ -1006,7 +1006,7 @@
                     <div style="color: var(--emerald-primary); font-size: 0.75rem; font-weight: 600;">● מחובר | מענה מיידי</div>
                 </div>
             </div>
-            <button id="gor-bot-close" aria-label="סגירת חלון הצ'אט">&times;</button>
+            <button type="button" id="gor-bot-close" aria-label="סגירת חלון הצ'אט">&times;</button>
         </div>
 
         <div id="gor-bot-body" class="gor-bot-body">
@@ -1049,17 +1049,17 @@
     <div id="accessibilityPanel" class="accessibility-modal" role="dialog" aria-modal="true" aria-label="סרגל נגישות">
         <div class="a11y-header">
             <h3><i class="fas fa-universal-access"></i> תפריט נגישות</h3>
-            <button id="a11yCloseBtn" class="a11y-close" aria-label="סגור תפריט נגישות">&times;</button>
+            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגור תפריט נגישות">&times;</button>
         </div>
         <div class="a11y-grid">
-            <button class="a11y-btn" onclick="toggleA11y('font-lg')"><i class="fas fa-text-height"></i> הגדל טקסט</button>
-            <button class="a11y-btn" onclick="toggleA11y('contrast-high')"><i class="fas fa-adjust"></i> ניגודיות גבוהה</button>
-            <button class="a11y-btn" onclick="toggleA11y('links-underline')"><i class="fas fa-underline"></i> הדגש קישורים</button>
-            <button class="a11y-btn" onclick="toggleA11y('readable-font')"><i class="fas fa-font"></i> גופן קריא</button>
-            <button class="a11y-btn" onclick="toggleA11y('monochrome')"><i class="fas fa-palette"></i> גווני אפור</button>
-            <button class="a11y-btn" onclick="toggleA11y('anim-stop')"><i class="fas fa-pause"></i> עצור הנפשות</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('font-lg')"><i class="fas fa-text-height"></i> הגדל טקסט</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('contrast-high')"><i class="fas fa-adjust"></i> ניגודיות גבוהה</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('links-underline')"><i class="fas fa-underline"></i> הדגש קישורים</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('readable-font')"><i class="fas fa-font"></i> גופן קריא</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('monochrome')"><i class="fas fa-palette"></i> גווני אפור</button>
+            <button type="button" class="a11y-btn" onclick="toggleA11y('anim-stop')"><i class="fas fa-pause"></i> עצור הנפשות</button>
         </div>
-        <button class="a11y-btn a11y-btn-reset" onclick="resetA11y()"><i class="fas fa-undo"></i> איפוס הגדרות נגישות</button>
+        <button type="button" class="a11y-btn a11y-btn-reset" onclick="resetA11y()"><i class="fas fa-undo"></i> איפוס הגדרות נגישות</button>
         <div style="text-align: center; margin-top: 6px;">
             <a href="accessibility.html" style="color: var(--cyan-accent); font-size: 0.78rem; text-decoration: underline;">הצהרת נגישות תקן 1918 (AA)</a>
         </div>
@@ -1176,5 +1176,7 @@ document.addEventListener('click', function(e) {
 });
 </script>
 
+    <script defer src="assets/accessibility.js?v=20260918_02"></script>
+    <script defer src="script.min.js?v=20260918_02"></script>
 </body>
 </html>
