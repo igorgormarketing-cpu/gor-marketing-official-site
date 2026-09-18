@@ -1966,40 +1966,48 @@
         color: #ffd700 !important;
     }
     
-    /* Mobile Dropdown Accordion Behavior */
-    .nav-item-dropdown {
-        display: flex !important;
-        flex-direction: column !important;
-        width: 100% !important;
-    }
-    .nav-item-dropdown .dropdown-tray,
-    .nav-item-dropdown .dropdown-tray.mega-tray {
-        display: none !important;
-        position: static !important;
-        box-shadow: none !important;
-        background: rgba(255, 255, 255, 0.03) !important;
-        border: 1px solid rgba(255, 193, 7, 0.25) !important;
-        border-radius: 12px !important;
-        padding: 8px !important;
-        margin: 6px 0 10px 0 !important;
-        min-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        flex-direction: column !important;
-        gap: 6px !important;
-    }
-    
-    .nav-item-dropdown.mobile-open > .dropdown-tray,
-    .nav-item-dropdown.mobile-open > .dropdown-tray.mega-tray {
-        display: flex !important;
-    }
-    
-    .nav-item-dropdown .dropdown-trigger svg {
-        transition: transform 0.25s ease !important;
-    }
-    .nav-item-dropdown.mobile-open .dropdown-trigger svg {
-        transform: rotate(180deg) !important;
-        stroke: #ffd700 !important;
+    /* Mobile Dropdown Accordion Behavior - Clean Toggle Fix */
+    @media (max-width: 1024px) {
+        .nav-item-dropdown {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+        }
+        .nav-item-dropdown .dropdown-tray,
+        .nav-item-dropdown .dropdown-tray.mega-tray,
+        .nav-item-dropdown:hover > .dropdown-tray,
+        .nav-item-dropdown:focus-within > .dropdown-tray {
+            display: none !important;
+            position: static !important;
+            box-shadow: none !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 193, 7, 0.25) !important;
+            border-radius: 12px !important;
+            padding: 8px !important;
+            margin: 6px 0 10px 0 !important;
+            min-width: 100% !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            flex-direction: column !important;
+            gap: 6px !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: none !important;
+        }
+        
+        .nav-item-dropdown.mobile-open > .dropdown-tray,
+        .nav-item-dropdown.mobile-open > .dropdown-tray.mega-tray {
+            display: flex !important;
+        }
+        
+        .nav-item-dropdown .dropdown-trigger svg {
+            transition: transform 0.25s ease !important;
+        }
+        .nav-item-dropdown.mobile-open .dropdown-trigger svg {
+            transform: rotate(180deg) !important;
+            stroke: #ffd700 !important;
+        }
     }
     
     .mobile-drawer-bottom-actions {
@@ -4598,15 +4606,32 @@ window.toggleGorMobileMenu = function(e) {
 };
 
 window.toggleGorDropdown = function(btn, e) {
+    if (e) {
+        if (e.preventDefault) e.preventDefault();
+        if (e.stopPropagation) e.stopPropagation();
+    }
     if (window.innerWidth <= 1024) {
-        if (e) { e.preventDefault(); e.stopPropagation(); }
         var parent = btn.closest('.nav-item-dropdown');
         if (parent) {
-            var wasOpen = parent.classList.contains('mobile-open');
+            var isOpen = parent.classList.contains('mobile-open');
+            
+            // Close all other open dropdowns
             document.querySelectorAll('.nav-item-dropdown.mobile-open').forEach(function(el) {
-                if (el !== parent) el.classList.remove('mobile-open');
+                if (el !== parent) {
+                    el.classList.remove('mobile-open');
+                    var otherBtn = el.querySelector('.dropdown-trigger');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                }
             });
-            parent.classList.toggle('mobile-open', !wasOpen);
+            
+            if (!isOpen) {
+                parent.classList.add('mobile-open');
+                btn.setAttribute('aria-expanded', 'true');
+            } else {
+                parent.classList.remove('mobile-open');
+                btn.setAttribute('aria-expanded', 'false');
+                btn.blur();
+            }
         }
     }
 };
