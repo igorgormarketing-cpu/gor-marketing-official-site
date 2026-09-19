@@ -4388,7 +4388,7 @@ window.askGorBot = function(topic) {
     setTimeout(function() {
         var botBubble = document.createElement('div');
         botBubble.className = 'gor-msg bot';
-        botBubble.innerHTML = data.a + '<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent(data.wa) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;">📲 לחץ כאן להמשך שיחה ישירה עם איגור</a>';
+        botBubble.innerHTML = data.a + '<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent(data.wa) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;" rel="noopener noreferrer">📲 לחץ כאן להמשך שיחה ישירה עם איגור</a>';
         body.appendChild(botBubble);
         body.scrollTop = body.scrollHeight;
     }, 200);
@@ -4410,7 +4410,7 @@ window.sendGorBotMsg = function() {
     setTimeout(function() {
         var botBubble = document.createElement('div');
         botBubble.className = 'gor-msg bot';
-        botBubble.innerHTML = 'תודה על פנייתך! איגור גורלקין זמין כעת בוואטסאפ למענה אישי ומדויק:<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent('היי איגור, שאלתי בצ\'אט ה-AI באתר: ' + userText) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;">📲 שיחה ישירה עם איגור בוואטסאפ</a>';
+        botBubble.innerHTML = 'תודה על פנייתך! איגור גורלקין זמין כעת בוואטסאפ למענה אישי ומדויק:<br><br><a href="https://wa.me/972525155598?text=' + encodeURIComponent('היי איגור, שאלתי בצ\'אט ה-AI באתר: ' + userText) + '" target="_blank" style="color: #F59E0B; font-weight: bold; text-decoration: underline;" rel="noopener noreferrer">📲 שיחה ישירה עם איגור בוואטסאפ</a>';
         body.appendChild(botBubble);
         body.scrollTop = body.scrollHeight;
     }, 250);
