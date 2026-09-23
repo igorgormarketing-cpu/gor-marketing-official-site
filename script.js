@@ -78,99 +78,118 @@ function initGorMarketingInteractive() {
         // Interval removed
     }
 
-                // 3. Interactive Target Lead Goal & Marketing Budget Simulator (כדי לקבל X לידים - כמה תקציב פרסום Y צריך לשלם?)
+                // 3. Interactive Target Lead Goal & Marketing Budget Simulator (Realistic Business & Marketing Benchmark Matrix)
     const channelPresets = {
         omnichannel: {
-            name: 'מערך 360° Omnichannel',
-            badge: '🌐 מערך 360° Omnichannel',
-            icon: 'fa-network-wired',
-            color: '#00ff88',
-            baseCpl: 65,
-            baseConvRate: 0.22,
-            aiBoostFactor: 0.40,
-            insight: 'השילוב האולטימטיבי של GOR MARKETING: חיבור גוגל, מטא, תוכן ו-CRM עם מענה AI תוך 60 שניות מבטיח סגירה הרמטית בעלות המשתלמת ביותר.'
-        },
-        google_ppc: {
-            name: 'גוגל ממומן (Google Ads)',
-            badge: '🎯 גוגל ממומן (PPC / Shopping)',
-            icon: 'fab fa-google',
-            color: '#4285F4',
-            baseCpl: 92,
-            baseConvRate: 0.17,
+            name: 'מערך 360° משולב (Omnichannel)',
+            badge: '🚀 מערך 360° משולב (Omnichannel)',
+            icon: 'fa-cubes',
+            color: '#00f2fe',
+            baseCpl: 85,
+            convMultiplier: 1.25,
             aiBoostFactor: 0.35,
-            insight: 'תנועת חיפוש ממוקדת של לקוחות בעלי כוונת רכישה גבוהה ("High Intent"). איכות לידים מעולה עם יחס סגירה מהיר.'
+            insight: 'האסטרטגיה המובילה של GOR MARKETING: שילוב סינרגטי בין כוונת רכישה מגוגל, חשיפה ברשתות חברתיות, וסגירה מיידית ב-GOR CRM ובסוכני AI.'
+        },
+        google_ads: {
+            name: 'גוגל חיפוש וממומן (Google Ads)',
+            badge: '🎯 גוגל חיפוש וממומן (Google Ads)',
+            icon: 'fab fa-google',
+            color: '#EA4335',
+            baseCpl: 110,
+            convMultiplier: 1.35,
+            aiBoostFactor: 0.30,
+            insight: 'פניות בעלות כוונת רכישה גבוהה ביותר ("High Search Intent"). לקוחות שמחפשים פתרון ברגע זה ומגיעים בשלים לשיחת סגירה.'
         },
         google_seo: {
-            name: 'קידום אורגני (SEO)',
+            name: 'קידום אורגני (SEO Top Rank)',
             badge: '📈 קידום אורגני (SEO Top Rank)',
             icon: 'fa-magnifying-glass-chart',
             color: '#34A853',
-            baseCpl: 45,
-            baseConvRate: 0.15,
-            aiBoostFactor: 0.30,
-            insight: 'השקעה נכונה בנכס דיגיטלי מניב לאורך זמן. עלות לליד הנמוכה ביותר שממשיכה לייצר פניות גם ללא תשלום יומי לקליקים.'
+            baseCpl: 65,
+            convMultiplier: 1.20,
+            aiBoostFactor: 0.25,
+            insight: 'נכס דיגיטלי מניב לאורך זמן. עלות משוקללת נמוכה שממשיכה לייצר פניות איכותיות באופן שוטף ללא תלות בתשלום יומי לקליקים.'
         },
         meta_ads: {
-            name: 'מטא (פייסבוק ואינסטגרם)',
+            name: 'מטא (Facebook & Instagram)',
             badge: '📢 קמפיין מטא (Facebook & IG)',
             icon: 'fa-bullhorn',
             color: '#0081FB',
-            baseCpl: 70,
-            baseConvRate: 0.13,
-            aiBoostFactor: 0.45,
-            insight: 'חשיפה רחבה וטירגוט מדויק לפי תחומי עניין והתנהגות. מתאים במיוחד לפניות ממוקדות ב-B2C ו-B2B.'
+            baseCpl: 75,
+            convMultiplier: 0.95,
+            aiBoostFactor: 0.40,
+            insight: 'טירגוט התנהגותי מדויק ונפח פניות רחב. אידיאלי למיתוג, שירותים מקומיים ומוצרים עם קהל יעד מוגדר.'
         },
         tiktok_ads: {
             name: 'טיקטוק ממומן (TikTok Ads)',
             badge: '📱 טיקטוק ממומן (TikTok Ads)',
             icon: 'fab fa-tiktok',
             color: '#00f2fe',
-            baseCpl: 50,
-            baseConvRate: 0.12,
+            baseCpl: 55,
+            convMultiplier: 0.85,
             aiBoostFactor: 0.45,
-            insight: 'הפלטפורמה הצומחת ביותר עם עלות חשיפה זולה משמעותית. מצוין לווידאו קצר שמייצר נפח פניות גבוה.'
+            insight: 'חשיפה ויראלית בווידאו קצר עם עלות חשיפה (CPM) זולה המייצרת נפח פניות גבוה ומהיר.'
         },
         youtube: {
-            name: 'פרסום וידאו ביוטיוב',
+            name: 'פרסום וידאו ביוטיוב (YouTube Ads)',
             badge: '🎬 פרסום וידאו (YouTube Ads)',
             icon: 'fab fa-youtube',
             color: '#FF0000',
-            baseCpl: 68,
-            baseConvRate: 0.20,
-            aiBoostFactor: 0.40,
-            insight: 'בניית אמון וסמכות מקצועית באמצעות סרטוני ערך. הלקוחות מגיעים מחוממים ומוכנים לסגירה בעסקה גבוהה.'
+            baseCpl: 90,
+            convMultiplier: 1.15,
+            aiBoostFactor: 0.35,
+            insight: 'סרטוני עומק וערך שבונים סמכות מקצועית ואמון עמוק. הלקוחות מגיעים מחוממים ובשלים לעסקאות פרימיום.'
         },
         instagram: {
-            name: 'אינסטגרם ומשפיענים',
+            name: 'אינסטגרם ומיתוג ויזואלי',
             badge: '✨ אינסטגרם ומיתוג ויזואלי',
             icon: 'fab fa-instagram',
             color: '#E1306C',
-            baseCpl: 62,
-            baseConvRate: 0.14,
+            baseCpl: 70,
+            convMultiplier: 0.95,
             aiBoostFactor: 0.35,
-            insight: 'מיתוג פרימיום ומיצוב יוקרתי שמושך לקוחות שמעריכים איכות. מחזק את המותג ומעלה את השווי הממוצע לעסקה.'
+            insight: 'מיתוג פרימיום ויזואלי המושך לקוחות שמעריכים איכות ומעלה את שווי העסקה הממוצע.'
         },
         native_news: {
-            name: 'כתבות תוכן וטאבולה',
+            name: 'כתבות תוכן וטאבולה (Native Ads)',
             badge: '📰 תוכן ממומן (Native Ads)',
             icon: 'fa-newspaper',
             color: '#00bcd4',
-            baseCpl: 110,
-            baseConvRate: 0.18,
-            aiBoostFactor: 0.35,
-            insight: 'כתבות תוכן מעמיקות באתרי חדשות מובילים. מתאים לעסקאות יקרות (High-Ticket) ומחקר מעמיק של הרוכשים.'
+            baseCpl: 130,
+            convMultiplier: 1.10,
+            aiBoostFactor: 0.30,
+            insight: 'כתבות תוכן מעמיקות באתרי החדשות הגדולים. אידיאלי לעסקאות מורכבות (High-Ticket) ומחקר צרכני מעמיק.'
         },
         whatsapp_retention: {
-            name: 'מועדון וואטסאפ ושימור',
+            name: 'מועדון לקוחות וואטסאפ ושימור',
             badge: '💬 מועדון לקוחות וסוכני AI',
             icon: 'fab fa-whatsapp',
             color: '#25D366',
-            baseCpl: 20,
-            baseConvRate: 0.25,
-            aiBoostFactor: 0.50,
-            insight: 'הרווחיות הגבוהה ביותר: מעל 95% אחוזי פתיחה בוואטסאפ עם סוכני AI שמבצעים שימור ומכירה חוזרת ללקוחות קיימים.'
+            baseCpl: 25,
+            convMultiplier: 2.20,
+            aiBoostFactor: 0.40,
+            insight: 'ערוץ הרווחיות המקסימלית: פנייה ללקוחות קיימים עם מעל 95% אחוזי פתיחה וסוכני AI שמבצעים מכירה חוזרת.'
         }
     };
+
+    // Realistic Ticket Scaling Models
+    function getDealMultiplier(dealVal) {
+        if (dealVal <= 2000) return 0.70;
+        if (dealVal <= 4000) return 0.85;
+        if (dealVal <= 8000) return 1.00;
+        if (dealVal <= 15000) return 1.30;
+        if (dealVal <= 30000) return 1.70;
+        return 2.10;
+    }
+
+    function getDealBaseConversion(dealVal) {
+        if (dealVal <= 2000) return 0.14;   // 14%
+        if (dealVal <= 4000) return 0.10;   // 10%
+        if (dealVal <= 8000) return 0.075;  // 7.5%
+        if (dealVal <= 15000) return 0.050; // 5.0%
+        if (dealVal <= 30000) return 0.035; // 3.5%
+        return 0.025;                       // 2.5%
+    }
 
     // SEO Position Matrix Data
     const seoPosConfig = {
@@ -181,19 +200,19 @@ function initGorMarketingInteractive() {
             page1_bottom: { label: 'תחתית עמוד 1 (7-10)', factor: 0.85, timeMin: 2, timeMax: 3, effortText: 'אופטימיזציית On-Page ממוקדת והרחבת סמכות דומיין' }
         },
         target: {
-            top3: { label: '🥇 מקומות 1-3 (פודיום גוגל)', baseCpl: 42, ctr: '~32% (מקומות 1-3)', convBoost: 0.22, note: 'כיבוש שלישיית הצמרת של גוגל: מייצר מעל 60% מכלל התנועה והפניות האורגניות בתחום.' },
-            top6: { label: '🥈 מקומות 4-6 (עמוד 1 מרכזי)', baseCpl: 52, ctr: '~14% (מקומות 4-6)', convBoost: 0.16, note: 'נוכחות יציבה במרכז העמוד הראשון של גוגל עם זרימת לידים שוטפת.' },
-            top10: { label: '🥉 מקומות 7-10 (חדירה לעמוד 1)', baseCpl: 65, ctr: '~6% (מקומות 7-10)', convBoost: 0.12, note: 'חדירה ראשונית לעמוד התוצאות הראשון של גוגל.' },
-            top3_maps: { label: '🗺️ מקומות 1-3 + Google Maps', baseCpl: 36, ctr: '~38% (פודיום + מפות)', convBoost: 0.25, note: 'שליטה לוקאלית מלאה: תוצאה אורגנית עליונה יחד עם נוכחות בולטת ב-Google Maps.' }
+            top3: { label: '🥇 מקומות 1-3 (פודיום גוגל)', baseCpl: 65, ctr: '~32% (מקומות 1-3)', convMultiplier: 1.35, note: 'כיבוש שלישיית הצמרת של גוגל: מייצר מעל 60% מכלל התנועה והפניות האורגניות בתחום.' },
+            top6: { label: '🥈 מקומות 4-6 (עמוד 1 מרכזי)', baseCpl: 75, ctr: '~14% (מקומות 4-6)', convMultiplier: 1.20, note: 'נוכחות יציבה במרכז העמוד הראשון של גוגל עם זרימת לידים שוטפת.' },
+            top10: { label: '🥉 מקומות 7-10 (חדירה לעמוד 1)', baseCpl: 90, ctr: '~6% (מקומות 7-10)', convMultiplier: 1.10, note: 'חדירה ראשונית לעמוד התוצאות הראשון של גוגל.' },
+            top3_maps: { label: '🗺️ מקומות 1-3 + Google Maps', baseCpl: 55, ctr: '~38% (פודיום + מפות)', convMultiplier: 1.45, note: 'שליטה לוקאלית מלאה: תוצאה אורגנית עליונה יחד עם נוכחות בולטת ב-Google Maps.' }
         }
     };
 
     // Social Media Growth Config
     const socialGrowthConfig = {
         strategy: {
-            hybrid: { label: 'שילוב 8-12 פוסטים + מאיץ ממומן', costPerFollower: 2.0, postText: '8-12 פוסטים/חודש', timeText: '7-14 ימים', note: 'האסטרטגיה המנצחת: שילוב סמכות ומיתוג עם מאיץ ממומן זעיר להשגת עוקבים מדויקים ומהירים.' },
+            hybrid: { label: 'שילוב 8-12 פוסטים + מאיץ ממומן', costPerFollower: 2.5, postText: '8-12 פוסטים/חודש', timeText: '7-14 ימים', note: 'האסטרטגיה המנצחת: שילוב סמכות ומיתוג עם מאיץ ממומן זעיר להשגת עוקבים מדויקים ומהירים.' },
             organic_only: { label: 'אורגני בלבד (ללא מימון)', costPerFollower: 0, postMultiplier: 0.25, timeText: '4-8 שבועות', note: 'פעילות אורגנית טהורה: 20-30 פוסטים/רילס איכותיים לשיתוף בקבוצות וקהילות.' },
-            boost_heavy: { label: 'מאיץ ממומן אגרסיבי', costPerFollower: 2.5, postText: '4-6 פוסטים ממוקדים', timeText: '3-7 ימים', note: 'צמיחה מואצת: קמפיין ממומן ממוקד המקפיץ את מספר העוקבים והחשיפה בזמן שיא.' }
+            boost_heavy: { label: 'מאיץ ממומן אגרסיבי', costPerFollower: 3.5, postText: '4-6 פוסטים ממוקדים', timeText: '3-7 ימים', note: 'צמיחה מואצת: קמפיין ממומן ממוקד המקפיץ את מספר העוקבים והחשיפה בזמן שיא.' }
         }
     };
 
@@ -227,9 +246,11 @@ function initGorMarketingInteractive() {
     const socialBoostValDisp = document.getElementById('calc-social-boost-val');
     const socialTimeValDisp = document.getElementById('calc-social-time-val');
 
-    const reversePlatformsGrid = document.getElementById('calc-reverse-platforms-grid');
+    // Quick preset pills
+    const leadPills = document.querySelectorAll('#calc-lead-pills .calc-pill');
+    const dealPills = document.querySelectorAll('#calc-deal-pills .calc-pill');
 
-    // Output Result Elements
+    // Results elements
     const resRequiredBudget = document.getElementById('calc-res-required-budget');
     const resCplBadge = document.getElementById('calc-res-cpl-badge');
     const resRevenue = document.getElementById('calc-res-revenue');
@@ -239,44 +260,31 @@ function initGorMarketingInteractive() {
     const resProfit = document.getElementById('calc-res-profit');
     const resInsight = document.getElementById('calc-res-insight');
     const calcCtaBtn = document.getElementById('calc-cta-btn');
+    const reversePlatformsGrid = document.getElementById('calc-reverse-platforms-grid');
 
-    // Quick Pill Presets
-    const leadPills = document.querySelectorAll('#calc-lead-pills .calc-pill');
-    const dealPills = document.querySelectorAll('#calc-deal-pills .calc-pill');
-
-    function applyChannel(key) {
-        if (!channelPresets[key]) key = 'omnichannel';
-        activeChannelKey = key;
-        const preset = channelPresets[key];
+    function applyChannel(channelKey) {
+        if (!channelPresets[channelKey]) channelKey = 'omnichannel';
+        activeChannelKey = channelKey;
 
         channelBtns.forEach(btn => {
-            if (btn.getAttribute('data-channel') === key) {
+            if (btn.getAttribute('data-channel') === channelKey) {
                 btn.classList.add('active');
             } else {
                 btn.classList.remove('active');
             }
         });
 
+        const preset = channelPresets[channelKey];
         if (channelBadge) {
-            channelBadge.innerHTML = preset.badge;
+            channelBadge.innerHTML = '<span style="color: ' + preset.color + ';"><i class="' + (preset.icon.includes('fa-') ? (preset.icon.startsWith('fab') ? preset.icon : 'fas ' + preset.icon) : 'fas fa-check') + '"></i> ' + preset.badge + '</span>';
         }
 
-        // Show/Hide SEO Rank Box
+        // Show/hide sub-config panels
         if (seoRankWrapper) {
-            if (key === 'google_seo' || key === 'omnichannel') {
-                seoRankWrapper.style.display = 'block';
-            } else {
-                seoRankWrapper.style.display = 'none';
-            }
+            seoRankWrapper.style.display = (channelKey === 'google_seo') ? 'block' : 'none';
         }
-
-        // Show/Hide Social Media Growth Box
         if (socialGrowthWrapper) {
-            if (key === 'meta_ads' || key === 'tiktok_ads' || key === 'instagram') {
-                socialGrowthWrapper.style.display = 'block';
-            } else {
-                socialGrowthWrapper.style.display = 'none';
-            }
+            socialGrowthWrapper.style.display = (channelKey === 'meta_ads' || channelKey === 'tiktok_ads' || channelKey === 'instagram') ? 'block' : 'none';
         }
 
         updateCalculator();
@@ -285,6 +293,9 @@ function initGorMarketingInteractive() {
     function renderReversePlatformCards(targetLeads, dealVal, isAiBoost) {
         if (!reversePlatformsGrid) return;
         let html = '';
+        const dealMult = getDealMultiplier(dealVal);
+        const baseTicketConv = getDealBaseConversion(dealVal);
+
         Object.keys(channelPresets).forEach(key => {
             const p = channelPresets[key];
             let baseCplVal = p.baseCpl;
@@ -293,9 +304,12 @@ function initGorMarketingInteractive() {
                 baseCplVal = seoPosConfig.target[seoTargetPosSelect.value].baseCpl;
             }
 
-            const effCpl = isAiBoost ? Math.round(baseCplVal * 0.85) : baseCplVal;
+            const rawCpl = Math.round(baseCplVal * dealMult);
+            const effCpl = isAiBoost ? Math.round(rawCpl * 0.85) : rawCpl;
             const reqBudget = Math.round(targetLeads * effCpl);
-            const effConv = p.baseConvRate * (isAiBoost ? (1 + p.aiBoostFactor) : 1);
+
+            const chConv = baseTicketConv * (p.convMultiplier || 1.0);
+            const effConv = chConv * (isAiBoost ? (1 + (p.aiBoostFactor || 0.35)) : 1.0);
             const deals = Math.max(1, Math.round(targetLeads * effConv));
             const isSelected = key === activeChannelKey ? 'selected' : '';
 
@@ -321,9 +335,10 @@ function initGorMarketingInteractive() {
         if (titleLeadsDisp) titleLeadsDisp.textContent = targetLeads.toLocaleString('he-IL');
         if (gridLeadsLabel) gridLeadsLabel.textContent = targetLeads.toLocaleString('he-IL') + ' לידים';
 
-        // 1. Calculate Channel CPL & Efficiencies
+        // 1. Dynamic Deal Scaling & Base CPL
+        const dealMult = getDealMultiplier(dealVal);
         let baseCpl = preset.baseCpl;
-        let baseConv = preset.baseConvRate;
+        let channelConvMultiplier = preset.convMultiplier || 1.0;
         let channelInsight = preset.insight;
 
         // SEO Custom Rank Calculation
@@ -337,7 +352,7 @@ function initGorMarketingInteractive() {
 
             if (activeChannelKey === 'google_seo') {
                 baseCpl = Math.round(seoTgtInfo.baseCpl * seoCurInfo.factor);
-                baseConv = seoTgtInfo.convBoost;
+                channelConvMultiplier = seoTgtInfo.convMultiplier;
                 channelInsight = 'יעד מיקום ' + seoTgtInfo.label + ': ' + seoTgtInfo.note;
             }
 
@@ -364,16 +379,23 @@ function initGorMarketingInteractive() {
             channelInsight = 'יעד ' + socialTargetVal + ' עוקבים: ' + socialStratInfo.note;
         }
 
-        const effCpl = isAiBoost ? Math.round(baseCpl * 0.85) : baseCpl;
+        // Dynamic CPL and Media Budget
+        const rawCpl = Math.round(baseCpl * dealMult);
+        const effCpl = isAiBoost ? Math.round(rawCpl * 0.85) : rawCpl;
         const requiredBudget = Math.round(targetLeads * effCpl);
 
-        // 2. Calculate Deals & Revenue
-        const effectiveConvRate = baseConv * (isAiBoost ? (1 + preset.aiBoostFactor) : 1);
+        // 2. Realistic Deals, Revenue, ROAS & Profit Contribution
+        const baseTicketConv = getDealBaseConversion(dealVal);
+        const channelConv = baseTicketConv * channelConvMultiplier;
+        const effectiveConvRate = channelConv * (isAiBoost ? (1 + (preset.aiBoostFactor || 0.35)) : 1.0);
         const estimatedDeals = Math.max(1, Math.round(targetLeads * effectiveConvRate));
         const estimatedRevenue = estimatedDeals * dealVal;
         const roas = requiredBudget > 0 ? Math.round((estimatedRevenue / requiredBudget) * 100) : 0;
-        const netProfit = Math.max(0, estimatedRevenue - requiredBudget);
-        const timeSavedHours = Math.round(targetLeads * (isAiBoost ? 1.5 : 0.6) + estimatedDeals * (isAiBoost ? 2.0 : 1.0));
+        
+        // Realistic Profit Calculation: assuming 50% average gross margin before marketing
+        const grossProfitBeforeMktg = estimatedRevenue * 0.50;
+        const netProfit = Math.max(0, Math.round(grossProfitBeforeMktg - requiredBudget));
+        const timeSavedHours = Math.round(targetLeads * (isAiBoost ? 0.6 : 0.2) + estimatedDeals * (isAiBoost ? 1.5 : 0.5));
 
         // 3. Update DOM
         if (resRequiredBudget) resRequiredBudget.textContent = '₪' + requiredBudget.toLocaleString('he-IL');
@@ -383,8 +405,8 @@ function initGorMarketingInteractive() {
         }
 
         if (resRevenue) resRevenue.textContent = '₪' + estimatedRevenue.toLocaleString('he-IL');
-        if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות (' + Math.round(effectiveConvRate * 100) + '% סגירה)';
-        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
+        if (resDeals) resDeals.textContent = estimatedDeals.toLocaleString('he-IL') + ' עסקאות (' + (effectiveConvRate * 100).toFixed(1) + '% סגירה משוערת)';
+        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '% (פי ' + (roas / 100).toFixed(1) + ')';
         if (resTimeSaved) resTimeSaved.textContent = timeSavedHours + ' שעות/חודש';
         if (resProfit) resProfit.textContent = '₪' + netProfit.toLocaleString('he-IL');
         if (resInsight) resInsight.textContent = channelInsight;
@@ -404,12 +426,13 @@ function initGorMarketingInteractive() {
 
             const msgLines = [
                 'היי איגור, ביצעתי תחזית במחשבון הלידים של GOR MARKETING:',
-                '🎯 יעד מבוקש (X): ' + targetLeads.toLocaleString('he-IL') + ' לידים/פניות בחודש',
+                '🎯 יעד מבוקש: ' + targetLeads.toLocaleString('he-IL') + ' פניות/לידים בחודש',
+                '💎 שווי עסקה ממוצע: ₪' + dealVal.toLocaleString('he-IL'),
                 '🌐 ערוץ שיווק: ' + preset.name + ' (' + aiText + ')' + extraDetail,
-                '💰 תקציב פרסום/השקעה נדרש (Y): ₪' + requiredBudget.toLocaleString('he-IL') + ' (~₪' + effCpl + ' לליד)',
-                '🤝 צפי עסקאות: ' + estimatedDeals + ' עסקאות',
-                '📈 מחזור הכנסות משוער: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)',
-                '💎 רווח נקי משוער: ₪' + netProfit.toLocaleString('he-IL'),
+                '💰 תקציב פרסום משוער: ₪' + requiredBudget.toLocaleString('he-IL') + ' (~₪' + effCpl + ' לליד)',
+                '🤝 צפי סגירת עסקאות: ' + estimatedDeals + ' עסקאות (' + (effectiveConvRate * 100).toFixed(1) + '% סגירה)',
+                '📈 צפי מחזור הכנסות: ₪' + estimatedRevenue.toLocaleString('he-IL') + ' (ROAS ' + roas.toLocaleString('he-IL') + '%)',
+                '💎 צפי תרומה לרווח: ₪' + netProfit.toLocaleString('he-IL'),
                 'אשמח שנתאם שיחה לבניית תוכנית עבודה מנצחת!'
             ];
             calcCtaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msgLines.join('\n'));
@@ -1381,7 +1404,84 @@ function initMobileNavigation() {
 }
 
 // Global Core Boot Sequence
+
+// ==========================================================================
+// AMBIENT DYNAMIC SPOTLIGHT & SCROLL LIGHTING ENGINE
+// ==========================================================================
+function initAmbientSpotlight() {
+    let spotlight = document.querySelector('.cursor-spotlight');
+    if (!spotlight) {
+        spotlight = document.createElement('div');
+        spotlight.className = 'cursor-spotlight';
+        spotlight.setAttribute('aria-hidden', 'true');
+        document.body.prepend(spotlight);
+    }
+
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight * 0.35;
+    let currentX = targetX;
+    let currentY = targetY;
+    let isMoving = false;
+    let animationFrameId = null;
+
+    function render() {
+        currentX += (targetX - currentX) * 0.12;
+        currentY += (targetY - currentY) * 0.12;
+
+        spotlight.style.transform = 'translate3d(' + currentX + 'px, ' + currentY + 'px, 0)';
+
+        // Dynamic gradient hue shift according to scroll depth
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollFraction = docH > 0 ? Math.min(1, Math.max(0, window.scrollY / docH)) : 0;
+        
+        // 155 (emerald #00ff88) -> 195 (cyan #00d2ff) -> 42 (gold #f59e0b) -> 270 (purple #a855f7)
+        const hue = Math.round((155 + scrollFraction * 220) % 360);
+        spotlight.style.background = 'radial-gradient(circle, hsla(' + hue + ', 100%, 55%, 0.085) 0%, hsla(' + ((hue + 35) % 360) + ', 100%, 50%, 0.04) 45%, transparent 70%)';
+
+        if (Math.abs(targetX - currentX) > 0.15 || Math.abs(targetY - currentY) > 0.15) {
+            animationFrameId = requestAnimationFrame(render);
+        } else {
+            isMoving = false;
+        }
+    }
+
+    function requestRender() {
+        if (!isMoving) {
+            isMoving = true;
+            animationFrameId = requestAnimationFrame(render);
+        }
+    }
+
+    window.addEventListener('mousemove', function(e) {
+        targetX = e.clientX;
+        targetY = e.clientY;
+        requestRender();
+    }, { passive: true });
+
+    window.addEventListener('scroll', function() {
+        const scrollY = window.scrollY;
+        const delta = (scrollY % (window.innerHeight * 0.4));
+        targetY = (window.innerHeight * 0.3) + (delta * 0.4);
+        requestRender();
+    }, { passive: true });
+
+    // Touch support for tablets & mobile
+    window.addEventListener('touchmove', function(e) {
+        if (e.touches && e.touches[0]) {
+            targetX = e.touches[0].clientX;
+            targetY = e.touches[0].clientY;
+            requestRender();
+        }
+    }, { passive: true });
+
+    render();
+}
+
+
 function bootGorMarketing() {
+    if (typeof initAmbientSpotlight === "function") {
+        try { initAmbientSpotlight(); } catch(e) { console.warn("[Spotlight Init Error]", e); }
+    }
     if (typeof initGorMarketingInteractive === 'function') {
         try { initGorMarketingInteractive(); } catch(e) { console.warn('[Interactive Init Error]', e); }
     }
@@ -1403,3 +1503,123 @@ if (document.readyState === 'loading') {
 } else {
     scheduleBoot();
 }
+
+
+// ==========================================================================
+// BENTO CALCULATOR CONTROLLER (GOR MARKETING V132)
+// ==========================================================================
+(function initBentoCalculator() {
+    const BENTO_BENCHMARKS = {
+        omnichannel: { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35 },
+        google_ads: { name: 'גוגל ממומן (Google Ads)', baseCpl: 110, convMult: 1.35, aiBoost: 0.30 },
+        meta_ads: { name: 'מטא (Facebook & Instagram)', baseCpl: 75, convMult: 0.95, aiBoost: 0.40 },
+        google_seo: { name: 'קידום אורגני (SEO Top Rank)', baseCpl: 65, convMult: 1.20, aiBoost: 0.25 },
+        tiktok_ads: { name: 'טיקטוק ממומן (TikTok Ads)', baseCpl: 55, convMult: 0.85, aiBoost: 0.45 },
+        youtube: { name: 'פרסום וידאו ביוטיוב', baseCpl: 90, convMult: 1.15, aiBoost: 0.35 },
+        linkedin_b2b: { name: 'לינקדאין B2B מקצועי', baseCpl: 140, convMult: 1.45, aiBoost: 0.25 }
+    };
+
+    function getDealMult(deal) {
+        if (deal <= 2000) return 0.70;
+        if (deal <= 4000) return 0.85;
+        if (deal <= 8000) return 1.00;
+        if (deal <= 15000) return 1.30;
+        if (deal <= 30000) return 1.70;
+        return 2.10;
+    }
+
+    function getBaseConv(deal) {
+        if (deal <= 2000) return 0.14;
+        if (deal <= 4000) return 0.10;
+        if (deal <= 8000) return 0.075;
+        if (deal <= 15000) return 0.050;
+        if (deal <= 30000) return 0.035;
+        return 0.025;
+    }
+
+    window.updateBentoCalc = function() {
+        const channelSelect = document.getElementById('bento-channel-select');
+        const leadsSlider = document.getElementById('bento-leads-slider');
+        const dealSlider = document.getElementById('bento-deal-slider');
+
+        if (!channelSelect || !leadsSlider || !dealSlider) return;
+
+        const chKey = channelSelect.value;
+        const leads = parseInt(leadsSlider.value, 10) || 100;
+        const deal = parseInt(dealSlider.value, 10) || 6000;
+
+        const ch = BENTO_BENCHMARKS[chKey] || BENTO_BENCHMARKS.omnichannel;
+        const mult = getDealMult(deal);
+        const effCpl = Math.round(ch.baseCpl * mult * 0.85); // 15% AI efficiency boost
+        const budget = Math.round(leads * effCpl);
+
+        const effConv = getBaseConv(deal) * ch.convMult * (1 + ch.aiBoost);
+        const deals = Math.max(1, Math.round(leads * effConv));
+        const rev = deals * deal;
+        const roas = budget > 0 ? Math.round((rev / budget) * 100) : 0;
+        const profit = Math.max(0, Math.round((rev * 0.50) - budget));
+
+        // Update displays
+        const leadsDisp = document.getElementById('bento-leads-disp');
+        if (leadsDisp) leadsDisp.textContent = leads.toLocaleString('he-IL') + ' לידים';
+
+        const dealDisp = document.getElementById('bento-deal-disp');
+        if (dealDisp) dealDisp.textContent = '₪' + deal.toLocaleString('he-IL');
+
+        const pill = document.getElementById('bento-res-channel-pill');
+        if (pill) pill.textContent = ch.name;
+
+        const resBudget = document.getElementById('bento-res-budget');
+        if (resBudget) resBudget.textContent = '₪' + budget.toLocaleString('he-IL');
+
+        const resCpl = document.getElementById('bento-res-cpl');
+        if (resCpl) resCpl.innerHTML = 'לפי עלות משוערת של <strong>₪' + effCpl + '</strong> לפנייה בערוץ הנבחר';
+
+        const resRevenue = document.getElementById('bento-res-revenue');
+        if (resRevenue) resRevenue.textContent = '₪' + rev.toLocaleString('he-IL');
+
+        const resDealCalcNote = document.getElementById('bento-res-deal-calc-note');
+        if (resDealCalcNote) resDealCalcNote.textContent = 'מחושב: ' + deals + ' סגירות × ₪' + deal.toLocaleString('he-IL') + ' שווי עסקה';
+
+        const resProfit = document.getElementById('bento-res-profit');
+        if (resProfit) resProfit.textContent = '₪' + profit.toLocaleString('he-IL');
+
+        const resDeals = document.getElementById('bento-res-deals');
+        if (resDeals) resDeals.textContent = deals + ' עסקאות';
+
+        const resConvRate = document.getElementById('bento-res-conv-rate');
+        if (resConvRate) resConvRate.textContent = 'יחס המרה של ' + (effConv * 100).toFixed(1) + '% מתוך הפניות';
+
+        const resRoas = document.getElementById('bento-res-roas');
+        if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
+
+        const resRoasX = document.getElementById('bento-res-roas-x');
+        if (resRoasX) resRoasX.textContent = 'פי ' + (roas / 100).toFixed(1) + ' על כל ₪1 שהושקע בפרסום';
+
+        // Update WhatsApp CTA
+        const ctaBtn = document.getElementById('bento-cta-btn');
+        if (ctaBtn) {
+            const msg = `היי איגור, חישבתי תחזית עסקית בדשבורד הבנטו באתר:
+🎯 יעד מבוקש: ${leads.toLocaleString('he-IL')} לידים בחודש
+💎 שווי עסקת לקוח ממוצעת: ₪${deal.toLocaleString('he-IL')}
+🌐 ערוץ שיווק: ${ch.name}
+💰 תקציב מדיה מומלץ: ₪${budget.toLocaleString('he-IL')} (~₪${effCpl} לליד)
+🤝 צפי סגירת עסקאות: ${deals} עסקאות (${(effConv * 100).toFixed(1)}% סגירה)
+📈 צפי מחזור הכנסות: ₪${rev.toLocaleString('he-IL')} (ROAS ${roas.toLocaleString('he-IL')}%)
+💎 צפי תרומה לרווח נקי: ₪${profit.toLocaleString('he-IL')}
+אשמח לתאם שיחה לבניית תוכנית עבודה מותאמת אישית!`;
+            ctaBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+        }
+
+        if (window.trackGorEvent) {
+            window.trackGorEvent('bento_calc_updated', { leads: leads, deal: deal, channel: chKey, budget: budget, rev: rev });
+        }
+    };
+
+    // Auto initialize on load / ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', window.updateBentoCalc);
+    } else {
+        window.updateBentoCalc();
+    }
+})();

@@ -2279,7 +2279,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="styles.min.css?v=20260918_02v4">
+    <link rel="stylesheet" href="styles.min.css?v=133_spotlight_mue19984">
     <link rel="stylesheet" href="assets/accessibility.css?v=20260918_02">
   <style id="mobile-scale-css">
 
@@ -2407,6 +2407,8 @@
   </style>
 </head>
 <body>
+    <!-- Ambient Dynamic Background Lighting -->
+    <div class="cursor-spotlight" aria-hidden="true"></div>
     <a href="#main-content" class="skip-to-content">דלג לתוכן המרכזי</a>
     <div class="mesh-bg">
         <div class="mesh-blob blob-1"></div>
@@ -2999,338 +3001,174 @@
 
                                 <!-- 4.1 Interactive Multi-Channel Growth & ROI Simulator (Dual-Mode: Forward & Reverse Target Goals) -->
                 <!-- 4.1 Interactive Target Lead Goal & Marketing Budget Calculator (כדי לקבל X לידים - כמה תקציב פרסום Y צריך לשלם?) -->
-        <section id="roi-calculator" style="margin-bottom: 80px;">
-            <div style="text-align: center; margin-bottom: 28px;">
-                <div class="hero-badge-pill">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="14.01"></line><line x1="12" y1="14" x2="12" y2="14.01"></line><line x1="8" y1="14" x2="8" y2="14.01"></line><line x1="16" y1="18" x2="16" y2="18.01"></line><line x1="12" y1="18" x2="12" y2="18.01"></line><line x1="8" y1="18" x2="8" y2="18.01"></line></svg> מחשבון יעדי לידים ותקציב פרסום — GOR MARKETING
+        <section id="roi-calculator" style="margin-bottom: 80px; position: relative;">
+            <div style="text-align: center; margin-bottom: 32px;">
+                <div class="hero-badge-pill" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                    <i class="fas fa-calculator" style="color: var(--gold);"></i> דשבורד יעדים ומחשבון הכנסות חכם — GOR MARKETING
                 </div>
-                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.4rem); font-weight: 900; color: #fff; margin-bottom: 12px;">
-                    כדי לקבל <span class="gradient-title"><span id="calc-title-leads-disp">100</span> לידים</span> — כמה תקציב פרסום צריך לשלם?
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 900; color: #fff; margin-bottom: 12px; line-height: 1.3;">
+                    תחזית תקציב, <span class="gradient-title">הכנסות ורווח צפוי</span> לעסק שלך
                 </h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto; line-height: 1.7;">
-                    הגדר כמה פניות או לידים איכותיים אתה רוצה לקבל בחודש ובחר את ערוץ השיווק — המחשבון יחשב מיידית את <strong>תקציב הפרסום הנדרש (Y)</strong>, צפי העסקאות, ההכנסות והרווח הנקי.
+                <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 780px; margin: 0 auto; line-height: 1.7;">
+                    בחר את ערוץ השיווק, קבע את יעד הפניות החודשי והזן את <strong>שווי עסקת הלקוח שלך</strong> לקבלת ניתוח עסקי מדויק וריאלי בזמן אמת.
                 </p>
             </div>
 
-            <div class="roi-calculator-card">
-                <!-- Channel Selector Matrix -->
-                <div class="calc-channel-wrapper" id="calc-channel-wrapper">
-                    <div class="calc-channel-title">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> <span>בחר ערוץ פרסום ושיווק עיקרי:</span>
+            <!-- Bento Dashboard Layout -->
+            <div class="bento-calc-container">
+                <!-- Right Controls Panel -->
+                <div class="bento-controls-card">
+                    <div class="bento-controls-header">
+                        <div class="bento-controls-title">
+                            <i class="fas fa-sliders-h" style="color: var(--gold);"></i> הגדרות יעד עסקי
+                        </div>
+                        <span class="bento-live-badge"><span class="bento-pulse-dot"></span> חישוב חי</span>
                     </div>
-                    <div class="calc-channel-grid" id="calc-channel-selector" role="tablist" aria-label="בחירת ערוץ שיווק">
-                        <button type="button" class="calc-channel-btn active" data-channel="omnichannel" role="tab" aria-selected="true" id="tab-omnichannel" aria-label="מערך 360° Omnichannel">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                            <span>מערך 360° Omnichannel</span>
-                        </button>
-                        <button type="button" class="calc-channel-btn" data-channel="google-seo" role="tab" aria-selected="false" id="tab-google-seo" aria-label="קידום אורגני בגוגל SEO">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                            <span>קידום אורגני בגוגל (SEO)</span>
-                        </button>
-                        <button type="button" class="calc-channel-btn" data-channel="ppc-scale" role="tab" aria-selected="false" id="tab-ppc-scale" aria-label="קמפיינים ממומנים (PPC)">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                            <span>קמפיינים ממומנים (PPC)</span>
-                        </button>
-                        <button type="button" class="calc-channel-btn" data-channel="saas-custom" role="tab" aria-selected="false" id="tab-saas-custom" aria-label="פיתוח אתר / SaaS & AI">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                            <span>פיתוח אתר / SaaS &amp; AI</span>
-                        </button>
+
+                    <!-- Channel Selector -->
+                    <div class="bento-input-group">
+                        <label class="bento-label" for="bento-channel-select">
+                            <i class="fas fa-bullhorn" style="color: #60a5fa;"></i> ערוץ שיווק מוביל:
+                        </label>
+                        <div class="bento-select-wrap">
+                            <select id="bento-channel-select" class="bento-select" onchange="window.updateBentoCalc()">
+                                <option value="omnichannel" selected>🚀 מערך 360° משולב (גוגל + מטא + AI)</option>
+                                <option value="google_ads">🎯 גוגל ממומן וחיפוש (Google Ads)</option>
+                                <option value="meta_ads">📢 מטא (Facebook & Instagram)</option>
+                                <option value="google_seo">📈 קידום אורגני (SEO Top Rank)</option>
+                                <option value="tiktok_ads">📱 טיקטוק ממומן (TikTok Ads)</option>
+                                <option value="youtube">🎬 פרסום וידאו ביוטיוב (YouTube Ads)</option>
+                                <option value="linkedin_b2b">💼 לינקדאין B2B מקצועי</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <div class="calc-grid">
-                    <!-- Controls Column -->
-                    <div>
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-                            <h3 style="font-size: 1.25rem; color: #fff; margin: 0; display: flex; align-items: center; gap: 10px;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> 
-                                <span id="calc-controls-heading">הגדרת יעד הלידים והעסקה</span>
-                            </h3>
-                            <span id="calc-current-channel-badge" class="calc-active-channel-badge">
-                                🌐 מערך 360° Omnichannel
-                            </span>
-                        </div>
-
-                        <!-- Main Lead Goal Slider (The X Input) -->
-                        
-                        <!-- SEO Rank Target Box (Dynamic for Google SEO & Omnichannel) -->
-                        <div id="calc-seo-rank-wrapper" class="calc-seo-rank-box" style="display: none; margin-bottom: 22px;">
-                            <div class="calc-seo-rank-header">
-                                <div class="calc-seo-rank-title">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                    <span>תכנון יעדי מיקום בגוגל (Google Ranking Target)</span>
-                                </div>
-                                <span class="calc-seo-badge">יעד אורגני SEO</span>
-                            </div>
-                            
-                            <div class="calc-seo-grid-cols">
-                                <!-- Current Position Selector -->
-                                <div class="calc-seo-col">
-                                    <label class="calc-seo-label" for="calc-seo-current-pos">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> מיקום נוכחי של האתר בגוגל:
-                                    </label>
-                                    <select id="calc-seo-current-pos" class="calc-select" aria-label="מיקום נוכחי בגוגל">
-                                        <option value="unranked">אתר חדש / ללא דירוג (מיקום 50+)</option>
-                                        <option value="page3_5">עמודים 3-5 (מיקומים 21-50)</option>
-                                        <option value="page2" selected>עמוד 2 (מיקומים 11-20)</option>
-                                        <option value="page1_bottom">תחתית עמוד 1 (מיקומים 7-10)</option>
-                                    </select>
-                                </div>
-
-                                <!-- Target Position Selector -->
-                                <div class="calc-seo-col">
-                                    <label class="calc-seo-label" for="calc-seo-target-pos">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> לאיזה מיקום יעד תרצה להגיע?
-                                    </label>
-                                    <select id="calc-seo-target-pos" class="calc-select highlight" aria-label="מיקום יעד בגוגל">
-                                        <option value="top3" selected>🥇 מקומות 1-3 (פודיום גוגל — CTR 32%+ ומקסימום לידים)</option>
-                                        <option value="top6">🥈 מקומות 4-6 (עמוד ראשון מרכזי — CTR 14%)</option>
-                                        <option value="top10">🥉 מקומות 7-10 (חדירה לעמוד ראשון — CTR 6%)</option>
-                                        <option value="top3_maps">🗺️ מקומות 1-3 + Google Maps (שליטה מקומית מלאה)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- SEO Ranking Impact & Timeline Bar -->
-                            <div class="calc-seo-metrics-strip">
-                                <div class="calc-seo-strip-item">
-                                    <span class="calc-seo-strip-lbl">אחוז הקלקה CTR צפוי:</span>
-                                    <span class="calc-seo-strip-val emerald" id="calc-seo-ctr-val">~32% (מקומות 1-3)</span>
-                                </div>
-                                <div class="calc-seo-strip-item">
-                                    <span class="calc-seo-strip-lbl">צפי זמן ליעד:</span>
-                                    <span class="calc-seo-strip-val gold" id="calc-seo-timeline-val">3-4 חודשים</span>
-                                </div>
-                                <div class="calc-seo-strip-item">
-                                    <span class="calc-seo-strip-lbl">עוצמת פעילות:</span>
-                                    <span class="calc-seo-strip-val cyan" id="calc-seo-effort-val">דחיפת קישורים ותוכן עומק</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <!-- Social Media Growth Box (Dynamic for Meta Ads, TikTok, Instagram) -->
-                        <div id="calc-social-growth-wrapper" class="calc-social-box" style="display: none; margin-bottom: 22px;">
-                            <div class="calc-social-header">
-                                <div class="calc-social-title">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                    <span>תכנון יעד עוקבים ומעורבות (Social Growth & Community)</span>
-                                </div>
-                                <span class="calc-social-badge">עוקבים ומיתוג</span>
-                            </div>
-                            
-                            <div class="calc-social-grid-cols">
-                                <!-- Target Followers Selector -->
-                                <div class="calc-social-col">
-                                    <label class="calc-social-label" for="calc-social-followers-target">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> יעד עוקבים חדשים בחודש:
-                                    </label>
-                                    <select id="calc-social-followers-target" class="calc-select highlight" aria-label="יעד עוקבים חדשים">
-                                        <option value="50">50 עוקבים חדשים (חשיפה ראשונית)</option>
-                                        <option value="100" selected>100 עוקבים חדשים (קצב צמיחה יציב)</option>
-                                        <option value="250">250 עוקבים חדשים (צמיחה מהירה וסמכות)</option>
-                                        <option value="500">500 עוקבים חדשים (השתלטות על נישה)</option>
-                                        <option value="1000">1,000 עוקבים חדשים (קמפיין Scale רחב)</option>
-                                    </select>
-                                </div>
-
-                                <!-- Strategy Selector -->
-                                <div class="calc-social-col">
-                                    <label class="calc-social-label" for="calc-social-strategy">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> אסטרטגיית פעולה מומלצת:
-                                    </label>
-                                    <select id="calc-social-strategy" class="calc-select" aria-label="אסטרטגיית פעולה">
-                                        <option value="hybrid" selected>🏆 שילוב מנצח: 8-12 פוסטים + מאיץ ממומן (מומלץ)</option>
-                                        <option value="organic_only">📝 אורגני בלבד: 20-30 פוסטים/רילס (ללא תקציב ממומן)</option>
-                                        <option value="boost_heavy">⚡ מאיץ ממומן אגרסיבי: קמפיין ממוקד להמרות מהירות</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <!-- Social Metrics Strip -->
-                            <div class="calc-social-metrics-strip">
-                                <div class="calc-social-strip-item">
-                                    <span class="calc-social-strip-lbl">פוסטים/Reels מומלצים:</span>
-                                    <span class="calc-social-strip-val emerald" id="calc-social-posts-val">8-12 פוסטים/חודש</span>
-                                </div>
-                                <div class="calc-social-strip-item">
-                                    <span class="calc-social-strip-lbl">תקציב מאיץ ממומן:</span>
-                                    <span class="calc-social-strip-val gold" id="calc-social-boost-val">~₪200 בלבד</span>
-                                </div>
-                                <div class="calc-social-strip-item">
-                                    <span class="calc-social-strip-lbl">קצב הגעה ליעד:</span>
-                                    <span class="calc-social-strip-val cyan" id="calc-social-time-val">7-14 ימים</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="calc-slider-group" id="calc-target-leads-group">
-                            <div class="calc-slider-header">
-                                <span style="font-weight: 700; color: var(--emerald-primary); font-size: 1rem;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg> כמות לידים / פניות מבוקשות בחודש (X):
-                                </span>
-                                <div class="calc-input-wrapper emerald-wrap">
-                                    <input type="number" id="calc-target-leads-input" class="calc-number-input emerald" min="5" max="2500" step="5" value="100" aria-label="כמות לידים מבוקשת">
-                                    <span class="calc-unit-label">לידים</span>
-                                </div>
-                            </div>
-                            <input type="range" id="calc-target-leads" class="calc-range" min="5" max="1000" step="5" value="100" aria-label="סרגל כמות לידים מבוקשת">
-                            <div class="calc-slider-limits">
-                                <span>5 לידים</span>
-                                <span>1,000 לידים</span>
-                            </div>
-                            <!-- Quick Preset Pills for Leads -->
-                            <div class="calc-quick-pills" id="calc-lead-pills">
-                                <button type="button" class="calc-pill" data-val="25" aria-label="בחירת כמות 25 לידים">25 לידים</button>
-                                <button type="button" class="calc-pill" data-val="50" aria-label="בחירת כמות 50 לידים">50 לידים</button>
-                                <button type="button" class="calc-pill active" data-val="100" aria-label="בחירת כמות 100 לידים">100 לידים</button>
-                                <button type="button" class="calc-pill" data-val="250" aria-label="בחירת כמות 250 לידים">250 לידים</button>
-                                <button type="button" class="calc-pill" data-val="500" aria-label="בחירת כמות 500 לידים">500 לידים</button>
-                            </div>
-                        </div>
-
-                        <!-- Average Deal Value (Input) -->
-                        <div class="calc-slider-group">
-                            <div class="calc-slider-header">
-                                <span>שווי ממוצע לעסקה סגורה (הכנסה ברוטו):</span>
-                                <div class="calc-input-wrapper">
-                                    <span class="calc-currency-symbol">₪</span>
-                                    <input type="number" id="calc-deal-input" class="calc-number-input" min="100" max="100000" step="100" value="6000" aria-label="שווי עסקה ממוצעת">
-                                </div>
-                            </div>
-                            <input type="range" id="calc-deal" class="calc-range" min="500" max="50000" step="250" value="6000" aria-label="סרגל שווי עסקה">
-                            <div class="calc-slider-limits">
-                                <span>₪500</span>
-                                <span>₪50,000</span>
-                            </div>
-                            <!-- Quick Preset Pills for Deal Value -->
-                            <div class="calc-quick-pills" id="calc-deal-pills">
-                                <button type="button" class="calc-pill" data-deal="1500" aria-label="בחירת שווי עסקה ₪1500">₪1,500</button>
-                                <button type="button" class="calc-pill" data-deal="3000" aria-label="בחירת שווי עסקה ₪3000">₪3,000</button>
-                                <button type="button" class="calc-pill active" data-deal="6000" aria-label="בחירת שווי עסקה ₪6000">₪6,000</button>
-                                <button type="button" class="calc-pill" data-deal="15000" aria-label="בחירת שווי עסקה ₪15000">₪15,000</button>
-                                <button type="button" class="calc-pill" data-deal="30000" aria-label="בחירת שווי עסקה ₪30000">₪30,000</button>
-                            </div>
-                        </div>
-
-                        <!-- AI Booster Switch -->
-                        <div class="calc-ai-toggle-box">
-                            <label class="calc-switch">
-                                <input type="checkbox" id="calc-ai-boost" checked aria-label="הפעלת רכיב AI מתקדם להגדלת ROI והמרות">
-                                <span class="calc-slider round"></span>
+                    <!-- Slider 1: Target Leads -->
+                    <div class="bento-input-group">
+                        <div class="bento-label-row">
+                            <label class="bento-label" for="bento-leads-slider">
+                                <i class="fas fa-bullseye" style="color: #00ff88;"></i> יעד פניות / לידים בחודש:
                             </label>
-                            <div class="calc-ai-toggle-text">
-                                <div class="calc-ai-toggle-title">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                    <span>שילוב מאיץ AI ו-GOR CRM (מענה אוטומטי תוך 60 שניות)</span>
-                                </div>
-                                <div class="calc-ai-toggle-desc">
-                                    מוזיל את עלות הליד (CPL) ב-15%, מקפיץ את יחס הסגירה ב-35%-50% ומקצר 80% מזמן הטיפול.
-                                </div>
-                            </div>
+                            <span class="bento-val-badge emerald" id="bento-leads-disp">100 לידים</span>
                         </div>
-
-                        <!-- Cross-Platform Cost Breakdown Grid -->
-                        <div id="calc-reverse-platforms-wrap" style="margin-top: 24px;">
-                            <div style="font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                <span>כמה יעלו אותם <strong id="calc-grid-leads-label" style="color: var(--emerald-primary);">100 לידים</strong> בכל ערוץ:</span>
-                            </div>
-                            <div class="calc-reverse-platforms" id="calc-reverse-platforms-grid">
-                                <!-- Populated dynamically by JS -->
-                            </div>
+                        <input type="range" class="bento-range" id="bento-leads-slider" min="10" max="500" step="5" value="100" oninput="window.updateBentoCalc()" aria-label="יעד פניות או לידים בחודש">
+                        <div class="bento-range-hints">
+                            <span>10 לידים</span>
+                            <span>100</span>
+                            <span>250</span>
+                            <span>500+</span>
                         </div>
                     </div>
 
-                    <!-- Results Column -->
-                    <div class="calc-results-box">
-                        <div class="calc-results-header">
-                            <span class="calc-results-title">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> 
-                                <span id="calc-results-heading">תחזית תקציב ותשואה עסקית</span>
-                            </span>
-                            <span class="calc-results-badge" id="calc-benchmark-tag">
-                                בנצ'מרק GOR אומת
-                            </span>
+                    <!-- Slider 2: Average Customer Deal Value -->
+                    <div class="bento-input-group" style="margin-bottom: 20px;">
+                        <div class="bento-label-row">
+                            <label class="bento-label" for="bento-deal-slider">
+                                <i class="fas fa-tag" style="color: var(--gold);"></i> שווי עסקת לקוח ממוצעת:
+                            </label>
+                            <span class="bento-val-badge gold" id="bento-deal-disp">₪6,000</span>
                         </div>
-
-                        <!-- HERO METRIC: Required Marketing Budget (Y) -->
-                        <div class="calc-hero-budget-card">
-                            <div class="calc-hero-budget-header">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                <span>תקציב פרסום חודשי נדרש להשגת היעד (Y):</span>
-                            </div>
-                            <div class="calc-hero-budget-val" id="calc-res-required-budget">₪6,500</div>
-                            <div class="calc-hero-budget-sub" id="calc-res-cpl-badge">
-                                לפי עלות ממוצעת של <strong style="color: #fff;">₪65</strong> לפנייה בערוץ הנבחר
-                            </div>
+                        <div class="bento-input-hint">
+                            (הכנסה ברוטו ממוצעת שהעסק מייצר מכל לקוח שסוגר עסקה – לחישוב ההכנסה)
                         </div>
-
-                        <div class="calc-metric-row">
-                            <div class="calc-metric-item">
-                                <div class="calc-metric-label" id="calc-metric-1-lbl">צפי מחזור הכנסות</div>
-                                <div id="calc-res-revenue" class="calc-metric-number emerald">₪132,000</div>
-                            </div>
-                            <div class="calc-metric-item">
-                                <div class="calc-metric-label" id="calc-metric-2-lbl">צפי עסקאות סגורות</div>
-                                <div id="calc-res-deals" class="calc-metric-number gold">22 עסקאות</div>
-                            </div>
+                        <input type="range" class="bento-range" id="bento-deal-slider" min="1000" max="40000" step="500" value="6000" oninput="window.updateBentoCalc()" aria-label="שווי עסקת לקוח ממוצעת">
+                        <div class="bento-range-hints">
+                            <span>₪1,000</span>
+                            <span>₪6,000</span>
+                            <span>₪15,000</span>
+                            <span>₪40,000+</span>
                         </div>
+                    </div>
 
-                        <div class="calc-metric-row">
-                            <div class="calc-metric-item">
-                                <div class="calc-metric-label" id="calc-metric-3-lbl">תשואה על השקעה בפרסום (ROAS)</div>
-                                <div id="calc-res-roas" class="calc-metric-number emerald">2,030%</div>
-                            </div>
-                            <div class="calc-metric-item">
-                                <div class="calc-metric-label" id="calc-metric-4-lbl">חיסכון זמן עבודה חודשי</div>
-                                <div id="calc-res-time" class="calc-metric-number gold">125 שעות/חודש</div>
-                            </div>
+                    <!-- AI Booster Notice -->
+                    <div class="bento-ai-banner">
+                        <div class="bento-ai-icon"><i class="fas fa-robot"></i></div>
+                        <div class="bento-ai-text">
+                            <strong>משולב מאיץ AI ו-GOR CRM</strong>
+                            <span>מענה מיידי לכל ליד תוך 60 שניות המקפיץ את שיעורי הסגירה וה-ROI.</span>
                         </div>
+                    </div>
+                </div>
 
-                        <!-- Profit / Budget Summary Banner -->
-                        <div class="calc-profit-banner">
-                            <div class="calc-profit-label">
-                                <span id="calc-summary-banner-label">רווח נקי משוער לאחר ניכוי תקציב הפרסום:</span>
-                            </div>
-                            <div id="calc-res-profit" class="calc-profit-val">₪125,500</div>
+                <!-- Left Bento Matrix Results -->
+                <div class="bento-matrix-grid">
+                    <!-- Tile 1: Hero Ad Budget -->
+                    <div class="bento-tile bento-tile-hero">
+                        <div class="bento-tile-top">
+                            <span class="bento-tile-tag"><i class="fas fa-wallet"></i> תקציב מדיה מומלץ</span>
+                            <span class="bento-channel-pill" id="bento-res-channel-pill">מערך 360°</span>
                         </div>
-
-                        <!-- Executive Strategic Insight -->
-                        <div class="calc-insight-card">
-                            <div class="calc-insight-header">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                                <span id="calc-insight-heading">תובנה אסטרטגית בלעדית מ-GOR MARKETING:</span>
-                            </div>
-                            <p id="calc-res-insight" class="calc-insight-text">
-                                המערך השלם של GOR MARKETING: סינרגיה מושלמת בין גוגל, מטא, יוטיוב, אוטומציות וואטסאפ וסוכני AI לסגירה הרמטית של לקוחות בכל נקודת מגע.
-                            </p>
+                        <div class="bento-tile-val emerald" id="bento-res-budget">₪7,200</div>
+                        <div class="bento-tile-sub" id="bento-res-cpl">
+                            לפי עלות משוערת של <strong>₪72</strong> לפנייה בערוץ הנבחר
                         </div>
+                    </div>
 
-                        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
-                            <a rel="noopener noreferrer" id="calc-cta-btn" href="https://wa.me/972525155598?text=%D7%94%D7%99%D7%99%20%D7%90%D7%99%D7%92%D7%95%D7%A8%2C%20%D7%91%D7%99%D7%A6%D7%A2%D7%AA%D7%99%20%D7%AA%D7%97%D7%96%D7%99%D7%AA%20%D7%91%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%94-ROI%20%D7%A9%D7%9C%20GOR%20MARKETING%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA%20%D7%A4%D7%A2%D7%95%D7%9C%D7%94" target="_blank" class="btn-emerald" style="width: 100%; text-align: center; padding: 14px; font-weight: 800; font-size: 1.05rem; display: flex; justify-content: center; align-items: center; gap: 8px;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> <span id="calc-cta-btn-text">קבל תוכנית פעולה לערוץ זה בוואטסאפ</span>
-                            </a>
-                            <a href="mailto:igorgor.marketing@gmail.com?subject=%D7%AA%D7%9B%D7%A0%D7%95%D7%9F%20%D7%AA%D7%A7%D7%A6%D7%99%D7%91%20%D7%95%D7%AA%D7%A9%D7%95%D7%90%D7%94%20%D7%A2%D7%A1%D7%A7%D7%99%D7%AA%20-%20GOR%20MARKETING" class="btn-action-secondary" style="width: 100%; text-align: center; padding: 12px; font-size: 0.95rem;">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> שלח סימולציה זו למייל של איגור
+                    <!-- Tile 2: Gross Revenue Projected -->
+                    <div class="bento-tile">
+                        <div class="bento-tile-lbl">
+                            <i class="fas fa-chart-line" style="color: #60a5fa;"></i> צפי מחזור הכנסות
+                        </div>
+                        <div class="bento-tile-val cyan" id="bento-res-revenue">₪78,000</div>
+                        <div class="bento-tile-sub" id="bento-res-deal-calc-note">
+                            מחושב: 13 סגירות × ₪6,000 שווי עסקה
+                        </div>
+                    </div>
+
+                    <!-- Tile 3: Net Profit Contribution -->
+                    <div class="bento-tile">
+                        <div class="bento-tile-lbl">
+                            <i class="fas fa-piggy-bank" style="color: #c084fc;"></i> צפי תרומה לרווח
+                        </div>
+                        <div class="bento-tile-val purple" id="bento-res-profit">₪31,800</div>
+                        <div class="bento-tile-sub">
+                            בהנחת 50% רווח גולמי בניכוי שיווק
+                        </div>
+                    </div>
+
+                    <!-- Tile 4: Estimated Deals / Closings -->
+                    <div class="bento-tile">
+                        <div class="bento-tile-lbl">
+                            <i class="fas fa-handshake" style="color: var(--gold);"></i> צפי עסקאות סגורות
+                        </div>
+                        <div class="bento-tile-val gold" id="bento-res-deals">13 עסקאות</div>
+                        <div class="bento-tile-sub" id="bento-res-conv-rate">
+                            יחס המרה של 13% מתוך הפניות
+                        </div>
+                    </div>
+
+                    <!-- Tile 5: ROAS Multiplier -->
+                    <div class="bento-tile">
+                        <div class="bento-tile-lbl">
+                            <i class="fas fa-trophy" style="color: #fbbf24;"></i> תשואת השקעה (ROAS)
+                        </div>
+                        <div class="bento-tile-val amber" id="bento-res-roas">1,083%</div>
+                        <div class="bento-tile-sub" id="bento-res-roas-x">
+                            פי 10.8 על כל ₪1 שהושקע בפרסום
+                        </div>
+                    </div>
+
+                    <!-- Tile 6: WhatsApp Action CTA Full Span -->
+                    <div class="bento-tile bento-tile-cta">
+                        <div class="bento-cta-content">
+                            <div class="bento-cta-text">
+                                <div class="bento-cta-title">מוכן לתרגם את התחזית לתוצאות בשטח?</div>
+                                <div class="bento-cta-sub">איגור וצוות GOR MARKETING יבנו עבורך תוכנית עבודה מותאמת אישית ללא עלות.</div>
+                            </div>
+                            <a href="https://wa.me/972525155598" target="_blank" class="bento-cta-button" id="bento-cta-btn" rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i> קבל תוכנית עבודה בוואטסאפ
                             </a>
                         </div>
                     </div>
                 </div>
-            
-                <!-- Legal Disclaimer & Compliance Box (כתב ויתור והגנה משפטית מלאה) -->
-                <div class="calc-legal-disclaimer" style="margin-top: 24px; padding: 14px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 193, 7, 0.25); border-radius: 14px; font-size: 0.82rem; color: #94a3b8; line-height: 1.6; text-align: right; direction: rtl; box-sizing: border-box;">
-                    <div style="display: flex; align-items: center; gap: 8px; color: #ffd700; font-weight: 800; margin-bottom: 6px; font-size: 0.88rem;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        <span>הבהרה משפטית, גילוי נאות וכתב ויתור:</span>
-                    </div>
-                    <p style="margin: 0; color: #cbd5e1;">
-                        הנתונים, החישובים והתחזיות המוצגים במחשבון זה מהווים סימולציה סטטיסטית והערכה כללית בלבד, המבוססת על ממוצעי ביצועים ענפיים נכון למועד החישוב. 
-                        <strong>אין לראות בתוצאות אלו התחייבות עסקית, הבטחה להכנסה, רווח מוגדר, עלות מדויקת לליד או תשואה (ROI) ודאית.</strong> 
-                        התוצאות בפועל נתונות לשינויים בהתאם לתנאי השוק, רמת התחרות, איכות השירות/המוצר, משפך המכירות הפנימי של העסק, עונתיות ועדכוני אלגוריתמים בפלטפורמות הפרסום השונות.
-                    </p>
-                </div>
-</div>
+            </div>
+
+            <!-- Legal Disclaimer Box -->
+            <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 14px 20px; margin-top: 24px; text-align: center;">
+                <p style="font-size: 0.78rem; line-height: 1.6; margin: 0; color: #94a3b8;">
+                    <strong>גילוי נאות והבהרה מקצועית:</strong> הנתונים והתחזיות במחשבון מהווים סימולציה סטטיסטית על בסיס ממוצעי ביצועים בענף. אין לראות בתוצאות התחייבות עסקית מוחלטת להכנסה או לרווח. התוצאות בפועל תלויות ברמת התחרות, טיב המוצר/השירות ומשפך המכירות בעסק.
+                </p>
+            </div>
         </section>
 
         <!-- 4.2 Case Studies & Proven Results Section -->
@@ -4683,7 +4521,7 @@ if (Object.values(S_A11Y).some(Boolean)) {
 (function() {
     function loadDeferredScripts() {
         var s1 = document.createElement('script');
-        s1.src = 'script.min.js?v=20260918_02';
+        s1.src = 'script.min.js?v=133_spotlight_mue19984';
         s1.defer = true;
         document.body.appendChild(s1);
 
