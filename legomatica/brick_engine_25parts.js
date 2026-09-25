@@ -505,7 +505,7 @@
 
     const aspect = container.clientWidth / container.clientHeight || 1;
     tableCamera = new THREE.PerspectiveCamera(40, aspect, 0.1, 1000);
-    tableCamera.position.set(20, 26, 22);
+    tableCamera.position.set(24, 25, 24);
 
     tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     tableRenderer.setSize(container.clientWidth, container.clientHeight);
@@ -523,7 +523,7 @@
       tableControls.maxPolarAngle = Math.PI / 2.05;
       tableControls.minDistance = 12;
       tableControls.maxDistance = 65;
-      tableControls.target.set(0, 3.5, 0);
+      tableControls.target.set(0, 1.0, 0);
     }
 
     // --- CINEMATIC 3-POINT STUDIO & WARM SUN LIGHTING ---
@@ -555,6 +555,8 @@
 
     // --- 1. BUILD COMPLETE 3D WOODEN TABLE (TOP + LEGS + CROSS BRACING) ---
     fullTableGroup = buildFull3DWoodenTable();
+    fullTableGroup.scale.set(0.82, 0.82, 0.82);
+    fullTableGroup.position.set(0, -1.8, 0);
     tableScene.add(fullTableGroup);
 
     // --- 2. BLUE LEGO BASEPLATE WITH ROUNDED EDGES & GLOSSY STUDS ---

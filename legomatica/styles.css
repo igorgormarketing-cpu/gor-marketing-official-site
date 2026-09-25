@@ -1199,3 +1199,14 @@ body {
   position: relative;
   overflow: hidden;
 }
+
+
+/* ========================================================
+   FULL-FRAME PLAYROOM STUDIO BACKGROUND (WINDOW + SHELVES + CHESTS IN FULL VIEW)
+   ======================================================== */
+
+#threeTableContainer {
+  background: url('playroom_studio_bg.jpg') center 10% / cover no-repeat !important;
+  position: relative;
+  overflow: hidden;
+}
