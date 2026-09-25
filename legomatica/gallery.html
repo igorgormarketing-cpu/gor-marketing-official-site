@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrickMind (LEGO-MATICA) - גלריית קונספטים גרפיים לבחירה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700;900&amp;family=Heebo:wght@400;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1329;
+      --card-bg: #1e293b;
+      --gold: #facc15;
+      --blue: #38bdf8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+      font-family: 'Heebo', sans-serif;
+      color: #f8fafc;
+      min-height: 100vh;
+      padding: 30px 20px;
+    }
+    .header {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+    .header h1 {
+      font-family: 'Fredoka', cursive;
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: 0 4px 20px rgba(250, 204, 21, 0.4);
+      margin-bottom: 12px;
+    }
+    .header p {
+      font-size: 19px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      max-width: 1300px;
+      margin: 0 auto 40px;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      border-color: var(--blue);
+      box-shadow: 0 20px 45px rgba(56, 189, 248, 0.3);
+    }
+    .card-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      background: #020617;
+    }
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-img-wrapper img {
+      transform: scale(1.05);
+    }
+    .badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--gold);
+      border: 1px solid rgba(250, 204, 21, 0.4);
+    }
+    .card-content {
+      padding: 22px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 15px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>BrickMind · גלריית קונספטים גרפיים לבחירה</h1>
+    <p>שילוב עולם החווה של FarmVille עם קוביות וטקסטורות פלסטיק מבריקות של LEGO עבור ילדים בגילאי 5–9</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Option 1 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">אפשרות 1</span>
+        <img src="concept_art/lego_farm_isometric_1790234717683.jpg" alt="Isometric Lego Farm">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">חווה איזומטרית קלאסית</h2>
+          <p class="card-desc">מבט תלת-ממדי עשיר ומפורט עם אסם אדום, טחנת רוח, גינת גזרים מבליטות לגו ותאורת צילום צעצועים.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">אפשרות 2 ⭐ מומלץ למסך משחק</span>
+        <img src="concept_art/lego_farm_ingame_ui_1790234735286.jpg" alt="In-Game UI">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">מסך משחק מלא (In-Game UI)</h2>
+          <p class="card-desc">הצגת ה-Game Loop המלא: תרגיל חשבון למעלה, שולחן הרכבה ו-Snap באמצע, וחוות לגו מתפתחת למטה.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">אפשרות 3</span>
+        <img src="concept_art/lego_farm_chunky_cozy_1790234755025.jpg" alt="Chunky Lego Duplo Farm">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">סגנון מעוגל ורך (Duplo)</h2>
+          <p class="card-desc">פינות מעוגלות רכות, צבעי פסטל מתוקים ועננים מחייכים – מותאם במיוחד לגילאי 5 עד 7.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 4 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">אפשרות 4</span>
+        <img src="concept_art/lego_farm_modular_grid_1790234777373.jpg" alt="Modular Grid Expansion">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">רשת אריחים מודולרית</h2>
+          <p class="card-desc">רשת לוחות בסיס לגו שבה כל תרגיל נכון פותח אריח חדש (בריכה, עצי פרי, שדה חיטה, לול תרנגולות).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 5 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">חבילת נכסים</span>
+        <img src="concept_art/lego_farm_animal_pack_1790235009961.jpg" alt="Animals and Crops">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">חיות משק וטרקטור לגו</h2>
+          <p class="card-desc">סט מודלים תלת-ממדיים: פרה מחייכת, חזיר בבוץ, כבשה צמרירית, טרקטור אדום וארגז ירקות.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Option 6 -->
+    <div class="card">
+      <div class="card-img-wrapper">
+        <span class="badge">מסך ניצחון</span>
+        <img src="concept_art/lego_farm_celebration_win_1790235035941.jpg" alt="Celebration Screen">
+      </div>
+      <div class="card-content">
+        <div>
+          <h2 class="card-title">מסך הצלחה ופרסים</h2>
+          <p class="card-desc">אנימציית כוכבי זהב, קונפטי צבעוני, מטבעות בליטות לגו ופתיחת מבנים חדשים בחווה.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    GOR MARKETING · פרויקט BrickMind (LEGO-MATICA) · 2026
+  </div>
+
+</body>
+</html>

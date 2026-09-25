@@ -1,0 +1,16 @@
+{
+  "name": "BrickMind (LEGO-MATICA)",
+  "short_name": "BrickMind",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "MASTER_STYLE_HERO.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

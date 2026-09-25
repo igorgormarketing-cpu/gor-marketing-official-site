@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>BrickMind (LEGO-MATICA) - 4 מסכי המשחק המלאים</title>
+  <meta name="description" content="משחק מובייל חינוכי: סיור בעולם לגו תלת-ממדי, קטלוג מבנים, שולחן עבודה ומחסן משאבים מרכזי.">
+  <meta name="theme-color" content="#0284c7">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;900&family=Heebo:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260924_4screens_01">
+  <script src="three.min.js"></script>
+  <script src="OrbitControls.js"></script>
+</head>
+<body>
+  <div class="game-viewport" id="gameViewport">
+    
+    <!-- TOP MASTER LEGO BAR (Matching Artwork 1:1) -->
+    <header class="lego-top-bar">
+      <button class="btn-settings-gear" id="btnSettings" title="הגדרות">⚙️</button>
+
+      <div class="resource-capsules-group">
+        <!-- Gold Coins Capsule -->
+        <div class="resource-capsule" id="topBarCoins" title="מטבעות זהב (לחץ לפתיחת מחסן)" style="cursor: pointer;">
+          <div class="res-icon-circle res-coin">🪙</div>
+          <span class="res-value" id="coinsCountVal">1,250</span>
+          <div class="btn-res-plus">+</div>
+        </div>
+
+        <!-- Blue Gems Capsule -->
+        <div class="resource-capsule" id="topBarGems" title="יהלומי לגו" style="cursor: pointer;">
+          <div class="res-icon-circle res-gem">💎</div>
+          <span class="res-value" id="gemsCountVal">85</span>
+          <div class="btn-res-plus">+</div>
+        </div>
+
+        <!-- Level Star Badge -->
+        <div class="level-badge-container" title="רמת שחקן">
+          <span class="level-star-icon">⭐</span>
+          <span class="level-number" id="playerLevelVal">24</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SUB-NAV: 4 MAIN SCREENS QUICK SWITCHER -->
+    <div class="sub-header-nav">
+      <div class="view-segmented-switch">
+        <button class="seg-btn active-seg" id="btnViewTable">🪵 3. שולחן עבודה</button>
+        <button class="seg-btn" id="btnViewMapSite">🚜 1. מפה גדולה</button>
+      </div>
+
+      <div class="header-quick-actions">
+        <button class="btn-action-pill" id="btnOpenRebrickable" title="🧱 קטלוג חלקי לגו אמיתיים (Rebrickable)" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; font-weight: 900;">🧱 Rebrickable</button>
+        <button class="btn-action-pill" id="btnOpenCatalogNav" title="2. סוגי מבנים">📦</button>
+        <button class="btn-action-pill" id="btnOpenWarehouseNav" title="4. מחסן מרכזי">🏪</button>
+        <button class="btn-action-pill" id="btnWorldModal" title="מפת עולמות">🗺️</button>
+        <button class="btn-action-pill" id="btnVoice" title="דיבוב עברי">🗣️</button>
+        <button class="btn-action-pill" id="btnSound" title="צלילים">🔊</button>
+      </div>
+    </div>
+
+    <!-- CENTER HERO MATH CARD (SCREEN 3) -->
+    <div class="hero-math-card-wrapper" id="mathCardSection">
+      <div class="hero-math-card" id="mathCard">
+        <div class="math-card-stars">⭐ ⭐ ⭐</div>
+        <div class="math-card-equation">
+          <span class="math-num chip-red" id="valA">3</span>
+          <span class="math-operator" id="mainOp">+</span>
+          <span class="math-num chip-gold" id="valB">2</span>
+          <span class="math-operator">=</span>
+          <span class="math-num chip-blue" id="answerDisplay">5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: 3D WOODEN PLAY TABLE (שולחן עבודה) -->
+    <main class="game-screen active-screen" id="screenTable">
+      <div class="canvas-3d-wrapper" id="threeTableContainer">
+        <div class="floating-map-cam-bar" style="top: 8px; bottom: auto; left: 10px;">
+          <button class="btn-map-cam-pill" id="btnCamIso">📐 3D</button>
+          <button class="btn-map-cam-pill" id="btnCamTop">🔝 על</button>
+          <button class="btn-map-cam-pill" id="btnCamFront">👁️ חזית</button>
+        </div>
+
+        <div class="quest-floating-bubble" style="top: 8px; right: 10px;">
+          <div class="quest-title-text" id="curPartIcon">🪵 חלק 1 מתוך 25</div>
+          <div class="quest-name-text" id="curPartName">יסודות רצפת עץ</div>
+          <div class="quest-progress-pill" id="snapCountVal">0 / 5</div>
+        </div>
+      </div>
+
+      <!-- BOTTOM CHUNKY LEGO BRICK TRAY & 5 ACTION BUTTONS (Matching Reference 1:1) -->
+      <div class="lego-dock-brick-frame" id="tableBricksDock">
+        
+        <!-- Lego Studs Row on Top of Dock -->
+        <div class="lego-dock-studs-row">
+          <div class="dock-stud stud-blue"></div>
+          <div class="dock-stud stud-blue"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-green"></div>
+          <div class="dock-stud stud-green"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-red"></div>
+          <div class="dock-stud stud-red"></div>
+        </div>
+
+        <!-- Dynamic Brick Buttons for Current Step -->
+        <div class="bricks-buttons-grid" id="dockBricksRow" style="margin-bottom: 6px;"></div>
+
+        <!-- 5 Chunky Master Action Buttons (LEVELS, BUILD, HOME, SCORES, REPLAY) -->
+        <div class="lego-dock-buttons-row">
+          <div class="chunky-lego-btn btn-levels-red" id="btnDockLevels" title="שלבים וכוכבים">
+            <span class="chunky-btn-icon">🗺️</span>
+            <span class="chunky-btn-label-en">LEVELS</span>
+            <span class="chunky-btn-label-he">שלבים</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-build-blue" id="btnDockBuildChunky" title="סוגי מבנים">
+            <span class="chunky-btn-icon">🧱</span>
+            <span class="chunky-btn-label-en">BUILD</span>
+            <span class="chunky-btn-label-he">בנייה</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-home-green" id="btnDockHome" title="חזרה לחווה הראשית">
+            <span class="chunky-btn-icon">🏠</span>
+            <span class="chunky-btn-label-en">HOME</span>
+            <span class="chunky-btn-label-he">בית</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-scores-gold" id="btnDockScores" title="שיאים ונקודות">
+            <span class="chunky-btn-icon">⭐</span>
+            <span class="chunky-btn-label-en">MY SCORES</span>
+            <span class="chunky-btn-label-he">נקודות</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-replay-amber" id="btnDockReplay" title="התחל שלב מחדש">
+            <span class="chunky-btn-icon">🔄</span>
+            <span class="chunky-btn-label-en">REPLAY</span>
+            <span class="chunky-btn-label-he">שוב</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SCREEN 1: PHOTOREALISTIC 3D FARM DIORAMA (Matching Reference 1:1) -->
+    <main class="game-screen" id="screenMapSite">
+      <div class="farm-diorama-interactive-container" id="farmDioramaContainer">
+        
+        <!-- High-Res Master 3D Lego Farm Diorama Artwork -->
+        <img src="MASTER_STYLE_HERO.jpg" alt="Lego Farm 3D Diorama" class="diorama-master-image" id="dioramaImg">
+
+        <!-- INTERACTIVE HOTSPOTS OVER DIORAMA -->
+        <!-- Hotspot: Red Barn (אסם חווה) -->
+        <div class="diorama-hotspot" id="hotspotBarn" style="top: 48%; left: 32%;" title="האסם האדום - לחץ לבנייה">
+          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🏛️</div>
+          <div class="hotspot-badge" style="border-color: #ef4444; background: #991b1b;" id="barnBadgeStatus">אסם: חלק 1/25</div>
+        </div>
+
+        <!-- Hotspot: Windmill (טחנת רוח) -->
+        <div class="diorama-hotspot" id="hotspotWindmill" style="top: 32%; left: 74%;" title="טחנת רוח">
+          <div class="hotspot-pulse-ring" style="border-color: #3b82f6;">💨</div>
+          <div class="hotspot-badge" style="border-color: #3b82f6;">טחנת רוח +150</div>
+        </div>
+
+        <!-- Hotspot: Wheat Fields (שדות חיטה - קציר) -->
+        <div class="diorama-hotspot" id="hotspotWheat" style="top: 68%; left: 52%;" title="שדה חיטה - לחץ לקציר!">
+          <div class="hotspot-pulse-ring" style="border-color: #eab308;">🌾</div>
+          <div class="hotspot-badge" style="border-color: #eab308;">קצור חיטה! 🌾</div>
+        </div>
+
+        <!-- Hotspot: Carrots Garden (ערוגת גזרים) -->
+        <div class="diorama-hotspot" id="hotspotCarrots" style="top: 78%; left: 34%;" title="ערוגת גזרים">
+          <div class="hotspot-pulse-ring" style="border-color: #f97316;">🥕</div>
+          <div class="hotspot-badge" style="border-color: #f97316;">גזרים טריים +5</div>
+        </div>
+
+        <!-- Hotspot: Duck Pond (אגם ברווזים) -->
+        <div class="diorama-hotspot" id="hotspotPond" style="top: 55%; left: 82%;" title="אגם ברווזים">
+          <div class="hotspot-pulse-ring" style="border-color: #0284c7;">🦆</div>
+          <div class="hotspot-badge" style="border-color: #0284c7;">אגם ברווזים</div>
+        </div>
+
+        <!-- Hotspot: Tractor (טרקטור) -->
+        <div class="diorama-hotspot" id="hotspotTractor" style="top: 82%; left: 70%;" title="טרקטור חקלאי">
+          <div class="hotspot-pulse-ring" style="border-color: #dc2626;">🚜</div>
+          <div class="hotspot-badge" style="border-color: #dc2626;">טרקטור פעיל</div>
+        </div>
+
+        <!-- Quest Bubble Overlay -->
+        <div class="quest-floating-bubble" id="mapQuestBubble">
+          <div class="quest-title-text">משימת החווה הפעילה:</div>
+          <div class="quest-name-text" id="mapQuestTitleText">🌾 קצור חיטה ובנה את אסם הלגו!</div>
+          <div class="quest-progress-pill" id="questProgressText">חלק 1/25 מוכן</div>
+        </div>
+
+        <!-- Right Side Action Dock -->
+        <div class="right-action-dock">
+          <div class="dock-action-btn" id="btnDockTools" title="כלים">
+            <span class="dock-btn-icon">🚜</span>
+            <span class="dock-btn-label">כלים</span>
+          </div>
+
+          <div class="dock-action-btn build-btn" id="btnDockBuild" title="2. סוגי מבנים">
+            <span class="dock-btn-icon">📦</span>
+            <span class="dock-btn-label">בנייה</span>
+          </div>
+
+          <div class="dock-action-btn" id="btnDockWarehouse" title="4. מחסן מרכזי">
+            <span class="dock-btn-icon">🏬</span>
+            <span class="dock-btn-label">מחסן</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SCREEN 2: BUILDING BLUEPRINT CATALOG MODAL (סוגי מבנים) -->
+    <div class="reward-modal-backdrop" id="buildingCatalogModal">
+      <div class="reward-modal-card catalog-card" style="max-width: 440px;">
+        <div class="catalog-header-bar">
+          <h2 class="reward-title" style="color: #0284c7; margin: 0;">🏗️ סוגי מבנים לבנייה</h2>
+          <button class="btn-close-modal" id="btnCloseCatalog">✖</button>
+        </div>
+        <p class="reward-desc" style="margin-bottom: 10px;">בחר מבנה להרכבה ב-25 חלקי לגו מתוך פתרון תרגילים:</p>
+
+        <div class="catalog-buildings-grid">
+          <!-- 1. Red Barn -->
+          <div class="catalog-item-card active-building">
+            <div class="cat-item-badge">נבחר כעת ✅</div>
+            <div class="cat-item-icon">🏠</div>
+            <div class="cat-item-name">אסם לגו אדום</div>
+            <div class="cat-item-stats">
+              <span>🧱 25/25 חלקים</span>
+              <span>🌾 100 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action active-btn" id="btnChooseBarn">בתהליך בנייה 🔨</button>
+          </div>
+
+          <!-- 2. Windmill -->
+          <div class="catalog-item-card">
+            <div class="cat-item-icon">💨</div>
+            <div class="cat-item-name">טחנת רוח כפרית</div>
+            <div class="cat-item-stats">
+              <span>🧱 25/25 חלקים</span>
+              <span>⚡ 100 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action" id="btnChooseWindmill">פתח לבנייה 🔓</button>
+          </div>
+
+          <!-- 3. Farmhouse -->
+          <div class="catalog-item-card">
+            <div class="cat-item-icon">🏡</div>
+            <div class="cat-item-name">בית החווה המרכזי</div>
+            <div class="cat-item-stats">
+              <span>🧱 25/25 חלקים</span>
+              <span>👑 120 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action" id="btnChooseFarmhouse">פתח לבנייה 🔓</button>
+          </div>
+
+          <!-- 4. Chicken Coop -->
+          <div class="catalog-item-card">
+            <div class="cat-item-icon">🐔</div>
+            <div class="cat-item-name">לול תרנגולות</div>
+            <div class="cat-item-stats">
+              <span>🧱 20/20 חלקים</span>
+              <span>🥚 80 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action" id="btnChooseCoop">פתח לבנייה 🔓</button>
+          </div>
+
+          <!-- 5. Greenhouse -->
+          <div class="catalog-item-card">
+            <div class="cat-item-icon">🌿</div>
+            <div class="cat-item-name">חממת ירקות שקופה</div>
+            <div class="cat-item-stats">
+              <span>🧱 20/20 חלקים</span>
+              <span>🥕 90 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action" id="btnChooseGreenhouse">פתח לבנייה 🔓</button>
+          </div>
+
+          <!-- 6. Grain Silo -->
+          <div class="catalog-item-card">
+            <div class="cat-item-icon">🛢️</div>
+            <div class="cat-item-name">סילו תבואה עגול</div>
+            <div class="cat-item-stats">
+              <span>🧱 15/15 חלקים</span>
+              <span>📦 70 יח'/דקה</span>
+            </div>
+            <button class="btn-cat-action" id="btnChooseSilo">פתח לבנייה 🔓</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 4: CENTRAL WAREHOUSE & INVENTORY MODAL (מחסן מרכזי) -->
+    <div class="reward-modal-backdrop" id="warehouseModal">
+      <div class="reward-modal-card warehouse-card" style="max-width: 440px;">
+        <div class="catalog-header-bar">
+          <h2 class="reward-title" style="color: #b45309; margin: 0;">🏪 מחסן מרכזי ומשאבים</h2>
+          <button class="btn-close-modal" id="btnCloseWarehouse">✖</button>
+        </div>
+
+        <div class="warehouse-capacity-bar-box">
+          <div class="wh-cap-label">
+            <span>קיבולת מחסן:</span>
+            <strong id="whCapacityText">520 / 1000</strong>
+          </div>
+          <div class="wh-progress-track">
+            <div class="wh-progress-fill" id="whProgressFill" style="width: 52%;"></div>
+          </div>
+        </div>
+
+        <div class="warehouse-grid-items">
+          <!-- Wheat -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🌾</div>
+            <div class="wh-item-name">חיטה מוזהבת</div>
+            <div class="wh-item-amount" id="whWheatCount">120</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('חיטה', 10)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('חיטה', 10)">פרוק</button>
+            </div>
+          </div>
+
+          <!-- Carrots -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🥕</div>
+            <div class="wh-item-name">גזרים טריים</div>
+            <div class="wh-item-amount" id="whCarrotsCount">95</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('גזרים', 15)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('גזרים', 10)">פרוק</button>
+            </div>
+          </div>
+
+          <!-- Apples -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🍎</div>
+            <div class="wh-item-name">תפוחי עץ</div>
+            <div class="wh-item-amount" id="whApplesCount">78</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('תפוחים', 20)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('תפוחים', 10)">פרוק</button>
+            </div>
+          </div>
+
+          <!-- Wood -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🪵</div>
+            <div class="wh-item-name">קורות עץ</div>
+            <div class="wh-item-amount" id="whWoodCount">110</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('עץ', 12)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('עץ', 10)">פרוק</button>
+            </div>
+          </div>
+
+          <!-- Bricks -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🧱</div>
+            <div class="wh-item-name">קוביות לגו</div>
+            <div class="wh-item-amount" id="whBricksCount">67</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('לבנים', 25)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('לבנים', 10)">פרוק</button>
+            </div>
+          </div>
+
+          <!-- Milk -->
+          <div class="wh-item-slot">
+            <div class="wh-item-icon">🥛</div>
+            <div class="wh-item-name">כדי חלב</div>
+            <div class="wh-item-amount" id="whMilkCount">50</div>
+            <div class="wh-item-btns">
+              <button class="btn-wh-action btn-wh-sell" onclick="sellResource('חלב', 18)">מכור</button>
+              <button class="btn-wh-action btn-wh-store" onclick="storeResource('חלב', 10)">פרוק</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wh-footer-actions">
+          <button class="btn-primary-action" id="btnCollectAllToWarehouse" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); flex: 1;">📥 פרוק הכל למחסן</button>
+          <button class="btn-primary-action" id="btnUpgradeWarehouse" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); flex: 1;">🏰 שדרג מחסן (+500)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Confetti Canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
+    <!-- Part Completed Reward Modal -->
+    <div class="reward-modal-backdrop" id="rewardModal">
+      <div class="reward-modal-card">
+        <div class="reward-stars">⭐⭐⭐</div>
+        <h2 class="reward-title" id="rewardTitle">החלק הורכב בהצלחה!</h2>
+        <div class="reward-icon" id="rewardIcon">🪵</div>
+        <div class="reward-name" id="rewardName">יסודות רצפת עץ (חלק 1/25)</div>
+        <p class="reward-desc" id="rewardDesc">החלק מחכה לך על הדשא ליד אתר הבנייה בחווה! בוא נלך ונרכיב אותו על המבנה!</p>
+        <button class="btn-primary-action" id="btnGoToMap">עבור למפת החווה להרכבה 🚜</button>
+      </div>
+    </div>
+
+    <!-- Complete 25-Unit Building Finished Celebration Modal -->
+    <div class="reward-modal-backdrop" id="buildingCompleteModal">
+      <div class="reward-modal-card celebrate-card">
+        <div class="reward-stars">👑 ⭐⭐⭐ 👑</div>
+        <h2 class="reward-title">המבנה הושלם במלואו (25/25)!</h2>
+        <div class="reward-icon">🏠</div>
+        <div class="reward-name">אסם הלגו האדום הושלם בהצלחה!</div>
+        <p class="reward-desc">כל 25 החלקים (הבסיס, הקירות, הדלתות, החלונות, הגג, הסילו, הגדרות והצמחייה) עומדים בגאווה בחווה! המבנה מייצר כעת משאבים!</p>
+        <button class="btn-primary-action" id="btnNextBuilding">התחל לבנות את המבנה הבא 🚀</button>
+      </div>
+    </div>
+
+    <!-- Worlds Map Explorer Modal -->
+    <div class="reward-modal-backdrop" id="worldsExplorerModal">
+      <div class="reward-modal-card worlds-card">
+        <div class="reward-stars">🌍 ⭐⭐⭐ 🗺️</div>
+        <h2 class="reward-title">מפת עולמות הלגו של BrickMind</h2>
+        <p class="reward-desc">בחר עולם לחקור ולבנות בו מבני לגו בתלת-ממד:</p>
+        
+        <div class="worlds-selection-grid">
+          <div class="world-choice-item active-world">
+            <div class="w-choice-icon">🌾</div>
+            <div class="w-choice-info">
+              <div class="w-choice-name">חוות הלגו הירוקה 3D</div>
+              <div class="w-choice-desc">אסם, טחנת רוח, סילו, אגם ברווזים וטרקטור</div>
+            </div>
+            <span class="w-choice-status">פעיל עכשיו 🚜</span>
+          </div>
+
+          <div class="world-choice-item">
+            <div class="w-choice-icon">🏰</div>
+            <div class="w-choice-info">
+              <div class="w-choice-name">ממלכת טירת האבירים 3D</div>
+              <div class="w-choice-desc">מגדלי שמירה, שער מתרומם, חומות אבן ואורווה</div>
+            </div>
+            <span class="w-choice-status">עולם 2 🔒</span>
+          </div>
+
+          <div class="world-choice-item">
+            <div class="w-choice-icon">🚀</div>
+            <div class="w-choice-info">
+              <div class="w-choice-name">תחנת החלל על הירח 3D</div>
+              <div class="w-choice-desc">משגר רקטות, מעבדת חלל, תחנת מחקר וכיפה</div>
+            </div>
+            <span class="w-choice-status">עולם 3 🔒</span>
+          </div>
+
+          <div class="world-choice-item">
+            <div class="w-choice-icon">🦕</div>
+            <div class="w-choice-info">
+              <div class="w-choice-name">אי הדינוזאורים והספארי 3D</div>
+              <div class="w-choice-desc">מרכז מבקרים, ג'יפ ספארי, מתחם וולקני וחיות</div>
+            </div>
+            <span class="w-choice-status">עולם 4 🔒</span>
+          </div>
+        </div>
+
+        <button class="btn-primary-action" id="btnCloseWorldExplorer" style="margin-top: 14px;">חזור למשחק ◀</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="audio_synth.js?v=20260924_4screens_01"></script>
+  <script src="brick_engine_25parts.js?v=20260924_4screens_01"></script>
+</body>
+</html>
