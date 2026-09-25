@@ -167,9 +167,9 @@
     } catch(e){}
   }
 
-  // --- MASTER 3D PHOTOREALISTIC WORKBENCH ENGINE (MATCHING SCREEN_3_WORKTABLE.JPG 1:1) ---
+  // --- MASTER 3D PHOTOREALISTIC WORKBENCH & COMPLETE TABLE MODEL ---
   let tableScene, tableCamera, tableRenderer, tableControls;
-  let activeBuildingGroup, floatingGhostGroup, dustParticlesGroup, snapFXGroup, minifigGroup;
+  let activeBuildingGroup, floatingGhostGroup, dustParticlesGroup, snapFXGroup, minifigGroup, fullTableGroup;
 
   function createWoodTableTexture() {
     const canvas = document.createElement('canvas');
@@ -177,31 +177,31 @@
     canvas.height = 1024;
     const ctx = canvas.getContext('2d');
 
-    // Warm radial honey oak grain
-    const grad = ctx.createRadialGradient(512, 512, 80, 512, 512, 512);
-    grad.addColorStop(0, '#d97706');
-    grad.addColorStop(0.5, '#b45309');
-    grad.addColorStop(0.85, '#92400e');
-    grad.addColorStop(1, '#78350f');
+    // Warm radial honey oak varnish
+    const grad = ctx.createRadialGradient(512, 512, 60, 512, 512, 512);
+    grad.addColorStop(0, '#f59e0b');
+    grad.addColorStop(0.35, '#d97706');
+    grad.addColorStop(0.7, '#b45309');
+    grad.addColorStop(1, '#92400e');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 1024, 1024);
 
-    // Concentric growth rings
-    for (let r = 50; r < 600; r += 12) {
-      ctx.strokeStyle = 'rgba(69, 26, 3, 0.12)';
-      ctx.lineWidth = 3 + Math.random() * 2;
+    // Natural wood growth rings
+    for (let r = 40; r < 560; r += 14) {
+      ctx.strokeStyle = 'rgba(69, 26, 3, 0.14)';
+      ctx.lineWidth = 2 + Math.random() * 2.5;
       ctx.beginPath();
       ctx.arc(512, 512, r, 0, Math.PI * 2);
       ctx.stroke();
     }
 
-    // Wood fiber rays
-    for (let a = 0; a < Math.PI * 2; a += 0.04) {
-      ctx.strokeStyle = Math.random() > 0.5 ? 'rgba(254, 243, 199, 0.05)' : 'rgba(69, 26, 3, 0.06)';
-      ctx.lineWidth = 2;
+    // Wood grain rays
+    for (let a = 0; a < Math.PI * 2; a += 0.035) {
+      ctx.strokeStyle = Math.random() > 0.5 ? 'rgba(254, 243, 199, 0.06)' : 'rgba(69, 26, 3, 0.07)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.moveTo(512 + Math.cos(a) * 60, 512 + Math.sin(a) * 60);
-      ctx.lineTo(512 + Math.cos(a) * 510, 512 + Math.sin(a) * 510);
+      ctx.moveTo(512 + Math.cos(a) * 50, 512 + Math.sin(a) * 50);
+      ctx.lineTo(512 + Math.cos(a) * 505, 512 + Math.sin(a) * 505);
       ctx.stroke();
     }
 
@@ -217,10 +217,10 @@
     const ctx = canvas.getContext('2d');
 
     const grad = ctx.createRadialGradient(128, 128, 10, 128, 128, 124);
-    grad.addColorStop(0, 'rgba(30, 41, 59, 0.7)');
-    grad.addColorStop(0.4, 'rgba(30, 41, 59, 0.4)');
-    grad.addColorStop(0.8, 'rgba(30, 41, 59, 0.1)');
-    grad.addColorStop(1, 'rgba(30, 41, 59, 0)');
+    grad.addColorStop(0, 'rgba(15, 23, 42, 0.7)');
+    grad.addColorStop(0.4, 'rgba(15, 23, 42, 0.35)');
+    grad.addColorStop(0.8, 'rgba(15, 23, 42, 0.08)');
+    grad.addColorStop(1, 'rgba(15, 23, 42, 0)');
 
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, 256, 256);
@@ -230,10 +230,94 @@
     return tex;
   }
 
+  function buildFull3DWoodenTable() {
+    const tableGroup = new THREE.Group();
+    const woodTex = createWoodTableTexture();
+
+    const tableWoodMat = new THREE.MeshPhysicalMaterial({
+      map: woodTex,
+      roughness: 0.35,
+      metalness: 0.05,
+      clearcoat: 0.5,
+      clearcoatRoughness: 0.15
+    });
+
+    const brassMat = new THREE.MeshStandardMaterial({
+      color: 0xd97706,
+      roughness: 0.25,
+      metalness: 0.85
+    });
+
+    // 1. Table Top Disc (Thick chamfered round oak surface)
+    const topGeom = new THREE.CylinderGeometry(21, 21, 1.4, 48);
+    const topMesh = new THREE.Mesh(topGeom, tableWoodMat);
+    topMesh.position.y = 0.7;
+    topMesh.receiveShadow = true;
+    topMesh.castShadow = true;
+    tableGroup.add(topMesh);
+
+    // 2. Table Under-Rim / Apron
+    const apronGeom = new THREE.CylinderGeometry(17.5, 17.5, 1.0, 36);
+    const apronMesh = new THREE.Mesh(apronGeom, tableWoodMat);
+    apronMesh.position.y = -0.5;
+    apronMesh.castShadow = true;
+    tableGroup.add(apronMesh);
+
+    // 3. 4 Solid Oak Legs with Brass Caps
+    const legPositions = [
+      [-10.5, -7.0, -10.5],
+      [10.5, -7.0, -10.5],
+      [-10.5, -7.0, 10.5],
+      [10.5, -7.0, 10.5]
+    ];
+
+    legPositions.forEach(([lx, ly, lz]) => {
+      // Wooden Leg
+      const legGeom = new THREE.BoxGeometry(2.2, 13, 2.2);
+      const legMesh = new THREE.Mesh(legGeom, tableWoodMat);
+      legMesh.position.set(lx, ly, lz);
+      legMesh.castShadow = true;
+      legMesh.receiveShadow = true;
+      tableGroup.add(legMesh);
+
+      // Brass Foot Cap
+      const footGeom = new THREE.BoxGeometry(2.35, 1.2, 2.35);
+      const footMesh = new THREE.Mesh(footGeom, brassMat);
+      footMesh.position.set(lx, ly - 6.0, lz);
+      footMesh.castShadow = true;
+      tableGroup.add(footMesh);
+    });
+
+    // 4. Cross Bracing connecting the legs
+    const braceMat = tableWoodMat;
+    const b1Geom = new THREE.BoxGeometry(21, 0.8, 1.4);
+    const b1 = new THREE.Mesh(b1Geom, braceMat);
+    b1.position.set(0, -9.5, 0);
+    b1.rotation.y = Math.PI / 4;
+    tableGroup.add(b1);
+
+    const b2Geom = new THREE.BoxGeometry(21, 0.8, 1.4);
+    const b2 = new THREE.Mesh(b2Geom, braceMat);
+    b2.position.set(0, -9.5, 0);
+    b2.rotation.y = -Math.PI / 4;
+    tableGroup.add(b2);
+
+    // 5. Soft Contact Shadow on Floor Under Table
+    const shadowTex = createSoftShadowTexture();
+    const floorShadowMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(32, 32),
+      new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, opacity: 0.65, depthWrite: false })
+    );
+    floorShadowMesh.rotation.x = -Math.PI / 2;
+    floorShadowMesh.position.y = -13.5;
+    tableGroup.add(floorShadowMesh);
+
+    return tableGroup;
+  }
+
   function buildLegoMinifigure() {
     const fig = new THREE.Group();
 
-    // Materials
     const yellowSkinMat = new THREE.MeshPhysicalMaterial({
       color: 0xfacc15,
       roughness: 0.18,
@@ -291,11 +375,11 @@
 
     const rightArm = new THREE.Mesh(armGeom, redShirtMat);
     rightArm.position.set(1.05, 2.5, 0.5);
-    rightArm.rotation.x = -Math.PI / 2.5; // Reaching up holding brick!
+    rightArm.rotation.x = -Math.PI / 2.5;
     rightArm.rotation.z = -Math.PI / 8;
     fig.add(rightArm);
 
-    // Yellow Hands
+    // Hands
     const handGeom = new THREE.TorusGeometry(0.18, 0.08, 8, 12, Math.PI * 1.5);
     const rightHand = new THREE.Mesh(handGeom, yellowSkinMat);
     rightHand.position.set(1.15, 2.65, 1.2);
@@ -307,20 +391,18 @@
     leftHand.rotation.y = -Math.PI / 2;
     fig.add(leftHand);
 
-    // Head
+    // Head & Hair
     const headGeom = new THREE.CylinderGeometry(0.48, 0.48, 0.75, 18);
     const head = new THREE.Mesh(headGeom, yellowSkinMat);
     head.position.set(0, 3.5, 0);
     head.castShadow = true;
     fig.add(head);
 
-    // Head Stud on top
     const hStudGeom = new THREE.CylinderGeometry(0.22, 0.22, 0.2, 12);
     const hStud = new THREE.Mesh(hStudGeom, yellowSkinMat);
     hStud.position.set(0, 3.95, 0);
     fig.add(hStud);
 
-    // Blonde Hair
     const hairGeom = new THREE.SphereGeometry(0.55, 12, 12, 0, Math.PI * 2, 0, Math.PI / 1.7);
     const hair = new THREE.Mesh(hairGeom, blondeHairMat);
     hair.position.set(0, 3.7, 0);
@@ -334,7 +416,7 @@
     miniBrick.position.set(1.15, 2.9, 1.4);
     fig.add(miniBrick);
 
-    fig.scale.set(1.4, 1.4, 1.4);
+    fig.scale.set(1.35, 1.35, 1.35);
     return fig;
   }
 
@@ -343,11 +425,9 @@
 
     const redMat = new THREE.MeshPhysicalMaterial({ color: 0xef4444, roughness: 0.15, clearcoat: 1.0 });
     const yellowMat = new THREE.MeshPhysicalMaterial({ color: 0xfacc15, roughness: 0.15, clearcoat: 1.0 });
-    const blueMat = new THREE.MeshPhysicalMaterial({ color: 0x2563eb, roughness: 0.15, clearcoat: 1.0 });
 
     const studGeom = new THREE.CylinderGeometry(0.44, 0.44, 0.26, 16);
 
-    // Helper: 2x4 Brick
     function make2x4(mat) {
       const g = new THREE.Group();
       const body = new THREE.Mesh(new THREE.BoxGeometry(6.4, 1.8, 3.2), mat);
@@ -365,7 +445,6 @@
       return g;
     }
 
-    // Helper: 2x2 Brick
     function make2x2(mat) {
       const g = new THREE.Group();
       const body = new THREE.Mesh(new THREE.BoxGeometry(3.2, 1.8, 3.2), mat);
@@ -383,39 +462,34 @@
       return g;
     }
 
-    // Brick 1: Yellow 2x4 on left
+    // Bricks on Table Surface around Baseplate
     const b1 = make2x4(yellowMat);
-    b1.position.set(-13, 0.9, -3);
+    b1.position.set(-13, 2.3, -2);
     b1.rotation.y = Math.PI / 7;
     looseGroup.add(b1);
 
-    // Brick 2: Red 2x4 in front-left
     const b2 = make2x4(redMat);
-    b2.position.set(-10, 0.9, 12);
+    b2.position.set(-9.5, 2.3, 11);
     b2.rotation.y = -Math.PI / 10;
     looseGroup.add(b2);
 
-    // Brick 3: Red 2x2 on baseplate front
     const b3 = make2x2(redMat);
-    b3.position.set(-6, 0.9, 8);
+    b3.position.set(-6, 2.3, 7.5);
     b3.rotation.y = Math.PI / 5;
     looseGroup.add(b3);
 
-    // Brick 4: Yellow 2x4 on right
     const b4 = make2x4(yellowMat);
-    b4.position.set(13.5, 0.9, 4);
+    b4.position.set(13.5, 2.3, 3);
     b4.rotation.y = Math.PI / 12;
     looseGroup.add(b4);
 
-    // Brick 5: Red 2x2 on right front
     const b5 = make2x2(redMat);
-    b5.position.set(5.5, 0.9, 13);
+    b5.position.set(5.5, 2.3, 12);
     b5.rotation.y = -Math.PI / 6;
     looseGroup.add(b5);
 
-    // Brick 6: Yellow 2x2 on baseplate right
     const b6 = make2x2(yellowMat);
-    b6.position.set(9.5, 0.9, 7);
+    b6.position.set(9.5, 2.3, 7);
     b6.rotation.y = Math.PI / 8;
     looseGroup.add(b6);
 
@@ -427,12 +501,12 @@
     if (!container || tableRenderer) return;
 
     tableScene = new THREE.Scene();
+    tableScene.background = null; // Transparent alpha so room background shines through!
 
     const aspect = container.clientWidth / container.clientHeight || 1;
     tableCamera = new THREE.PerspectiveCamera(40, aspect, 0.1, 1000);
     tableCamera.position.set(20, 26, 22);
 
-    // Transparent WebGL Renderer so the warm playroom studio backdrop glows through!
     tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     tableRenderer.setSize(container.clientWidth, container.clientHeight);
     tableRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -446,17 +520,16 @@
       tableControls = new THREE.OrbitControls(tableCamera, tableRenderer.domElement);
       tableControls.enableDamping = true;
       tableControls.dampingFactor = 0.06;
-      tableControls.maxPolarAngle = Math.PI / 2.12;
+      tableControls.maxPolarAngle = Math.PI / 2.05;
       tableControls.minDistance = 12;
-      tableControls.maxDistance = 60;
-      tableControls.target.set(0, 4.0, 0);
+      tableControls.maxDistance = 65;
+      tableControls.target.set(0, 3.5, 0);
     }
 
     // --- CINEMATIC 3-POINT STUDIO & WARM SUN LIGHTING ---
     const hemiLight = new THREE.HemisphereLight(0xfffaed, 0x64748b, 0.75);
     tableScene.add(hemiLight);
 
-    // Key Sun Light from Window (Top Left)
     const sunLight = new THREE.DirectionalLight(0xfff7ed, 1.7);
     sunLight.position.set(24, 46, 20);
     sunLight.castShadow = true;
@@ -472,45 +545,22 @@
     sunLight.shadow.radius = 2.5;
     tableScene.add(sunLight);
 
-    // Cool Sky Fill Light
     const skyFill = new THREE.DirectionalLight(0x93c5fd, 0.55);
     skyFill.position.set(-22, 20, -22);
     tableScene.add(skyFill);
 
-    // Warm Rim Backlight (Pixar Glow on Brick Edges)
     const rimLight = new THREE.DirectionalLight(0xfde047, 0.85);
     rimLight.position.set(0, 30, -32);
     tableScene.add(rimLight);
 
-    // --- 1. WARM CIRCULAR OAK WOODEN TABLE ---
-    const woodTex = createWoodTableTexture();
-    const tableGeom = new THREE.CylinderGeometry(23, 23, 2.0, 48);
-    const tableMat = new THREE.MeshPhysicalMaterial({
-      map: woodTex,
-      roughness: 0.38,
-      metalness: 0.05,
-      clearcoat: 0.45,
-      clearcoatRoughness: 0.2
-    });
-    const tableMesh = new THREE.Mesh(tableGeom, tableMat);
-    tableMesh.position.y = -1.0;
-    tableMesh.receiveShadow = true;
-    tableScene.add(tableMesh);
+    // --- 1. BUILD COMPLETE 3D WOODEN TABLE (TOP + LEGS + CROSS BRACING) ---
+    fullTableGroup = buildFull3DWoodenTable();
+    tableScene.add(fullTableGroup);
 
-    // --- 2. SOFT CONTACT AMBIENT OCCLUSION SHADOW ---
-    const shadowTex = createSoftShadowTexture();
-    const shadowMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(28, 28),
-      new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, opacity: 0.65, depthWrite: false })
-    );
-    shadowMesh.rotation.x = -Math.PI / 2;
-    shadowMesh.position.y = 0.02;
-    tableScene.add(shadowMesh);
-
-    // --- 3. BLUE LEGO BASEPLATE WITH ROUNDED EDGES & GLOSSY STUDS ---
-    const plateGeom = new THREE.BoxGeometry(20, 0.55, 20);
+    // --- 2. BLUE LEGO BASEPLATE WITH ROUNDED EDGES & GLOSSY STUDS ---
+    const plateGeom = new THREE.BoxGeometry(19, 0.55, 19);
     const plateMat = new THREE.MeshPhysicalMaterial({
-      color: 0x0284c7, // Vibrant Classic Lego Blue
+      color: 0x0284c7,
       roughness: 0.14,
       metalness: 0.02,
       clearcoat: 1.0,
@@ -518,7 +568,7 @@
       reflectivity: 0.95
     });
     const plateMesh = new THREE.Mesh(plateGeom, plateMat);
-    plateMesh.position.y = 0.28;
+    plateMesh.position.y = 1.68;
     plateMesh.receiveShadow = true;
     plateMesh.castShadow = true;
     tableScene.add(plateMesh);
@@ -531,26 +581,26 @@
       clearcoat: 1.0,
       clearcoatRoughness: 0.06
     });
-    for (let x = -8.1; x <= 8.1; x += 1.8) {
-      for (let z = -8.1; z <= 8.1; z += 1.8) {
+    for (let x = -7.6; x <= 7.6; x += 1.7) {
+      for (let z = -7.6; z <= 7.6; z += 1.7) {
         const stud = new THREE.Mesh(studGeom, studMat);
-        stud.position.set(x, 0.68, z);
+        stud.position.set(x, 2.08, z);
         stud.receiveShadow = true;
         stud.castShadow = true;
         tableScene.add(stud);
       }
     }
 
-    // --- 4. SCATTERED DECORATIVE LOOSE BRICKS AROUND TABLE ---
+    // --- 3. SCATTERED DECORATIVE LOOSE BRICKS ---
     addDecorativeLooseBricks(tableScene);
 
-    // --- 5. 3D LEGO MINIFIGURE BUILDER CHARACTER ---
+    // --- 4. 3D LEGO MINIFIGURE BUILDER CHARACTER ---
     minifigGroup = buildLegoMinifigure();
-    minifigGroup.position.set(8.2, 0.28, -2.5);
+    minifigGroup.position.set(8.2, 1.4, -2.5);
     minifigGroup.rotation.y = -Math.PI / 3;
     tableScene.add(minifigGroup);
 
-    // --- 6. FLOATING GOLDEN SUNLIGHT DUST PARTICLES ---
+    // --- 5. FLOATING GOLDEN SUNLIGHT DUST PARTICLES ---
     dustParticlesGroup = new THREE.Group();
     const dustGeom = new THREE.BufferGeometry();
     const dustCount = 45;
@@ -571,11 +621,13 @@
     dustParticlesGroup.add(new THREE.Points(dustGeom, dustMat));
     tableScene.add(dustParticlesGroup);
 
-    // --- 7. ACTIVE ASSEMBLED LEGO & GHOST GROUPS ---
+    // --- 6. ACTIVE ASSEMBLED LEGO & GHOST GROUPS ---
     activeBuildingGroup = new THREE.Group();
+    activeBuildingGroup.position.y = 1.0; // Aligned with baseplate top
     tableScene.add(activeBuildingGroup);
 
     floatingGhostGroup = new THREE.Group();
+    floatingGhostGroup.position.y = 1.0;
     tableScene.add(floatingGhostGroup);
 
     snapFXGroup = new THREE.Group();
@@ -600,12 +652,12 @@
     // Floating Ghost Piece Glow & Bob
     if (floatingGhostGroup && !isStepSolved) {
       floatingGhostGroup.rotation.y += 0.01;
-      floatingGhostGroup.position.y = 7.0 + Math.sin(Date.now() * 0.0035) * 0.4;
+      floatingGhostGroup.position.y = 7.5 + Math.sin(Date.now() * 0.0035) * 0.4;
     }
 
     // Minifigure Breathing Micro-Animation
     if (minifigGroup) {
-      minifigGroup.position.y = 0.28 + Math.sin(Date.now() * 0.002) * 0.04;
+      minifigGroup.position.y = 1.4 + Math.sin(Date.now() * 0.002) * 0.04;
     }
 
     // Sunlight Dust Motes Slow Drift
@@ -636,13 +688,13 @@
     if (!tableCamera || !tableControls) return;
     if (type === 'iso') {
       tableCamera.position.set(20, 26, 22);
-      tableControls.target.set(0, 4.0, 0);
+      tableControls.target.set(0, 3.5, 0);
     } else if (type === 'top') {
       tableCamera.position.set(0, 38, 0.1);
-      tableControls.target.set(0, 0, 0);
+      tableControls.target.set(0, 1.5, 0);
     } else if (type === 'front') {
-      tableCamera.position.set(0, 15, 34);
-      tableControls.target.set(0, 5.5, 0);
+      tableCamera.position.set(0, 14, 34);
+      tableControls.target.set(0, 4.5, 0);
     }
     tableControls.update();
     playSoundSafe('playBrickClick');
