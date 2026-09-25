@@ -167,85 +167,419 @@
     } catch(e){}
   }
 
-  // --- THREE.JS 3D PLAY TABLE ENGINE ---
+  // --- MASTER 3D PHOTOREALISTIC WORKBENCH ENGINE (MATCHING SCREEN_3_WORKTABLE.JPG 1:1) ---
   let tableScene, tableCamera, tableRenderer, tableControls;
-  let activeBuildingGroup, floatingGhostGroup;
+  let activeBuildingGroup, floatingGhostGroup, dustParticlesGroup, snapFXGroup, minifigGroup;
+
+  function createWoodTableTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1024;
+    canvas.height = 1024;
+    const ctx = canvas.getContext('2d');
+
+    // Warm radial honey oak grain
+    const grad = ctx.createRadialGradient(512, 512, 80, 512, 512, 512);
+    grad.addColorStop(0, '#d97706');
+    grad.addColorStop(0.5, '#b45309');
+    grad.addColorStop(0.85, '#92400e');
+    grad.addColorStop(1, '#78350f');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1024, 1024);
+
+    // Concentric growth rings
+    for (let r = 50; r < 600; r += 12) {
+      ctx.strokeStyle = 'rgba(69, 26, 3, 0.12)';
+      ctx.lineWidth = 3 + Math.random() * 2;
+      ctx.beginPath();
+      ctx.arc(512, 512, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Wood fiber rays
+    for (let a = 0; a < Math.PI * 2; a += 0.04) {
+      ctx.strokeStyle = Math.random() > 0.5 ? 'rgba(254, 243, 199, 0.05)' : 'rgba(69, 26, 3, 0.06)';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(512 + Math.cos(a) * 60, 512 + Math.sin(a) * 60);
+      ctx.lineTo(512 + Math.cos(a) * 510, 512 + Math.sin(a) * 510);
+      ctx.stroke();
+    }
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.needsUpdate = true;
+    return tex;
+  }
+
+  function createSoftShadowTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 256;
+    const ctx = canvas.getContext('2d');
+
+    const grad = ctx.createRadialGradient(128, 128, 10, 128, 128, 124);
+    grad.addColorStop(0, 'rgba(30, 41, 59, 0.7)');
+    grad.addColorStop(0.4, 'rgba(30, 41, 59, 0.4)');
+    grad.addColorStop(0.8, 'rgba(30, 41, 59, 0.1)');
+    grad.addColorStop(1, 'rgba(30, 41, 59, 0)');
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 256, 256);
+
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.needsUpdate = true;
+    return tex;
+  }
+
+  function buildLegoMinifigure() {
+    const fig = new THREE.Group();
+
+    // Materials
+    const yellowSkinMat = new THREE.MeshPhysicalMaterial({
+      color: 0xfacc15,
+      roughness: 0.18,
+      clearcoat: 0.9,
+      clearcoatRoughness: 0.1
+    });
+    const redShirtMat = new THREE.MeshPhysicalMaterial({
+      color: 0xdc2626,
+      roughness: 0.22,
+      clearcoat: 0.85
+    });
+    const bluePantsMat = new THREE.MeshPhysicalMaterial({
+      color: 0x1d4ed8,
+      roughness: 0.22,
+      clearcoat: 0.85
+    });
+    const blondeHairMat = new THREE.MeshPhysicalMaterial({
+      color: 0xfde047,
+      roughness: 0.35,
+      clearcoat: 0.7
+    });
+
+    // Legs
+    const lLegGeom = new THREE.BoxGeometry(0.7, 1.4, 0.75);
+    const leftLeg = new THREE.Mesh(lLegGeom, bluePantsMat);
+    leftLeg.position.set(-0.42, 0.7, 0);
+    leftLeg.castShadow = true;
+    fig.add(leftLeg);
+
+    const rightLeg = new THREE.Mesh(lLegGeom, bluePantsMat);
+    rightLeg.position.set(0.42, 0.7, 0);
+    rightLeg.castShadow = true;
+    fig.add(rightLeg);
+
+    // Hips
+    const hipsGeom = new THREE.BoxGeometry(1.6, 0.4, 0.76);
+    const hips = new THREE.Mesh(hipsGeom, bluePantsMat);
+    hips.position.set(0, 1.5, 0);
+    fig.add(hips);
+
+    // Torso
+    const torsoGeom = new THREE.BoxGeometry(1.65, 1.5, 0.85);
+    const torso = new THREE.Mesh(torsoGeom, redShirtMat);
+    torso.position.set(0, 2.45, 0);
+    torso.castShadow = true;
+    fig.add(torso);
+
+    // Arms
+    const armGeom = new THREE.CylinderGeometry(0.24, 0.22, 1.2, 12);
+    const leftArm = new THREE.Mesh(armGeom, redShirtMat);
+    leftArm.position.set(-1.05, 2.3, 0.2);
+    leftArm.rotation.x = -Math.PI / 4;
+    leftArm.rotation.z = Math.PI / 10;
+    fig.add(leftArm);
+
+    const rightArm = new THREE.Mesh(armGeom, redShirtMat);
+    rightArm.position.set(1.05, 2.5, 0.5);
+    rightArm.rotation.x = -Math.PI / 2.5; // Reaching up holding brick!
+    rightArm.rotation.z = -Math.PI / 8;
+    fig.add(rightArm);
+
+    // Yellow Hands
+    const handGeom = new THREE.TorusGeometry(0.18, 0.08, 8, 12, Math.PI * 1.5);
+    const rightHand = new THREE.Mesh(handGeom, yellowSkinMat);
+    rightHand.position.set(1.15, 2.65, 1.2);
+    rightHand.rotation.y = Math.PI / 2;
+    fig.add(rightHand);
+
+    const leftHand = new THREE.Mesh(handGeom, yellowSkinMat);
+    leftHand.position.set(-1.15, 1.7, 0.6);
+    leftHand.rotation.y = -Math.PI / 2;
+    fig.add(leftHand);
+
+    // Head
+    const headGeom = new THREE.CylinderGeometry(0.48, 0.48, 0.75, 18);
+    const head = new THREE.Mesh(headGeom, yellowSkinMat);
+    head.position.set(0, 3.5, 0);
+    head.castShadow = true;
+    fig.add(head);
+
+    // Head Stud on top
+    const hStudGeom = new THREE.CylinderGeometry(0.22, 0.22, 0.2, 12);
+    const hStud = new THREE.Mesh(hStudGeom, yellowSkinMat);
+    hStud.position.set(0, 3.95, 0);
+    fig.add(hStud);
+
+    // Blonde Hair
+    const hairGeom = new THREE.SphereGeometry(0.55, 12, 12, 0, Math.PI * 2, 0, Math.PI / 1.7);
+    const hair = new THREE.Mesh(hairGeom, blondeHairMat);
+    hair.position.set(0, 3.7, 0);
+    hair.scale.set(1.05, 0.8, 1.1);
+    fig.add(hair);
+
+    // Yellow Mini Brick held in hand
+    const miniBrickGeom = new THREE.BoxGeometry(0.9, 0.6, 0.9);
+    const miniBrickMat = new THREE.MeshPhysicalMaterial({ color: 0xfacc15, roughness: 0.15, clearcoat: 1.0 });
+    const miniBrick = new THREE.Mesh(miniBrickGeom, miniBrickMat);
+    miniBrick.position.set(1.15, 2.9, 1.4);
+    fig.add(miniBrick);
+
+    fig.scale.set(1.4, 1.4, 1.4);
+    return fig;
+  }
+
+  function addDecorativeLooseBricks(scene) {
+    const looseGroup = new THREE.Group();
+
+    const redMat = new THREE.MeshPhysicalMaterial({ color: 0xef4444, roughness: 0.15, clearcoat: 1.0 });
+    const yellowMat = new THREE.MeshPhysicalMaterial({ color: 0xfacc15, roughness: 0.15, clearcoat: 1.0 });
+    const blueMat = new THREE.MeshPhysicalMaterial({ color: 0x2563eb, roughness: 0.15, clearcoat: 1.0 });
+
+    const studGeom = new THREE.CylinderGeometry(0.44, 0.44, 0.26, 16);
+
+    // Helper: 2x4 Brick
+    function make2x4(mat) {
+      const g = new THREE.Group();
+      const body = new THREE.Mesh(new THREE.BoxGeometry(6.4, 1.8, 3.2), mat);
+      body.castShadow = true;
+      body.receiveShadow = true;
+      g.add(body);
+      for (let x = -2.4; x <= 2.4; x += 1.6) {
+        for (let z = -0.8; z <= 0.8; z += 1.6) {
+          const st = new THREE.Mesh(studGeom, mat);
+          st.position.set(x, 1.02, z);
+          st.castShadow = true;
+          g.add(st);
+        }
+      }
+      return g;
+    }
+
+    // Helper: 2x2 Brick
+    function make2x2(mat) {
+      const g = new THREE.Group();
+      const body = new THREE.Mesh(new THREE.BoxGeometry(3.2, 1.8, 3.2), mat);
+      body.castShadow = true;
+      body.receiveShadow = true;
+      g.add(body);
+      for (let x = -0.8; x <= 0.8; x += 1.6) {
+        for (let z = -0.8; z <= 0.8; z += 1.6) {
+          const st = new THREE.Mesh(studGeom, mat);
+          st.position.set(x, 1.02, z);
+          st.castShadow = true;
+          g.add(st);
+        }
+      }
+      return g;
+    }
+
+    // Brick 1: Yellow 2x4 on left
+    const b1 = make2x4(yellowMat);
+    b1.position.set(-13, 0.9, -3);
+    b1.rotation.y = Math.PI / 7;
+    looseGroup.add(b1);
+
+    // Brick 2: Red 2x4 in front-left
+    const b2 = make2x4(redMat);
+    b2.position.set(-10, 0.9, 12);
+    b2.rotation.y = -Math.PI / 10;
+    looseGroup.add(b2);
+
+    // Brick 3: Red 2x2 on baseplate front
+    const b3 = make2x2(redMat);
+    b3.position.set(-6, 0.9, 8);
+    b3.rotation.y = Math.PI / 5;
+    looseGroup.add(b3);
+
+    // Brick 4: Yellow 2x4 on right
+    const b4 = make2x4(yellowMat);
+    b4.position.set(13.5, 0.9, 4);
+    b4.rotation.y = Math.PI / 12;
+    looseGroup.add(b4);
+
+    // Brick 5: Red 2x2 on right front
+    const b5 = make2x2(redMat);
+    b5.position.set(5.5, 0.9, 13);
+    b5.rotation.y = -Math.PI / 6;
+    looseGroup.add(b5);
+
+    // Brick 6: Yellow 2x2 on baseplate right
+    const b6 = make2x2(yellowMat);
+    b6.position.set(9.5, 0.9, 7);
+    b6.rotation.y = Math.PI / 8;
+    looseGroup.add(b6);
+
+    scene.add(looseGroup);
+  }
 
   function init3DTable() {
     const container = $('threeTableContainer');
     if (!container || tableRenderer) return;
 
     tableScene = new THREE.Scene();
-    tableScene.background = new THREE.Color(0xf1f5f9);
 
     const aspect = container.clientWidth / container.clientHeight || 1;
-    tableCamera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
-    tableCamera.position.set(22, 26, 22);
+    tableCamera = new THREE.PerspectiveCamera(40, aspect, 0.1, 1000);
+    tableCamera.position.set(20, 26, 22);
 
-    tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+    // Transparent WebGL Renderer so the warm playroom studio backdrop glows through!
+    tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
     tableRenderer.setSize(container.clientWidth, container.clientHeight);
     tableRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     tableRenderer.shadowMap.enabled = true;
     tableRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    tableRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+    tableRenderer.toneMappingExposure = 1.12;
     container.appendChild(tableRenderer.domElement);
 
     if (typeof THREE.OrbitControls !== 'undefined') {
       tableControls = new THREE.OrbitControls(tableCamera, tableRenderer.domElement);
       tableControls.enableDamping = true;
-      tableControls.dampingFactor = 0.08;
-      tableControls.maxPolarAngle = Math.PI / 2.05;
-      tableControls.minDistance = 10;
-      tableControls.maxDistance = 65;
-      tableControls.target.set(0, 4, 0);
+      tableControls.dampingFactor = 0.06;
+      tableControls.maxPolarAngle = Math.PI / 2.12;
+      tableControls.minDistance = 12;
+      tableControls.maxDistance = 60;
+      tableControls.target.set(0, 4.0, 0);
     }
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    tableScene.add(ambientLight);
+    // --- CINEMATIC 3-POINT STUDIO & WARM SUN LIGHTING ---
+    const hemiLight = new THREE.HemisphereLight(0xfffaed, 0x64748b, 0.75);
+    tableScene.add(hemiLight);
 
-    const dirLight = new THREE.DirectionalLight(0xfffbeb, 0.95);
-    dirLight.position.set(25, 45, 20);
-    dirLight.castShadow = true;
-    dirLight.shadow.mapSize.width = 1024;
-    dirLight.shadow.mapSize.height = 1024;
-    tableScene.add(dirLight);
+    // Key Sun Light from Window (Top Left)
+    const sunLight = new THREE.DirectionalLight(0xfff7ed, 1.7);
+    sunLight.position.set(24, 46, 20);
+    sunLight.castShadow = true;
+    sunLight.shadow.mapSize.width = 2048;
+    sunLight.shadow.mapSize.height = 2048;
+    sunLight.shadow.camera.near = 10;
+    sunLight.shadow.camera.far = 100;
+    sunLight.shadow.camera.left = -22;
+    sunLight.shadow.camera.right = 22;
+    sunLight.shadow.camera.top = 22;
+    sunLight.shadow.camera.bottom = -22;
+    sunLight.shadow.bias = -0.00015;
+    sunLight.shadow.radius = 2.5;
+    tableScene.add(sunLight);
 
-    const fillLight = new THREE.DirectionalLight(0x38bdf8, 0.4);
-    fillLight.position.set(-20, 20, -20);
-    tableScene.add(fillLight);
+    // Cool Sky Fill Light
+    const skyFill = new THREE.DirectionalLight(0x93c5fd, 0.55);
+    skyFill.position.set(-22, 20, -22);
+    tableScene.add(skyFill);
 
-    // Chunky Wooden Table Surface
-    const tableGeom = new THREE.BoxGeometry(30, 2, 30);
-    const tableMat = new THREE.MeshStandardMaterial({ color: 0xb45309, roughness: 0.7, metalness: 0.1 });
+    // Warm Rim Backlight (Pixar Glow on Brick Edges)
+    const rimLight = new THREE.DirectionalLight(0xfde047, 0.85);
+    rimLight.position.set(0, 30, -32);
+    tableScene.add(rimLight);
+
+    // --- 1. WARM CIRCULAR OAK WOODEN TABLE ---
+    const woodTex = createWoodTableTexture();
+    const tableGeom = new THREE.CylinderGeometry(23, 23, 2.0, 48);
+    const tableMat = new THREE.MeshPhysicalMaterial({
+      map: woodTex,
+      roughness: 0.38,
+      metalness: 0.05,
+      clearcoat: 0.45,
+      clearcoatRoughness: 0.2
+    });
     const tableMesh = new THREE.Mesh(tableGeom, tableMat);
-    tableMesh.position.y = -1;
+    tableMesh.position.y = -1.0;
     tableMesh.receiveShadow = true;
     tableScene.add(tableMesh);
 
-    // Green Lego Baseplate with Studs
-    const plateGeom = new THREE.BoxGeometry(22, 0.6, 22);
-    const plateMat = new THREE.MeshStandardMaterial({ color: 0x15803d, roughness: 0.3, metalness: 0.1 });
+    // --- 2. SOFT CONTACT AMBIENT OCCLUSION SHADOW ---
+    const shadowTex = createSoftShadowTexture();
+    const shadowMesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(28, 28),
+      new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, opacity: 0.65, depthWrite: false })
+    );
+    shadowMesh.rotation.x = -Math.PI / 2;
+    shadowMesh.position.y = 0.02;
+    tableScene.add(shadowMesh);
+
+    // --- 3. BLUE LEGO BASEPLATE WITH ROUNDED EDGES & GLOSSY STUDS ---
+    const plateGeom = new THREE.BoxGeometry(20, 0.55, 20);
+    const plateMat = new THREE.MeshPhysicalMaterial({
+      color: 0x0284c7, // Vibrant Classic Lego Blue
+      roughness: 0.14,
+      metalness: 0.02,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.06,
+      reflectivity: 0.95
+    });
     const plateMesh = new THREE.Mesh(plateGeom, plateMat);
-    plateMesh.position.y = 0.3;
+    plateMesh.position.y = 0.28;
     plateMesh.receiveShadow = true;
+    plateMesh.castShadow = true;
     tableScene.add(plateMesh);
 
-    // Add 8x8 Studs Grid on Baseplate
-    const studGeom = new THREE.CylinderGeometry(0.45, 0.45, 0.3, 16);
-    const studMat = new THREE.MeshStandardMaterial({ color: 0x16a34a, roughness: 0.3 });
-    for (let x = -8; x <= 8; x += 2.2) {
-      for (let z = -8; z <= 8; z += 2.2) {
+    // 10x10 Glossy Studs Grid on Baseplate
+    const studGeom = new THREE.CylinderGeometry(0.44, 0.44, 0.26, 18);
+    const studMat = new THREE.MeshPhysicalMaterial({
+      color: 0x0369a1,
+      roughness: 0.14,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.06
+    });
+    for (let x = -8.1; x <= 8.1; x += 1.8) {
+      for (let z = -8.1; z <= 8.1; z += 1.8) {
         const stud = new THREE.Mesh(studGeom, studMat);
-        stud.position.set(x, 0.7, z);
+        stud.position.set(x, 0.68, z);
+        stud.receiveShadow = true;
+        stud.castShadow = true;
         tableScene.add(stud);
       }
     }
 
+    // --- 4. SCATTERED DECORATIVE LOOSE BRICKS AROUND TABLE ---
+    addDecorativeLooseBricks(tableScene);
+
+    // --- 5. 3D LEGO MINIFIGURE BUILDER CHARACTER ---
+    minifigGroup = buildLegoMinifigure();
+    minifigGroup.position.set(8.2, 0.28, -2.5);
+    minifigGroup.rotation.y = -Math.PI / 3;
+    tableScene.add(minifigGroup);
+
+    // --- 6. FLOATING GOLDEN SUNLIGHT DUST PARTICLES ---
+    dustParticlesGroup = new THREE.Group();
+    const dustGeom = new THREE.BufferGeometry();
+    const dustCount = 45;
+    const dustPos = new Float32Array(dustCount * 3);
+    for (let i = 0; i < dustCount * 3; i += 3) {
+      dustPos[i] = (Math.random() - 0.5) * 30;
+      dustPos[i + 1] = 2 + Math.random() * 22;
+      dustPos[i + 2] = (Math.random() - 0.5) * 30;
+    }
+    dustGeom.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+    const dustMat = new THREE.PointsMaterial({
+      color: 0xfef08a,
+      size: 0.4,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending
+    });
+    dustParticlesGroup.add(new THREE.Points(dustGeom, dustMat));
+    tableScene.add(dustParticlesGroup);
+
+    // --- 7. ACTIVE ASSEMBLED LEGO & GHOST GROUPS ---
     activeBuildingGroup = new THREE.Group();
     tableScene.add(activeBuildingGroup);
 
     floatingGhostGroup = new THREE.Group();
     tableScene.add(floatingGhostGroup);
+
+    snapFXGroup = new THREE.Group();
+    tableScene.add(snapFXGroup);
 
     window.addEventListener('resize', onTableResize);
     animateTable();
@@ -262,10 +596,36 @@
   function animateTable() {
     requestAnimationFrame(animateTable);
     if (tableControls) tableControls.update();
+
+    // Floating Ghost Piece Glow & Bob
     if (floatingGhostGroup && !isStepSolved) {
-      floatingGhostGroup.rotation.y += 0.012;
-      floatingGhostGroup.position.y = 7.0 + Math.sin(Date.now() * 0.004) * 0.45;
+      floatingGhostGroup.rotation.y += 0.01;
+      floatingGhostGroup.position.y = 7.0 + Math.sin(Date.now() * 0.0035) * 0.4;
     }
+
+    // Minifigure Breathing Micro-Animation
+    if (minifigGroup) {
+      minifigGroup.position.y = 0.28 + Math.sin(Date.now() * 0.002) * 0.04;
+    }
+
+    // Sunlight Dust Motes Slow Drift
+    if (dustParticlesGroup) {
+      dustParticlesGroup.rotation.y += 0.0006;
+    }
+
+    // Animate Snap Sparkles
+    if (snapFXGroup && snapFXGroup.children.length > 0) {
+      for (let i = snapFXGroup.children.length - 1; i >= 0; i--) {
+        const p = snapFXGroup.children[i];
+        p.position.add(p.userData.velocity);
+        p.material.opacity -= 0.04;
+        p.scale.multiplyScalar(0.94);
+        if (p.material.opacity <= 0.05) {
+          snapFXGroup.remove(p);
+        }
+      }
+    }
+
     if (tableRenderer && tableScene && tableCamera) {
       tableRenderer.render(tableScene, tableCamera);
     }
@@ -275,153 +635,184 @@
   function setCameraAngle(type) {
     if (!tableCamera || !tableControls) return;
     if (type === 'iso') {
-      tableCamera.position.set(22, 26, 22);
-      tableControls.target.set(0, 4, 0);
+      tableCamera.position.set(20, 26, 22);
+      tableControls.target.set(0, 4.0, 0);
     } else if (type === 'top') {
       tableCamera.position.set(0, 38, 0.1);
       tableControls.target.set(0, 0, 0);
     } else if (type === 'front') {
-      tableCamera.position.set(0, 14, 34);
-      tableControls.target.set(0, 6, 0);
+      tableCamera.position.set(0, 15, 34);
+      tableControls.target.set(0, 5.5, 0);
     }
     tableControls.update();
     playSoundSafe('playBrickClick');
   }
 
-  // --- REALISTIC LEGO MESH GENERATOR (MODULAR 25 PARTS WITH STUDS) ---
+  // --- REALISTIC LEGO MESH GENERATOR (PHOTOREALISTIC PBR ABS PLASTIC) ---
   function buildLegoPieceMesh(shape, colorHex, isGhost) {
     const group = new THREE.Group();
-    const mat = new THREE.MeshStandardMaterial({
-      color: colorHex,
-      roughness: 0.25,
-      metalness: 0.1,
-      transparent: isGhost,
-      opacity: isGhost ? 0.48 : 1.0
-    });
 
-    const studGeom = new THREE.CylinderGeometry(0.4, 0.4, 0.3, 16);
-    const studMat = new THREE.MeshStandardMaterial({
-      color: colorHex,
-      roughness: 0.25,
-      transparent: isGhost,
-      opacity: isGhost ? 0.48 : 1.0
-    });
+    const mat = isGhost
+      ? new THREE.MeshPhysicalMaterial({
+          color: colorHex,
+          roughness: 0.08,
+          clearcoat: 1.0,
+          transparent: true,
+          opacity: 0.54,
+          transmission: 0.65,
+          ior: 1.35
+        })
+      : new THREE.MeshPhysicalMaterial({
+          color: colorHex,
+          roughness: 0.12,
+          metalness: 0.02,
+          clearcoat: 1.0,
+          clearcoatRoughness: 0.06,
+          reflectivity: 0.95,
+          ior: 1.54,
+          specularIntensity: 1.0
+        });
 
-    function addStudsOnTop(width, depth, yTop) {
-      const step = 2.0;
-      for (let x = -width / 2 + 1.0; x <= width / 2 - 1.0; x += step) {
-        for (let z = -depth / 2 + 1.0; z <= depth / 2 - 1.0; z += step) {
+    const studMat = isGhost
+      ? mat
+      : new THREE.MeshPhysicalMaterial({
+          color: colorHex,
+          roughness: 0.12,
+          clearcoat: 1.0,
+          clearcoatRoughness: 0.06,
+          reflectivity: 0.95,
+          ior: 1.54
+        });
+
+    const studGeom = new THREE.CylinderGeometry(0.44, 0.44, 0.28, 18);
+
+    function addStudsGrid(width, depth, topY) {
+      const step = 1.8;
+      const startX = -((width - 1) * step) / 2;
+      const startZ = -((depth - 1) * step) / 2;
+
+      for (let r = 0; r < depth; r++) {
+        for (let c = 0; c < width; c++) {
           const stud = new THREE.Mesh(studGeom, studMat);
-          stud.position.set(x, yTop + 0.15, z);
+          stud.position.set(startX + c * step, topY + 0.14, startZ + r * step);
+          stud.castShadow = !isGhost;
+          stud.receiveShadow = !isGhost;
           group.add(stud);
         }
       }
     }
 
-    if (shape === 'base_plate') {
-      // 1. Wide Baseplate (16 x 1.0 x 16) with 7x7 Studs (11 Blue / Foundations)
-      const baseBox = new THREE.Mesh(new THREE.BoxGeometry(16, 1.0, 16), mat);
-      baseBox.position.y = 0.5;
-      baseBox.castShadow = !isGhost;
-      baseBox.receiveShadow = true;
-      group.add(baseBox);
-      addStudsOnTop(16, 16, 1.0);
-    } 
-    else if (shape === 'wall_right') {
-      // 2. Right Wall (3.2 x 5.0 x 14) positioned at x = 6.4, y = 3.5
-      const wallBox = new THREE.Mesh(new THREE.BoxGeometry(3.2, 5.0, 14), mat);
-      wallBox.position.set(6.4, 3.5, 0);
-      wallBox.castShadow = !isGhost;
-      group.add(wallBox);
-      addStudsOnTop(3.2, 14, 6.0);
-    }
-    else if (shape === 'wall_left') {
-      // 3. Left Wall (3.2 x 5.0 x 14) positioned at x = -6.4, y = 3.5
-      const wallBox = new THREE.Mesh(new THREE.BoxGeometry(3.2, 5.0, 14), mat);
-      wallBox.position.set(-6.4, 3.5, 0);
-      wallBox.castShadow = !isGhost;
-      group.add(wallBox);
-      addStudsOnTop(3.2, 14, 6.0);
-    }
-    else if (shape === 'door_front') {
-      // 4. Front Wall with Open Door (14 x 5.0 x 2.2) at z = 6.0
-      const leftPillar = new THREE.Mesh(new THREE.BoxGeometry(4.0, 5.0, 2.2), mat);
-      leftPillar.position.set(-4.5, 3.5, 6.0);
-      group.add(leftPillar);
-
-      const rightPillar = new THREE.Mesh(new THREE.BoxGeometry(4.0, 5.0, 2.2), mat);
-      rightPillar.position.set(4.5, 3.5, 6.0);
-      group.add(rightPillar);
-
-      const archTop = new THREE.Mesh(new THREE.BoxGeometry(14, 1.4, 2.2), mat);
-      archTop.position.set(0, 5.3, 6.0);
-      group.add(archTop);
-    }
-    else if (shape === 'window_front' || shape === 'wall_back') {
-      // 5-6. Back Wall with Window (14 x 5.0 x 2.2) at z = -6.0
-      const backWall = new THREE.Mesh(new THREE.BoxGeometry(14, 5.0, 2.2), mat);
-      backWall.position.set(0, 3.5, -6.0);
-      group.add(backWall);
-
-      const winGlassMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.65 });
-      const winGlass = new THREE.Mesh(new THREE.BoxGeometry(4, 2.8, 2.4), winGlassMat);
-      winGlass.position.set(0, 3.5, -6.0);
-      group.add(winGlass);
-    }
-    else if (shape === 'beam_center') {
-      // 7. Heavy Oak Timber Beam (14 x 1.2 x 2.4) across y = 6.4
-      const beamBox = new THREE.Mesh(new THREE.BoxGeometry(14, 1.2, 2.4), mat);
-      beamBox.position.set(0, 6.4, 0);
-      group.add(beamBox);
-    }
-    else if (shape === 'upper_wall_r' || shape === 'upper_wall_l') {
-      // 8-9. Upper Level Walls at y = 8.5
-      const isRight = shape === 'upper_wall_r';
-      const uWall = new THREE.Mesh(new THREE.BoxGeometry(3.0, 4.0, 14), mat);
-      uWall.position.set(isRight ? 6.0 : -6.0, 8.2, 0);
-      group.add(uWall);
-    }
-    else if (shape === 'gable_front' || shape === 'gable_back') {
-      // 10-11. Triangular Gables at z = 6.0 and z = -6.0
-      const isFront = shape === 'gable_front';
-      const gableGeom = new THREE.ConeGeometry(8.5, 4.5, 4);
-      const gableMesh = new THREE.Mesh(gableGeom, mat);
-      gableMesh.rotation.y = Math.PI / 4;
-      gableMesh.position.set(0, 10.5, isFront ? 5.5 : -5.5);
-      group.add(gableMesh);
-    }
-    else if (shape === 'roof_slope_r' || shape === 'roof_slope_l') {
-      // 12-13. Sloped Roof Tile Wedges
-      const isRight = shape === 'roof_slope_r';
-      const slopeBox = new THREE.Mesh(new THREE.BoxGeometry(9.0, 0.8, 15), mat);
-      slopeBox.position.set(isRight ? 4.2 : -4.2, 11.2, 0);
-      slopeBox.rotation.z = isRight ? -0.55 : 0.55;
-      group.add(slopeBox);
-    }
-    else if (shape === 'roof_ridge') {
-      // 14. Golden Roof Ridge Capping Apex
-      const ridgeMesh = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.8, 15.5), mat);
-      ridgeMesh.position.set(0, 13.5, 0);
-      group.add(ridgeMesh);
-    }
-    else if (shape === 'weather_vane') {
-      // 15. Weather Vane
-      const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 3.0), mat);
-      pole.position.set(0, 15.2, 0);
-      group.add(pole);
-      const rooster = new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.0, 0.4), mat);
-      rooster.position.set(0, 16.5, 0);
-      group.add(rooster);
-    }
-    else {
-      // Default Modular Lego Block with Studs
-      const box = new THREE.Mesh(new THREE.BoxGeometry(8, 3, 8), mat);
-      box.position.y = 1.5;
-      group.add(box);
-      addStudsOnTop(8, 8, 3.0);
+    if (shape === 'baseplate_11' || shape === 'baseplate_12' || shape === 'beam_11') {
+      const w = 11 * 1.5;
+      const d = 3.6;
+      const h = 0.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(7, 2, h / 2);
+    } else if (shape === 'wall_8' || shape === 'beam_8' || shape === 'wall_9') {
+      const w = 8 * 1.5;
+      const d = 3.2;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(5, 2, h / 2);
+    } else if (shape === 'brick_6' || shape === 'beam_6' || shape === 'wall_6') {
+      const w = 6 * 1.5;
+      const d = 3.0;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(4, 2, h / 2);
+    } else if (shape === 'brick_4' || shape === 'block_4') {
+      const w = 4.2;
+      const d = 4.2;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(2, 2, h / 2);
+    } else if (shape === 'beam_4' || shape === 'column_4') {
+      const w = 4 * 1.5;
+      const d = 2.4;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(3, 1, h / 2);
+    } else if (shape === 'brick_2' || shape === 'connector_2') {
+      const w = 3.2;
+      const d = 2.0;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(2, 1, h / 2);
+    } else if (shape === 'stud_1' || shape === 'tile_1') {
+      const w = 2.0;
+      const d = 2.0;
+      const h = 1.9;
+      const body = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(1, 1, h / 2);
+    } else if (shape === 'roof_slope_4' || shape === 'roof_slope_6' || shape === 'roof_peak') {
+      const w = 7.5;
+      const d = 4.5;
+      const h = 2.4;
+      const prismGeom = new THREE.ConeGeometry(w / 1.7, h, 4);
+      prismGeom.rotateY(Math.PI / 4);
+      const body = new THREE.Mesh(prismGeom, mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+    } else if (shape === 'gear_4' || shape === 'rotor_blade') {
+      const body = new THREE.Mesh(new THREE.CylinderGeometry(2.4, 2.4, 0.6, 12), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+    } else {
+      const body = new THREE.Mesh(new THREE.BoxGeometry(4.0, 1.9, 4.0), mat);
+      body.castShadow = !isGhost;
+      body.receiveShadow = !isGhost;
+      group.add(body);
+      addStudsGrid(2, 2, 0.95);
     }
 
     return group;
+  }
+
+  // --- SNAP SPARKLE BURST FX ---
+  function triggerSnapSparkleFX(pos) {
+    if (!snapFXGroup) return;
+    const count = 20;
+    for (let i = 0; i < count; i++) {
+      const pGeom = new THREE.SphereGeometry(0.18, 8, 8);
+      const pMat = new THREE.MeshBasicMaterial({
+        color: Math.random() > 0.4 ? 0xfde047 : 0x38bdf8,
+        transparent: true,
+        opacity: 1.0
+      });
+      const pMesh = new THREE.Mesh(pGeom, pMat);
+      pMesh.position.copy(pos);
+      pMesh.userData = {
+        velocity: new THREE.Vector3(
+          (Math.random() - 0.5) * 0.45,
+          0.15 + Math.random() * 0.4,
+          (Math.random() - 0.5) * 0.45
+        )
+      };
+      snapFXGroup.add(pMesh);
+    }
   }
 
   // --- STEP RENDERING & GHOST PIECE ---
