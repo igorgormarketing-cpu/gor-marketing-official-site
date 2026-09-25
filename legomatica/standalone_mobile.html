@@ -802,6 +802,202 @@ body {
   margin-top: 10px;
 }
 
+
+/* ========================================================
+   AAA MASTER BOTTOM LEGO BRICK DOCK (Matching Reference 1:1)
+   ======================================================== */
+.lego-dock-brick-frame {
+  position: relative;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-top: 5px solid #e2e8f0;
+  padding: 8px 10px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+/* Lego Studs Border on Top of Dock */
+.lego-dock-studs-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+.dock-stud {
+  width: 18px;
+  height: 8px;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.stud-blue { background: #2563eb; }
+.stud-green { background: #16a34a; }
+.stud-yellow { background: #eab308; }
+.stud-red { background: #dc2626; }
+
+/* 5 Chunky Tactile Buttons in Reference Style */
+.lego-dock-buttons-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 6px;
+}
+
+.chunky-lego-btn {
+  flex: 1;
+  height: 68px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.35), 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  padding: 4px 2px;
+  text-align: center;
+}
+.chunky-lego-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-levels-red { background: linear-gradient(180deg, #f87171 0%, #ef4444 45%, #dc2626 100%); }
+.btn-build-blue { background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 45%, #1d4ed8 100%); }
+.btn-home-green { background: linear-gradient(180deg, #4ade80 0%, #22c55e 45%, #15803d 100%); }
+.btn-scores-gold { background: linear-gradient(180deg, #fde047 0%, #eab308 45%, #ca8a04 100%); }
+.btn-replay-amber { background: linear-gradient(180deg, #fcd34d 0%, #f59e0b 45%, #d97706 100%); }
+
+.chunky-btn-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+.chunky-btn-label-en {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.chunky-btn-label-he {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+
+/* ========================================================
+   PHOTOREALISTIC 3D FARM DIORAMA & INTERACTIVE HOTSPOTS
+   ======================================================== */
+.farm-diorama-interactive-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #7dd3fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diorama-master-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.25));
+  transition: transform 0.4s ease;
+}
+
+/* Interactive Hotspots on the Diorama */
+.diorama-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.diorama-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+.diorama-hotspot:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.hotspot-pulse-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 3px solid #f59e0b;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5), 0 0 0 0 rgba(245, 158, 11, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  animation: pulseLegoRing 2s infinite;
+}
+
+@keyframes pulseLegoRing {
+  0% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5), 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  70% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5), 0 0 0 12px rgba(245, 158, 11, 0); }
+  100% { box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5), 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+.hotspot-badge {
+  margin-top: 4px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  border: 1.5px solid #f59e0b;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Resource Gain Animation */
+.floating-resource-popup {
+  position: absolute;
+  color: #f59e0b;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px #ffffff;
+  pointer-events: none;
+  z-index: 120;
+  animation: floatUpFade 1.2s forwards cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes floatUpFade {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  25% { opacity: 1; transform: translateY(-15px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-50px) scale(1.0); }
+}
+
+/* ACTION DOCK SPECIALIZED BUTTONS */
+.dock-action-btn.tools-btn { border-color: #f59e0b; }
+.dock-action-btn.tools-btn .dock-btn-label { color: #d97706; }
+.dock-action-btn.warehouse-btn { border-color: #10b981; }
+.dock-action-btn.warehouse-btn .dock-btn-label { color: #059669; }
+
+/* CHECKPOINT MODAL POLISH */
+#checkpointActionModal .reward-modal-card {
+  animation: popInModal 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes popInModal {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 </style>
   <script>
 /**
@@ -1899,6 +2095,7 @@ body {
       </div>
 
       <div class="header-quick-actions">
+        <button class="btn-action-pill" id="btnOpenRebrickable" title="🧱 קטלוג חלקי לגו אמיתיים (Rebrickable)" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; font-weight: 900;">🧱 Rebrickable</button>
         <button class="btn-action-pill" id="btnOpenCatalogNav" title="2. סוגי מבנים">📦</button>
         <button class="btn-action-pill" id="btnOpenWarehouseNav" title="4. מחסן מרכזי">🏪</button>
         <button class="btn-action-pill" id="btnWorldModal" title="מפת עולמות">🗺️</button>
@@ -1937,65 +2134,161 @@ body {
         </div>
       </div>
 
-      <!-- BOTTOM CHUNKY LEGO BRICK TRAY -->
-      <div class="bottom-bricks-tray" id="tableBricksDock">
-        <div class="tray-title-bar">
-          <span>הקש על קוביות הלגו להרכבת החלק:</span>
+      <!-- BOTTOM CHUNKY LEGO BRICK TRAY & 5 ACTION BUTTONS (Matching Reference 1:1) -->
+      <div class="lego-dock-brick-frame" id="tableBricksDock">
+        
+        <!-- Lego Studs Row on Top of Dock -->
+        <div class="lego-dock-studs-row">
+          <div class="dock-stud stud-blue"></div>
+          <div class="dock-stud stud-blue"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-green"></div>
+          <div class="dock-stud stud-green"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-yellow"></div>
+          <div class="dock-stud stud-red"></div>
+          <div class="dock-stud stud-red"></div>
         </div>
-        <div class="bricks-buttons-grid" id="dockBricksRow"></div>
+
+        <!-- Dynamic Brick Buttons for Current Step -->
+        <div class="bricks-buttons-grid" id="dockBricksRow" style="margin-bottom: 6px;"></div>
+
+        <!-- 5 Chunky Master Action Buttons (LEVELS, BUILD, HOME, SCORES, REPLAY) -->
+        <div class="lego-dock-buttons-row">
+          <div class="chunky-lego-btn btn-levels-red" id="btnDockLevels" title="שלבים וכוכבים">
+            <span class="chunky-btn-icon">🗺️</span>
+            <span class="chunky-btn-label-en">LEVELS</span>
+            <span class="chunky-btn-label-he">שלבים</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-build-blue" id="btnDockBuildChunky" title="סוגי מבנים">
+            <span class="chunky-btn-icon">🧱</span>
+            <span class="chunky-btn-label-en">BUILD</span>
+            <span class="chunky-btn-label-he">בנייה</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-home-green" id="btnDockHome" title="חזרה לחווה הראשית">
+            <span class="chunky-btn-icon">🏠</span>
+            <span class="chunky-btn-label-en">HOME</span>
+            <span class="chunky-btn-label-he">בית</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-scores-gold" id="btnDockScores" title="שיאים ונקודות">
+            <span class="chunky-btn-icon">⭐</span>
+            <span class="chunky-btn-label-en">MY SCORES</span>
+            <span class="chunky-btn-label-he">נקודות</span>
+          </div>
+
+          <div class="chunky-lego-btn btn-replay-amber" id="btnDockReplay" title="התחל שלב מחדש">
+            <span class="chunky-btn-icon">🔄</span>
+            <span class="chunky-btn-label-en">REPLAY</span>
+            <span class="chunky-btn-label-he">שוב</span>
+          </div>
+        </div>
       </div>
     </main>
 
-    <!-- SCREEN 1: 3D FARM WORLD MAP (מפה גדולה) -->
+    <!-- SCREEN 1: PHOTOREALISTIC 3D FARM DIORAMA (Matching Reference 1:1) -->
     <main class="game-screen" id="screenMapSite">
-      <div class="canvas-3d-wrapper" id="threeMapContainer">
+      <div class="farm-diorama-interactive-container" id="farmDioramaContainer">
         
+        <!-- High-Res Master 3D Lego Farm Diorama Artwork -->
+        <img src="MASTER_STYLE_HERO.jpg" alt="Lego Farm 3D Diorama" class="diorama-master-image" id="dioramaImg">
+
+        <!-- ========================================================
+             INTERACTIVE HOTSPOTS OVER DIORAMA (1:1 MATCH TO ARTWORK)
+             ======================================================== -->
+        
+        <!-- 1. Windmill on the Hill (טחנת רוח על הגבעה בצד שמאל למעלה) -->
+        <div class="diorama-hotspot" id="hotspotWindmill" style="top: 25%; left: 19%;" title="טחנת רוח - לחץ לבנייה וקמח">
+          <div class="hotspot-pulse-ring" style="border-color: #38bdf8;">💨</div>
+          <div class="hotspot-badge" style="border-color: #38bdf8; background: #0369a1;" id="windmillBadgeStatus">טחנת רוח 💨</div>
+        </div>
+
+        <!-- 2. Carpenter Workshop & Farmhouse (סדנת נגר ובית החווה - הבית האדום הגדול במרכז ימין) -->
+        <div class="diorama-hotspot" id="hotspotCarpenter" style="top: 38%; left: 63%;" title="סדנת נגר ובית חווה (BrickMind Farm) - לחץ לבנייה!">
+          <div class="hotspot-pulse-ring" style="border-color: #dc2626;">🪚</div>
+          <div class="hotspot-badge" style="border-color: #dc2626; background: #991b1b;" id="carpenterBadgeStatus">סדנת נגר ובית חווה 🪚</div>
+        </div>
+
+        <!-- 3. Apple Orchard (מטע תפוחים - מאחורי הבית למעלה) -->
+        <div class="diorama-hotspot" id="hotspotApples" style="top: 22%; left: 60%;" title="מטע תפוחים - קטיף!">
+          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🍎</div>
+          <div class="hotspot-badge" style="border-color: #ef4444; background: #b91c1c;">מטע תפוחים 🍎</div>
+        </div>
+
+        <!-- 4. Dairy Cow Pasture (פרת חלב באחו - אמצע שמאל) -->
+        <div class="diorama-hotspot" id="hotspotCow" style="top: 52%; left: 18%;" title="פרת חלב לגו">
+          <div class="hotspot-pulse-ring" style="border-color: #3b82f6;">🥛</div>
+          <div class="hotspot-badge" style="border-color: #3b82f6; background: #1d4ed8;">פרת חלב 🥛</div>
+        </div>
+
+        <!-- 5. Flower & Carrot Garden (ערוגת פרחים וגזרים - לפני הבית) -->
+        <div class="diorama-hotspot" id="hotspotCarrots" style="top: 46%; left: 50%;" title="ערוגת גזרים - לחץ לאיסוף!">
+          <div class="hotspot-pulse-ring" style="border-color: #f97316;">🥕</div>
+          <div class="hotspot-badge" style="border-color: #f97316; background: #c2410c;">ערוגת גזרים 🥕</div>
+        </div>
+
+        <!-- 6. Red Delivery Tractor (טרקטור אדום ונגרר - באמצע הכביש) -->
+        <div class="diorama-hotspot" id="hotspotTractor" style="top: 56%; left: 54%;" title="טרקטור חקלאי ומשלוחים">
+          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🚜</div>
+          <div class="hotspot-badge" style="border-color: #ef4444; background: #991b1b;">טרקטור משלוחים 🚜</div>
+        </div>
+
+        <!-- 7. Golden Wheat Fields (שדות חיטה - אמצע ימין) -->
+        <div class="diorama-hotspot" id="hotspotWheat" style="top: 61%; left: 78%;" title="שדה חיטה - לחץ לקציר!">
+          <div class="hotspot-pulse-ring" style="border-color: #eab308;">🌾</div>
+          <div class="hotspot-badge" style="border-color: #eab308; background: #a16207;" id="wheatBadgeStatus">קצור חיטה! 🌾</div>
+        </div>
+
+        <!-- 8. Duck Pond (אגם ברווזים עם רציף - שמאל למטה) -->
+        <div class="diorama-hotspot" id="hotspotPond" style="top: 72%; left: 20%;" title="אגם ברווזים">
+          <div class="hotspot-pulse-ring" style="border-color: #0284c7;">🦆</div>
+          <div class="hotspot-badge" style="border-color: #0284c7; background: #075985;">אגם ברווזים 🦆</div>
+        </div>
+
+        <!-- 9. Sheep Pen (מכלאת כבשים - ימין למטה) -->
+        <div class="diorama-hotspot" id="hotspotSheep" style="top: 84%; left: 78%;" title="מכלאת כבשים - איסוף צמר">
+          <div class="hotspot-pulse-ring" style="border-color: #10b981;">🐑</div>
+          <div class="hotspot-badge" style="border-color: #10b981; background: #065f46;">מכלאת כבשים 🐑</div>
+        </div>
+
+        <!-- 10. Animal Farm & Coop (דיר חיות חווה - מרכז תחתון) -->
+        <div class="diorama-hotspot" id="hotspotCoop" style="top: 92%; left: 54%;" title="לול ודיר חיות">
+          <div class="hotspot-pulse-ring" style="border-color: #b45309;">🥚</div>
+          <div class="hotspot-badge" style="border-color: #b45309; background: #78350f;">לול וחיות חווה 🥚</div>
+        </div>
+
         <!-- Quest Bubble Overlay -->
         <div class="quest-floating-bubble" id="mapQuestBubble">
-          <div class="quest-title-text">Quest / משימה:</div>
-          <div class="quest-name-text">🌾 קצור חיטה ובנה אסם!</div>
+          <div class="quest-title-text">משימת החווה הפעילה:</div>
+          <div class="quest-name-text" id="mapQuestTitleText">🌾 קצור חיטה ובנה בסדנת הנגר!</div>
           <div class="quest-progress-pill" id="questProgressText">חלק 1/25 מוכן</div>
         </div>
 
-        <!-- Right Side Action Dock -->
+        <!-- Right Side Action Dock (Matching Artwork 1:1) -->
         <div class="right-action-dock">
-          <div class="dock-action-btn" id="btnDockTools" title="כלים">
-            <span class="dock-btn-icon">🛠️</span>
+          <div class="dock-action-btn tools-btn" id="btnDockTools" title="כלי עבודה ושדרוגים">
+            <span class="dock-btn-icon">🔧</span>
             <span class="dock-btn-label">כלים</span>
           </div>
 
-          <div class="dock-action-btn build-btn" id="btnDockBuild" title="2. סוגי מבנים">
+          <div class="dock-action-btn build-btn" id="btnDockBuild" title="2. סוגי מבנים וקטלוג 25 חלקים">
             <span class="dock-btn-icon">📦</span>
-            <span class="dock-btn-label">מבנים</span>
+            <span class="dock-btn-label">בנייה</span>
           </div>
 
-          <div class="dock-action-btn quests-btn" id="btnDockWarehouse" title="4. מחסן מרכזי">
+          <div class="dock-action-btn quests-btn" id="btnDockQuests" title="משימות ואתגרי חשבון">
+            <span class="dock-btn-icon">📋</span>
+            <span class="dock-btn-label">משימות</span>
             <span class="dock-notif-badge">!</span>
+          </div>
+
+          <div class="dock-action-btn warehouse-btn" id="btnDockWarehouse" title="4. מחסן מרכזי ומשאבים">
             <span class="dock-btn-icon">🏪</span>
             <span class="dock-btn-label">מחסן</span>
           </div>
-        </div>
-
-        <!-- Camera Control Pills -->
-        <div class="floating-map-cam-bar">
-          <button class="btn-map-cam-pill" id="btnMapCamOverview">🗺️ כל המפה</button>
-          <button class="btn-map-cam-pill" id="btnMapCamSite">🏠 תקריב אסם</button>
-          <button class="btn-map-cam-pill" id="btnMapAutoRotate">🔄 סיבוב עולם</button>
-        </div>
-      </div>
-
-      <!-- Construction Site Bottom Dock -->
-      <div class="site-modules-dock" id="siteModulesDock">
-        <div class="modules-dock-header">
-          <span>חלקים שהורכבו באתר הבנייה (25 סך הכל):</span>
-          <button class="btn-return-table" id="btnBackToTable">◀ חזור לשולחן תרגילים</button>
-        </div>
-        <div class="modules-cards-row" id="modulesEarnedRow"></div>
-
-        <!-- Resource Production Panel -->
-        <div class="buildings-production-panel" id="productionPanel">
-          <div class="prod-panel-title">🌾 ייצור משאבים מהמבנים שהושלמו (100 יח' בכל דקה):</div>
-          <div class="prod-buildings-list" id="prodBuildingsList"></div>
         </div>
       </div>
     </main>
@@ -2252,237 +2545,297 @@ body {
   </div>
 
   <script>
-/* ========================================================
-   BrickMind (LEGO-MATICA) - Authentic Lego Click & Synthesizer
-   Crisp real ABS plastic impact & snap acoustics
-   ======================================================== */
-
-class LegoAudioSynth {
+// Web Audio API Lego Sound Synthesizer
+class LegoSoundEngine {
   constructor() {
     this.ctx = null;
     this.enabled = true;
-    this.voiceEnabled = true;
-    this.initAudio();
   }
 
-  initAudio() {
-    try {
+  init() {
+    if (!this.ctx) {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (AudioCtx) this.ctx = new AudioCtx();
-    } catch (e) {
-      console.warn('Web Audio error:', e);
+      if (AudioCtx) {
+        this.ctx = new AudioCtx();
+      }
     }
-  }
-
-  resume() {
     if (this.ctx && this.ctx.state === 'suspended') {
       this.ctx.resume();
     }
   }
 
-  // Authentic ABS Plastic Lego Click Sound
-  playSnapClick(pitchMultiplier = 1.0) {
-    if (!this.enabled || !this.ctx) return;
-    this.resume();
-    const now = this.ctx.currentTime;
+  playSnapClick(pitch = 1.0) {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
 
-    // 1. Sharp Plastic Transient (White noise burst filtered high)
-    const bufferSize = this.ctx.sampleRate * 0.015; // 15ms burst
-    const buffer = this.ctx.createBuffer(1, bufferSize, this.ctx.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.3));
-    }
-    const noise = this.ctx.createBufferSource();
-    noise.buffer = buffer;
-
-    const noiseFilter = this.ctx.createBiquadFilter();
-    noiseFilter.type = 'bandpass';
-    noiseFilter.frequency.setValueAtTime(3200 * pitchMultiplier, now);
-    noiseFilter.Q.setValueAtTime(4.0, now);
-
-    const noiseGain = this.ctx.createGain();
-    noiseGain.gain.setValueAtTime(0.6, now);
-    noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
-
-    noise.connect(noiseFilter);
-    noiseFilter.connect(noiseGain);
-    noiseGain.connect(this.ctx.destination);
-    noise.start(now);
-
-    // 2. Resonant Body "Thud-Snap" Click
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
-
-    osc.type = 'triangle';
-    osc.frequency.setValueAtTime(980 * pitchMultiplier, now);
-    osc.frequency.exponentialRampToValueAtTime(160 * pitchMultiplier, now + 0.035);
-
-    gain.gain.setValueAtTime(0.45, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
-
-    osc.connect(gain);
-    gain.connect(this.ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + 0.04);
-  }
-
-  playVictoryFanfare() {
-    if (!this.enabled || !this.ctx) return;
-    this.resume();
-    const notes = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99];
-    notes.forEach((freq, idx) => {
-      const now = this.ctx.currentTime + (idx * 0.07);
+    try {
+      const now = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
 
       osc.type = 'triangle';
-      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.setValueAtTime(800 * pitch, now);
+      osc.frequency.exponentialRampToValueAtTime(150 * pitch, now + 0.06);
 
-      gain.gain.setValueAtTime(0.22, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+      gain.gain.setValueAtTime(0.35, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
 
       osc.connect(gain);
       gain.connect(this.ctx.destination);
 
       osc.start(now);
-      osc.stop(now + 0.55);
-    });
+      osc.stop(now + 0.06);
+    } catch(e) {}
   }
 
-  playSoundEffect(name) {
-    if (!this.enabled || !this.ctx) return;
-    this.resume();
-    const now = this.ctx.currentTime;
-    if (name === 'cow') {
+  playBrickClick() {
+    this.playSnapClick(1.2);
+  }
+
+  playClick() {
+    this.playSnapClick(1.0);
+  }
+
+  playCelebrationJingle() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      notes.forEach((freq, idx) => {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + (idx * 0.08));
+        gain.gain.setValueAtTime(0.3, now + (idx * 0.08));
+        gain.gain.exponentialRampToValueAtTime(0.001, now + (idx * 0.08) + 0.2);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now + (idx * 0.08));
+        osc.stop(now + (idx * 0.08) + 0.2);
+      });
+    } catch(e) {}
+  }
+
+  playRewardCheer() {
+    this.playCelebrationJingle();
+  }
+
+  playCoinChime() {
+    if (!this.enabled) return;
+    this.init();
+    if (!this.ctx) return;
+
+    try {
+      const now = this.ctx.currentTime;
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(140, now);
-      osc.frequency.exponentialRampToValueAtTime(105, now + 0.6);
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(987.77, now); // B5
+      osc.frequency.setValueAtTime(1318.51, now + 0.08); // E6
       gain.gain.setValueAtTime(0.25, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.65);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start(now);
-      osc.stop(now + 0.7);
-    } else {
-      this.playSnapClick(1.3);
-    }
+      osc.stop(now + 0.25);
+    } catch(e) {}
   }
 
-  cheerInHebrew(text) {
-    if (!this.voiceEnabled || !('speechSynthesis' in window)) return;
-    try {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'he-IL';
-      utterance.rate = 1.05;
-      utterance.pitch = 1.35;
-      window.speechSynthesis.speak(utterance);
-    } catch (e) {}
+  toggleSound() {
+    this.enabled = !this.enabled;
+    return this.enabled;
   }
 }
 
-window.legoSound = new LegoAudioSynth();
+window.legoSound = new LegoSoundEngine();
 
 </script>
   <script>
 (function() {
   'use strict';
-  const STORAGE_KEY = 'brickmind_25parts_save_v5';
+  function $(id) { return document.getElementById(id); }
+  const STORAGE_KEY = 'brickmind_multi_building_save_v1';
   
-  // Game State
-  let currentScreen = 'table'; // 'table' or 'map'
-  let currentStepIndex = 0; // 0 to 24 (total 25 steps)
-  let earnedPartsCount = 0; // Number of parts built on table
-  let placedPartsOnMap = 0; // Number of parts snapped onto building
+  // Active Building Selection & Progress
+  let activeBuildingId = 'barn'; // 'barn', 'windmill', 'farmhouse', 'coop', 'greenhouse', 'silo'
+  let currentStepIndex = 0;
   let currentSnapCount = 0;
   let streak = 0, totalSolved = 0;
   let isSolved = false;
 
-  // Economy & Resource Inventory State (Screen 4)
+  // Economy & Inventory
   let MAX_WAREHOUSE_CAPACITY = 1000;
   let coinsStock = 1250;
   let gemsStock = 85;
   let playerLevel = 24;
-  let barnProductionTimer = 60;
-  let barnPendingHarvest = 0;
-  let economyInterval = null;
 
   let inventory = {
-    wheat: 120,
-    carrots: 95,
-    apples: 78,
-    wood: 110,
-    bricks: 67,
-    milk: 50
+    wheat: 180,
+    carrots: 120,
+    apples: 95,
+    wood: 65,
+    bricks: 40,
+    milk: 20
   };
 
-  // 25 Distinct Architectural Elements for Barn Farm
-  const barn25Steps = [
-    { step: 1, name: 'יסודות רצפת עץ', icon: '🪵', shape: 'base_plate', eq: { a: 3, b: 2, ans: 5 }, color: 0x475569, targetPos: { x: -2.0, y: 0.2, z: -2.0 }, desc: 'בסיס הרצפה המוצק של האסם' },
-    { step: 2, name: 'קיר תחתון ימני', icon: '🧱', shape: 'wall_right', eq: { a: 2, b: 2, ans: 4 }, color: 0xdc2626, targetPos: { x: -1.0, y: 1.0, z: -2.0 }, desc: 'קיר לבנים אדום בצד ימין' },
-    { step: 3, name: 'קיר תחתון שמאלי', icon: '🧱', shape: 'wall_left', eq: { a: 3, b: 1, ans: 4 }, color: 0xdc2626, targetPos: { x: -3.0, y: 1.0, z: -2.0 }, desc: 'קיר לבנים אדום בצד שמאל' },
-    { step: 4, name: 'דלת כפולה לבנה', icon: '🚪', shape: 'door_frame', eq: { a: 3, b: 2, ans: 5 }, color: 0xf8fafc, targetPos: { x: -2.0, y: 0.9, z: 0.05 }, desc: 'דלת אסם רחבה עם משקוף' },
-    { step: 5, name: 'חלון קדמי ימני', icon: '🪟', shape: 'window_right', eq: { a: 2, b: 1, ans: 3 }, color: 0xf8fafc, targetPos: { x: -0.9, y: 1.4, z: 0.05 }, desc: 'חלון מואר לאור שמש' },
-    { step: 6, name: 'חלון קדמי שמאלי', icon: '🪟', shape: 'window_left', eq: { a: 1, b: 2, ans: 3 }, color: 0xf8fafc, targetPos: { x: -3.1, y: 1.4, z: 0.05 }, desc: 'חלון מואר לאוורור האסם' },
-    { step: 7, name: 'קורת תמיכה מרכזית', icon: '🪵', shape: 'beam', eq: { a: 4, b: 2, ans: 6 }, color: 0xb45309, targetPos: { x: -2.0, y: 1.9, z: -2.0 }, desc: 'קורת עץ אלון חזקה לקומה השנייה' },
-    { step: 8, name: 'קיר קומה שנייה ימני', icon: '🧱', shape: 'wall_upper_r', eq: { a: 3, b: 2, ans: 5 }, color: 0xdc2626, targetPos: { x: -1.0, y: 2.6, z: -2.0 }, desc: 'קירות עליית הגג בצד ימין' },
-    { step: 9, name: 'קיר קומה שנייה שמאלי', icon: '🧱', shape: 'wall_upper_l', eq: { a: 2, b: 3, ans: 5 }, color: 0xdc2626, targetPos: { x: -3.0, y: 2.6, z: -2.0 }, desc: 'קירות עליית הגג בצד שמאל' },
-    { step: 10, name: 'אשנב עליית גג', icon: '🪟', shape: 'attic_window', eq: { a: 2, b: 2, ans: 4 }, color: 0xf8fafc, targetPos: { x: -2.0, y: 2.8, z: 0.05 }, desc: 'חלון עגול לעליית הגג של החציר' },
-    { step: 11, name: 'גמלון גג קדמי', icon: '📐', shape: 'gable_front', eq: { a: 4, b: 1, ans: 5 }, color: 0xdc2626, targetPos: { x: -2.0, y: 3.8, z: 0.0 }, desc: 'משולש הגמלון הקדמי של האסם' },
-    { step: 12, name: 'גמלון גג אחורי', icon: '📐', shape: 'gable_back', eq: { a: 3, b: 2, ans: 5 }, color: 0xdc2626, targetPos: { x: -2.0, y: 3.8, z: -4.0 }, desc: 'משולש הגמלון האחורי' },
-    { step: 13, name: 'שיפוע גג לבן ימני', icon: '🏠', shape: 'roof_slope_r', eq: { a: 4, b: 3, ans: 7 }, color: 0xf8fafc, targetPos: { x: -0.8, y: 4.2, z: -2.0 }, desc: 'רעפי גג משופעים בצד ימין' },
-    { step: 14, name: 'שיפוע גג לבן שמאלי', icon: '🏠', shape: 'roof_slope_l', eq: { a: 3, b: 4, ans: 7 }, color: 0xf8fafc, targetPos: { x: -3.2, y: 4.2, z: -2.0 }, desc: 'רעפי גג משופעים בצד שמאל' },
-    { step: 15, name: 'רכס גג עליון', icon: '🔝', shape: 'roof_ridge', eq: { a: 2, b: 3, ans: 5 }, color: 0xe2e8f0, targetPos: { x: -2.0, y: 4.8, z: -2.0 }, desc: 'חיבור רכס הגג המוזהב' },
-    { step: 16, name: 'בסיס סילו תבואה עגול', icon: '🛢️', shape: 'silo_base', eq: { a: 3, b: 3, ans: 6 }, color: 0xb91c1c, targetPos: { x: 1.3, y: 1.0, z: -2.0 }, desc: 'בסיס עגול לסילו התבואה' },
-    { step: 17, name: 'גוף סילו אמצעי', icon: '🛢️', shape: 'silo_mid', eq: { a: 4, b: 2, ans: 6 }, color: 0xb91c1c, targetPos: { x: 1.3, y: 2.8, z: -2.0 }, desc: 'מגדל האחסון לתבואת החווה' },
-    { step: 18, name: 'כיפת סילו עליונה', icon: '🌕', shape: 'silo_cap', eq: { a: 2, b: 2, ans: 4 }, color: 0xf8fafc, targetPos: { x: 1.3, y: 4.4, z: -2.0 }, desc: 'כיפה עליונה לבנה לאיטום' },
-    { step: 19, name: 'גדר עץ קדמית ימנית', icon: '🪵', shape: 'fence_r', eq: { a: 3, b: 1, ans: 4 }, color: 0x92400e, targetPos: { x: 0.8, y: 0.3, z: 1.4 }, desc: 'גדר עץ מסורתית לחצר' },
-    { step: 20, name: 'גדר עץ קדמית שמאלית', icon: '🪵', shape: 'fence_l', eq: { a: 2, b: 2, ans: 4 }, color: 0x92400e, targetPos: { x: -4.4, y: 0.3, z: 1.4 }, desc: 'גדר עץ לסגירת מתחם החיות' },
-    { step: 21, name: 'תיבת דואר חווה', icon: '📮', shape: 'mailbox', eq: { a: 1, b: 2, ans: 3 }, color: 0xef4444, targetPos: { x: -3.8, y: 0.6, z: 2.6 }, desc: 'תיבת דואר אדומה לקבלת מכתבים' },
-    { step: 22, name: 'שביל אבנים וערוגת גזרים', icon: '🥕', shape: 'carrots_path', eq: { a: 4, b: 2, ans: 6 }, color: 0xf97316, targetPos: { x: -3.0, y: 0.2, z: 3.0 }, desc: 'שביל גישה וערוגת גזרים טרייה' },
-    { step: 23, name: 'עץ תפוח חווה', icon: '🌳', shape: 'apple_tree', eq: { a: 5, b: 3, ans: 8 }, color: 0x16a34a, targetPos: { x: 3.4, y: 1.4, z: 0.8 }, desc: 'עץ תפוחים מלא פירות אדומים' },
-    { step: 24, name: 'עששית חווה קדמית', icon: '🏮', shape: 'lantern', eq: { a: 1, b: 1, ans: 2 }, color: 0xfacc15, targetPos: { x: -2.0, y: 2.1, z: 0.2 }, desc: 'פנס תאורה מעל דלת הכניסה' },
-    { step: 25, name: 'שבשבת רוח מוזהבת', icon: '🚩', shape: 'weather_vane', eq: { a: 3, b: 2, ans: 5 }, color: 0xf59e0b, targetPos: { x: -2.0, y: 5.4, z: -2.0 }, desc: 'שבשבת רוח מוזהבת בראש האסם - המבנה מושלם!' }
-  ];
+  // Building Blueprints Database
+  const BUILDINGS_DATABASE = {
+    barn: {
+      id: 'barn',
+      name: 'אסם חווה אדום (Red Barn)',
+      heName: 'אסם חווה אדום',
+      icon: '🏛️',
+      totalParts: 25,
+      production: '+100 תבואה / דקה',
+      color: 0xdc2626,
+      steps: [
+        { step: 1, name: 'יסודות רצפת עץ', icon: '🪵', shape: 'base_plate', eq: { a: 4, b: 7, ans: 11 }, color: 0x3b82f6, desc: 'בסיס הרצפה הכבד שנושא את כל האסם (4 + 7 = 11)' },
+        { step: 2, name: 'קיר תחתון ימני', icon: '🧱', shape: 'wall_right', eq: { a: 3, b: 5, ans: 8 }, color: 0xdc2626, desc: 'קיר לבנים אדומות מחוזק בצד ימין (3 + 5 = 8)' },
+        { step: 3, name: 'קיר תחתון שמאלי', icon: '🧱', shape: 'wall_left', eq: { a: 5, b: 3, ans: 8 }, color: 0xdc2626, desc: 'קיר לבנים אדומות בצד שמאל (5 + 3 = 8)' },
+        { step: 4, name: 'שער כפול לבן', icon: '🚪', shape: 'door_frame', eq: { a: 3, b: 4, ans: 7 }, color: 0xf8fafc, desc: 'שער אסם רחב עם משקוף (3 + 4 = 7)' },
+        { step: 5, name: 'חלון קדמי ימני', icon: '🪟', shape: 'window_right', eq: { a: 2, b: 3, ans: 5 }, color: 0xf8fafc, desc: 'חלון מואר לאור שמש (2 + 3 = 5)' },
+        { step: 6, name: 'חלון קדמי שמאלי', icon: '🪟', shape: 'window_left', eq: { a: 3, b: 2, ans: 5 }, color: 0xf8fafc, desc: 'חלון מואר לאוורור (3 + 2 = 5)' },
+        { step: 7, name: 'קורת תמיכה מרכזית', icon: '🪵', shape: 'beam', eq: { a: 6, b: 4, ans: 10 }, color: 0xb45309, desc: 'קורת אלון חזקה לקומה השנייה (6 + 4 = 10)' },
+        { step: 8, name: 'קיר קומה שנייה ימני', icon: '🧱', shape: 'wall_upper_r', eq: { a: 4, b: 4, ans: 8 }, color: 0xdc2626, desc: 'קיר עליית הגג בצד ימין (4 + 4 = 8)' },
+        { step: 9, name: 'קיר קומה שנייה שמאלי', icon: '🧱', shape: 'wall_upper_l', eq: { a: 4, b: 4, ans: 8 }, color: 0xdc2626, desc: 'קיר עליית הגג בצד שמאל (4 + 4 = 8)' },
+        { step: 10, name: 'אשנב עליית גג עגול', icon: '🪟', shape: 'attic_window', eq: { a: 2, b: 2, ans: 4 }, color: 0xf8fafc, desc: 'חלון עגול לעליית החציר (2 + 2 = 4)' },
+        { step: 11, name: 'גמלון גג קדמי', icon: '📐', shape: 'gable_front', eq: { a: 5, b: 3, ans: 8 }, color: 0xdc2626, desc: 'משולש הגמלון הקדמי (5 + 3 = 8)' },
+        { step: 12, name: 'גמלון גג אחורי', icon: '📐', shape: 'gable_back', eq: { a: 3, b: 5, ans: 8 }, color: 0xdc2626, desc: 'משולש הגמלון האחורי (3 + 5 = 8)' },
+        { step: 13, name: 'שיפוע רעפים ימני', icon: '🏠', shape: 'roof_slope_r', eq: { a: 6, b: 5, ans: 11 }, color: 0xf8fafc, desc: 'רעפי גג משופעים בצד ימין (6 + 5 = 11)' },
+        { step: 14, name: 'שיפוע רעפים שמאלי', icon: '🏠', shape: 'roof_slope_l', eq: { a: 5, b: 6, ans: 11 }, color: 0xf8fafc, desc: 'רעפי גג משופעים בצד שמאל (5 + 6 = 11)' },
+        { step: 15, name: 'רכס גג עליון', icon: '🔝', shape: 'roof_ridge', eq: { a: 3, b: 3, ans: 6 }, color: 0xe2e8f0, desc: 'סגירת רכס הגג המוזהב (3 + 3 = 6)' },
+        { step: 16, name: 'בסיס סילו תבואה', icon: '🛢️', shape: 'silo_base', eq: { a: 4, b: 4, ans: 8 }, color: 0xb91c1c, desc: 'יסודות עגולים למגדל התבואה (4 + 4 = 8)' },
+        { step: 17, name: 'גוף סילו מרכזי', icon: '🛢️', shape: 'silo_mid', eq: { a: 5, b: 5, ans: 10 }, color: 0xb91c1c, desc: 'מגדל האחסון לתבואת החווה (5 + 5 = 10)' },
+        { step: 18, name: 'כיפת סילו עליונה', icon: '🌕', shape: 'silo_cap', eq: { a: 3, b: 3, ans: 6 }, color: 0xf8fafc, desc: 'כיפת איטום עליונה (3 + 3 = 6)' },
+        { step: 19, name: 'גדר עץ ימנית', icon: '🪵', shape: 'fence_r', eq: { a: 3, b: 2, ans: 5 }, color: 0x92400e, desc: 'גדר עץ לסגירת חצר החיות (3 + 2 = 5)' },
+        { step: 20, name: 'גדר עץ שמאלית', icon: '🪵', shape: 'fence_l', eq: { a: 2, b: 3, ans: 5 }, color: 0x92400e, desc: 'גדר עץ לשטח המרעה (2 + 3 = 5)' },
+        { step: 21, name: 'תיבת דואר אדומה', icon: '📮', shape: 'mailbox', eq: { a: 1, b: 2, ans: 3 }, color: 0xef4444, desc: 'תיבת דואר כפרית (1 + 2 = 3)' },
+        { step: 22, name: 'שביל וערוגת גזרים', icon: '🥕', shape: 'carrots_path', eq: { a: 4, b: 4, ans: 8 }, color: 0xf97316, desc: 'שביל אבנים וערוגת גזרים (4 + 4 = 8)' },
+        { step: 23, name: 'עץ תפוחים פורה', icon: '🌳', shape: 'apple_tree', eq: { a: 5, b: 4, ans: 9 }, color: 0x16a34a, desc: 'עץ תפוחים מלא פירות (5 + 4 = 9)' },
+        { step: 24, name: 'עששית תאורה', icon: '🏮', shape: 'lantern', eq: { a: 1, b: 2, ans: 3 }, color: 0xfacc15, desc: 'פנס לילה מאיר (1 + 2 = 3)' },
+        { step: 25, name: 'שבשבת רוח מוזהבת', icon: '🚩', shape: 'weather_vane', eq: { a: 2, b: 3, ans: 5 }, color: 0xf59e0b, desc: 'שבשבת רוח - האסם מושלם! (2 + 3 = 5)' }
+      ]
+    },
 
-  // 3D Scene Variables
+    windmill: {
+      id: 'windmill',
+      name: 'טחנת רוח כפרית (Windmill)',
+      heName: 'טחנת רוח כפרית',
+      icon: '💨',
+      totalParts: 20,
+      production: '+150 קמח / דקה',
+      color: 0x3b82f6,
+      steps: [
+        { step: 1, name: 'בסיס אבן מתומן', icon: '🧱', shape: 'base_stone', eq: { a: 5, b: 7, ans: 12 }, color: 0x64748b, desc: 'בסיס אבן כבד ליציבות הטחנה (5 + 7 = 12)' },
+        { step: 2, name: 'קיר מגדל תחתון', icon: '🧱', shape: 'tower_b', eq: { a: 4, b: 4, ans: 8 }, color: 0xf8fafc, desc: 'קיר לבנים עגול (4 + 4 = 8)' },
+        { step: 3, name: 'שער טוחן מקושת', icon: '🚪', shape: 'door_arch', eq: { a: 2, b: 3, ans: 5 }, color: 0xb45309, desc: 'דלת כניסה מעץ (2 + 3 = 5)' },
+        { step: 4, name: 'מנוע גלגלי שיניים', icon: '⚙️', shape: 'gears', eq: { a: 6, b: 6, ans: 12 }, color: 0x475569, desc: 'מנגנון טחינת התבואה לקמח (6 + 6 = 12)' },
+        { step: 5, name: 'ציר סיבוב ראשי', icon: '🔄', shape: 'axle', eq: { a: 3, b: 3, ans: 6 }, color: 0x94a3b8, desc: 'ציר כנפי הרוח (3 + 3 = 6)' },
+        { step: 6, name: 'כנף רוח ראשונה', icon: '💨', shape: 'blade1', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ עם בד לבן (4 + 5 = 9)' },
+        { step: 7, name: 'כנף רוח שנייה', icon: '💨', shape: 'blade2', eq: { a: 5, b: 4, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ שנייה (5 + 4 = 9)' },
+        { step: 8, name: 'כנף רוח שלישית', icon: '💨', shape: 'blade3', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ שלישית (4 + 5 = 9)' },
+        { step: 9, name: 'כנף רוח רביעית', icon: '💨', shape: 'blade4', eq: { a: 5, b: 4, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ רביעית (5 + 4 = 9)' },
+        { step: 10, name: 'כיפה חרוטית עליונה', icon: '⛺', shape: 'roof_cone', eq: { a: 5, b: 3, ans: 8 }, color: 0x991b1b, desc: 'כיפת הגג של הטחנה (5 + 3 = 8)' }
+      ]
+    },
+
+    farmhouse: {
+      id: 'farmhouse',
+      name: 'סדנת נגר ובית חווה (Carpenter Workshop & Farmhouse)',
+      heName: 'סדנת נגר ובית חווה',
+      icon: '🪚',
+      totalParts: 25,
+      production: '+20% בונוס ייצור לכל החווה',
+      color: 0x16a34a,
+      steps: [
+        { step: 1, name: 'דק מרפסת עץ', icon: '🪵', shape: 'deck', eq: { a: 6, b: 6, ans: 12 }, color: 0xb45309, desc: 'דק עץ כפרי רחב (6 + 6 = 12)' },
+        { step: 2, name: 'דלת כניסה וסלון', icon: '🚪', shape: 'door_living', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'דלת עם חלונות תריסים (4 + 5 = 9)' },
+        { step: 3, name: 'אח לבנים מחמם', icon: '🔥', shape: 'fireplace', eq: { a: 3, b: 3, ans: 6 }, color: 0xdc2626, desc: 'אח לחימום הבית (3 + 3 = 6)' },
+        { step: 4, name: 'קומה שנייה וחדר שינה', icon: '🛏️', shape: 'upper_floor', eq: { a: 4, b: 4, ans: 8 }, color: 0xf8fafc, desc: 'קירות מגורי החוואי (4 + 4 = 8)' },
+        { step: 5, name: 'גג רעפים חום וארובה', icon: '🏠', shape: 'chimney_roof', eq: { a: 5, b: 5, ans: 10 }, color: 0x78350f, desc: 'גג כפרי עם ארובת עשן (5 + 5 = 10)' }
+      ]
+    },
+
+    coop: {
+      id: 'coop',
+      name: 'לול תרנגולות (Chicken Coop)',
+      heName: 'לול תרנגולות',
+      icon: '🐔',
+      totalParts: 15,
+      production: '+50 ביצים / דקה',
+      color: 0xf59e0b,
+      steps: [
+        { step: 1, name: 'עמודי הגבהה ורמפה', icon: '🪵', shape: 'stilts', eq: { a: 3, b: 4, ans: 7 }, color: 0x92400e, desc: 'עמודי עץ ורמפת עלייה (3 + 4 = 7)' },
+        { step: 2, name: 'תאי הטלת ביצים', icon: '🥚', shape: 'nests', eq: { a: 4, b: 4, ans: 8 }, color: 0xfef08a, desc: 'תאים מרופדים בחציר (4 + 4 = 8)' },
+        { step: 3, name: 'גג נפתח לאיסוף', icon: '🏠', shape: 'roof_open', eq: { a: 3, b: 3, ans: 6 }, color: 0xdc2626, desc: 'גג צירים נפתח (3 + 3 = 6)' }
+      ]
+    },
+
+    greenhouse: {
+      id: 'greenhouse',
+      name: 'חממת ירקות (Greenhouse)',
+      heName: 'חממת ירקות',
+      icon: '🌿',
+      totalParts: 20,
+      production: '+80 תותים ועגבניות / דקה',
+      color: 0x10b981,
+      steps: [
+        { step: 1, name: 'שלד אלומיניום ירוק', icon: '🧱', shape: 'frame', eq: { a: 4, b: 6, ans: 10 }, color: 0x15803d, desc: 'שלד חזק לחממה (4 + 6 = 10)' },
+        { step: 2, name: 'קירות זכוכית שקופה', icon: '🪟', shape: 'glass_walls', eq: { a: 5, b: 5, ans: 10 }, color: 0xbae6fd, desc: 'קירות פלסטיק שקוף (5 + 5 = 10)' },
+        { step: 3, name: 'ערוגות טפטוף ומאוורר', icon: '🍓', shape: 'hydro_beds', eq: { a: 4, b: 4, ans: 8 }, color: 0xef4444, desc: 'מערכת השקיה וגידול (4 + 4 = 8)' }
+      ]
+    },
+
+    silo: {
+      id: 'silo',
+      name: 'ממגורת תבואה (Grain Silo)',
+      heName: 'ממגורת תבואה',
+      icon: '🌾',
+      totalParts: 15,
+      production: '+500 קיבולת אחסון למחסן',
+      color: 0x991b1b,
+      steps: [
+        { step: 1, name: 'רפסודת בטון כבדה', icon: '🧱', shape: 'silo_base', eq: { a: 4, b: 4, ans: 8 }, color: 0x475569, desc: 'יסודות בטון עגולים (4 + 4 = 8)' },
+        { step: 2, name: 'גליל ממגורה ענק', icon: '🛢️', shape: 'silo_cylinder', eq: { a: 6, b: 6, ans: 12 }, color: 0xb91c1c, desc: 'טבעות אחסון תבואה (6 + 6 = 12)' },
+        { step: 3, name: 'כיפת מתכת ומסוע פריקה', icon: '🌕', shape: 'silo_dome', eq: { a: 3, b: 4, ans: 7 }, color: 0xf8fafc, desc: 'כיפת איטום וצינור שפיכה (3 + 4 = 7)' }
+      ]
+    }
+  };
+
+  // 3D Engine Variables
   let tableScene, tableCamera, tableRenderer, tableControls;
-  let tableMeshGroup, tableBricksGroup, tableSnappedStackGroup;
-
-  let mapScene, mapCamera, mapRenderer, mapControls;
-  let farmIslandGroup, ghostBlueprintGroup, placedBuildingGroup, grassModulesGroup;
-  let floatingDucksGroup = null;
-  let windmillBladesMesh = null;
-  let cloudsGroup = null;
+  let tableMeshGroup, tableSnappedStackGroup;
 
   function $(id) { return document.getElementById(id); }
 
   // ========================================================
-  // 1. INITIALIZE 3D WOODEN LEGO TABLE SCREEN (Screen 3)
+  // 1. INITIALIZE AAA 3D WORK TABLE
   // ========================================================
   function init3DTable() {
     const container = $('threeTableContainer');
     if (!container) return;
 
-    const w = container.clientWidth || 460;
-    const h = container.clientHeight || 400;
+    const w = container.clientWidth || 480;
+    const h = container.clientHeight || 420;
 
     tableScene = new THREE.Scene();
-    tableScene.background = new THREE.Color(0x38bdf8);
-    tableScene.fog = new THREE.FogExp2(0x7dd3fc, 0.02);
+    tableScene.background = new THREE.Color(0xfef3c7);
+    tableScene.fog = new THREE.FogExp2(0xfef3c7, 0.015);
 
-    tableCamera = new THREE.PerspectiveCamera(40, w / h, 0.1, 1000);
-    tableCamera.position.set(0, 9, 14);
+    tableCamera = new THREE.PerspectiveCamera(38, w / h, 0.1, 1000);
+    tableCamera.position.set(0, 6.4, 8.8);
 
-    tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
     tableRenderer.setSize(w, h);
     tableRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     tableRenderer.shadowMap.enabled = true;
     tableRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    tableRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+    tableRenderer.toneMappingExposure = 1.18;
     container.innerHTML = '';
     container.appendChild(tableRenderer.domElement);
 
@@ -2490,168 +2843,152 @@ window.legoSound = new LegoAudioSynth();
     tableControls.enableDamping = true;
     tableControls.dampingFactor = 0.08;
     tableControls.maxPolarAngle = Math.PI / 2.05;
-    tableControls.target.set(0, 1.8, 0);
+    tableControls.minDistance = 4.0;
+    tableControls.maxDistance = 15.0;
+    tableControls.target.set(0, 1.1, 0);
 
-    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x86efac, 0.95);
-    tableScene.add(hemiLight);
+    // Warm Studio Lighting
+    const warmAmbient = new THREE.AmbientLight(0xffedd5, 1.4);
+    tableScene.add(warmAmbient);
 
-    const sunLight = new THREE.DirectionalLight(0xfffaed, 1.35);
-    sunLight.position.set(10, 22, 12);
-    sunLight.castShadow = true;
-    tableScene.add(sunLight);
+    const keyLight = new THREE.DirectionalLight(0xffedd5, 2.6);
+    keyLight.position.set(6, 15, 8);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 2048;
+    keyLight.shadow.mapSize.height = 2048;
+    keyLight.shadow.bias = -0.0004;
+    tableScene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xbae6fd, 1.1);
+    fillLight.position.set(-8, 9, -4);
+    tableScene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xfde047, 1.7);
+    rimLight.position.set(0, 10, -9);
+    tableScene.add(rimLight);
 
     tableMeshGroup = new THREE.Group();
-    tableBricksGroup = new THREE.Group();
     tableSnappedStackGroup = new THREE.Group();
-    tableScene.add(tableMeshGroup, tableBricksGroup, tableSnappedStackGroup);
+    tableScene.add(tableMeshGroup);
+    tableScene.add(tableSnappedStackGroup);
 
-    build3DSunnyEnvironment();
-    build3DWoodenTable();
-
-    // Raycast to click & snap 3D Lego bricks directly on the table!
-    const tableRaycaster = new THREE.Raycaster();
-    const tableMouse = new THREE.Vector2();
-
-    tableRenderer.domElement.addEventListener('pointerdown', (e) => {
-      if (isSolved) return;
-      const rect = tableRenderer.domElement.getBoundingClientRect();
-      tableMouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      tableMouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-      tableRaycaster.setFromCamera(tableMouse, tableCamera);
-
-      const hits = tableRaycaster.intersectObjects(tableBricksGroup.children, true);
-      if (hits.length > 0 && !isSolved) {
-        let hitObj = hits[0].object;
-        while (hitObj.parent && hitObj.parent !== tableBricksGroup) hitObj = hitObj.parent;
-        if (hitObj.userData && !hitObj.userData.used) {
-          hitObj.userData.used = true;
-          tableBricksGroup.remove(hitObj);
-          snapBrickToTablePart(hitObj.userData.color);
-
-          const dockBtns = document.querySelectorAll('.dock-brick-btn');
-          for (const btn of dockBtns) {
-            if (!btn.classList.contains('used') && 
-                ((hitObj.userData.group === 'A' && btn.classList.contains('brick-red')) ||
-                 (hitObj.userData.group === 'B' && btn.classList.contains('brick-gold')))) {
-              btn.classList.add('used');
-              btn.dataset.used = 'true';
-              break;
-            }
-          }
-        }
-      }
-    });
-
-    function animateTable() {
-      requestAnimationFrame(animateTable);
-      if (tableControls) tableControls.update();
-      tableRenderer.render(tableScene, tableCamera);
+    // Warm Oak Tabletop
+    const tableCanvas = document.createElement('canvas');
+    tableCanvas.width = 512;
+    tableCanvas.height = 512;
+    const ctx = tableCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(256, 256, 20, 256, 256, 256);
+    grad.addColorStop(0, '#d97706');
+    grad.addColorStop(0.5, '#b45309');
+    grad.addColorStop(1, '#78350f');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 512, 512);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+    ctx.lineWidth = 3;
+    for (let r = 35; r < 360; r += 28) {
+      ctx.beginPath();
+      ctx.arc(256 + (r * 0.08), 256, r, 0, Math.PI * 2);
+      ctx.stroke();
     }
-    animateTable();
+    const woodTexture = new THREE.CanvasTexture(tableCanvas);
 
-    window.addEventListener('resize', () => {
-      if (!container || !tableRenderer || !tableCamera) return;
-      const nw = container.clientWidth;
-      const nh = container.clientHeight;
-      tableCamera.aspect = nw / nh;
-      tableCamera.updateProjectionMatrix();
-      tableRenderer.setSize(nw, nh);
-    });
-  }
+    const tableTopMat = new THREE.MeshStandardMaterial({ map: woodTexture, roughness: 0.32, metalness: 0.05 });
+    const tableTopMesh = new THREE.Mesh(new THREE.CylinderGeometry(9.0, 9.0, 0.7, 48), tableTopMat);
+    tableTopMesh.position.y = 0.5;
+    tableTopMesh.receiveShadow = true;
+    tableMeshGroup.add(tableTopMesh);
 
-  function build3DSunnyEnvironment() {
-    const groundGeo = new THREE.PlaneGeometry(60, 60);
-    const groundMat = new THREE.MeshStandardMaterial({ color: 0x4ade80, roughness: 0.8 });
-    const groundMesh = new THREE.Mesh(groundGeo, groundMat);
-    groundMesh.rotation.x = -Math.PI / 2;
-    groundMesh.position.y = -2.8;
-    groundMesh.receiveShadow = true;
-    tableScene.add(groundMesh);
+    // Blue Studded Baseplate
+    const baseMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.14, metalness: 0.05 });
+    const basePlate = new THREE.Mesh(new THREE.BoxGeometry(6.6, 0.24, 6.6), baseMat);
+    basePlate.position.y = 0.97;
+    basePlate.receiveShadow = true;
+    basePlate.castShadow = true;
+    tableMeshGroup.add(basePlate);
 
-    const hillGeo = new THREE.SphereGeometry(12, 16, 12);
-    const hillMat = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.9 });
-    const hill1 = new THREE.Mesh(hillGeo, hillMat);
-    hill1.position.set(-14, -8, -16);
-    const hill2 = new THREE.Mesh(hillGeo, hillMat);
-    hill2.position.set(16, -9, -18);
-    tableScene.add(hill1, hill2);
-  }
-
-  function build3DWoodenTable() {
-    tableMeshGroup.clear();
-    const woodMat = new THREE.MeshStandardMaterial({ color: 0xb45309, roughness: 0.45 });
-    const woodFrame = new THREE.Mesh(new THREE.BoxGeometry(10.5, 0.6, 8.5), woodMat);
-    woodFrame.position.y = 0.5;
-    woodFrame.receiveShadow = true;
-    tableMeshGroup.add(woodFrame);
-
-    const legGeo = new THREE.BoxGeometry(1.0, 3.5, 1.0);
-    [{ x: -4.5, z: -3.5 }, { x: 4.5, z: -3.5 }, { x: -4.5, z: 3.5 }, { x: 4.5, z: 3.5 }].forEach(pos => {
-      const leg = new THREE.Mesh(legGeo, woodMat);
-      leg.position.set(pos.x, -1.2, pos.z);
-      tableMeshGroup.add(leg);
-    });
-
-    const bluePlateMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.2 });
-    const bluePlate = new THREE.Mesh(new THREE.BoxGeometry(8.5, 0.2, 6.5), bluePlateMat);
-    bluePlate.position.set(0, 0.9, 0);
-    tableMeshGroup.add(bluePlate);
-
-    const studGeo = new THREE.CylinderGeometry(0.18, 0.18, 0.12, 16);
-    for (let x = -3.8; x <= 3.8; x += 0.8) {
-      for (let z = -2.8; z <= 2.8; z += 0.8) {
-        const stud = new THREE.Mesh(studGeo, bluePlateMat);
-        stud.position.set(x, 1.05, z);
+    const studGeom = new THREE.CylinderGeometry(0.16, 0.16, 0.12, 16);
+    const studMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.14 });
+    for (let x = -2.7; x <= 2.7; x += 0.54) {
+      for (let z = -2.7; z <= 2.7; z += 0.54) {
+        const stud = new THREE.Mesh(studGeom, studMat);
+        stud.position.set(x, 1.13, z);
+        stud.receiveShadow = true;
+        stud.castShadow = true;
         tableMeshGroup.add(stud);
       }
     }
+
+    // Minifigure Helper
+    const minifig = new THREE.Group();
+    const legs = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.65, 0.35), new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.2 }));
+    legs.position.y = 1.38;
+    legs.castShadow = true;
+    minifig.add(legs);
+
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.65, 0.4), new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.2 }));
+    torso.position.y = 2.0;
+    torso.castShadow = true;
+    minifig.add(torso);
+
+    const head = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.42, 16), new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.15 }));
+    head.position.y = 2.52;
+    head.castShadow = true;
+    minifig.add(head);
+
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.26, 16, 16), new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.3 }));
+    hair.position.set(0, 2.72, 0);
+    hair.scale.set(1.0, 0.6, 1.0);
+    minifig.add(hair);
+
+    minifig.position.set(2.2, 0, -1.2);
+    minifig.rotation.y = -Math.PI / 4;
+    tableMeshGroup.add(minifig);
+
+    // Sparkles
+    const sparkleGroup = new THREE.Group();
+    const starGeom = new THREE.SphereGeometry(0.06, 8, 8);
+    const starMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
+    for (let i = 0; i < 28; i++) {
+      const sp = new THREE.Mesh(starGeom, starMat);
+      sp.position.set((Math.random() - 0.5) * 6.5, 2.5 + Math.random() * 3.5, (Math.random() - 0.5) * 4.5);
+      sp.userData = { speedY: 0.008 + Math.random() * 0.01, initialY: sp.position.y };
+      sparkleGroup.add(sp);
+    }
+    tableMeshGroup.add(sparkleGroup);
+
+    function animateTable(time) {
+      requestAnimationFrame(animateTable);
+      if (tableControls) tableControls.update();
+      sparkleGroup.children.forEach(sp => {
+        sp.position.y += Math.sin(time * 0.003 + sp.userData.initialY) * 0.003;
+      });
+      minifig.position.y = Math.sin(time * 0.004) * 0.02;
+      tableRenderer.render(tableScene, tableCamera);
+    }
+    requestAnimationFrame(animateTable);
   }
 
-  function spawn3DTableBricksForCurrentPart() {
-    isSolved = false;
-    currentSnapCount = 0;
-
-    if (tableBricksGroup) tableBricksGroup.clear();
-    if (tableSnappedStackGroup) tableSnappedStackGroup.clear();
-
-    const curPart = barn25Steps[currentStepIndex];
+  // ========================================================
+  // 2. STEP RENDERING & SNAP MECHANICS
+  // ========================================================
+  function renderCurrentStep() {
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
     if (!curPart) return;
 
-    const targetSum = curPart.eq.ans;
+    currentSnapCount = 0;
+    isSolved = false;
+    tableSnappedStackGroup.clear();
 
+    // Update Math Card
     if ($('valA')) $('valA').textContent = curPart.eq.a;
     if ($('valB')) $('valB').textContent = curPart.eq.b;
-    if ($('answerDisplay')) $('answerDisplay').textContent = targetSum;
-    if ($('snapCountVal')) $('snapCountVal').textContent = `0 / ${targetSum}`;
-    if ($('mathCard')) $('mathCard').classList.remove('solved-pulse');
+    if ($('answerDisplay')) $('answerDisplay').textContent = curPart.eq.ans;
 
-    if ($('curPartIcon')) $('curPartIcon').textContent = curPart.icon;
-    if ($('curPartName')) $('curPartName').textContent = `חלק ${curPart.step}/25: ${curPart.name}`;
-    if ($('questProgressText')) $('questProgressText').textContent = `חלק ${currentStepIndex + 1}/25 מוכן`;
-
-    // Group A Bricks
-    const colorA = curPart.color || 0xef4444;
-    for (let i = 0; i < curPart.eq.a; i++) {
-      const b3d = createSingle3DBrick(colorA);
-      const posX = -2.8 + (i * 1.1) + (Math.random() * 0.2 - 0.1);
-      const posZ = 1.4 + (i * 0.4) + (Math.random() * 0.2 - 0.1);
-      b3d.position.set(posX, 1.25, posZ);
-      b3d.rotation.y = (Math.random() - 0.5) * 0.6;
-      b3d.userData = { color: colorA, group: 'A', index: i, used: false };
-      tableBricksGroup.add(b3d);
-    }
-
-    // Group B Bricks
-    const colorB = 0xf59e0b;
-    for (let i = 0; i < curPart.eq.b; i++) {
-      const b3d = createSingle3DBrick(colorB);
-      const posX = 1.2 + (i * 1.1) + (Math.random() * 0.2 - 0.1);
-      const posZ = 1.4 + (i * 0.4) + (Math.random() * 0.2 - 0.1);
-      b3d.position.set(posX, 1.25, posZ);
-      b3d.rotation.y = (Math.random() - 0.5) * 0.6;
-      b3d.userData = { color: colorB, group: 'B', index: i, used: false };
-      tableBricksGroup.add(b3d);
-    }
+    // Quest Bubble
+    if ($('curPartIcon')) $('curPartIcon').textContent = `${curPart.icon} ${building.heName}`;
+    if ($('curPartName')) $('curPartName').textContent = `חלק ${curPart.step} מתוך ${building.totalParts}: ${curPart.name}`;
+    if ($('snapCountVal')) $('snapCountVal').textContent = `0 / ${curPart.eq.ans}`;
 
     populateBottomDockForPart(curPart);
   }
@@ -2661,39 +2998,31 @@ window.legoSound = new LegoAudioSynth();
     if (!row) return;
     row.innerHTML = '';
 
+    // Group A Buttons (Red)
     for (let i = 0; i < curPart.eq.a; i++) {
       const btn = document.createElement('div');
       btn.className = 'dock-brick-btn brick-red';
-      btn.innerHTML = '<span class="dock-brick-label">קבוצה א\'</span>';
+      btn.innerHTML = `<span class="dock-brick-label">${i + 1} (א')</span>`;
       btn.dataset.used = 'false';
       btn.onclick = () => {
         if (btn.dataset.used === 'true' || isSolved) return;
         btn.dataset.used = 'true';
         btn.classList.add('used');
-        const hitObj = tableBricksGroup.children.find(m => m.userData && m.userData.group === 'A' && !m.userData.used);
-        if (hitObj) {
-          hitObj.userData.used = true;
-          tableBricksGroup.remove(hitObj);
-        }
-        snapBrickToTablePart(curPart.color);
+        snapBrickToTablePart(0xdc2626);
       };
       row.appendChild(btn);
     }
 
+    // Group B Buttons (Gold)
     for (let i = 0; i < curPart.eq.b; i++) {
       const btn = document.createElement('div');
       btn.className = 'dock-brick-btn brick-gold';
-      btn.innerHTML = '<span class="dock-brick-label">קבוצה ב\'</span>';
+      btn.innerHTML = `<span class="dock-brick-label">${i + 1} (ב')</span>`;
       btn.dataset.used = 'false';
       btn.onclick = () => {
         if (btn.dataset.used === 'true' || isSolved) return;
         btn.dataset.used = 'true';
         btn.classList.add('used');
-        const hitObj = tableBricksGroup.children.find(m => m.userData && m.userData.group === 'B' && !m.userData.used);
-        if (hitObj) {
-          hitObj.userData.used = true;
-          tableBricksGroup.remove(hitObj);
-        }
         snapBrickToTablePart(0xf59e0b);
       };
       row.appendChild(btn);
@@ -2703,23 +3032,31 @@ window.legoSound = new LegoAudioSynth();
   function snapBrickToTablePart(colorHex) {
     if (isSolved) return;
 
-    const curPart = barn25Steps[currentStepIndex];
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
     const targetSum = curPart.eq.ans;
 
     const b = createSingle3DBrick(colorHex);
-    const targetY = 1.3 + (currentSnapCount * 0.6);
-    b.position.set(0, targetY + 3.0, 0);
+
+    const cols = 4;
+    const row = Math.floor(currentSnapCount / cols);
+    const col = currentSnapCount % cols;
+    const targetX = -1.6 + (col * 1.1);
+    const targetZ = -1.2 + (row * 0.9);
+    const targetY = 1.16;
+
+    b.position.set(targetX, targetY + 3.5, targetZ);
     tableSnappedStackGroup.add(b);
 
-    if (window.legoSound) {
-      window.legoSound.playSnapClick(1.0 + (currentSnapCount * 0.08));
+    if (window.legoSound && typeof window.legoSound.playSnapClick === 'function') {
+      window.legoSound && typeof window.legoSound.playSnapClick === 'function' && (window.legoSound && typeof window.legoSound.playSnapClick === 'function' && window.legoSound.playSnapClick(1.0 + (currentSnapCount * 0.06)));
     }
 
     let st = performance.now();
     function drop(now) {
       const p = Math.min(1.0, (now - st) / 180);
       const ease = 1 - Math.pow(1 - p, 3);
-      b.position.y = (targetY + 3.0) - (3.0 * ease);
+      b.position.y = (targetY + 3.5) - (3.5 * ease);
       if (p < 1.0) requestAnimationFrame(drop);
       else b.position.y = targetY;
     }
@@ -2735,14 +3072,17 @@ window.legoSound = new LegoAudioSynth();
 
   function createSingle3DBrick(colorHex) {
     const group = new THREE.Group();
-    const mat = new THREE.MeshStandardMaterial({ color: colorHex, roughness: 0.18 });
-    const body = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.6, 0.9), mat);
+    const mat = new THREE.MeshStandardMaterial({ color: colorHex, roughness: 0.16, metalness: 0.05 });
+    const body = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.55, 0.85), mat);
     body.castShadow = true;
+    body.receiveShadow = true;
     group.add(body);
-    const studGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.14, 16);
-    [{ x: -0.4, z: -0.22 }, { x: 0.4, z: -0.22 }, { x: -0.4, z: 0.22 }, { x: 0.4, z: 0.22 }].forEach(pos => {
+
+    const studGeo = new THREE.CylinderGeometry(0.15, 0.15, 0.12, 16);
+    [{ x: -0.38, z: -0.2 }, { x: 0.38, z: -0.2 }, { x: -0.38, z: 0.2 }, { x: 0.38, z: 0.2 }].forEach(pos => {
       const s = new THREE.Mesh(studGeo, mat);
-      s.position.set(pos.x, 0.36, pos.z);
+      s.position.set(pos.x, 0.33, pos.z);
+      s.castShadow = true;
       group.add(s);
     });
     return group;
@@ -2752,919 +3092,1038 @@ window.legoSound = new LegoAudioSynth();
     isSolved = true;
     streak++;
     totalSolved++;
-    earnedPartsCount = Math.max(earnedPartsCount, currentStepIndex + 1);
 
-    if ($('streakCount')) $('streakCount').textContent = streak;
-    if ($('mathCard')) $('mathCard').classList.add('solved-pulse');
+    coinsStock += 150;
+    gemsStock += 5;
+    if ($('coinsCountVal')) $('coinsCountVal').textContent = coinsStock.toLocaleString();
+    if ($('gemsCountVal')) $('gemsCountVal').textContent = gemsStock.toLocaleString();
 
     if (window.legoSound) {
-      window.legoSound.playVictoryFanfare();
-      window.legoSound.cheerInHebrew('החלק נבנה בהצלחה! בוא נרכיב אותו בחווה!');
+      if (typeof window.legoSound.playRewardCheer === 'function') window.legoSound.playRewardCheer();
+      else if (typeof window.legoSound.playCelebrationJingle === 'function') window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && (window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && window.legoSound.playCelebrationJingle());
     }
 
-    triggerConfetti();
-    saveProgress();
-    updateBuildingMissionUI();
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
+    if ($('rewardPartName')) $('rewardPartName').textContent = `${building.heName}: ${curPart.name}`;
+    if ($('rewardProgressText')) $('rewardProgressText').textContent = `חלק ${curPart.step} מתוך ${building.totalParts} הושלם בהצלחה!`;
 
-    const curPart = barn25Steps[currentStepIndex];
-    if ($('rewardTitle')) $('rewardTitle').textContent = 'החלק נבנה בהצלחה!';
-    if ($('rewardIcon')) $('rewardIcon').textContent = curPart.icon;
-    if ($('rewardName')) $('rewardName').textContent = `${curPart.name} (חלק ${curPart.step}/25)`;
-    if ($('rewardModal')) $('rewardModal').classList.add('active');
+    setTimeout(() => {
+      if ($('rewardModal')) $('rewardModal').style.display = 'flex';
+    }, 400);
   }
 
   // ========================================================
-  // 2. INITIALIZE 3D MASTER LEGO FARM WORLD MAP (Screen 1)
+  // 3. DIORAMA HOTSPOTS & HARVESTING
   // ========================================================
-  function init3DFarmMapSite() {
-    const container = $('threeMapContainer');
-    if (!container) return;
+  function initDioramaHotspots() {
+    function playSoundSafe(fnName, param) {
+      if (window.legoSound && typeof window.legoSound[fnName] === 'function') {
+        try { window.legoSound[fnName](param); } catch(e){}
+      }
+    }
 
-    const w = container.clientWidth || 480;
-    const h = container.clientHeight || 450;
-
-    mapScene = new THREE.Scene();
-    mapScene.background = new THREE.Color(0x38bdf8);
-    mapScene.fog = new THREE.FogExp2(0x7dd3fc, 0.012);
-
-    mapCamera = new THREE.PerspectiveCamera(38, w / h, 0.1, 1000);
-    mapCamera.position.set(16, 22, 24);
-
-    mapRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    mapRenderer.setSize(w, h);
-    mapRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    mapRenderer.shadowMap.enabled = true;
-    mapRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    container.innerHTML = '';
-    container.appendChild(mapRenderer.domElement);
-
-    mapControls = new THREE.OrbitControls(mapCamera, mapRenderer.domElement);
-    mapControls.enableDamping = true;
-    mapControls.dampingFactor = 0.08;
-    mapControls.maxPolarAngle = Math.PI / 2.15;
-    mapControls.target.set(0, 1.2, 0);
-
-    const hemiLight = new THREE.HemisphereLight(0xffffff, 0x4ade80, 0.95);
-    mapScene.add(hemiLight);
-
-    const sunLight = new THREE.DirectionalLight(0xfffaed, 1.4);
-    sunLight.position.set(20, 35, 22);
-    sunLight.castShadow = true;
-    mapScene.add(sunLight);
-
-    farmIslandGroup = new THREE.Group();
-    ghostBlueprintGroup = new THREE.Group();
-    placedBuildingGroup = new THREE.Group();
-    grassModulesGroup = new THREE.Group();
-    floatingDucksGroup = new THREE.Group();
-    cloudsGroup = new THREE.Group();
-    mapScene.add(farmIslandGroup, ghostBlueprintGroup, placedBuildingGroup, grassModulesGroup, floatingDucksGroup, cloudsGroup);
-
-    buildMasterLegoDiorama();
-    updateMapConstructionSite();
-
-    function animateMap() {
-      requestAnimationFrame(animateMap);
-      if (mapControls) mapControls.update();
+    // Modal Helper for Checkpoints
+    function openCheckpointModal(title, icon, desc, buildingId, resourceName, resourceAmount, resourceIcon) {
+      const modal = $('checkpointActionModal');
+      if (!modal) return;
+      $('cpModalTitle') && ($('cpModalTitle').textContent = title);
+      $('cpModalIcon') && ($('cpModalIcon').textContent = icon);
+      $('cpModalDesc') && ($('cpModalDesc').textContent = desc);
       
-      const time = Date.now() * 0.003;
-      
-      if (windmillBladesMesh) windmillBladesMesh.rotation.z += 0.022;
-
-      floatingDucksGroup.children.forEach((duck, idx) => {
-        duck.position.y = 0.18 + Math.sin(time * 2 + idx) * 0.04;
-        duck.rotation.y += 0.005;
-      });
-
-      grassModulesGroup.children.forEach((mod, idx) => {
-        if (!mod.userData.isFlying) {
-          mod.position.y = mod.userData.baseY + Math.sin(time * 2 + idx) * 0.08;
-          mod.rotation.y += 0.012;
-        }
-      });
-
-      cloudsGroup.children.forEach((cloud) => {
-        cloud.position.x += 0.012;
-        if (cloud.position.x > 25) cloud.position.x = -25;
-      });
-
-      mapRenderer.render(mapScene, mapCamera);
-    }
-    animateMap();
-
-    window.addEventListener('resize', () => {
-      if (!container || !mapRenderer || !mapCamera) return;
-      const nw = container.clientWidth;
-      const nh = container.clientHeight;
-      mapCamera.aspect = nw / nh;
-      mapCamera.updateProjectionMatrix();
-      mapRenderer.setSize(nw, nh);
-    });
-
-    const mapRaycaster = new THREE.Raycaster();
-    const mapMouse = new THREE.Vector2();
-
-    mapRenderer.domElement.addEventListener('pointerdown', (e) => {
-      const rect = mapRenderer.domElement.getBoundingClientRect();
-      mapMouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      mapMouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-      mapRaycaster.setFromCamera(mapMouse, mapCamera);
-
-      const hits = mapRaycaster.intersectObjects(grassModulesGroup.children, true);
-      if (hits.length > 0) {
-        let hitObj = hits[0].object;
-        while (hitObj.parent && hitObj.parent !== grassModulesGroup) hitObj = hitObj.parent;
-        if (hitObj.userData && !hitObj.userData.isFlying) {
-          snap3DPartFromGrassToBuilding(hitObj);
-        }
-      }
-    });
-  }
-
-  function buildMasterLegoDiorama() {
-    farmIslandGroup.clear();
-    floatingDucksGroup.clear();
-    cloudsGroup.clear();
-
-    const greenStudMat = new THREE.MeshStandardMaterial({ color: 0x22c55e, roughness: 0.25 });
-    const sandTileMat = new THREE.MeshStandardMaterial({ color: 0xfef08a, roughness: 0.4 });
-    const soilMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.6 });
-    const wheatMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.2 });
-    const woodFenceMat = new THREE.MeshStandardMaterial({ color: 0x92400e, roughness: 0.4 });
-
-    // 1. Studded Green Lego Base Island
-    const basePlate = new THREE.Mesh(new THREE.BoxGeometry(22, 0.4, 22), greenStudMat);
-    basePlate.position.y = -0.2;
-    basePlate.receiveShadow = true;
-    farmIslandGroup.add(basePlate);
-
-    const studGeo = new THREE.CylinderGeometry(0.16, 0.16, 0.12, 12);
-    for (let x = -10; x <= 10; x += 1.0) {
-      for (let z = -10; z <= 10; z += 1.0) {
-        if ((x > 3 && x < 9 && z > 3 && z < 9) || (Math.abs(x - z*0.4) < 1.0)) continue;
-        const stud = new THREE.Mesh(studGeo, greenStudMat);
-        stud.position.set(x, 0.06, z);
-        farmIslandGroup.add(stud);
-      }
-    }
-
-    // 2. Curved Sand Lego Pathway
-    const pathCurve = [
-      { x: -9, z: 9 }, { x: -6, z: 7 }, { x: -3, z: 4 }, 
-      { x: 0, z: 1 }, { x: 3, z: -2 }, { x: 6, z: -5 }, { x: 9, z: -7 }
-    ];
-    pathCurve.forEach((pt) => {
-      const tile = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.14, 2.4), sandTileMat);
-      tile.position.set(pt.x, 0.07, pt.z);
-      tile.rotation.y = 0.35;
-      farmIslandGroup.add(tile);
-    });
-
-    // 3. 3D Lego Windmill on Green Terraced Hill
-    const hillGroup = new THREE.Group();
-    const h1 = new THREE.Mesh(new THREE.CylinderGeometry(4.2, 4.8, 0.8, 16), greenStudMat);
-    h1.position.set(-7.5, 0.4, -6.5);
-    const h2 = new THREE.Mesh(new THREE.CylinderGeometry(3.2, 3.8, 0.8, 16), greenStudMat);
-    h2.position.set(-7.5, 1.2, -6.5);
-    const h3 = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.8, 0.8, 16), greenStudMat);
-    h3.position.set(-7.5, 2.0, -6.5);
-    hillGroup.add(h1, h2, h3);
-
-    const millBase = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.4, 2.4), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
-    millBase.position.set(-7.5, 2.6, -6.5);
-    const millTower = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.5, 4.4, 8), new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.2 }));
-    millTower.position.set(-7.5, 5.0, -6.5);
-    const millRoof = new THREE.Mesh(new THREE.ConeGeometry(1.4, 1.2, 8), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
-    millRoof.position.set(-7.5, 7.8, -6.5);
-
-    windmillBladesMesh = new THREE.Group();
-    const bladeMat = new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.2 });
-    const bGeo = new THREE.BoxGeometry(0.35, 4.8, 0.08);
-    const b1 = new THREE.Mesh(bGeo, bladeMat);
-    const b2 = new THREE.Mesh(bGeo, bladeMat);
-    b2.rotation.z = Math.PI / 2;
-    windmillBladesMesh.add(b1, b2);
-    windmillBladesMesh.position.set(-7.5, 6.8, -5.3);
-
-    hillGroup.add(millBase, millTower, millRoof, windmillBladesMesh);
-    farmIslandGroup.add(hillGroup);
-
-    // 4. 3D Golden Wheat Fields
-    const wheatFieldGroup = new THREE.Group();
-    const soilPlate = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.12, 6.5), soilMat);
-    soilPlate.position.set(6.8, 0.06, 0.5);
-    wheatFieldGroup.add(soilPlate);
-
-    const stalkGeo = new THREE.CylinderGeometry(0.08, 0.12, 1.1, 8);
-    const earGeo = new THREE.BoxGeometry(0.24, 0.5, 0.24);
-    for (let wx = 4.6; wx <= 9.0; wx += 0.8) {
-      for (let wz = -2.2; wz <= 3.2; wz += 0.8) {
-        const stalk = new THREE.Mesh(stalkGeo, wheatMat);
-        stalk.position.set(wx, 0.6, wz);
-        const ear = new THREE.Mesh(earGeo, wheatMat);
-        ear.position.set(wx, 1.1, wz);
-        wheatFieldGroup.add(stalk, ear);
-      }
-    }
-    farmIslandGroup.add(wheatFieldGroup);
-
-    // 5. 3D Apple Orchard
-    [{ x: 3.5, z: -6.5 }, { x: 6.5, z: -6.5 }, { x: 9.0, z: -6.5 }].forEach(pos => addLegoTree(pos.x, pos.z));
-
-    // 6. 3D Lego Duck Pond with Pier
-    const pondGroup = new THREE.Group();
-    const pondMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.1, transparent: true, opacity: 0.9 });
-    const pondWater = new THREE.Mesh(new THREE.CylinderGeometry(3.4, 3.4, 0.14, 24), pondMat);
-    pondWater.position.set(-6.2, 0.08, 6.0);
-    pondGroup.add(pondWater);
-
-    const pierPlank = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.12, 2.2), woodFenceMat);
-    pierPlank.position.set(-4.5, 0.22, 5.2);
-    pierPlank.rotation.y = -0.4;
-    pondGroup.add(pierPlank);
-
-    [-0.6, 0.6].forEach((offset, idx) => {
-      const duck = new THREE.Group();
-      const dBody = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.5), new THREE.MeshStandardMaterial({ color: 0xfacc15 }));
-      const dHead = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.3, 0.3), new THREE.MeshStandardMaterial({ color: 0xfacc15 }));
-      dHead.position.set(0.25, 0.25, 0);
-      const dBeak = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.1, 0.18), new THREE.MeshStandardMaterial({ color: 0xf97316 }));
-      dBeak.position.set(0.45, 0.2, 0);
-      duck.add(dBody, dHead, dBeak);
-      duck.position.set(-6.2 + offset, 0.18, 6.0 + (idx * 0.6));
-      floatingDucksGroup.add(duck);
-    });
-    farmIslandGroup.add(pondGroup);
-
-    // 7. 3D Sheep Pen
-    const penGroup = new THREE.Group();
-    addLegoFence(penGroup, 6.5, 7.8, 4.2, 0);
-    addLegoFence(penGroup, 6.5, 4.2, 4.2, 0);
-    addLegoFence(penGroup, 4.4, 6.0, 3.6, Math.PI / 2);
-    addLegoFence(penGroup, 8.6, 6.0, 3.6, Math.PI / 2);
-
-    [{x:5.4, z:5.2}, {x:7.4, z:5.4}, {x:6.2, z:6.8}].forEach(pos => addLegoSheep(penGroup, pos.x, 0, pos.z));
-    farmIslandGroup.add(penGroup);
-
-    // 8. 3D Red Tractor with Minifigure Driver
-    const tractorGroup = new THREE.Group();
-    const tBody = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.0, 1.3), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
-    tBody.position.y = 0.65;
-    const tHood = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.8, 1.1), new THREE.MeshStandardMaterial({ color: 0xef4444 }));
-    tHood.position.set(0.5, 0.7, 0);
-    
-    const driverGroup = new THREE.Group();
-    const dTorso = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.6, 0.35), new THREE.MeshStandardMaterial({ color: 0x2563eb }));
-    dTorso.position.y = 1.3;
-    const dHead = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 0.3, 12), new THREE.MeshStandardMaterial({ color: 0xfacc15 }));
-    dHead.position.y = 1.75;
-    const dCap = new THREE.Mesh(new THREE.ConeGeometry(0.24, 0.2, 8), new THREE.MeshStandardMaterial({ color: 0xdc2626 }));
-    dCap.position.y = 1.95;
-    driverGroup.add(dTorso, dHead, dCap);
-    driverGroup.position.set(-0.3, 0, 0);
-    tractorGroup.add(tBody, tHood, driverGroup);
-
-    const wGeo = new THREE.CylinderGeometry(0.42, 0.42, 0.25, 16);
-    const wMat = new THREE.MeshStandardMaterial({ color: 0x0f172a });
-    [{x:0.7, z:0.7}, {x:0.7, z:-0.7}, {x:-0.6, z:0.75}, {x:-0.6, z:-0.75}].forEach(wp => {
-      const wheel = new THREE.Mesh(wGeo, wMat);
-      wheel.rotation.x = Math.PI / 2;
-      wheel.position.set(wp.x, 0.42, wp.z);
-      tractorGroup.add(wheel);
-    });
-
-    tractorGroup.position.set(0.5, 0, 2.5);
-    tractorGroup.rotation.y = -0.5;
-    farmIslandGroup.add(tractorGroup);
-
-    // 9. Floating Clouds
-    for (let c = 0; c < 3; c++) {
-      const cloud = new THREE.Group();
-      const cloudMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
-      const c1 = new THREE.Mesh(new THREE.BoxGeometry(4.0, 1.2, 2.2), cloudMat);
-      cloud.add(c1);
-      cloud.position.set(-18 + (c * 14), 16 + (c * 2), -15 + (c * 6));
-      cloudsGroup.add(cloud);
-    }
-  }
-
-  function addLegoTree(x, z) {
-    const tree = new THREE.Group();
-    const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.38, 2.0, 8), new THREE.MeshStandardMaterial({ color: 0x78350f }));
-    trunk.position.y = 1.0;
-    const foliageMat = new THREE.MeshStandardMaterial({ color: 0x16a34a });
-    const f1 = new THREE.Mesh(new THREE.SphereGeometry(1.2, 10, 10), foliageMat);
-    f1.position.y = 2.4;
-    tree.add(trunk, f1);
-    tree.position.set(x, 0, z);
-    farmIslandGroup.add(tree);
-  }
-
-  function addLegoFence(parentGroup, x, z, len, rotY) {
-    const fenceMat = new THREE.MeshStandardMaterial({ color: 0x92400e });
-    const rail = new THREE.Mesh(new THREE.BoxGeometry(len, 0.12, 0.1), fenceMat);
-    rail.position.set(x, 0.45, z);
-    rail.rotation.y = rotY;
-    parentGroup.add(rail);
-  }
-
-  function addLegoSheep(parentGroup, x, y, z) {
-    const sheep = new THREE.Group();
-    const wool = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.65, 0.6), new THREE.MeshStandardMaterial({ color: 0xf8fafc }));
-    wool.position.y = 0.55;
-    const head = new THREE.Mesh(new THREE.BoxGeometry(0.35, 0.35, 0.35), new THREE.MeshStandardMaterial({ color: 0x0f172a }));
-    head.position.set(0.45, 0.7, 0);
-    sheep.add(wool, head);
-    sheep.position.set(x, y, z);
-    parentGroup.add(sheep);
-  }
-
-  function updateMapConstructionSite() {
-    if (!ghostBlueprintGroup || !placedBuildingGroup || !grassModulesGroup) return;
-
-    ghostBlueprintGroup.clear();
-    placedBuildingGroup.clear();
-    grassModulesGroup.clear();
-
-    const ghostMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.35 });
-    const ghostBarn = new THREE.Mesh(new THREE.BoxGeometry(4.5, 3.5, 4.0), ghostMat);
-    ghostBarn.position.set(-2.0, 1.75, -2.0);
-    const ghostRoof = new THREE.Mesh(new THREE.ConeGeometry(3.6, 1.8, 4), ghostMat);
-    ghostRoof.position.set(-2.0, 4.4, -2.0);
-    ghostRoof.rotation.y = Math.PI / 4;
-    const ghostSilo = new THREE.Mesh(new THREE.CylinderGeometry(1.0, 1.0, 5.0, 16), ghostMat);
-    ghostSilo.position.set(1.3, 2.5, -2.0);
-    ghostBlueprintGroup.add(ghostBarn, ghostRoof, ghostSilo);
-
-    for (let p = 0; p < placedPartsOnMap; p++) {
-      const part = barn25Steps[p];
-      if (part) renderPlacedPart(part);
-    }
-
-    for (let p = placedPartsOnMap; p < earnedPartsCount; p++) {
-      const part = barn25Steps[p];
-      if (part) spawnPartOnGrass(p, part);
-    }
-
-    populateEarnedPartsCards();
-    renderProductionPanel();
-  }
-
-  function renderPlacedPart(part) {
-    const mesh = createPart3DMesh(part.shape, part.color);
-    mesh.position.set(part.targetPos.x, part.targetPos.y, part.targetPos.z);
-    placedBuildingGroup.add(mesh);
-  }
-
-  function spawnPartOnGrass(index, part) {
-    const mesh = createPart3DMesh(part.shape, part.color);
-    const grassX = 2.6 + ((index - placedPartsOnMap) * 1.5);
-    const grassZ = 2.2 - ((index - placedPartsOnMap) * 0.7);
-    const baseY = 0.4;
-
-    mesh.position.set(grassX, baseY, grassZ);
-    mesh.userData = {
-      partIndex: index,
-      targetPos: part.targetPos,
-      baseY: baseY,
-      isFlying: false
-    };
-
-    const ring = new THREE.Mesh(new THREE.RingGeometry(0.7, 1.1, 20), new THREE.MeshBasicMaterial({ color: 0xf59e0b, side: THREE.DoubleSide }));
-    ring.rotation.x = -Math.PI / 2;
-    ring.position.y = 0.05;
-    mesh.add(ring);
-
-    grassModulesGroup.add(mesh);
-  }
-
-  function createPart3DMesh(shape, colorHex) {
-    const grp = new THREE.Group();
-    const mat = new THREE.MeshStandardMaterial({ color: colorHex, roughness: 0.18 });
-    const whiteMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.18 });
-
-    switch (shape) {
-      case 'base_plate':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(4.6, 0.4, 4.2), mat));
-        break;
-      case 'wall_right':
-      case 'wall_left':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.6, 4.0), mat));
-        break;
-      case 'door_frame':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(1.4, 1.6, 0.2), whiteMat));
-        break;
-      case 'window_right':
-      case 'window_left':
-      case 'attic_window':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(0.7, 0.7, 0.15), whiteMat));
-        break;
-      case 'beam':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(4.4, 0.3, 3.8), mat));
-        break;
-      case 'wall_upper_r':
-      case 'wall_upper_l':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.4, 3.8), mat));
-        break;
-      case 'gable_front':
-      case 'gable_back': {
-        const g = new THREE.Mesh(new THREE.ConeGeometry(2.4, 1.2, 3), mat);
-        g.rotation.y = Math.PI / 2;
-        grp.add(g);
-        break;
-      }
-      case 'roof_slope_r':
-      case 'roof_slope_l': {
-        const r = new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.2, 4.2), whiteMat);
-        r.rotation.z = (shape === 'roof_slope_r') ? 0.6 : -0.6;
-        grp.add(r);
-        break;
-      }
-      case 'roof_ridge':
-        grp.add(new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.2, 4.4, 8), mat));
-        break;
-      case 'silo_base':
-      case 'silo_mid':
-        grp.add(new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, 1.8, 16), mat));
-        break;
-      case 'silo_cap':
-        grp.add(new THREE.Mesh(new THREE.SphereGeometry(0.9, 16, 16, 0, Math.PI * 2, 0, Math.PI / 2), whiteMat));
-        break;
-      case 'fence_r':
-      case 'fence_l':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(2.4, 0.6, 0.1), mat));
-        break;
-      case 'mailbox': {
-        const post = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.8, 8), new THREE.MeshStandardMaterial({ color: 0x92400e }));
-        const box = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.3, 0.5), mat);
-        box.position.y = 0.45;
-        grp.add(post, box);
-        break;
-      }
-      case 'carrots_path':
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(1.8, 0.15, 1.4), new THREE.MeshStandardMaterial({ color: 0x78350f })));
-        break;
-      case 'apple_tree': {
-        const tr = new THREE.Mesh(new THREE.CylinderGeometry(0.25, 0.3, 1.4, 8), new THREE.MeshStandardMaterial({ color: 0x78350f }));
-        const lv = new THREE.Mesh(new THREE.SphereGeometry(1.1, 10, 10), mat);
-        lv.position.y = 1.0;
-        grp.add(tr, lv);
-        break;
-      }
-      case 'lantern':
-        grp.add(new THREE.Mesh(new THREE.SphereGeometry(0.2, 8, 8), mat));
-        break;
-      case 'weather_vane': {
-        const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.8, 8), mat);
-        const flag = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.3, 0.05), mat);
-        flag.position.set(0.3, 0.3, 0);
-        grp.add(pole, flag);
-        break;
-      }
-      default:
-        grp.add(new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.6, 1.0), mat));
-    }
-    return grp;
-  }
-
-  function snap3DPartFromGrassToBuilding(modMesh) {
-    if (!modMesh || !modMesh.userData || modMesh.userData.isFlying) return;
-    modMesh.userData.isFlying = true;
-
-    const startX = modMesh.position.x;
-    const startY = modMesh.position.y;
-    const startZ = modMesh.position.z;
-    const target = modMesh.userData.targetPos;
-
-    let st = performance.now();
-    const dur = 380; // ms
-
-    if (window.legoSound) window.legoSound.playSnapClick(1.2);
-
-    function fly(now) {
-      const p = Math.min(1.0, (now - st) / dur);
-      const ease = p * p * (3 - 2 * p);
-      const arc = Math.sin(p * Math.PI) * 3.0;
-
-      modMesh.position.x = startX + (target.x - startX) * ease;
-      modMesh.position.y = startY + (target.y - startY) * ease + arc;
-      modMesh.position.z = startZ + (target.z - startZ) * ease;
-
-      if (p < 1.0) {
-        requestAnimationFrame(fly);
-      } else {
-        if (window.legoSound) {
-          window.legoSound.playSnapClick(1.6);
-          window.legoSound.cheerInHebrew('החלק הורכב במבנה!');
-        }
-        triggerConfetti();
-        grassModulesGroup.remove(modMesh);
-        placedPartsOnMap++;
-        currentStepIndex = Math.min(24, placedPartsOnMap);
-
-        updateMapConstructionSite();
-        saveProgress();
-        updateBuildingMissionUI();
-
-        if (placedPartsOnMap >= 25) {
-          setTimeout(() => handleFull25BarnCompleted(), 600);
-        }
-      }
-    }
-    requestAnimationFrame(fly);
-  }
-
-  function populateEarnedPartsCards() {
-    const dock = $('modulesEarnedRow');
-    if (!dock) return;
-    dock.innerHTML = '';
-
-    for (let i = 0; i < 25; i++) {
-      const part = barn25Steps[i];
-      const isPlaced = i < placedPartsOnMap;
-      const isEarned = i < earnedPartsCount;
-
-      const card = document.createElement('div');
-      card.className = `module-card ${isPlaced ? 'placed' : isEarned ? 'ready-to-place' : 'locked'}`;
-      card.innerHTML = `
-        <div class="mod-card-icon">${isPlaced ? '✅' : isEarned ? part.icon : '🔒'}</div>
-        <div class="mod-card-title">${part.step}. ${part.name}</div>
-        <div class="mod-card-status">${isPlaced ? 'מורכב' : isEarned ? 'הקש להרכבה' : 'נעול'}</div>
-      `;
-
-      if (isEarned && !isPlaced) {
-        card.onclick = () => {
-          const mesh = grassModulesGroup.children.find(m => m.userData && m.userData.partIndex === i);
-          if (mesh) snap3DPartFromGrassToBuilding(mesh);
+      const btnBuild = $('btnCpStartBuild');
+      if (btnBuild) {
+        btnBuild.textContent = '🔨 בנה את ' + title + ' (25 חלקים בתלת-ממד)';
+        btnBuild.onclick = () => {
+          modal.style.display = 'none';
+          activeBuildingId = buildingId;
+          currentStepIndex = 0;
+          currentSnapCount = 0;
+          isSolved = false;
+          switchScreen('table');
+          renderCurrentStep();
+          playSoundSafe('playSnapClick', 1.2);
         };
       }
 
-      dock.appendChild(card);
-    }
-  }
-
-  // ========================================================
-  // 3. RESOURCE PRODUCTION & WAREHOUSE INVENTORY (Screen 4)
-  // ========================================================
-  function startResourceEconomy() {
-    if (economyInterval) clearInterval(economyInterval);
-    economyInterval = setInterval(() => {
-      if (placedPartsOnMap > 0) {
-        barnProductionTimer--;
-        if (barnProductionTimer <= 0) {
-          barnProductionTimer = 60;
-          const prodAmount = Math.max(10, Math.round((placedPartsOnMap / 25) * 100));
-          barnPendingHarvest += prodAmount;
-          inventory.wheat += prodAmount;
-          if (window.legoSound && barnPendingHarvest === prodAmount) {
-            window.legoSound.playSnapClick(1.5);
-          }
-        }
+      const btnCollect = $('btnCpCollectResource');
+      if (btnCollect) {
+        btnCollect.textContent = resourceIcon + ' אסוף ' + resourceAmount + ' ' + resourceName;
+        btnCollect.onclick = (e) => {
+          modal.style.display = 'none';
+          if (resourceName.includes('עץ') || resourceName.includes('קרש')) inventory.wood = (inventory.wood || 0) + resourceAmount;
+          else if (resourceName.includes('קמח') || resourceName.includes('חיטה')) inventory.wheat = (inventory.wheat || 0) + resourceAmount;
+          else inventory.bricks = (inventory.bricks || 0) + resourceAmount;
+          
+          spawnFloatingResourceText('+' + resourceAmount + ' ' + resourceIcon + ' ' + resourceName + ' נאסף!', window.innerWidth / 2, window.innerHeight / 2);
+          playSoundSafe('playVictoryFanfare');
+          updateWarehouseUI();
+        };
       }
-      renderProductionPanel();
-      updateWarehouseDisplay();
-    }, 1000);
+
+      const btnClose = $('btnCpClose');
+      if (btnClose) {
+        btnClose.onclick = () => { modal.style.display = 'none'; };
+      }
+
+      modal.style.display = 'flex';
+    }
+
+    // 1. 🪚 CARPENTER WORKSHOP & FARMHOUSE (סדנת נגר ובית חווה)
+    const carpHotspot = $('hotspotCarpenter') || $('hotspotBarn');
+    if (carpHotspot) {
+      carpHotspot.onclick = (e) => {
+        playSoundSafe('playBrickClick');
+        openCheckpointModal(
+          'סדנת נגר ובית חווה (BrickMind Farm)',
+          '🪚',
+          'סדנת הנגרות והמבנה המרכזי בעולם החווה! כאן מנסרים קרשי עץ, מרכיבים קורות אלון ופותרים אתגרי חשבון מהנים.',
+          'farmhouse',
+          'קרשי עץ מנוסרים',
+          25,
+          '🪵'
+        );
+      };
+    }
+
+    // 2. 💨 WINDMILL (טחנת רוח על הגבעה)
+    $('hotspotWindmill') && ($('hotspotWindmill').onclick = (e) => {
+      playSoundSafe('playBrickClick');
+      openCheckpointModal(
+        'טחנת רוח כפרית',
+        '💨',
+        'טחנת רוח כפרית מרשימה עם כנפיים מסתובבות לייצור קמח ותבואה טחונה מ-25 חלקי לגו.',
+        'windmill',
+        'קמח חיטה טחון',
+        20,
+        '🌾'
+      );
+    });
+
+    // 3. 🌾 WHEAT FIELDS (שדות חיטה)
+    $('hotspotWheat') && ($('hotspotWheat').onclick = (e) => {
+      inventory.wheat = (inventory.wheat || 0) + 25;
+      spawnFloatingResourceText('+25 🌾 חיטה זהובה נקצרה!', e.clientX || window.innerWidth * 0.75, e.clientY || window.innerHeight * 0.6);
+      playSoundSafe('playSnapClick', 1.4);
+      updateWarehouseUI();
+
+      // Check quest
+      const questPill = $('questProgressText');
+      if (questPill) questPill.textContent = 'הושלם! 🌾 25/25';
+      const questTitle = $('mapQuestTitleText');
+      if (questTitle) questTitle.textContent = '🌟 קציר הושלם! בנה בסדנת הנגר';
+    });
+
+    // 4. 🚜 DELIVERY TRACTOR (טרקטור משלוחים)
+    $('hotspotTractor') && ($('hotspotTractor').onclick = (e) => {
+      coinsStock += 50;
+      spawnFloatingResourceText('+50 🪙 משלוח תוצרת הושלם!', e.clientX || window.innerWidth * 0.54, e.clientY || window.innerHeight * 0.56);
+      playSoundSafe('playVictoryFanfare');
+      updateWarehouseUI();
+    });
+
+    // 5. 🦆 DUCK POND (אגם ברווזים)
+    $('hotspotPond') && ($('hotspotPond').onclick = (e) => {
+      spawnFloatingResourceText('🦆 קוואק! הברווזים נהנים במים (+10 💧)', e.clientX || window.innerWidth * 0.2, e.clientY || window.innerHeight * 0.72);
+      playSoundSafe('playBrickClick');
+    });
+
+    // 6. 🐑 SHEEP PEN (מכלאת כבשים)
+    $('hotspotSheep') && ($('hotspotSheep').onclick = (e) => {
+      inventory.wood = (inventory.wood || 0) + 5;
+      spawnFloatingResourceText('🐑 מההה! +5 צמר איכותי 🧶', e.clientX || window.innerWidth * 0.78, e.clientY || window.innerHeight * 0.84);
+      playSoundSafe('playBrickClick');
+      updateWarehouseUI();
+    });
+
+    // 7. 🍎 APPLE ORCHARD (מטע תפוחים)
+    $('hotspotApples') && ($('hotspotApples').onclick = (e) => {
+      inventory.apples = (inventory.apples || 0) + 15;
+      spawnFloatingResourceText('🍎 +15 תפוחים אדומים ומתוקים!', e.clientX || window.innerWidth * 0.6, e.clientY || window.innerHeight * 0.22);
+      playSoundSafe('playSnapClick', 1.3);
+      updateWarehouseUI();
+    });
+
+    // 8. 🥛 DAIRY COW (פרת חלב)
+    $('hotspotCow') && ($('hotspotCow').onclick = (e) => {
+      inventory.milk = (inventory.milk || 0) + 10;
+      spawnFloatingResourceText('🥛 מווו! +10 כדים חלב טרי!', e.clientX || window.innerWidth * 0.18, e.clientY || window.innerHeight * 0.52);
+      playSoundSafe('playBrickClick');
+      updateWarehouseUI();
+    });
+
+    // 9. 🥕 CARROT GARDEN (ערוגת גזרים)
+    $('hotspotCarrots') && ($('hotspotCarrots').onclick = (e) => {
+      inventory.carrots = (inventory.carrots || 0) + 10;
+      spawnFloatingResourceText('🥕 +10 גזרים פריכים!', e.clientX || window.innerWidth * 0.5, e.clientY || window.innerHeight * 0.46);
+      playSoundSafe('playBrickClick');
+      updateWarehouseUI();
+    });
+
+    // 10. 🥚 COOP & ANIMALS (לול וחיות)
+    $('hotspotCoop') && ($('hotspotCoop').onclick = (e) => {
+      spawnFloatingResourceText('🥚 +5 ביצים טריות מהלול!', e.clientX || window.innerWidth * 0.54, e.clientY || window.innerHeight * 0.92);
+      playSoundSafe('playBrickClick');
+    });
+
+    // Right Action Dock Handlers
+    $('btnDockTools') && ($('btnDockTools').onclick = () => {
+      const modal = $('farmToolsModal');
+      if (modal) modal.style.display = 'flex';
+      playSoundSafe('playBrickClick');
+    });
+    $('btnCloseToolsModal') && ($('btnCloseToolsModal').onclick = () => {
+      const modal = $('farmToolsModal');
+      if (modal) modal.style.display = 'none';
+    });
+
+    $('btnUpgradeTractor') && ($('btnUpgradeTractor').onclick = () => {
+      if (coinsStock >= 100) {
+        coinsStock -= 100;
+        updateWarehouseUI();
+        playSoundSafe('playVictoryFanfare');
+        spawnFloatingResourceText('🚜 טרקטור שודרג למהירות טורבו!', window.innerWidth / 2, window.innerHeight / 2);
+      } else {
+        spawnFloatingResourceText('⚠️ חסרים מטבעות זהב!', window.innerWidth / 2, window.innerHeight / 2);
+      }
+    });
+
+    $('btnUpgradeSaw') && ($('btnUpgradeSaw').onclick = () => {
+      if (coinsStock >= 80) {
+        coinsStock -= 80;
+        updateWarehouseUI();
+        playSoundSafe('playVictoryFanfare');
+        spawnFloatingResourceText('🪚 מסור נגרים שודרג לייצור כפול!', window.innerWidth / 2, window.innerHeight / 2);
+      } else {
+        spawnFloatingResourceText('⚠️ חסרים מטבעות זהב!', window.innerWidth / 2, window.innerHeight / 2);
+      }
+    });
+
+    $('btnUpgradeSickle') && ($('btnUpgradeSickle').onclick = () => {
+      if (coinsStock >= 120) {
+        coinsStock -= 120;
+        updateWarehouseUI();
+        playSoundSafe('playVictoryFanfare');
+        spawnFloatingResourceText('🌾 מגל זהב הופעל לקציר מוגבר!', window.innerWidth / 2, window.innerHeight / 2);
+      } else {
+        spawnFloatingResourceText('⚠️ חסרים מטבעות זהב!', window.innerWidth / 2, window.innerHeight / 2);
+      }
+    });
+
+    $('btnDockQuests') && ($('btnDockQuests').onclick = () => {
+      const bubble = $('mapQuestBubble');
+      if (bubble) {
+        bubble.style.transform = 'scale(1.15)';
+        setTimeout(() => bubble.style.transform = 'scale(1)', 400);
+      }
+      spawnFloatingResourceText('📋 משימה פעילה: קצור חיטה ובנה בסדנת הנגר!', window.innerWidth / 2, window.innerHeight * 0.2);
+      playSoundSafe('playBrickClick');
+    });
   }
 
-  window.sellResource = function(type, price) {
-    coinsStock += price;
-    if (type === 'חיטה' && inventory.wheat >= 10) inventory.wheat -= 10;
-    else if (type === 'גזרים' && inventory.carrots >= 10) inventory.carrots -= 10;
-    else if (type === 'תפוחים' && inventory.apples >= 10) inventory.apples -= 10;
-    else if (type === 'עץ' && inventory.wood >= 10) inventory.wood -= 10;
-    else if (type === 'לבנים' && inventory.bricks >= 10) inventory.bricks -= 10;
-    else if (type === 'חלב' && inventory.milk >= 10) inventory.milk -= 10;
+  (function() {
+  'use strict';
+  function $(id) { return document.getElementById(id); }
+  const STORAGE_KEY = 'brickmind_multi_building_save_v1';
+  
+  // Active Building Selection & Progress
+  let activeBuildingId = 'barn'; // 'barn', 'windmill', 'farmhouse', 'coop', 'greenhouse', 'silo'
+  let currentStepIndex = 0;
+  let currentSnapCount = 0;
+  let streak = 0, totalSolved = 0;
+  let isSolved = false;
 
-    if (window.legoSound) {
-      window.legoSound.playVictoryFanfare();
-      window.legoSound.cheerInHebrew(`מכרת ${type} והרווחת ${price} מטבעות!`);
-    }
-    triggerConfetti();
-    saveProgress();
-    updateWarehouseDisplay();
+  // Economy & Inventory
+  let MAX_WAREHOUSE_CAPACITY = 1000;
+  let coinsStock = 1250;
+  let gemsStock = 85;
+  let playerLevel = 24;
+
+  let inventory = {
+    wheat: 180,
+    carrots: 120,
+    apples: 95,
+    wood: 65,
+    bricks: 40,
+    milk: 20
   };
 
-  window.storeResource = function(type, amount) {
-    if (type === 'חיטה') inventory.wheat += amount;
-    else if (type === 'גזרים') inventory.carrots += amount;
-    else if (type === 'תפוחים') inventory.apples += amount;
-    else if (type === 'עץ') inventory.wood += amount;
-    else if (type === 'לבנים') inventory.bricks += amount;
-    else if (type === 'חלב') inventory.milk += amount;
+  // Building Blueprints Database
+  const BUILDINGS_DATABASE = {
+    barn: {
+      id: 'barn',
+      name: 'אסם חווה אדום (Red Barn)',
+      heName: 'אסם חווה אדום',
+      icon: '🏛️',
+      totalParts: 25,
+      production: '+100 תבואה / דקה',
+      color: 0xdc2626,
+      steps: [
+        { step: 1, name: 'יסודות רצפת עץ', icon: '🪵', shape: 'base_plate', eq: { a: 4, b: 7, ans: 11 }, color: 0x3b82f6, desc: 'בסיס הרצפה הכבד שנושא את כל האסם (4 + 7 = 11)' },
+        { step: 2, name: 'קיר תחתון ימני', icon: '🧱', shape: 'wall_right', eq: { a: 3, b: 5, ans: 8 }, color: 0xdc2626, desc: 'קיר לבנים אדומות מחוזק בצד ימין (3 + 5 = 8)' },
+        { step: 3, name: 'קיר תחתון שמאלי', icon: '🧱', shape: 'wall_left', eq: { a: 5, b: 3, ans: 8 }, color: 0xdc2626, desc: 'קיר לבנים אדומות בצד שמאל (5 + 3 = 8)' },
+        { step: 4, name: 'שער כפול לבן', icon: '🚪', shape: 'door_frame', eq: { a: 3, b: 4, ans: 7 }, color: 0xf8fafc, desc: 'שער אסם רחב עם משקוף (3 + 4 = 7)' },
+        { step: 5, name: 'חלון קדמי ימני', icon: '🪟', shape: 'window_right', eq: { a: 2, b: 3, ans: 5 }, color: 0xf8fafc, desc: 'חלון מואר לאור שמש (2 + 3 = 5)' },
+        { step: 6, name: 'חלון קדמי שמאלי', icon: '🪟', shape: 'window_left', eq: { a: 3, b: 2, ans: 5 }, color: 0xf8fafc, desc: 'חלון מואר לאוורור (3 + 2 = 5)' },
+        { step: 7, name: 'קורת תמיכה מרכזית', icon: '🪵', shape: 'beam', eq: { a: 6, b: 4, ans: 10 }, color: 0xb45309, desc: 'קורת אלון חזקה לקומה השנייה (6 + 4 = 10)' },
+        { step: 8, name: 'קיר קומה שנייה ימני', icon: '🧱', shape: 'wall_upper_r', eq: { a: 4, b: 4, ans: 8 }, color: 0xdc2626, desc: 'קיר עליית הגג בצד ימין (4 + 4 = 8)' },
+        { step: 9, name: 'קיר קומה שנייה שמאלי', icon: '🧱', shape: 'wall_upper_l', eq: { a: 4, b: 4, ans: 8 }, color: 0xdc2626, desc: 'קיר עליית הגג בצד שמאל (4 + 4 = 8)' },
+        { step: 10, name: 'אשנב עליית גג עגול', icon: '🪟', shape: 'attic_window', eq: { a: 2, b: 2, ans: 4 }, color: 0xf8fafc, desc: 'חלון עגול לעליית החציר (2 + 2 = 4)' },
+        { step: 11, name: 'גמלון גג קדמי', icon: '📐', shape: 'gable_front', eq: { a: 5, b: 3, ans: 8 }, color: 0xdc2626, desc: 'משולש הגמלון הקדמי (5 + 3 = 8)' },
+        { step: 12, name: 'גמלון גג אחורי', icon: '📐', shape: 'gable_back', eq: { a: 3, b: 5, ans: 8 }, color: 0xdc2626, desc: 'משולש הגמלון האחורי (3 + 5 = 8)' },
+        { step: 13, name: 'שיפוע רעפים ימני', icon: '🏠', shape: 'roof_slope_r', eq: { a: 6, b: 5, ans: 11 }, color: 0xf8fafc, desc: 'רעפי גג משופעים בצד ימין (6 + 5 = 11)' },
+        { step: 14, name: 'שיפוע רעפים שמאלי', icon: '🏠', shape: 'roof_slope_l', eq: { a: 5, b: 6, ans: 11 }, color: 0xf8fafc, desc: 'רעפי גג משופעים בצד שמאל (5 + 6 = 11)' },
+        { step: 15, name: 'רכס גג עליון', icon: '🔝', shape: 'roof_ridge', eq: { a: 3, b: 3, ans: 6 }, color: 0xe2e8f0, desc: 'סגירת רכס הגג המוזהב (3 + 3 = 6)' },
+        { step: 16, name: 'בסיס סילו תבואה', icon: '🛢️', shape: 'silo_base', eq: { a: 4, b: 4, ans: 8 }, color: 0xb91c1c, desc: 'יסודות עגולים למגדל התבואה (4 + 4 = 8)' },
+        { step: 17, name: 'גוף סילו מרכזי', icon: '🛢️', shape: 'silo_mid', eq: { a: 5, b: 5, ans: 10 }, color: 0xb91c1c, desc: 'מגדל האחסון לתבואת החווה (5 + 5 = 10)' },
+        { step: 18, name: 'כיפת סילו עליונה', icon: '🌕', shape: 'silo_cap', eq: { a: 3, b: 3, ans: 6 }, color: 0xf8fafc, desc: 'כיפת איטום עליונה (3 + 3 = 6)' },
+        { step: 19, name: 'גדר עץ ימנית', icon: '🪵', shape: 'fence_r', eq: { a: 3, b: 2, ans: 5 }, color: 0x92400e, desc: 'גדר עץ לסגירת חצר החיות (3 + 2 = 5)' },
+        { step: 20, name: 'גדר עץ שמאלית', icon: '🪵', shape: 'fence_l', eq: { a: 2, b: 3, ans: 5 }, color: 0x92400e, desc: 'גדר עץ לשטח המרעה (2 + 3 = 5)' },
+        { step: 21, name: 'תיבת דואר אדומה', icon: '📮', shape: 'mailbox', eq: { a: 1, b: 2, ans: 3 }, color: 0xef4444, desc: 'תיבת דואר כפרית (1 + 2 = 3)' },
+        { step: 22, name: 'שביל וערוגת גזרים', icon: '🥕', shape: 'carrots_path', eq: { a: 4, b: 4, ans: 8 }, color: 0xf97316, desc: 'שביל אבנים וערוגת גזרים (4 + 4 = 8)' },
+        { step: 23, name: 'עץ תפוחים פורה', icon: '🌳', shape: 'apple_tree', eq: { a: 5, b: 4, ans: 9 }, color: 0x16a34a, desc: 'עץ תפוחים מלא פירות (5 + 4 = 9)' },
+        { step: 24, name: 'עששית תאורה', icon: '🏮', shape: 'lantern', eq: { a: 1, b: 2, ans: 3 }, color: 0xfacc15, desc: 'פנס לילה מאיר (1 + 2 = 3)' },
+        { step: 25, name: 'שבשבת רוח מוזהבת', icon: '🚩', shape: 'weather_vane', eq: { a: 2, b: 3, ans: 5 }, color: 0xf59e0b, desc: 'שבשבת רוח - האסם מושלם! (2 + 3 = 5)' }
+      ]
+    },
 
-    if (window.legoSound) window.legoSound.playSnapClick(1.4);
-    saveProgress();
-    updateWarehouseDisplay();
+    windmill: {
+      id: 'windmill',
+      name: 'טחנת רוח כפרית (Windmill)',
+      heName: 'טחנת רוח כפרית',
+      icon: '💨',
+      totalParts: 20,
+      production: '+150 קמח / דקה',
+      color: 0x3b82f6,
+      steps: [
+        { step: 1, name: 'בסיס אבן מתומן', icon: '🧱', shape: 'base_stone', eq: { a: 5, b: 7, ans: 12 }, color: 0x64748b, desc: 'בסיס אבן כבד ליציבות הטחנה (5 + 7 = 12)' },
+        { step: 2, name: 'קיר מגדל תחתון', icon: '🧱', shape: 'tower_b', eq: { a: 4, b: 4, ans: 8 }, color: 0xf8fafc, desc: 'קיר לבנים עגול (4 + 4 = 8)' },
+        { step: 3, name: 'שער טוחן מקושת', icon: '🚪', shape: 'door_arch', eq: { a: 2, b: 3, ans: 5 }, color: 0xb45309, desc: 'דלת כניסה מעץ (2 + 3 = 5)' },
+        { step: 4, name: 'מנוע גלגלי שיניים', icon: '⚙️', shape: 'gears', eq: { a: 6, b: 6, ans: 12 }, color: 0x475569, desc: 'מנגנון טחינת התבואה לקמח (6 + 6 = 12)' },
+        { step: 5, name: 'ציר סיבוב ראשי', icon: '🔄', shape: 'axle', eq: { a: 3, b: 3, ans: 6 }, color: 0x94a3b8, desc: 'ציר כנפי הרוח (3 + 3 = 6)' },
+        { step: 6, name: 'כנף רוח ראשונה', icon: '💨', shape: 'blade1', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ עם בד לבן (4 + 5 = 9)' },
+        { step: 7, name: 'כנף רוח שנייה', icon: '💨', shape: 'blade2', eq: { a: 5, b: 4, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ שנייה (5 + 4 = 9)' },
+        { step: 8, name: 'כנף רוח שלישית', icon: '💨', shape: 'blade3', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ שלישית (4 + 5 = 9)' },
+        { step: 9, name: 'כנף רוח רביעית', icon: '💨', shape: 'blade4', eq: { a: 5, b: 4, ans: 9 }, color: 0xf8fafc, desc: 'כנף עץ רביעית (5 + 4 = 9)' },
+        { step: 10, name: 'כיפה חרוטית עליונה', icon: '⛺', shape: 'roof_cone', eq: { a: 5, b: 3, ans: 8 }, color: 0x991b1b, desc: 'כיפת הגג של הטחנה (5 + 3 = 8)' }
+      ]
+    },
+
+    farmhouse: {
+      id: 'farmhouse',
+      name: 'סדנת נגר ובית חווה (Carpenter Workshop & Farmhouse)',
+      heName: 'סדנת נגר ובית חווה',
+      icon: '🪚',
+      totalParts: 25,
+      production: '+20% בונוס ייצור לכל החווה',
+      color: 0x16a34a,
+      steps: [
+        { step: 1, name: 'דק מרפסת עץ', icon: '🪵', shape: 'deck', eq: { a: 6, b: 6, ans: 12 }, color: 0xb45309, desc: 'דק עץ כפרי רחב (6 + 6 = 12)' },
+        { step: 2, name: 'דלת כניסה וסלון', icon: '🚪', shape: 'door_living', eq: { a: 4, b: 5, ans: 9 }, color: 0xf8fafc, desc: 'דלת עם חלונות תריסים (4 + 5 = 9)' },
+        { step: 3, name: 'אח לבנים מחמם', icon: '🔥', shape: 'fireplace', eq: { a: 3, b: 3, ans: 6 }, color: 0xdc2626, desc: 'אח לחימום הבית (3 + 3 = 6)' },
+        { step: 4, name: 'קומה שנייה וחדר שינה', icon: '🛏️', shape: 'upper_floor', eq: { a: 4, b: 4, ans: 8 }, color: 0xf8fafc, desc: 'קירות מגורי החוואי (4 + 4 = 8)' },
+        { step: 5, name: 'גג רעפים חום וארובה', icon: '🏠', shape: 'chimney_roof', eq: { a: 5, b: 5, ans: 10 }, color: 0x78350f, desc: 'גג כפרי עם ארובת עשן (5 + 5 = 10)' }
+      ]
+    },
+
+    coop: {
+      id: 'coop',
+      name: 'לול תרנגולות (Chicken Coop)',
+      heName: 'לול תרנגולות',
+      icon: '🐔',
+      totalParts: 15,
+      production: '+50 ביצים / דקה',
+      color: 0xf59e0b,
+      steps: [
+        { step: 1, name: 'עמודי הגבהה ורמפה', icon: '🪵', shape: 'stilts', eq: { a: 3, b: 4, ans: 7 }, color: 0x92400e, desc: 'עמודי עץ ורמפת עלייה (3 + 4 = 7)' },
+        { step: 2, name: 'תאי הטלת ביצים', icon: '🥚', shape: 'nests', eq: { a: 4, b: 4, ans: 8 }, color: 0xfef08a, desc: 'תאים מרופדים בחציר (4 + 4 = 8)' },
+        { step: 3, name: 'גג נפתח לאיסוף', icon: '🏠', shape: 'roof_open', eq: { a: 3, b: 3, ans: 6 }, color: 0xdc2626, desc: 'גג צירים נפתח (3 + 3 = 6)' }
+      ]
+    },
+
+    greenhouse: {
+      id: 'greenhouse',
+      name: 'חממת ירקות (Greenhouse)',
+      heName: 'חממת ירקות',
+      icon: '🌿',
+      totalParts: 20,
+      production: '+80 תותים ועגבניות / דקה',
+      color: 0x10b981,
+      steps: [
+        { step: 1, name: 'שלד אלומיניום ירוק', icon: '🧱', shape: 'frame', eq: { a: 4, b: 6, ans: 10 }, color: 0x15803d, desc: 'שלד חזק לחממה (4 + 6 = 10)' },
+        { step: 2, name: 'קירות זכוכית שקופה', icon: '🪟', shape: 'glass_walls', eq: { a: 5, b: 5, ans: 10 }, color: 0xbae6fd, desc: 'קירות פלסטיק שקוף (5 + 5 = 10)' },
+        { step: 3, name: 'ערוגות טפטוף ומאוורר', icon: '🍓', shape: 'hydro_beds', eq: { a: 4, b: 4, ans: 8 }, color: 0xef4444, desc: 'מערכת השקיה וגידול (4 + 4 = 8)' }
+      ]
+    },
+
+    silo: {
+      id: 'silo',
+      name: 'ממגורת תבואה (Grain Silo)',
+      heName: 'ממגורת תבואה',
+      icon: '🌾',
+      totalParts: 15,
+      production: '+500 קיבולת אחסון למחסן',
+      color: 0x991b1b,
+      steps: [
+        { step: 1, name: 'רפסודת בטון כבדה', icon: '🧱', shape: 'silo_base', eq: { a: 4, b: 4, ans: 8 }, color: 0x475569, desc: 'יסודות בטון עגולים (4 + 4 = 8)' },
+        { step: 2, name: 'גליל ממגורה ענק', icon: '🛢️', shape: 'silo_cylinder', eq: { a: 6, b: 6, ans: 12 }, color: 0xb91c1c, desc: 'טבעות אחסון תבואה (6 + 6 = 12)' },
+        { step: 3, name: 'כיפת מתכת ומסוע פריקה', icon: '🌕', shape: 'silo_dome', eq: { a: 3, b: 4, ans: 7 }, color: 0xf8fafc, desc: 'כיפת איטום וצינור שפיכה (3 + 4 = 7)' }
+      ]
+    }
   };
 
-  function harvestToWarehouse() {
-    if (barnPendingHarvest <= 0) return;
-    inventory.wheat += barnPendingHarvest;
-    barnPendingHarvest = 0;
+  // 3D Engine Variables
+  let tableScene, tableCamera, tableRenderer, tableControls;
+  let tableMeshGroup, tableSnappedStackGroup;
+
+  function $(id) { return document.getElementById(id); }
+
+  // ========================================================
+  // 1. INITIALIZE AAA 3D WORK TABLE
+  // ========================================================
+  function init3DTable() {
+    const container = $('threeTableContainer');
+    if (!container) return;
+
+    const w = container.clientWidth || 480;
+    const h = container.clientHeight || 420;
+
+    tableScene = new THREE.Scene();
+    tableScene.background = new THREE.Color(0xfef3c7);
+    tableScene.fog = new THREE.FogExp2(0xfef3c7, 0.015);
+
+    tableCamera = new THREE.PerspectiveCamera(38, w / h, 0.1, 1000);
+    tableCamera.position.set(0, 6.4, 8.8);
+
+    tableRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    tableRenderer.setSize(w, h);
+    tableRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    tableRenderer.shadowMap.enabled = true;
+    tableRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    tableRenderer.toneMapping = THREE.ACESFilmicToneMapping;
+    tableRenderer.toneMappingExposure = 1.18;
+    container.innerHTML = '';
+    container.appendChild(tableRenderer.domElement);
+
+    tableControls = new THREE.OrbitControls(tableCamera, tableRenderer.domElement);
+    tableControls.enableDamping = true;
+    tableControls.dampingFactor = 0.08;
+    tableControls.maxPolarAngle = Math.PI / 2.05;
+    tableControls.minDistance = 4.0;
+    tableControls.maxDistance = 15.0;
+    tableControls.target.set(0, 1.1, 0);
+
+    // Warm Studio Lighting
+    const warmAmbient = new THREE.AmbientLight(0xffedd5, 1.4);
+    tableScene.add(warmAmbient);
+
+    const keyLight = new THREE.DirectionalLight(0xffedd5, 2.6);
+    keyLight.position.set(6, 15, 8);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.width = 2048;
+    keyLight.shadow.mapSize.height = 2048;
+    keyLight.shadow.bias = -0.0004;
+    tableScene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xbae6fd, 1.1);
+    fillLight.position.set(-8, 9, -4);
+    tableScene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xfde047, 1.7);
+    rimLight.position.set(0, 10, -9);
+    tableScene.add(rimLight);
+
+    tableMeshGroup = new THREE.Group();
+    tableSnappedStackGroup = new THREE.Group();
+    tableScene.add(tableMeshGroup);
+    tableScene.add(tableSnappedStackGroup);
+
+    // Warm Oak Tabletop
+    const tableCanvas = document.createElement('canvas');
+    tableCanvas.width = 512;
+    tableCanvas.height = 512;
+    const ctx = tableCanvas.getContext('2d');
+    const grad = ctx.createRadialGradient(256, 256, 20, 256, 256, 256);
+    grad.addColorStop(0, '#d97706');
+    grad.addColorStop(0.5, '#b45309');
+    grad.addColorStop(1, '#78350f');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 512, 512);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+    ctx.lineWidth = 3;
+    for (let r = 35; r < 360; r += 28) {
+      ctx.beginPath();
+      ctx.arc(256 + (r * 0.08), 256, r, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    const woodTexture = new THREE.CanvasTexture(tableCanvas);
+
+    const tableTopMat = new THREE.MeshStandardMaterial({ map: woodTexture, roughness: 0.32, metalness: 0.05 });
+    const tableTopMesh = new THREE.Mesh(new THREE.CylinderGeometry(9.0, 9.0, 0.7, 48), tableTopMat);
+    tableTopMesh.position.y = 0.5;
+    tableTopMesh.receiveShadow = true;
+    tableMeshGroup.add(tableTopMesh);
+
+    // Blue Studded Baseplate
+    const baseMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.14, metalness: 0.05 });
+    const basePlate = new THREE.Mesh(new THREE.BoxGeometry(6.6, 0.24, 6.6), baseMat);
+    basePlate.position.y = 0.97;
+    basePlate.receiveShadow = true;
+    basePlate.castShadow = true;
+    tableMeshGroup.add(basePlate);
+
+    const studGeom = new THREE.CylinderGeometry(0.16, 0.16, 0.12, 16);
+    const studMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.14 });
+    for (let x = -2.7; x <= 2.7; x += 0.54) {
+      for (let z = -2.7; z <= 2.7; z += 0.54) {
+        const stud = new THREE.Mesh(studGeom, studMat);
+        stud.position.set(x, 1.13, z);
+        stud.receiveShadow = true;
+        stud.castShadow = true;
+        tableMeshGroup.add(stud);
+      }
+    }
+
+    // Minifigure Helper
+    const minifig = new THREE.Group();
+    const legs = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.65, 0.35), new THREE.MeshStandardMaterial({ color: 0x1d4ed8, roughness: 0.2 }));
+    legs.position.y = 1.38;
+    legs.castShadow = true;
+    minifig.add(legs);
+
+    const torso = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.65, 0.4), new THREE.MeshStandardMaterial({ color: 0xdc2626, roughness: 0.2 }));
+    torso.position.y = 2.0;
+    torso.castShadow = true;
+    minifig.add(torso);
+
+    const head = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 0.42, 16), new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.15 }));
+    head.position.y = 2.52;
+    head.castShadow = true;
+    minifig.add(head);
+
+    const hair = new THREE.Mesh(new THREE.SphereGeometry(0.26, 16, 16), new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.3 }));
+    hair.position.set(0, 2.72, 0);
+    hair.scale.set(1.0, 0.6, 1.0);
+    minifig.add(hair);
+
+    minifig.position.set(2.2, 0, -1.2);
+    minifig.rotation.y = -Math.PI / 4;
+    tableMeshGroup.add(minifig);
+
+    // Sparkles
+    const sparkleGroup = new THREE.Group();
+    const starGeom = new THREE.SphereGeometry(0.06, 8, 8);
+    const starMat = new THREE.MeshBasicMaterial({ color: 0xfef08a });
+    for (let i = 0; i < 28; i++) {
+      const sp = new THREE.Mesh(starGeom, starMat);
+      sp.position.set((Math.random() - 0.5) * 6.5, 2.5 + Math.random() * 3.5, (Math.random() - 0.5) * 4.5);
+      sp.userData = { speedY: 0.008 + Math.random() * 0.01, initialY: sp.position.y };
+      sparkleGroup.add(sp);
+    }
+    tableMeshGroup.add(sparkleGroup);
+
+    function animateTable(time) {
+      requestAnimationFrame(animateTable);
+      if (tableControls) tableControls.update();
+      sparkleGroup.children.forEach(sp => {
+        sp.position.y += Math.sin(time * 0.003 + sp.userData.initialY) * 0.003;
+      });
+      minifig.position.y = Math.sin(time * 0.004) * 0.02;
+      tableRenderer.render(tableScene, tableCamera);
+    }
+    requestAnimationFrame(animateTable);
+  }
+
+  // ========================================================
+  // 2. STEP RENDERING & SNAP MECHANICS
+  // ========================================================
+  function renderCurrentStep() {
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
+    if (!curPart) return;
+
+    currentSnapCount = 0;
+    isSolved = false;
+    tableSnappedStackGroup.clear();
+
+    // Update Math Card
+    if ($('valA')) $('valA').textContent = curPart.eq.a;
+    if ($('valB')) $('valB').textContent = curPart.eq.b;
+    if ($('answerDisplay')) $('answerDisplay').textContent = curPart.eq.ans;
+
+    // Quest Bubble
+    if ($('curPartIcon')) $('curPartIcon').textContent = `${curPart.icon} ${building.heName}`;
+    if ($('curPartName')) $('curPartName').textContent = `חלק ${curPart.step} מתוך ${building.totalParts}: ${curPart.name}`;
+    if ($('snapCountVal')) $('snapCountVal').textContent = `0 / ${curPart.eq.ans}`;
+
+    populateBottomDockForPart(curPart);
+  }
+
+  function populateBottomDockForPart(curPart) {
+    const row = $('dockBricksRow');
+    if (!row) return;
+    row.innerHTML = '';
+
+    // Group A Buttons (Red)
+    for (let i = 0; i < curPart.eq.a; i++) {
+      const btn = document.createElement('div');
+      btn.className = 'dock-brick-btn brick-red';
+      btn.innerHTML = `<span class="dock-brick-label">${i + 1} (א')</span>`;
+      btn.dataset.used = 'false';
+      btn.onclick = () => {
+        if (btn.dataset.used === 'true' || isSolved) return;
+        btn.dataset.used = 'true';
+        btn.classList.add('used');
+        snapBrickToTablePart(0xdc2626);
+      };
+      row.appendChild(btn);
+    }
+
+    // Group B Buttons (Gold)
+    for (let i = 0; i < curPart.eq.b; i++) {
+      const btn = document.createElement('div');
+      btn.className = 'dock-brick-btn brick-gold';
+      btn.innerHTML = `<span class="dock-brick-label">${i + 1} (ב')</span>`;
+      btn.dataset.used = 'false';
+      btn.onclick = () => {
+        if (btn.dataset.used === 'true' || isSolved) return;
+        btn.dataset.used = 'true';
+        btn.classList.add('used');
+        snapBrickToTablePart(0xf59e0b);
+      };
+      row.appendChild(btn);
+    }
+  }
+
+  function snapBrickToTablePart(colorHex) {
+    if (isSolved) return;
+
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
+    const targetSum = curPart.eq.ans;
+
+    const b = createSingle3DBrick(colorHex);
+
+    const cols = 4;
+    const row = Math.floor(currentSnapCount / cols);
+    const col = currentSnapCount % cols;
+    const targetX = -1.6 + (col * 1.1);
+    const targetZ = -1.2 + (row * 0.9);
+    const targetY = 1.16;
+
+    b.position.set(targetX, targetY + 3.5, targetZ);
+    tableSnappedStackGroup.add(b);
+
+    if (window.legoSound && typeof window.legoSound.playSnapClick === 'function') {
+      window.legoSound && typeof window.legoSound.playSnapClick === 'function' && (window.legoSound && typeof window.legoSound.playSnapClick === 'function' && window.legoSound.playSnapClick(1.0 + (currentSnapCount * 0.06)));
+    }
+
+    let st = performance.now();
+    function drop(now) {
+      const p = Math.min(1.0, (now - st) / 180);
+      const ease = 1 - Math.pow(1 - p, 3);
+      b.position.y = (targetY + 3.5) - (3.5 * ease);
+      if (p < 1.0) requestAnimationFrame(drop);
+      else b.position.y = targetY;
+    }
+    requestAnimationFrame(drop);
+
+    currentSnapCount++;
+    if ($('snapCountVal')) $('snapCountVal').textContent = `${currentSnapCount} / ${targetSum}`;
+
+    if (currentSnapCount >= targetSum) {
+      handlePartCompleted();
+    }
+  }
+
+  function createSingle3DBrick(colorHex) {
+    const group = new THREE.Group();
+    const mat = new THREE.MeshStandardMaterial({ color: colorHex, roughness: 0.16, metalness: 0.05 });
+    const body = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.55, 0.85), mat);
+    body.castShadow = true;
+    body.receiveShadow = true;
+    group.add(body);
+
+    const studGeo = new THREE.CylinderGeometry(0.15, 0.15, 0.12, 16);
+    [{ x: -0.38, z: -0.2 }, { x: 0.38, z: -0.2 }, { x: -0.38, z: 0.2 }, { x: 0.38, z: 0.2 }].forEach(pos => {
+      const s = new THREE.Mesh(studGeo, mat);
+      s.position.set(pos.x, 0.33, pos.z);
+      s.castShadow = true;
+      group.add(s);
+    });
+    return group;
+  }
+
+  function handlePartCompleted() {
+    isSolved = true;
+    streak++;
+    totalSolved++;
+
+    coinsStock += 150;
+    gemsStock += 5;
+    if ($('coinsCountVal')) $('coinsCountVal').textContent = coinsStock.toLocaleString();
+    if ($('gemsCountVal')) $('gemsCountVal').textContent = gemsStock.toLocaleString();
 
     if (window.legoSound) {
-      window.legoSound.playVictoryFanfare();
-      window.legoSound.cheerInHebrew('כל היבול נפרק בהצלחה למחסן!');
+      if (typeof window.legoSound.playRewardCheer === 'function') window.legoSound.playRewardCheer();
+      else if (typeof window.legoSound.playCelebrationJingle === 'function') window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && (window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && window.legoSound.playCelebrationJingle());
     }
-    triggerConfetti();
-    saveProgress();
-    updateWarehouseDisplay();
-    renderProductionPanel();
+
+    const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+    const curPart = building.steps[currentStepIndex % building.steps.length];
+    if ($('rewardPartName')) $('rewardPartName').textContent = `${building.heName}: ${curPart.name}`;
+    if ($('rewardProgressText')) $('rewardProgressText').textContent = `חלק ${curPart.step} מתוך ${building.totalParts} הושלם בהצלחה!`;
+
+    setTimeout(() => {
+      if ($('rewardModal')) $('rewardModal').style.display = 'flex';
+    }, 400);
   }
 
-  function updateWarehouseDisplay() {
-    if ($('coinsCountVal')) $('coinsCountVal').textContent = (coinsStock).toLocaleString();
-    if ($('gemsCountVal')) $('gemsCountVal').textContent = gemsStock;
-    if ($('playerLevelVal')) $('playerLevelVal').textContent = playerLevel;
+  // ========================================================
+  // 3. DIORAMA HOTSPOTS & HARVESTING
+  // ========================================================
+  function initDioramaHotspots() {
+    // Wheat Harvest
+    $('hotspotWheat') && ($('hotspotWheat').onclick = (e) => {
+      inventory.wheat += 10;
+      spawnFloatingResourceText('+10 🌾 חיטה!', e.clientX, e.clientY);
+      if (window.legoSound) window.legoSound && typeof window.legoSound.playBrickClick === 'function' && (window.legoSound && typeof window.legoSound.playBrickClick === 'function' && window.legoSound.playBrickClick());
+      updateWarehouseUI();
+    });
 
-    // Inventory counts in Screen 4 modal
-    if ($('whWheatCount')) $('whWheatCount').textContent = inventory.wheat;
-    if ($('whCarrotsCount')) $('whCarrotsCount').textContent = inventory.carrots;
-    if ($('whApplesCount')) $('whApplesCount').textContent = inventory.apples;
-    if ($('whWoodCount')) $('whWoodCount').textContent = inventory.wood;
-    if ($('whBricksCount')) $('whBricksCount').textContent = inventory.bricks;
-    if ($('whMilkCount')) $('whMilkCount').textContent = inventory.milk;
+    // Carrots Harvest
+    $('hotspotCarrots') && ($('hotspotCarrots').onclick = (e) => {
+      inventory.carrots += 5;
+      spawnFloatingResourceText('+5 🥕 גזר!', e.clientX, e.clientY);
+      if (window.legoSound) window.legoSound && typeof window.legoSound.playBrickClick === 'function' && (window.legoSound && typeof window.legoSound.playBrickClick === 'function' && window.legoSound.playBrickClick());
+      updateWarehouseUI();
+    });
 
-    const totalStored = Object.values(inventory).reduce((a, b) => a + b, 0);
-    if ($('whCapacityText')) $('whCapacityText').textContent = `${totalStored} / ${MAX_WAREHOUSE_CAPACITY}`;
-    if ($('whProgressFill')) {
-      const pct = Math.min(100, Math.round((totalStored / MAX_WAREHOUSE_CAPACITY) * 100));
-      $('whProgressFill').style.width = `${pct}%`;
-    }
+    // Barn Hotspot -> Work Table
+    $('hotspotBarn') && ($('hotspotBarn').onclick = () => {
+      activeBuildingId = 'barn';
+      switchScreen('table');
+      renderCurrentStep();
+    });
+
+    // Windmill Hotspot -> Work Table
+    $('hotspotWindmill') && ($('hotspotWindmill').onclick = (e) => {
+      inventory.wheat += 15;
+      spawnFloatingResourceText('+15 🌾 קמח טחון!', e.clientX, e.clientY);
+      if (window.legoSound) window.legoSound && typeof window.legoSound.playBrickClick === 'function' && (window.legoSound && typeof window.legoSound.playBrickClick === 'function' && window.legoSound.playBrickClick());
+      updateWarehouseUI();
+    });
+
+    // Pond Hotspot
+    $('hotspotPond') && ($('hotspotPond').onclick = (e) => {
+      spawnFloatingResourceText('🦆 קוואק! הברווזים שמחים', e.clientX, e.clientY);
+      if (window.legoSound) window.legoSound && typeof window.legoSound.playSnapClick === 'function' && (window.legoSound && typeof window.legoSound.playSnapClick === 'function' && window.legoSound.playSnapClick(1.5));
+    });
+
+    // Tractor Hotspot
+    $('hotspotTractor') && ($('hotspotTractor').onclick = (e) => {
+      spawnFloatingResourceText('🚜 פפפ-פפפ! הטרקטור פעיל', e.clientX, e.clientY);
+      if (window.legoSound) window.legoSound && typeof window.legoSound.playSnapClick === 'function' && (window.legoSound && typeof window.legoSound.playSnapClick === 'function' && window.legoSound.playSnapClick(0.8));
+    });
   }
 
-  function renderProductionPanel() {
-    const list = $('prodBuildingsList');
-    if (!list) return;
-
-    const isProducing = placedPartsOnMap > 0;
-    const rate = Math.max(10, Math.round((placedPartsOnMap / 25) * 100));
-
-    list.innerHTML = `
-      <div class="prod-building-card ${isProducing ? 'active-producer' : 'locked-producer'}">
-        <div class="prod-icon">🏠</div>
-        <div class="prod-info">
-          <div class="prod-name">אסם חווה (${placedPartsOnMap}/25 חלקים)</div>
-          <div class="prod-timer-text">
-            ${isProducing 
-              ? `🌾 מייצר ${rate} יח'/דקה · מוכן לפריקה: ${barnPendingHarvest} · זמן לקטיף הבא: ${barnProductionTimer} ש'`
-              : '🔒 השלם לפחות חלק 1 כדי להתחיל בייצור משאבים'}
-          </div>
-        </div>
-        ${isProducing && barnPendingHarvest > 0
-          ? `<button class="btn-harvest can-harvest" id="btnHarvestNow">📦 פרוק למחסן (+${barnPendingHarvest})</button>`
-          : `<span class="prod-locked-badge">${isProducing ? 'צובר...' : 'נעול'}</span>`}
-      </div>
-    `;
-
-    const harvestBtn = $('btnHarvestNow');
-    if (harvestBtn) harvestBtn.onclick = harvestToWarehouse;
+  function spawnFloatingResourceText(text, clientX, clientY) {
+    const container = $('farmDioramaContainer') || document.body;
+    const pop = document.createElement('div');
+    pop.className = 'floating-resource-popup';
+    pop.textContent = text;
+    const rect = container.getBoundingClientRect();
+    pop.style.left = (clientX - rect.left) + 'px';
+    pop.style.top = (clientY - rect.top) + 'px';
+    container.appendChild(pop);
+    setTimeout(() => { pop.remove(); }, 1200);
   }
 
-  function handleFull25BarnCompleted() {
-    if (window.legoSound) {
-      window.legoSound.playVictoryFanfare();
-      window.legoSound.cheerInHebrew('מזל טוב! השלמת את כל 25 החלקים של אסם הלגו!');
-    }
-    triggerConfetti();
-    if ($('buildingCompleteModal')) $('buildingCompleteModal').classList.add('active');
+  function updateWarehouseUI() {
+    $('wheatCountVal') && ($('wheatCountVal').textContent = inventory.wheat);
+    $('carrotsCountVal') && ($('carrotsCountVal').textContent = inventory.carrots);
+    $('applesCountVal') && ($('applesCountVal').textContent = inventory.apples);
+    $('woodCountVal') && ($('woodCountVal').textContent = inventory.wood);
+    $('bricksCountVal') && ($('bricksCountVal').textContent = inventory.bricks);
+    $('milkCountVal') && ($('milkCountVal').textContent = inventory.milk);
   }
 
-  function updateBuildingMissionUI() {
-    const curPart = barn25Steps[currentStepIndex] || barn25Steps[24];
-    if ($('curPartIcon')) $('curPartIcon').textContent = curPart.icon;
-    if ($('curPartName')) $('curPartName').textContent = `חלק ${curPart.step}/25: ${curPart.name}`;
-    if ($('questProgressText')) $('questProgressText').textContent = `חלק ${placedPartsOnMap}/25 הושלם`;
-  }
-
-  function switchScreen(name) {
-    currentScreen = name;
-    if ($('screenTable')) $('screenTable').classList.toggle('active-screen', name === 'table');
-    if ($('screenMapSite')) $('screenMapSite').classList.toggle('active-screen', name === 'map');
-    if ($('btnViewTable')) $('btnViewTable').classList.toggle('active-seg', name === 'table');
-    if ($('btnViewMapSite')) $('btnViewMapSite').classList.toggle('active-seg', name === 'map');
-    if ($('mathCardSection')) $('mathCardSection').style.display = (name === 'table') ? 'flex' : 'none';
-
-    if (name === 'table') {
-      spawn3DTableBricksForCurrentPart();
+  // ========================================================
+  // 4. SCREEN NAVIGATION & MODALS
+  // ========================================================
+  function switchScreen(screenName) {
+    if (screenName === 'table') {
+      $('screenTable').classList.add('active-screen');
+      $('screenMapSite').classList.remove('active-screen');
+      $('btnViewTable').classList.add('active-seg');
+      $('btnViewMapSite').classList.remove('active-seg');
+      $('mathCardSection').style.display = 'block';
     } else {
-      if (!mapScene) init3DFarmMapSite();
-      else updateMapConstructionSite();
+      $('screenTable').classList.remove('active-screen');
+      $('screenMapSite').classList.add('active-screen');
+      $('btnViewTable').classList.remove('active-seg');
+      $('btnViewMapSite').classList.add('active-seg');
+      $('mathCardSection').style.display = 'none';
     }
   }
 
-  function triggerConfetti() {
-    const canvas = $('confettiCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const p = [];
-    for (let i = 0; i < 45; i++) {
-      p.push({
-        x: canvas.width / 2, y: canvas.height / 2,
-        vx: (Math.random() - 0.5) * 14, vy: (Math.random() - 1) * 14,
-        color: ['#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#8b5cf6'][i % 5]
-      });
-    }
-    let f = 0;
-    function anim() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      p.forEach(pt => {
-        pt.x += pt.vx; pt.y += pt.vy; pt.vy += 0.35;
-        ctx.fillStyle = pt.color; ctx.fillRect(pt.x, pt.y, 9, 6);
-      });
-      if (++f < 65) requestAnimationFrame(anim);
-      else ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-    requestAnimationFrame(anim);
+  
+  function openCatalogModalSafe() {
+    const m = $('buildingCatalogModal') || $('catalogModal');
+    if (m) m.style.display = 'flex';
+  }
+  function closeCatalogModalSafe() {
+    const m = $('buildingCatalogModal') || $('catalogModal');
+    if (m) m.style.display = 'none';
+  }
+  function openWarehouseModalSafe() {
+    const m = $('warehouseModal');
+    if (m) m.style.display = 'flex';
+  }
+  function closeWarehouseModalSafe() {
+    const m = $('warehouseModal');
+    if (m) m.style.display = 'none';
   }
 
-  function loadProgress() {
-    try {
-      const s = localStorage.getItem(STORAGE_KEY);
-      if (s) {
-        const d = JSON.parse(s);
-        streak = d.streak || 0;
-        totalSolved = d.totalSolved || 0;
-        currentStepIndex = d.currentStepIndex || 0;
-        earnedPartsCount = d.earnedPartsCount || 0;
-        placedPartsOnMap = d.placedPartsOnMap || 0;
-        coinsStock = d.coinsStock || 1250;
-        gemsStock = d.gemsStock || 85;
-        playerLevel = d.playerLevel || 24;
-        inventory = d.inventory || inventory;
+  function initModalsAndNavigation() {
+    // Screen Switch
+    $('btnViewTable') && ($('btnViewTable').onclick = () => switchScreen('table'));
+    $('btnViewMapSite') && ($('btnViewMapSite').onclick = () => switchScreen('map'));
+
+    // Catalog Open / Close
+    function openCatalog() {
+      const modal = $('buildingCatalogModal') || $('catalogModal');
+      if (modal) modal.style.display = 'flex';
+    }
+    function closeCatalog() {
+      const modal = $('buildingCatalogModal') || $('catalogModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    $('btnOpenCatalogNav') && ($('btnOpenCatalogNav').onclick = openCatalogModalSafe);
+    $('btnDockBuild') && ($('btnDockBuild').onclick = openCatalogModalSafe);
+    $('btnDockBuildChunky') && ($('btnDockBuildChunky').onclick = openCatalogModalSafe);
+    $('btnCloseCatalog') && ($('btnCloseCatalog').onclick = closeCatalogModalSafe);
+
+    // Warehouse Open / Close
+    function openWarehouse() {
+      const modal = $('warehouseModal');
+      if (modal) modal.style.display = 'flex';
+    }
+    function closeWarehouse() {
+      const modal = $('warehouseModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    $('btnOpenWarehouseNav') && ($('btnOpenWarehouseNav').onclick = openWarehouseModalSafe);
+    $('btnDockWarehouse') && ($('btnDockWarehouse').onclick = openWarehouseModalSafe);
+    $('btnDockScores') && ($('btnDockScores').onclick = openWarehouseModalSafe);
+    $('topBarCoins') && ($('topBarCoins').onclick = openWarehouseModalSafe);
+    $('btnCloseWarehouse') && ($('btnCloseWarehouse').onclick = closeWarehouseModalSafe);
+
+    // Worlds Modal
+    $('btnWorldModal') && ($('btnWorldModal').onclick = () => { $('worldsModal') && ($('worldsModal').style.display = 'flex'); });
+    $('btnDockLevels') && ($('btnDockLevels').onclick = () => { $('worldsModal') && ($('worldsModal').style.display = 'flex'); });
+    $('btnCloseWorlds') && ($('btnCloseWorlds').onclick = () => { $('worldsModal') && ($('worldsModal').style.display = 'none'); });
+
+    // Home / Replay
+    $('btnDockHome') && ($('btnDockHome').onclick = () => { switchScreen('map'); });
+    $('btnDockReplay') && ($('btnDockReplay').onclick = () => { renderCurrentStep(); });
+
+    // Reward Modal Handlers
+    $('btnContinueToMap') && ($('btnContinueToMap').onclick = () => {
+      $('rewardModal').style.display = 'none';
+      switchScreen('map');
+    });
+    $('btnNextPartDirect') && ($('btnNextPartDirect').onclick = () => {
+      $('rewardModal').style.display = 'none';
+      const building = BUILDINGS_DATABASE[activeBuildingId] || BUILDINGS_DATABASE.barn;
+      currentStepIndex = (currentStepIndex + 1) % building.steps.length;
+      renderCurrentStep();
+      switchScreen('table');
+    });
+
+    // Rebrickable Modal Handlers
+    $('btnOpenRebrickable') && ($('btnOpenRebrickable').onclick = () => {
+      populateRebrickableGrid();
+      $('rebrickableModal').style.display = 'flex';
+    });
+    $('btnCloseRebrickable') && ($('btnCloseRebrickable').onclick = () => {
+      $('rebrickableModal').style.display = 'none';
+    });
+
+    // Link Specific Building Selection Buttons
+    function selectBuildingAndStart(bId) {
+      activeBuildingId = bId;
+      currentStepIndex = 0;
+      closeCatalog();
+      renderCurrentStep();
+      switchScreen('table');
+    }
+
+    $('btnChooseBarn') && ($('btnChooseBarn').onclick = () => selectBuildingAndStart('barn'));
+    $('btnChooseWindmill') && ($('btnChooseWindmill').onclick = () => selectBuildingAndStart('windmill'));
+    $('btnChooseFarmhouse') && ($('btnChooseFarmhouse').onclick = () => selectBuildingAndStart('farmhouse'));
+    $('btnChooseChickenCoop') && ($('btnChooseChickenCoop').onclick = () => selectBuildingAndStart('coop'));
+    $('btnChooseGreenhouse') && ($('btnChooseGreenhouse').onclick = () => selectBuildingAndStart('greenhouse'));
+    $('btnChooseSilo') && ($('btnChooseSilo').onclick = () => selectBuildingAndStart('silo'));
+
+    // Warehouse Sell Actions
+    initWarehouseActions();
+  }
+
+  function initWarehouseActions() {
+    $('btnSellWheat10') && ($('btnSellWheat10').onclick = () => {
+      if (inventory.wheat >= 10) {
+        inventory.wheat -= 10;
+        coinsStock += 50;
+        updateWarehouseUI();
+        if (window.legoSound) window.legoSound && typeof window.legoSound.playBrickClick === 'function' && (window.legoSound && typeof window.legoSound.playBrickClick === 'function' && window.legoSound.playBrickClick());
       }
-    } catch(e) {}
+    });
+    $('btnSellWheatAll') && ($('btnSellWheatAll').onclick = () => {
+      if (inventory.wheat > 0) {
+        coinsStock += inventory.wheat * 5;
+        inventory.wheat = 0;
+        updateWarehouseUI();
+        if (window.legoSound) window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && (window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && window.legoSound.playCelebrationJingle());
+      }
+    });
+    $('btnSellCarrotsAll') && ($('btnSellCarrotsAll').onclick = () => {
+      if (inventory.carrots > 0) {
+        coinsStock += inventory.carrots * 8;
+        inventory.carrots = 0;
+        updateWarehouseUI();
+        if (window.legoSound) window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && (window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && window.legoSound.playCelebrationJingle());
+      }
+    });
+    $('btnUpgradeWarehouse') && ($('btnUpgradeWarehouse').onclick = () => {
+      if (coinsStock >= 200) {
+        coinsStock -= 200;
+        MAX_WAREHOUSE_CAPACITY += 500;
+        updateWarehouseUI();
+        if (window.legoSound) window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && (window.legoSound && typeof window.legoSound.playCelebrationJingle === 'function' && window.legoSound.playCelebrationJingle());
+      }
+    });
   }
 
-  function saveProgress() {
-    try {
-      const d = { 
-        streak, 
-        totalSolved, 
-        currentStepIndex, 
-        earnedPartsCount, 
-        placedPartsOnMap, 
-        coinsStock,
-        gemsStock,
-        playerLevel,
-        inventory,
-        time: Date.now() 
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(d));
-    } catch(e) {}
-  }
+  function initBuildingCatalogSelections() {
+    const catalogCards = document.querySelectorAll('.catalog-card');
+    catalogCards.forEach(card => {
+      const bBtn = card.querySelector('.btn-build-start');
+      if (bBtn) {
+        bBtn.onclick = (e) => {
+          e.stopPropagation();
+          const bTitle = card.querySelector('.cat-title') ? card.querySelector('.cat-title').textContent : '';
+          if (bTitle.includes('אסם') || bTitle.includes('Barn')) activeBuildingId = 'barn';
+          else if (bTitle.includes('טחנת') || bTitle.includes('Windmill')) activeBuildingId = 'windmill';
+          else if (bTitle.includes('בית') || bTitle.includes('Farmhouse')) activeBuildingId = 'farmhouse';
+          else if (bTitle.includes('לול') || bTitle.includes('Coop')) activeBuildingId = 'coop';
+          else if (bTitle.includes('חממת') || bTitle.includes('Greenhouse')) activeBuildingId = 'greenhouse';
+          else if (bTitle.includes('ממגורת') || bTitle.includes('Silo')) activeBuildingId = 'silo';
 
-  function setupEventListeners() {
-    if ($('btnViewTable')) $('btnViewTable').onclick = () => switchScreen('table');
-    if ($('btnViewMapSite')) $('btnViewMapSite').onclick = () => switchScreen('map');
-    if ($('btnBackToTable')) $('btnBackToTable').onclick = () => switchScreen('table');
-
-    // Screen 2: Building Blueprint Catalog Modal
-    if ($('btnOpenCatalogNav')) $('btnOpenCatalogNav').onclick = () => $('buildingCatalogModal')?.classList.add('active');
-    if ($('btnDockBuild')) $('btnDockBuild').onclick = () => $('buildingCatalogModal')?.classList.add('active');
-    if ($('btnCloseCatalog')) $('btnCloseCatalog').onclick = () => $('buildingCatalogModal')?.classList.remove('active');
-
-    // Screen 4: Central Warehouse & Inventory Modal
-    if ($('btnOpenWarehouseNav')) $('btnOpenWarehouseNav').onclick = () => $('warehouseModal')?.classList.add('active');
-    if ($('btnDockWarehouse')) $('btnDockWarehouse').onclick = () => $('warehouseModal')?.classList.add('active');
-    if ($('topBarCoins')) $('topBarCoins').onclick = () => $('warehouseModal')?.classList.add('active');
-    if ($('btnCloseWarehouse')) $('btnCloseWarehouse').onclick = () => $('warehouseModal')?.classList.remove('active');
-
-    if ($('btnCollectAllToWarehouse')) {
-      $('btnCollectAllToWarehouse').onclick = () => {
-        harvestToWarehouse();
-        alert('📦 כל המשאבים מהחווה נאספו ונפרקו למחסן המרכזי!');
-      };
-    }
-
-    if ($('btnUpgradeWarehouse')) {
-      $('btnUpgradeWarehouse').onclick = () => {
-        if (coinsStock >= 200) {
-          coinsStock -= 200;
-          MAX_WAREHOUSE_CAPACITY += 500;
-          updateWarehouseDisplay();
-          saveProgress();
-          triggerConfetti();
-          if (window.legoSound) {
-            window.legoSound.playVictoryFanfare();
-            window.legoSound.cheerInHebrew('המחסן שודרג בהצלחה! קיבולת נוספת: 500');
-          }
-          alert('🏰 המחסן שודרג בהצלחה! קיבולת מרבית חדשה: ' + MAX_WAREHOUSE_CAPACITY);
-        } else {
-          alert('דרושים 200 מטבעות זהב לשדרוג המחסן!');
-        }
-      };
-    }
-
-    // Modal Choose Building Handlers
-    ['btnChooseBarn', 'btnChooseWindmill', 'btnChooseFarmhouse', 'btnChooseCoop', 'btnChooseGreenhouse', 'btnChooseSilo'].forEach(id => {
-      if ($(id)) {
-        $(id).onclick = () => {
-          $('buildingCatalogModal')?.classList.remove('active');
+          $('catalogModal').style.display = 'none';
+          currentStepIndex = 0;
+          renderCurrentStep();
           switchScreen('table');
         };
       }
     });
-
-    if ($('btnGoToMap')) {
-      $('btnGoToMap').onclick = () => {
-        $('rewardModal')?.classList.remove('active');
-        switchScreen('map');
-      };
-    }
-
-    if ($('btnNextBuilding')) {
-      $('btnNextBuilding').onclick = () => {
-        $('buildingCompleteModal')?.classList.remove('active');
-        currentStepIndex = 0;
-        earnedPartsCount = 0;
-        placedPartsOnMap = 0;
-        saveProgress();
-        switchScreen('table');
-      };
-    }
-
-    if ($('btnDockTools')) $('btnDockTools').onclick = () => alert('🛠️ כלי עבודה: פטיש בנאי לגו, מסור ומפתח ברגים מוכנים!');
-
-    // World Map Explorer Modal
-    if ($('btnWorldModal')) {
-      $('btnWorldModal').onclick = () => $('worldsExplorerModal')?.classList.add('active');
-    }
-    if ($('btnCloseWorldExplorer')) {
-      $('btnCloseWorldExplorer').onclick = () => $('worldsExplorerModal')?.classList.remove('active');
-    }
-
-    // Camera preset buttons
-    if ($('btnCamIso')) $('btnCamIso').onclick = () => tableCamera?.position.set(0, 9, 14);
-    if ($('btnCamTop')) $('btnCamTop').onclick = () => tableCamera?.position.set(0, 16, 0.1);
-    if ($('btnCamFront')) $('btnCamFront').onclick = () => tableCamera?.position.set(0, 3, 14);
-
-    if ($('btnMapCamOverview')) {
-      $('btnMapCamOverview').onclick = () => {
-        if (mapCamera && mapControls) {
-          mapCamera.position.set(16, 22, 24);
-          mapControls.target.set(0, 1.2, 0);
-        }
-      };
-    }
-    if ($('btnMapCamSite')) {
-      $('btnMapCamSite').onclick = () => {
-        if (mapCamera && mapControls) {
-          mapCamera.position.set(4, 7, 7);
-          mapControls.target.set(-2.0, 2.0, -2.0);
-        }
-      };
-    }
-    if ($('btnMapAutoRotate')) {
-      let isRotating = false;
-      $('btnMapAutoRotate').onclick = () => {
-        if (mapControls) {
-          isRotating = !isRotating;
-          mapControls.autoRotate = isRotating;
-          mapControls.autoRotateSpeed = 2.0;
-          $('btnMapAutoRotate').textContent = isRotating ? '⏸️ עצור' : '🔄 סיבוב עולם';
-        }
-      };
-    }
-
-    if ($('btnSound')) {
-      $('btnSound').onclick = () => {
-        if (window.legoSound) {
-          window.legoSound.enabled = !window.legoSound.enabled;
-          $('btnSound').textContent = window.legoSound.enabled ? '🔊' : '🔇';
-        }
-      };
-    }
-    if ($('btnVoice')) {
-      $('btnVoice').onclick = () => {
-        if (window.legoSound) {
-          window.legoSound.voiceEnabled = !window.legoSound.voiceEnabled;
-          $('btnVoice').textContent = window.legoSound.voiceEnabled ? '🗣️' : '🤐';
-        }
-      };
-    }
   }
 
-  function init() {
-    loadProgress();
+  function populateRebrickableGrid() {
+    const grid = $('rebrickablePartsGrid');
+    if (!grid || !window.REBRICKABLE_PARTS_CATALOG) return;
+    grid.innerHTML = '';
+
+    window.REBRICKABLE_PARTS_CATALOG.forEach(part => {
+      const card = document.createElement('div');
+      card.style.cssText = 'background: white; border-radius: 12px; border: 2px solid #e2e8f0; padding: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05);';
+      card.innerHTML = `
+        <div style="font-size: 1.8rem; margin-bottom: 4px;">🧱</div>
+        <div style="font-size: 0.75rem; font-weight: 900; color: #dc2626; background: #fee2e2; border-radius: 6px; padding: 2px 6px; display: inline-block;">Part #${part.id}</div>
+        <div style="font-size: 0.85rem; font-weight: 800; color: #1e293b; margin-top: 4px;">${part.heName}</div>
+        <div style="font-size: 0.72rem; color: #64748b; font-weight: 600;">${part.name}</div>
+        <div style="margin-top: 6px; font-size: 0.75rem; background: #f8fafc; border-radius: 6px; padding: 4px; color: #0284c7; font-weight: 700;">
+          ${part.studsL}x${part.studsW} Studs | ${part.category}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // ========================================================
+  // INITIALIZATION ON DOM READY
+  // ========================================================
+  window.addEventListener('DOMContentLoaded', () => {
     init3DTable();
-    setupEventListeners();
-    updateBuildingMissionUI();
-    updateWarehouseDisplay();
-    startResourceEconomy();
-    spawn3DTableBricksForCurrentPart();
-    console.log('🚀 BrickMind 4 Core Screens & AAA Master Visual Line Engine Initialized!');
-  }
+    initModalsAndNavigation();
+    initDioramaHotspots();
+    renderCurrentStep();
+    updateWarehouseUI();
+    console.log('Master Multi-Building Lego Engine loaded successfully!');
+  });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
 })();
 
 </script>
+
+    <!-- CHECKPOINT ACTION MODAL (נגרייה, טחנת רוח, מבנים) -->
+    <div class="reward-modal-backdrop" id="checkpointActionModal" style="display: none;">
+      <div class="reward-modal-card" style="max-width: 400px; text-align: center; border: 3px solid #38bdf8;">
+        <div class="reward-sparkle-stars" id="cpModalIcon" style="font-size: 3.2rem; margin-bottom: 6px;">🪚</div>
+        <h2 class="reward-title" id="cpModalTitle" style="color: #0284c7; margin-bottom: 6px;">סדנת נגר ובית חווה</h2>
+        <p class="reward-desc" id="cpModalDesc" style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">
+          מבנה מרכזי בעולם הלגו הכולל 25 חלקי עץ ולבנים, שולחן נגרות ואתגרי חשבון מהנים.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn-primary-action" id="btnCpStartBuild" style="background: linear-gradient(135deg, #0284c7, #0369a1); width: 100%; font-size: 1.05rem; padding: 14px;">
+            🔨 התחל לבנות בשולחן 3D (25 חלקים)
+          </button>
+          <button class="btn-primary-action" id="btnCpCollectResource" style="background: linear-gradient(135deg, #10b981, #059669); width: 100%; font-size: 1rem; padding: 12px;">
+            🪵 אסוף משאבים מהסדנה
+          </button>
+          <button class="btn-secondary-action" id="btnCpClose" style="width: 100%; margin-top: 4px;">
+            חזור למפת החווה ↩️
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FARM TOOLS MODAL -->
+    <div class="reward-modal-backdrop" id="farmToolsModal" style="display: none;">
+      <div class="reward-modal-card" style="max-width: 420px; text-align: center; border: 3px solid #f59e0b;">
+        <div class="reward-sparkle-stars" style="font-size: 3rem; margin-bottom: 6px;">🔧</div>
+        <h2 class="reward-title" style="color: #d97706; margin-bottom: 8px;">כלי עבודה ושדרוגי חווה</h2>
+        <p class="reward-desc" style="color: #475569; font-size: 0.95rem; margin-bottom: 16px;">
+          שדרג את הכלים שלך כדי לקצור ולבנות מהר יותר:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; text-align: right;">
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🚜 טרקטור טורבו משופר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">מכפיל את המטבעות ממשלוחים</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeTractor" style="padding: 6px 14px; font-size: 0.85rem; background: #0284c7;">שדרג (100 🪙)</button>
+          </div>
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🪚 מסור נגרים מהיר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">מייצר +10 קרשי עץ בכל בנייה</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeSaw" style="padding: 6px 14px; font-size: 0.85rem; background: #10b981;">שדרג (80 🪙)</button>
+          </div>
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🌾 מגל זהב לקציר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">קציר מהיר כפול בכל לחיצה</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeSickle" style="padding: 6px 14px; font-size: 0.85rem; background: #f59e0b;">שדרג (120 🪙)</button>
+          </div>
+        </div>
+        <button class="btn-secondary-action" id="btnCloseToolsModal" style="width: 100%; margin-top: 14px;">סגור ✖</button>
+      </div>
+    </div>
+  
 </body>
 </html>

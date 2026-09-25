@@ -153,64 +153,97 @@
         <!-- High-Res Master 3D Lego Farm Diorama Artwork -->
         <img src="MASTER_STYLE_HERO.jpg" alt="Lego Farm 3D Diorama" class="diorama-master-image" id="dioramaImg">
 
-        <!-- INTERACTIVE HOTSPOTS OVER DIORAMA -->
-        <!-- Hotspot: Red Barn (אסם חווה) -->
-        <div class="diorama-hotspot" id="hotspotBarn" style="top: 48%; left: 32%;" title="האסם האדום - לחץ לבנייה">
-          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🏛️</div>
-          <div class="hotspot-badge" style="border-color: #ef4444; background: #991b1b;" id="barnBadgeStatus">אסם: חלק 1/25</div>
+        <!-- ========================================================
+             INTERACTIVE HOTSPOTS OVER DIORAMA (1:1 MATCH TO ARTWORK)
+             ======================================================== -->
+        
+        <!-- 1. Windmill on the Hill (טחנת רוח על הגבעה בצד שמאל למעלה) -->
+        <div class="diorama-hotspot" id="hotspotWindmill" style="top: 25%; left: 19%;" title="טחנת רוח - לחץ לבנייה וקמח">
+          <div class="hotspot-pulse-ring" style="border-color: #38bdf8;">💨</div>
+          <div class="hotspot-badge" style="border-color: #38bdf8; background: #0369a1;" id="windmillBadgeStatus">טחנת רוח 💨</div>
         </div>
 
-        <!-- Hotspot: Windmill (טחנת רוח) -->
-        <div class="diorama-hotspot" id="hotspotWindmill" style="top: 32%; left: 74%;" title="טחנת רוח">
-          <div class="hotspot-pulse-ring" style="border-color: #3b82f6;">💨</div>
-          <div class="hotspot-badge" style="border-color: #3b82f6;">טחנת רוח +150</div>
+        <!-- 2. Carpenter Workshop & Farmhouse (סדנת נגר ובית החווה - הבית האדום הגדול במרכז ימין) -->
+        <div class="diorama-hotspot" id="hotspotCarpenter" style="top: 38%; left: 63%;" title="סדנת נגר ובית חווה (BrickMind Farm) - לחץ לבנייה!">
+          <div class="hotspot-pulse-ring" style="border-color: #dc2626;">🪚</div>
+          <div class="hotspot-badge" style="border-color: #dc2626; background: #991b1b;" id="carpenterBadgeStatus">סדנת נגר ובית חווה 🪚</div>
         </div>
 
-        <!-- Hotspot: Wheat Fields (שדות חיטה - קציר) -->
-        <div class="diorama-hotspot" id="hotspotWheat" style="top: 68%; left: 52%;" title="שדה חיטה - לחץ לקציר!">
-          <div class="hotspot-pulse-ring" style="border-color: #eab308;">🌾</div>
-          <div class="hotspot-badge" style="border-color: #eab308;">קצור חיטה! 🌾</div>
+        <!-- 3. Apple Orchard (מטע תפוחים - מאחורי הבית למעלה) -->
+        <div class="diorama-hotspot" id="hotspotApples" style="top: 22%; left: 60%;" title="מטע תפוחים - קטיף!">
+          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🍎</div>
+          <div class="hotspot-badge" style="border-color: #ef4444; background: #b91c1c;">מטע תפוחים 🍎</div>
         </div>
 
-        <!-- Hotspot: Carrots Garden (ערוגת גזרים) -->
-        <div class="diorama-hotspot" id="hotspotCarrots" style="top: 78%; left: 34%;" title="ערוגת גזרים">
+        <!-- 4. Dairy Cow Pasture (פרת חלב באחו - אמצע שמאל) -->
+        <div class="diorama-hotspot" id="hotspotCow" style="top: 52%; left: 18%;" title="פרת חלב לגו">
+          <div class="hotspot-pulse-ring" style="border-color: #3b82f6;">🥛</div>
+          <div class="hotspot-badge" style="border-color: #3b82f6; background: #1d4ed8;">פרת חלב 🥛</div>
+        </div>
+
+        <!-- 5. Flower & Carrot Garden (ערוגת פרחים וגזרים - לפני הבית) -->
+        <div class="diorama-hotspot" id="hotspotCarrots" style="top: 46%; left: 50%;" title="ערוגת גזרים - לחץ לאיסוף!">
           <div class="hotspot-pulse-ring" style="border-color: #f97316;">🥕</div>
-          <div class="hotspot-badge" style="border-color: #f97316;">גזרים טריים +5</div>
+          <div class="hotspot-badge" style="border-color: #f97316; background: #c2410c;">ערוגת גזרים 🥕</div>
         </div>
 
-        <!-- Hotspot: Duck Pond (אגם ברווזים) -->
-        <div class="diorama-hotspot" id="hotspotPond" style="top: 55%; left: 82%;" title="אגם ברווזים">
+        <!-- 6. Red Delivery Tractor (טרקטור אדום ונגרר - באמצע הכביש) -->
+        <div class="diorama-hotspot" id="hotspotTractor" style="top: 56%; left: 54%;" title="טרקטור חקלאי ומשלוחים">
+          <div class="hotspot-pulse-ring" style="border-color: #ef4444;">🚜</div>
+          <div class="hotspot-badge" style="border-color: #ef4444; background: #991b1b;">טרקטור משלוחים 🚜</div>
+        </div>
+
+        <!-- 7. Golden Wheat Fields (שדות חיטה - אמצע ימין) -->
+        <div class="diorama-hotspot" id="hotspotWheat" style="top: 61%; left: 78%;" title="שדה חיטה - לחץ לקציר!">
+          <div class="hotspot-pulse-ring" style="border-color: #eab308;">🌾</div>
+          <div class="hotspot-badge" style="border-color: #eab308; background: #a16207;" id="wheatBadgeStatus">קצור חיטה! 🌾</div>
+        </div>
+
+        <!-- 8. Duck Pond (אגם ברווזים עם רציף - שמאל למטה) -->
+        <div class="diorama-hotspot" id="hotspotPond" style="top: 72%; left: 20%;" title="אגם ברווזים">
           <div class="hotspot-pulse-ring" style="border-color: #0284c7;">🦆</div>
-          <div class="hotspot-badge" style="border-color: #0284c7;">אגם ברווזים</div>
+          <div class="hotspot-badge" style="border-color: #0284c7; background: #075985;">אגם ברווזים 🦆</div>
         </div>
 
-        <!-- Hotspot: Tractor (טרקטור) -->
-        <div class="diorama-hotspot" id="hotspotTractor" style="top: 82%; left: 70%;" title="טרקטור חקלאי">
-          <div class="hotspot-pulse-ring" style="border-color: #dc2626;">🚜</div>
-          <div class="hotspot-badge" style="border-color: #dc2626;">טרקטור פעיל</div>
+        <!-- 9. Sheep Pen (מכלאת כבשים - ימין למטה) -->
+        <div class="diorama-hotspot" id="hotspotSheep" style="top: 84%; left: 78%;" title="מכלאת כבשים - איסוף צמר">
+          <div class="hotspot-pulse-ring" style="border-color: #10b981;">🐑</div>
+          <div class="hotspot-badge" style="border-color: #10b981; background: #065f46;">מכלאת כבשים 🐑</div>
+        </div>
+
+        <!-- 10. Animal Farm & Coop (דיר חיות חווה - מרכז תחתון) -->
+        <div class="diorama-hotspot" id="hotspotCoop" style="top: 92%; left: 54%;" title="לול ודיר חיות">
+          <div class="hotspot-pulse-ring" style="border-color: #b45309;">🥚</div>
+          <div class="hotspot-badge" style="border-color: #b45309; background: #78350f;">לול וחיות חווה 🥚</div>
         </div>
 
         <!-- Quest Bubble Overlay -->
         <div class="quest-floating-bubble" id="mapQuestBubble">
           <div class="quest-title-text">משימת החווה הפעילה:</div>
-          <div class="quest-name-text" id="mapQuestTitleText">🌾 קצור חיטה ובנה את אסם הלגו!</div>
+          <div class="quest-name-text" id="mapQuestTitleText">🌾 קצור חיטה ובנה בסדנת הנגר!</div>
           <div class="quest-progress-pill" id="questProgressText">חלק 1/25 מוכן</div>
         </div>
 
-        <!-- Right Side Action Dock -->
+        <!-- Right Side Action Dock (Matching Artwork 1:1) -->
         <div class="right-action-dock">
-          <div class="dock-action-btn" id="btnDockTools" title="כלים">
-            <span class="dock-btn-icon">🚜</span>
+          <div class="dock-action-btn tools-btn" id="btnDockTools" title="כלי עבודה ושדרוגים">
+            <span class="dock-btn-icon">🔧</span>
             <span class="dock-btn-label">כלים</span>
           </div>
 
-          <div class="dock-action-btn build-btn" id="btnDockBuild" title="2. סוגי מבנים">
+          <div class="dock-action-btn build-btn" id="btnDockBuild" title="2. סוגי מבנים וקטלוג 25 חלקים">
             <span class="dock-btn-icon">📦</span>
             <span class="dock-btn-label">בנייה</span>
           </div>
 
-          <div class="dock-action-btn" id="btnDockWarehouse" title="4. מחסן מרכזי">
-            <span class="dock-btn-icon">🏬</span>
+          <div class="dock-action-btn quests-btn" id="btnDockQuests" title="משימות ואתגרי חשבון">
+            <span class="dock-btn-icon">📋</span>
+            <span class="dock-btn-label">משימות</span>
+            <span class="dock-notif-badge">!</span>
+          </div>
+
+          <div class="dock-action-btn warehouse-btn" id="btnDockWarehouse" title="4. מחסן מרכזי ומשאבים">
+            <span class="dock-btn-icon">🏪</span>
             <span class="dock-btn-label">מחסן</span>
           </div>
         </div>
@@ -470,5 +503,63 @@
 
   <script src="audio_synth.js?v=20260924_4screens_01"></script>
   <script src="brick_engine_25parts.js?v=20260924_4screens_01"></script>
+
+    <!-- CHECKPOINT ACTION MODAL (נגרייה, טחנת רוח, מבנים) -->
+    <div class="reward-modal-backdrop" id="checkpointActionModal" style="display: none;">
+      <div class="reward-modal-card" style="max-width: 400px; text-align: center; border: 3px solid #38bdf8;">
+        <div class="reward-sparkle-stars" id="cpModalIcon" style="font-size: 3.2rem; margin-bottom: 6px;">🪚</div>
+        <h2 class="reward-title" id="cpModalTitle" style="color: #0284c7; margin-bottom: 6px;">סדנת נגר ובית חווה</h2>
+        <p class="reward-desc" id="cpModalDesc" style="color: #475569; font-size: 0.95rem; line-height: 1.5; margin-bottom: 16px;">
+          מבנה מרכזי בעולם הלגו הכולל 25 חלקי עץ ולבנים, שולחן נגרות ואתגרי חשבון מהנים.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn-primary-action" id="btnCpStartBuild" style="background: linear-gradient(135deg, #0284c7, #0369a1); width: 100%; font-size: 1.05rem; padding: 14px;">
+            🔨 התחל לבנות בשולחן 3D (25 חלקים)
+          </button>
+          <button class="btn-primary-action" id="btnCpCollectResource" style="background: linear-gradient(135deg, #10b981, #059669); width: 100%; font-size: 1rem; padding: 12px;">
+            🪵 אסוף משאבים מהסדנה
+          </button>
+          <button class="btn-secondary-action" id="btnCpClose" style="width: 100%; margin-top: 4px;">
+            חזור למפת החווה ↩️
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FARM TOOLS MODAL -->
+    <div class="reward-modal-backdrop" id="farmToolsModal" style="display: none;">
+      <div class="reward-modal-card" style="max-width: 420px; text-align: center; border: 3px solid #f59e0b;">
+        <div class="reward-sparkle-stars" style="font-size: 3rem; margin-bottom: 6px;">🔧</div>
+        <h2 class="reward-title" style="color: #d97706; margin-bottom: 8px;">כלי עבודה ושדרוגי חווה</h2>
+        <p class="reward-desc" style="color: #475569; font-size: 0.95rem; margin-bottom: 16px;">
+          שדרג את הכלים שלך כדי לקצור ולבנות מהר יותר:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px; text-align: right;">
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🚜 טרקטור טורבו משופר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">מכפיל את המטבעות ממשלוחים</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeTractor" style="padding: 6px 14px; font-size: 0.85rem; background: #0284c7;">שדרג (100 🪙)</button>
+          </div>
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🪚 מסור נגרים מהיר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">מייצר +10 קרשי עץ בכל בנייה</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeSaw" style="padding: 6px 14px; font-size: 0.85rem; background: #10b981;">שדרג (80 🪙)</button>
+          </div>
+          <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px; display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 800; color: #0f172a;">🌾 מגל זהב לקציר</div>
+              <div style="font-size: 0.8rem; color: #64748b;">קציר מהיר כפול בכל לחיצה</div>
+            </div>
+            <button class="btn-primary-action" id="btnUpgradeSickle" style="padding: 6px 14px; font-size: 0.85rem; background: #f59e0b;">שדרג (120 🪙)</button>
+          </div>
+        </div>
+        <button class="btn-secondary-action" id="btnCloseToolsModal" style="width: 100%; margin-top: 14px;">סגור ✖</button>
+      </div>
+    </div>
+  
 </body>
 </html>
