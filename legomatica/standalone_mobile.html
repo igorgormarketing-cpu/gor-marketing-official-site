@@ -998,6 +998,39 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
+/* 4 SCREENS NAVIGATION TABS */
+.view-segmented-switch {
+  display: flex;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 3px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+}
+
+.view-segmented-switch .seg-btn {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.view-segmented-switch .seg-btn:hover {
+  color: #ffffff;
+}
+
+.view-segmented-switch .seg-btn.active-seg {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
 </style>
   <script>
 /**
@@ -2090,8 +2123,10 @@ body {
     <!-- SUB-NAV: 4 MAIN SCREENS QUICK SWITCHER -->
     <div class="sub-header-nav">
       <div class="view-segmented-switch">
-        <button class="seg-btn active-seg" id="btnViewTable">🪵 3. שולחן עבודה</button>
-        <button class="seg-btn" id="btnViewMapSite">🚜 1. מפה גדולה</button>
+        <button class="seg-btn" id="btnViewMapSite" title="1. מפת החווה">🚜 1. מפה</button>
+        <button class="seg-btn" id="btnViewCatalog" title="2. קטלוג מבנים">📦 2. קטלוג</button>
+        <button class="seg-btn active-seg" id="btnViewTable" title="3. שולחן עבודה 3D">🪵 3. שולחן 3D</button>
+        <button class="seg-btn" id="btnViewWarehouse" title="4. מחסן מרכזי">🏪 4. מחסן</button>
       </div>
 
       <div class="header-quick-actions">
@@ -3155,28 +3190,44 @@ window.legoSound = new LegoSoundEngine();
   function switchScreen(screenName) {
     const screenTable = $('screenTable');
     const screenMapSite = $('screenMapSite');
-    const btnViewTable = $('btnViewTable');
-    const btnViewMapSite = $('btnViewMapSite');
+    const catalogModal = $('buildingCatalogModal');
+    const warehouseModal = $('warehouseModal');
+
+    const btnViewMap = $('btnViewMapSite');
+    const btnViewCat = $('btnViewCatalog');
+    const btnViewTab = $('btnViewTable');
+    const btnViewWh = $('btnViewWarehouse');
     const mathSection = $('mathCardSection');
+
+    // Reset tab active states
+    [btnViewMap, btnViewCat, btnViewTab, btnViewWh].forEach(b => b && b.classList.remove('active-seg'));
+
+    // Hide modals when switching screens
+    if (screenName !== 'catalog' && catalogModal) catalogModal.style.display = 'none';
+    if (screenName !== 'warehouse' && warehouseModal) warehouseModal.style.display = 'none';
 
     if (screenName === 'table') {
       screenTable && screenTable.classList.add('active-screen');
       screenMapSite && screenMapSite.classList.remove('active-screen');
-      btnViewTable && btnViewTable.classList.add('active-seg');
-      btnViewMapSite && btnViewMapSite.classList.remove('active-seg');
+      btnViewTab && btnViewTab.classList.add('active-seg');
       mathSection && (mathSection.style.display = 'flex');
       onTableResize();
-    } else {
+    } else if (screenName === 'map') {
       screenTable && screenTable.classList.remove('active-screen');
       screenMapSite && screenMapSite.classList.add('active-screen');
-      btnViewTable && btnViewTable.classList.remove('active-seg');
-      btnViewMapSite && btnViewMapSite.classList.add('active-seg');
+      btnViewMap && btnViewMap.classList.add('active-seg');
       mathSection && (mathSection.style.display = 'none');
+    } else if (screenName === 'catalog') {
+      btnViewCat && btnViewCat.classList.add('active-seg');
+      if (catalogModal) catalogModal.style.display = 'flex';
+    } else if (screenName === 'warehouse') {
+      btnViewWh && btnViewWh.classList.add('active-seg');
+      if (warehouseModal) warehouseModal.style.display = 'flex';
     }
+
     playSoundSafe('playBrickClick');
   }
 
-  // --- MODAL CONTROLS ---
   function openModal(id) {
     const m = $(id);
     if (m) m.style.display = 'flex';

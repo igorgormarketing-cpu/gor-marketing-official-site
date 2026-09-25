@@ -984,3 +984,36 @@ body {
   0% { transform: scale(0.85); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+/* 4 SCREENS NAVIGATION TABS */
+.view-segmented-switch {
+  display: flex;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 3px;
+  border-radius: 12px;
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+}
+
+.view-segmented-switch .seg-btn {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.view-segmented-switch .seg-btn:hover {
+  color: #ffffff;
+}
+
+.view-segmented-switch .seg-btn.active-seg {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}

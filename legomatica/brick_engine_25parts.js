@@ -498,28 +498,44 @@
   function switchScreen(screenName) {
     const screenTable = $('screenTable');
     const screenMapSite = $('screenMapSite');
-    const btnViewTable = $('btnViewTable');
-    const btnViewMapSite = $('btnViewMapSite');
+    const catalogModal = $('buildingCatalogModal');
+    const warehouseModal = $('warehouseModal');
+
+    const btnViewMap = $('btnViewMapSite');
+    const btnViewCat = $('btnViewCatalog');
+    const btnViewTab = $('btnViewTable');
+    const btnViewWh = $('btnViewWarehouse');
     const mathSection = $('mathCardSection');
+
+    // Reset tab active states
+    [btnViewMap, btnViewCat, btnViewTab, btnViewWh].forEach(b => b && b.classList.remove('active-seg'));
+
+    // Hide modals when switching screens
+    if (screenName !== 'catalog' && catalogModal) catalogModal.style.display = 'none';
+    if (screenName !== 'warehouse' && warehouseModal) warehouseModal.style.display = 'none';
 
     if (screenName === 'table') {
       screenTable && screenTable.classList.add('active-screen');
       screenMapSite && screenMapSite.classList.remove('active-screen');
-      btnViewTable && btnViewTable.classList.add('active-seg');
-      btnViewMapSite && btnViewMapSite.classList.remove('active-seg');
+      btnViewTab && btnViewTab.classList.add('active-seg');
       mathSection && (mathSection.style.display = 'flex');
       onTableResize();
-    } else {
+    } else if (screenName === 'map') {
       screenTable && screenTable.classList.remove('active-screen');
       screenMapSite && screenMapSite.classList.add('active-screen');
-      btnViewTable && btnViewTable.classList.remove('active-seg');
-      btnViewMapSite && btnViewMapSite.classList.add('active-seg');
+      btnViewMap && btnViewMap.classList.add('active-seg');
       mathSection && (mathSection.style.display = 'none');
+    } else if (screenName === 'catalog') {
+      btnViewCat && btnViewCat.classList.add('active-seg');
+      if (catalogModal) catalogModal.style.display = 'flex';
+    } else if (screenName === 'warehouse') {
+      btnViewWh && btnViewWh.classList.add('active-seg');
+      if (warehouseModal) warehouseModal.style.display = 'flex';
     }
+
     playSoundSafe('playBrickClick');
   }
 
-  // --- MODAL CONTROLS ---
   function openModal(id) {
     const m = $(id);
     if (m) m.style.display = 'flex';
