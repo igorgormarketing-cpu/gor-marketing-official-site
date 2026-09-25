@@ -1182,3 +1182,20 @@ body {
   gap: 6px;
   width: 100%;
 }
+
+
+/* ========================================================
+   PHOTOREALISTIC BLURRED PLAYROOM STUDIO BACKDROP
+   ======================================================== */
+
+#screenTable {
+  background: #f8fafc !important;
+  position: relative;
+  overflow: hidden;
+}
+
+#threeTableContainer {
+  background: url('playroom_studio_bg.jpg') center bottom / cover no-repeat !important;
+  position: relative;
+  overflow: hidden;
+}
