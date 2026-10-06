@@ -7936,3 +7936,115 @@ main#main-content > .container {
         filter: blur(40px) !important;
     }
 }
+
+
+/* ==========================================================================
+   BENTO ROI CALCULATOR - INTERACTIVE PLATFORM BUTTONS
+   ========================================================================== */
+.bento-platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+
+.bento-platform-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px 12px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    font-family: inherit;
+    min-height: 64px;
+    position: relative;
+    user-select: none;
+    outline: none;
+}
+
+.bento-platform-btn:hover {
+    background: rgba(255, 215, 0, 0.08);
+    border-color: rgba(255, 215, 0, 0.4);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bento-platform-btn:focus-visible {
+    border-color: #ffd700;
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+.bento-platform-btn.active {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.18), rgba(0, 240, 255, 0.12));
+    border: 1.5px solid #ffd700;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.25), inset 0 0 12px rgba(255, 215, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.bento-platform-btn.active::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00ff88;
+    box-shadow: 0 0 6px #00ff88;
+}
+
+.bento-platform-btn .platform-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+}
+
+.bento-platform-btn .platform-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bento-platform-btn .platform-badge {
+    font-size: 0.65rem;
+    background: linear-gradient(135deg, #ffd700, #ff9800);
+    color: #000;
+    padding: 1px 6px;
+    border-radius: 6px;
+    font-weight: 800;
+    margin-top: 2px;
+}
+
+.bento-platform-btn .platform-cpl {
+    font-size: 0.68rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.bento-platform-btn.active .platform-cpl {
+    color: #00ff88;
+}
+
+@media (max-width: 600px) {
+    .bento-platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    .bento-platform-btn {
+        min-height: 56px;
+        padding: 8px 10px;
+    }
+}
