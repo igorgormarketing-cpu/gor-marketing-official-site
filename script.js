@@ -1512,44 +1512,64 @@ if (document.readyState === 'loading') {
 // ==========================================================================
 // 4.1 BENTO DASHBOARD ROI CALCULATOR - TWO-WAY INTERACTIVE ENGINE
 // ==========================================================================
-const BENTO_BENCHMARKS = window.BENTO_BENCHMARKS = {
+// === 4. BENTO DASHBOARD ROI CALCULATOR - ZERO LATENCY ENGINE ===
+window.BENTO_BENCHMARKS = {
     omnichannel: { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35, icon: 'fa-rocket' },
     google_ads: { name: 'גוגל ממומן (Google Ads)', baseCpl: 110, convMult: 1.35, aiBoost: 0.30, icon: 'fa-google' },
     meta_ads: { name: 'מטא (Facebook & Instagram)', baseCpl: 75, convMult: 0.95, aiBoost: 0.40, icon: 'fa-meta' },
     google_seo: { name: 'קידום אורגני (SEO Top Rank)', baseCpl: 65, convMult: 1.20, aiBoost: 0.25, icon: 'fa-chart-line' },
     tiktok_ads: { name: 'טיקטוק ממומן (TikTok Ads)', baseCpl: 55, convMult: 0.85, aiBoost: 0.45, icon: 'fa-tiktok' },
     youtube: { name: 'פרסום וידאו ביוטיוב', baseCpl: 90, convMult: 1.15, aiBoost: 0.35, icon: 'fa-youtube' },
-    linkedin_b2b: { name: 'לינקדאין B2B מקצועי', baseCpl: 140, convMult: 1.45, aiBoost: 0.25, icon: 'fa-linkedin' }
+    linkedin_b2b: { name: 'לינקדאין B2B מקצועי', baseCpl: 140, convMult: 1.45, aiBoost: 0.25, icon: 'fa-linkedin' },
+    instagram: { name: 'אינסטגרם ומיתוג ויזואלי', baseCpl: 70, convMult: 0.95, aiBoost: 0.35, icon: 'fa-instagram' },
+    whatsapp_retention: { name: 'מועדון לקוחות וסוכני AI', baseCpl: 25, convMult: 2.20, aiBoost: 0.40, icon: 'fa-whatsapp' },
+    native_news: { name: 'כתבות תוכן וטאבולה (Native Ads)', baseCpl: 130, convMult: 1.10, aiBoost: 0.30, icon: 'fa-newspaper' }
+};
+
+window.BENTO_INDUSTRIES = {
+    all: { name: 'כללי / מגוון ענפים', defaultDeal: 6000, cplFactor: 1.0, convFactor: 1.0 },
+    realestate: { name: 'נדל"ן, יזמות והשקעות', defaultDeal: 35000, cplFactor: 1.45, convFactor: 0.55 },
+    law_finance: { name: 'עורכי דין, רואי חשבון ופיננסים', defaultDeal: 12000, cplFactor: 1.25, convFactor: 0.85 },
+    ecommerce: { name: 'איקומרס וחנויות אונליין', defaultDeal: 500, cplFactor: 0.45, convFactor: 2.50 },
+    clinics: { name: 'רפואה פרטית, אסתטיקה וקליניקות', defaultDeal: 8500, cplFactor: 1.15, convFactor: 0.95 },
+    b2b_tech: { name: 'B2B, הייטק ו-SaaS', defaultDeal: 25000, cplFactor: 1.50, convFactor: 0.65 },
+    local_services: { name: 'בעלי מקצוע ושירותים מקומיים', defaultDeal: 3500, cplFactor: 0.80, convFactor: 1.30 },
+    consulting: { name: 'ייעוץ עסקי, אימון והדרכות', defaultDeal: 7500, cplFactor: 1.05, convFactor: 0.90 }
 };
 
 function getDealMult(deal) {
+    if (deal <= 500) return 0.40;
+    if (deal <= 1000) return 0.55;
     if (deal <= 2000) return 0.70;
     if (deal <= 4000) return 0.85;
     if (deal <= 8000) return 1.00;
     if (deal <= 15000) return 1.30;
     if (deal <= 30000) return 1.70;
-    return 2.10;
+    if (deal <= 60000) return 2.10;
+    return 2.50;
 }
 
 function getBaseConv(deal) {
+    if (deal <= 500) return 0.25;
+    if (deal <= 1000) return 0.20;
     if (deal <= 2000) return 0.14;
     if (deal <= 4000) return 0.10;
     if (deal <= 8000) return 0.075;
     if (deal <= 15000) return 0.050;
     if (deal <= 30000) return 0.035;
-    return 0.025;
+    if (deal <= 60000) return 0.025;
+    return 0.018;
 }
 
 window.setBentoChannel = function(channelKey) {
-    const channelSelect = document.getElementById('bento-channel-select');
+    if (!channelKey) return;
+    var channelSelect = document.getElementById('bento-channel-select');
     if (channelSelect) {
         channelSelect.value = channelKey;
     }
-    
-    // Update active class on platform buttons
-    const buttons = document.querySelectorAll('.bento-platform-btn');
-    buttons.forEach(btn => {
-        const isMatch = btn.getAttribute('data-channel') === channelKey;
+    var buttons = document.querySelectorAll('.bento-platform-btn');
+    buttons.forEach(function(btn) {
+        var isMatch = btn.getAttribute('data-channel') === channelKey;
         if (isMatch) {
             btn.classList.add('active');
             btn.setAttribute('aria-checked', 'true');
@@ -1558,27 +1578,42 @@ window.setBentoChannel = function(channelKey) {
             btn.setAttribute('aria-checked', 'false');
         }
     });
-    
+    if (typeof window.updateBentoCalc === 'function') {
+        window.updateBentoCalc();
+    }
+};
+
+window.setBentoIndustry = function(indKey) {
+    if (!indKey) return;
+    var indSelect = document.getElementById('bento-industry-select');
+    if (indSelect) indSelect.value = indKey;
+    var ind = (window.BENTO_INDUSTRIES && window.BENTO_INDUSTRIES[indKey]) ? window.BENTO_INDUSTRIES[indKey] : null;
+    if (ind && ind.defaultDeal) {
+        var dealSlider = document.getElementById('bento-deal-slider');
+        if (dealSlider) {
+            dealSlider.value = ind.defaultDeal;
+        }
+    }
     if (typeof window.updateBentoCalc === 'function') {
         window.updateBentoCalc();
     }
 };
 
 window.updateBentoCalc = function() {
-    const channelSelect = document.getElementById('bento-channel-select');
-    const leadsSlider = document.getElementById('bento-leads-slider');
-    const dealSlider = document.getElementById('bento-deal-slider');
+    var channelSelect = document.getElementById('bento-channel-select');
+    var indSelect = document.getElementById('bento-industry-select');
+    var leadsSlider = document.getElementById('bento-leads-slider');
+    var dealSlider = document.getElementById('bento-deal-slider');
+    if (!leadsSlider || !dealSlider) return;
 
-    if (!channelSelect || !leadsSlider || !dealSlider) return;
+    var chKey = (channelSelect && channelSelect.value) ? channelSelect.value : 'omnichannel';
+    var indKey = (indSelect && indSelect.value) ? indSelect.value : 'all';
+    var leads = parseInt(leadsSlider.value, 10) || 100;
+    var deal = parseInt(dealSlider.value, 10) || 6000;
 
-    const chKey = channelSelect.value || 'omnichannel';
-    const leads = parseInt(leadsSlider.value, 10) || 100;
-    const deal = parseInt(dealSlider.value, 10) || 6000;
-
-    // Sync button state
-    const buttons = document.querySelectorAll('.bento-platform-btn');
-    buttons.forEach(btn => {
-        const isMatch = btn.getAttribute('data-channel') === chKey;
+    var buttons = document.querySelectorAll('.bento-platform-btn');
+    buttons.forEach(function(btn) {
+        var isMatch = btn.getAttribute('data-channel') === chKey;
         if (isMatch) {
             btn.classList.add('active');
             btn.setAttribute('aria-checked', 'true');
@@ -1588,79 +1623,90 @@ window.updateBentoCalc = function() {
         }
     });
 
-    const ch = BENTO_BENCHMARKS[chKey] || BENTO_BENCHMARKS.omnichannel;
-    const mult = getDealMult(deal);
-    const effCpl = Math.round(ch.baseCpl * mult * 0.85); // 15% AI efficiency boost
-    const budget = Math.round(leads * effCpl);
+    var benchmarks = window.BENTO_BENCHMARKS || {};
+    var industries = window.BENTO_INDUSTRIES || {};
+    var ch = benchmarks[chKey] || benchmarks.omnichannel || { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35 };
+    var ind = industries[indKey] || industries.all || { name: 'כללי / מגוון ענפים', cplFactor: 1.0, convFactor: 1.0 };
 
-    const effConv = getBaseConv(deal) * ch.convMult * (1 + ch.aiBoost);
-    const deals = Math.max(1, Math.round(leads * effConv));
-    const rev = deals * deal;
-    const roas = budget > 0 ? Math.round((rev / budget) * 100) : 0;
-    const profit = Math.max(0, Math.round((rev * 0.50) - budget));
+    var mult = getDealMult(deal);
+    var baseConv = getBaseConv(deal);
 
-    // Update displays
-    const leadsDisp = document.getElementById('bento-leads-disp');
+    var effCpl = Math.max(15, Math.round(ch.baseCpl * mult * ind.cplFactor * 0.85));
+    var budget = Math.round(leads * effCpl);
+    var effConv = Math.min(0.85, baseConv * ch.convMult * ind.convFactor * (1 + ch.aiBoost));
+    var deals = Math.max(1, Math.round(leads * effConv));
+    var rev = deals * deal;
+    var roas = budget > 0 ? Math.round((rev / budget) * 100) : 0;
+    var profit = Math.max(0, Math.round((rev * 0.50) - budget));
+
+    var leadsDisp = document.getElementById('bento-leads-disp');
     if (leadsDisp) leadsDisp.textContent = leads.toLocaleString('he-IL') + ' לידים';
 
-    const dealDisp = document.getElementById('bento-deal-disp');
+    var dealDisp = document.getElementById('bento-deal-disp');
     if (dealDisp) dealDisp.textContent = '₪' + deal.toLocaleString('he-IL');
 
-    const resChannelPill = document.getElementById('bento-res-channel-pill');
+    var resChannelPill = document.getElementById('bento-res-channel-pill');
     if (resChannelPill) resChannelPill.textContent = ch.name;
 
-    const resBudget = document.getElementById('bento-res-budget');
+    var resIndustryPill = document.getElementById('bento-res-industry-pill');
+    if (resIndustryPill) resIndustryPill.textContent = ind.name;
+
+    var resBudget = document.getElementById('bento-res-budget');
     if (resBudget) resBudget.textContent = '₪' + budget.toLocaleString('he-IL');
 
-    const resCpl = document.getElementById('bento-res-cpl');
+    var resCpl = document.getElementById('bento-res-cpl');
     if (resCpl) resCpl.innerHTML = 'לפי עלות משוערת של <strong>₪' + effCpl + '</strong> לפנייה בערוץ הנבחר';
 
-    const resRevenue = document.getElementById('bento-res-revenue');
+    var resRevenue = document.getElementById('bento-res-revenue');
     if (resRevenue) resRevenue.textContent = '₪' + rev.toLocaleString('he-IL');
 
-    const resDealNote = document.getElementById('bento-res-deal-calc-note');
+    var resDealNote = document.getElementById('bento-res-deal-calc-note');
     if (resDealNote) resDealNote.textContent = 'מחושב: ' + deals + ' סגירות × ₪' + deal.toLocaleString('he-IL') + ' שווי עסקה';
 
-    const resProfit = document.getElementById('bento-res-profit');
+    var resProfit = document.getElementById('bento-res-profit');
     if (resProfit) resProfit.textContent = '₪' + profit.toLocaleString('he-IL');
 
-    const resDeals = document.getElementById('bento-res-deals');
+    var resDeals = document.getElementById('bento-res-deals');
     if (resDeals) resDeals.textContent = deals + ' עסקאות';
 
-    const resConvRate = document.getElementById('bento-res-conv-rate');
-    if (resConvRate) resConvRate.textContent = 'יחס המרה של ' + Math.round(effConv * 100) + '% מתוך הפניות';
+    var resConvRate = document.getElementById('bento-res-conv-rate');
+    if (resConvRate) resConvRate.textContent = 'יחס המרה של ' + Math.round(effConv * 100) + '% מתוך הפניות (' + ind.name + ')';
 
-    const resRoas = document.getElementById('bento-res-roas');
+    var resRoas = document.getElementById('bento-res-roas');
     if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
 
-    const resRoasX = document.getElementById('bento-res-roas-x');
+    var resRoasX = document.getElementById('bento-res-roas-x');
     if (resRoasX) resRoasX.textContent = 'פי ' + (roas / 100).toFixed(1) + ' על כל ₪1 שהושקע בפרסום';
 
-    // WhatsApp CTA Update
-    const ctaBtn = document.getElementById('bento-cta-btn');
+    var ctaBtn = document.getElementById('bento-cta-btn');
     if (ctaBtn) {
-        const msg = encodeURIComponent(
+        var msg = encodeURIComponent(
             'היי איגור, הרכבתי תחזית במחשבון ה-ROI של GOR MARKETING:%0A' +
-            '• ערוץ שיווק: ' + ch.name + '%0A' +
+            '• תחום פעילות וענף: ' + ind.name + '%0A' +
+            '• ערוץ שיווק מוביל: ' + ch.name + '%0A' +
             '• יעד לידים חודשי: ' + leads + ' פניות%0A' +
-            '• שווי עסקת לקוח: ₪' + deal.toLocaleString('he-IL') + '%0A' +
-            '• תקציב פרסום מומלץ: ₪' + budget.toLocaleString('he-IL') + '%0A' +
-            '• צפי הכנסות: ₪' + rev.toLocaleString('he-IL') + ' (' + deals + ' עסקאות)%0A' +
-            '• תשואת פרסום ROAS: ' + roas + '%%0A%0A' +
+            '• שווי עסקת לקוח ממוצעת: ₪' + deal.toLocaleString('he-IL') + '%0A' +
+            '• תקציב פרסום מומלץ: ₪' + budget.toLocaleString('he-IL') + ' (~₪' + effCpl + ' לליד)%0A' +
+            '• צפי סגירת עסקאות: ' + deals + ' עסקאות%0A' +
+            '• צפי הכנסות: ₪' + rev.toLocaleString('he-IL') + '%0A' +
+            '• צפי תרומה לרווח: ₪' + profit.toLocaleString('he-IL') + '%0A' +
+            '• תשואת פרסום ROAS: ' + roas + '% (פי ' + (roas / 100).toFixed(1) + ')%0A%0A' +
             'אשמח לבנות תוכנית עבודה מותאמת אישית איתך!'
         );
         ctaBtn.href = 'https://wa.me/972525155598?text=' + msg;
     }
 };
 
-
-// Case Studies Filter Button Handlers
-
 function initBentoButtonEvents() {
-    const btns = document.querySelectorAll('.bento-platform-btn');
-    btns.forEach(b => {
-        const ch = b.getAttribute('data-channel');
-        b.onclick = () => window.setBentoChannel(ch);
+    var btns = document.querySelectorAll('.bento-platform-btn');
+    btns.forEach(function(b) {
+        var ch = b.getAttribute('data-channel');
+        if (ch) {
+            b.onclick = function(e) {
+                if (e) e.preventDefault();
+                window.setBentoChannel(ch);
+            };
+        }
     });
     if (window.updateBentoCalc) window.updateBentoCalc();
 }

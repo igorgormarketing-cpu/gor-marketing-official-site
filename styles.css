@@ -7527,7 +7527,7 @@ main#main-content > .container {
    ========================================================================== */
 .bento-calc-container {
     display: grid;
-    grid-template-columns: 380px 1fr;
+    grid-template-columns: 420px 1fr;
     gap: 24px;
     max-width: 1140px;
     margin: 0 auto;
@@ -7941,12 +7941,41 @@ main#main-content > .container {
 /* ==========================================================================
    BENTO ROI CALCULATOR - INTERACTIVE PLATFORM BUTTONS
    ========================================================================== */
+/* Full-Width Platform Bar */
+.bento-platform-bar {
+    background: rgba(13, 17, 27, 0.95);
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    border-radius: 20px;
+    padding: 18px 22px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    margin-bottom: 24px;
+}
+
+.bento-platform-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
 .bento-platform-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 8px;
-    margin-top: 10px;
-    margin-bottom: 12px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 1024px) {
+    .bento-platform-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-platform-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
 }
 
 .bento-platform-btn {

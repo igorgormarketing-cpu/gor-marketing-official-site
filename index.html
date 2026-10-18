@@ -9,7 +9,7 @@
     <title>GOR MARKETING | סוכנות שיווק דיגיטלי 360°, חברת פרסום ופיתוח SaaS</title>
     <meta name="description" content="סוכנות שיווק דיגיטלי 360° וחברת פרסום מובילה בהובלת איגור גורלקין מאז 2008. קידום אתרים בגוגל (SEO & PPC), בניית אתרים ממירים, סוכני AI ופיתוח SaaS.">
     <meta name="keywords" content="שיווק דיגיטלי, קידום אתרים, קידום אורגני בגוגל, פרסום ממומן גוגל, GOR MARKETING, איגור גורלקין, סוכני AI, CRM, TWIN, AM BUILDING">
-    <link rel="canonical" href="https://www.gormarketing.com/">
+    <link rel="canonical" href="https://gormarketing.com/">
 
     <!-- Google Search & Browser Identity Favicons -->
     <link rel="icon" href="favicon.ico" sizes="any">
@@ -25,7 +25,7 @@
 
     <!-- OpenGraph & Social Sharing Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.gormarketing.com/">
+    <meta property="og:url" content="https://gormarketing.com/">
     <meta property="og:title" content="GOR MARKETING | שיווק דיגיטלי 360°, סוכני AI ופיתוח SaaS">
     <meta property="og:description" content="סוכנות שיווק דיגיטלי 360° עם ניסיון מעשי בכל עולמות השיווק מאז 2008, לצד סוכני AI ומערכות SaaS בהובלת איגור גורלקין. קידום אורגני SEO, פרסום ממומן בגוגל & מטא, CRM מתקדם ושיווק 360°.">
     <meta property="og:image" content="https://igorgormarketing-cpu.github.io/gor-marketing-official-site/assets/hero_full.png">
@@ -2284,7 +2284,7 @@
         "@type": "ContactAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": "https://www.gormarketing.com/#contact-section",
+          "urlTemplate": "https://gormarketing.com/#contact-section",
           "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
         },
         "name": "submit_lead_inquiry"
@@ -3031,68 +3031,110 @@
             </div>
 
             <!-- Bento Dashboard Layout -->
-            <div class="bento-calc-container">
-                <!-- Right Controls Panel -->
-                <div class="bento-controls-card">
-                    <div class="bento-controls-header">
-                        <div class="bento-controls-title">
-                            <i class="fas fa-sliders-h" style="color: var(--gold);"></i> הגדרות יעד עסקי
-                        </div>
-                        <span class="bento-live-badge"><span class="bento-pulse-dot"></span> חישוב חי</span>
-                    </div>
-
-                    <!-- Channel Selector -->
-                    <div class="bento-input-group">
-                        <label class="bento-label" for="bento-channel-select">
-                            <i class="fas fa-bullhorn" style="color: #60a5fa;"></i> ערוץ שיווק מוביל:
-                        </label>
-                        <!-- Interactive Platform Selection Buttons -->
-                        <div class="bento-platform-grid" id="bento-platform-buttons" role="radiogroup" aria-label="בחירת ערוץ שיווק מוביל">
-                            <button type="button" class="bento-platform-btn active">
+            <!-- Full-Width Step 1 Platform Selector Bar -->
+            <div class="bento-platform-bar">
+                <div class="bento-platform-bar-header">
+                    <label class="bento-label" style="font-size: 1rem; color: #fff;">
+                        <i class="fas fa-bullhorn" style="color: #60a5fa;"></i> 1. בחר ערוץ שיווק מוביל לסימולציה:
+                    </label>
+                    <span class="bento-live-badge"><span class="bento-pulse-dot"></span> 10 ערוצים פעילים ב-0ms</span>
+                </div>
+                <div class="bento-platform-grid" id="bento-platform-buttons" role="radiogroup" aria-label="בחירת ערוץ שיווק מוביל">
+                            <button type="button" class="bento-platform-btn active" data-channel="omnichannel" onclick="window.setBentoChannel('omnichannel')" aria-checked="true">
                                 <span class="platform-icon"><i class="fas fa-rocket" style="color: #ffd700;"></i></span>
                                 <span class="platform-name">מערך 360°</span>
                                 <span class="platform-badge">מומלץ</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="google_ads" onclick="window.setBentoChannel('google_ads')" aria-checked="false">
                                 <span class="platform-icon"><i class="fab fa-google" style="color: #4285f4;"></i></span>
                                 <span class="platform-name">Google Ads</span>
                                 <span class="platform-cpl">~₪110 לליד</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="meta_ads" onclick="window.setBentoChannel('meta_ads')" aria-checked="false">
                                 <span class="platform-icon"><i class="fab fa-meta" style="color: #0668e1;"></i></span>
                                 <span class="platform-name">Meta Ads</span>
                                 <span class="platform-cpl">~₪75 לליד</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="google_seo" onclick="window.setBentoChannel('google_seo')" aria-checked="false">
                                 <span class="platform-icon"><i class="fas fa-chart-line" style="color: #00ff88;"></i></span>
                                 <span class="platform-name">SEO אורגני</span>
                                 <span class="platform-cpl">~₪65 לליד</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="tiktok_ads" onclick="window.setBentoChannel('tiktok_ads')" aria-checked="false">
                                 <span class="platform-icon"><i class="fab fa-tiktok" style="color: #00f0ff;"></i></span>
                                 <span class="platform-name">TikTok Ads</span>
                                 <span class="platform-cpl">~₪55 לליד</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="youtube" onclick="window.setBentoChannel('youtube')" aria-checked="false">
                                 <span class="platform-icon"><i class="fab fa-youtube" style="color: #ff0000;"></i></span>
                                 <span class="platform-name">YouTube</span>
                                 <span class="platform-cpl">~₪90 לליד</span>
                             </button>
-                            <button type="button" class="bento-platform-btn">
+                            <button type="button" class="bento-platform-btn" data-channel="linkedin_b2b" onclick="window.setBentoChannel('linkedin_b2b')" aria-checked="false">
                                 <span class="platform-icon"><i class="fab fa-linkedin" style="color: #0a66c2;"></i></span>
                                 <span class="platform-name">LinkedIn B2B</span>
                                 <span class="platform-cpl">~₪140 לליד</span>
                             </button>
+                            <button type="button" class="bento-platform-btn" data-channel="instagram" onclick="window.setBentoChannel('instagram')" aria-checked="false">
+                                <span class="platform-icon"><i class="fab fa-instagram" style="color: #e1306c;"></i></span>
+                                <span class="platform-name">Instagram</span>
+                                <span class="platform-cpl">~₪70 לליד</span>
+                            </button>
+                            <button type="button" class="bento-platform-btn" data-channel="whatsapp_retention" onclick="window.setBentoChannel('whatsapp_retention')" aria-checked="false">
+                                <span class="platform-icon"><i class="fab fa-whatsapp" style="color: #25d366;"></i></span>
+                                <span class="platform-name">AI WhatsApp</span>
+                                <span class="platform-cpl">~₪25 לליד</span>
+                            </button>
+                            <button type="button" class="bento-platform-btn" data-channel="native_news" onclick="window.setBentoChannel('native_news')" aria-checked="false">
+                                <span class="platform-icon"><i class="fas fa-newspaper" style="color: #00bcd4;"></i></span>
+                                <span class="platform-name">טאבולה / תוכן</span>
+                                <span class="platform-cpl">~₪130 לליד</span>
+                            </button>
                         </div>
-                        <div class="bento-select-wrap" style="margin-top: 10px;">
-                            <select id="bento-channel-select" class="bento-select" onchange="window.setBentoChannel(this.value)" aria-label="בחירת ערוץ שיווק מוביל">
-                                <option value="omnichannel" selected>🚀 מערך 360° משולב (גוגל + מטא + AI)</option>
-                                <option value="google_ads">🎯 גוגל ממומן וחיפוש (Google Ads)</option>
-                                <option value="meta_ads">📢 מטא (Facebook & Instagram)</option>
-                                <option value="google_seo">📈 קידום אורגני (SEO Top Rank)</option>
-                                <option value="tiktok_ads">📱 טיקטוק ממומן (TikTok Ads)</option>
-                                <option value="youtube">🎬 פרסום וידאו ביוטיוב (YouTube Ads)</option>
-                                <option value="linkedin_b2b">💼 לינקדאין B2B מקצועי</option>
+                <!-- Programmatic select hidden for backward JS compatibility -->
+                <select id="bento-channel-select" style="display: none;" onchange="window.setBentoChannel(this.value)" aria-label="בחירת ערוץ שיווק מוביל">
+                    <option value="omnichannel" selected>🚀 מערך 360° משולב (גוגל + מטא + AI)</option>
+                    <option value="google_ads">🎯 גוגל ממומן וחיפוש (Google Ads)</option>
+                    <option value="meta_ads">📢 מטא (Facebook & Instagram)</option>
+                    <option value="google_seo">📈 קידום אורגני (SEO Top Rank)</option>
+                    <option value="tiktok_ads">📱 טיקטוק ממומן (TikTok Ads)</option>
+                    <option value="youtube">🎬 פרסום וידאו ביוטיוב (YouTube Ads)</option>
+                    <option value="linkedin_b2b">💼 לינקדאין B2B מקצועי</option>
+                    <option value="instagram">✨ אינסטגרם ומיתוג ויזואלי</option>
+                    <option value="whatsapp_retention">💬 מועדון לקוחות וסוכני AI בוואטסאפ</option>
+                    <option value="native_news">📰 כתבות תוכן וטאבולה (Native Ads)</option>
+                </select>
+            </div>
+
+            <!-- Bento Dashboard Layout: Step 2 Settings & Step 3 Results -->
+            <div class="bento-calc-container">
+                <!-- Right Controls Panel: Business Settings -->
+                <div class="bento-controls-card">
+                    <div class="bento-controls-header">
+                        <div class="bento-controls-title">
+                            <i class="fas fa-sliders-h" style="color: var(--gold);"></i> 2. הגדרות יעד וענף פעילות
+                        </div>
+                        <span class="bento-live-badge"><span class="bento-pulse-dot"></span> חישוב חי</span>
+                    </div>
+
+                    <!-- Industry / Business Sector Selector -->
+                    <div class="bento-input-group" style="margin-bottom: 20px;">
+                        <div class="bento-label-row">
+                            <label class="bento-label" for="bento-industry-select">
+                                <i class="fas fa-briefcase" style="color: var(--gold);"></i> תחום פעילות וענף העסק:
+                            </label>
+                            <span class="bento-val-badge gold" style="font-size: 0.78rem; padding: 2px 10px;">כיול אוטומטי</span>
+                        </div>
+                        <div class="bento-select-wrap">
+                            <select id="bento-industry-select" class="bento-select" onchange="window.setBentoIndustry(this.value)" aria-label="בחירת תחום עיסוק וענף פעילות">
+                                <option value="all" selected>🌐 כללי / מגוון ענפים ושירותים</option>
+                                <option value="realestate">🏢 נדל"ן, יזמות, תיווך והשקעות</option>
+                                <option value="law_finance">⚖️ עורכי דין, רואי חשבון ופיננסים</option>
+                                <option value="ecommerce">🛒 איקומרס, אופנה וחנויות דיגיטליות</option>
+                                <option value="clinics">🩺 רפואה פרטית, פלסטיקה, שיניים ואסתטיקה</option>
+                                <option value="b2b_tech">💻 B2B, הייטק, תוכנה, פיתוח ו-SaaS</option>
+                                <option value="local_services">🔨 בעלי מקצוע, שיפוצים, רכב ושירותים מקומיים</option>
+                                <option value="consulting">🎯 ייעוץ עסקי, אימון, קורסים והרצאות</option>
                             </select>
                         </div>
                     </div>
@@ -3105,12 +3147,12 @@
                             </label>
                             <span class="bento-val-badge emerald" id="bento-leads-disp">100 לידים</span>
                         </div>
-                        <input type="range" class="bento-range" id="bento-leads-slider" min="10" max="500" step="5" value="100" oninput="window.updateBentoCalc()" aria-label="יעד פניות או לידים בחודש">
+                        <input type="range" class="bento-range" id="bento-leads-slider" min="10" max="1000" step="5" value="100" oninput="window.updateBentoCalc()" aria-label="יעד פניות או לידים בחודש">
                         <div class="bento-range-hints">
                             <span>10 לידים</span>
                             <span>100</span>
-                            <span>250</span>
-                            <span>500+</span>
+                            <span>350</span>
+                            <span>1,000+</span>
                         </div>
                     </div>
 
@@ -3125,12 +3167,12 @@
                         <div class="bento-input-hint">
                             (הכנסה ברוטו ממוצעת שהעסק מייצר מכל לקוח שסוגר עסקה – לחישוב ההכנסה)
                         </div>
-                        <input type="range" class="bento-range" id="bento-deal-slider" min="1000" max="40000" step="500" value="6000" oninput="window.updateBentoCalc()" aria-label="שווי עסקת לקוח ממוצעת">
+                        <input type="range" class="bento-range" id="bento-deal-slider" min="300" max="100000" step="100" value="6000" oninput="window.updateBentoCalc()" aria-label="שווי עסקת לקוח ממוצעת">
                         <div class="bento-range-hints">
-                            <span>₪1,000</span>
+                            <span>₪300 (איקומרס)</span>
                             <span>₪6,000</span>
-                            <span>₪15,000</span>
-                            <span>₪40,000+</span>
+                            <span>₪25,000</span>
+                            <span>₪100,000+ (נדל"ן/B2B)</span>
                         </div>
                     </div>
 
@@ -3155,6 +3197,9 @@
                         <div class="bento-tile-val emerald" id="bento-res-budget">₪7,200</div>
                         <div class="bento-tile-sub" id="bento-res-cpl">
                             לפי עלות משוערת של <strong>₪72</strong> לפנייה בערוץ הנבחר
+                        </div>
+                        <div class="bento-tile-meta" style="font-size: 0.78rem; color: #ffd700; margin-top: 6px; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-check-circle" style="color: #00ff88;"></i> ענף מותאם: <span id="bento-res-industry-pill">כללי / מגוון ענפים</span>
                         </div>
                     </div>
 
@@ -4475,14 +4520,52 @@ if (Object.values(S_A11Y).some(Boolean)) {
 
 // === 4. BENTO DASHBOARD ROI CALCULATOR - ZERO LATENCY ENGINE ===
 window.BENTO_BENCHMARKS = {
-    omnichannel: { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35 },
-    google_ads: { name: 'גוגל ממומן (Google Ads)', baseCpl: 110, convMult: 1.35, aiBoost: 0.30 },
-    meta_ads: { name: 'מטא (Facebook & Instagram)', baseCpl: 75, convMult: 0.95, aiBoost: 0.40 },
-    google_seo: { name: 'קידום אורגני (SEO Top Rank)', baseCpl: 65, convMult: 1.20, aiBoost: 0.25 },
-    tiktok_ads: { name: 'טיקטוק ממומן (TikTok Ads)', baseCpl: 55, convMult: 0.85, aiBoost: 0.45 },
-    youtube: { name: 'פרסום וידאו ביוטיוב', baseCpl: 90, convMult: 1.15, aiBoost: 0.35 },
-    linkedin_b2b: { name: 'לינקדאין B2B מקצועי', baseCpl: 140, convMult: 1.45, aiBoost: 0.25 }
+    omnichannel: { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35, icon: 'fa-rocket' },
+    google_ads: { name: 'גוגל ממומן (Google Ads)', baseCpl: 110, convMult: 1.35, aiBoost: 0.30, icon: 'fa-google' },
+    meta_ads: { name: 'מטא (Facebook & Instagram)', baseCpl: 75, convMult: 0.95, aiBoost: 0.40, icon: 'fa-meta' },
+    google_seo: { name: 'קידום אורגני (SEO Top Rank)', baseCpl: 65, convMult: 1.20, aiBoost: 0.25, icon: 'fa-chart-line' },
+    tiktok_ads: { name: 'טיקטוק ממומן (TikTok Ads)', baseCpl: 55, convMult: 0.85, aiBoost: 0.45, icon: 'fa-tiktok' },
+    youtube: { name: 'פרסום וידאו ביוטיוב', baseCpl: 90, convMult: 1.15, aiBoost: 0.35, icon: 'fa-youtube' },
+    linkedin_b2b: { name: 'לינקדאין B2B מקצועי', baseCpl: 140, convMult: 1.45, aiBoost: 0.25, icon: 'fa-linkedin' },
+    instagram: { name: 'אינסטגרם ומיתוג ויזואלי', baseCpl: 70, convMult: 0.95, aiBoost: 0.35, icon: 'fa-instagram' },
+    whatsapp_retention: { name: 'מועדון לקוחות וסוכני AI', baseCpl: 25, convMult: 2.20, aiBoost: 0.40, icon: 'fa-whatsapp' },
+    native_news: { name: 'כתבות תוכן וטאבולה (Native Ads)', baseCpl: 130, convMult: 1.10, aiBoost: 0.30, icon: 'fa-newspaper' }
 };
+
+window.BENTO_INDUSTRIES = {
+    all: { name: 'כללי / מגוון ענפים', defaultDeal: 6000, cplFactor: 1.0, convFactor: 1.0 },
+    realestate: { name: 'נדל"ן, יזמות והשקעות', defaultDeal: 35000, cplFactor: 1.45, convFactor: 0.55 },
+    law_finance: { name: 'עורכי דין, רואי חשבון ופיננסים', defaultDeal: 12000, cplFactor: 1.25, convFactor: 0.85 },
+    ecommerce: { name: 'איקומרס וחנויות אונליין', defaultDeal: 500, cplFactor: 0.45, convFactor: 2.50 },
+    clinics: { name: 'רפואה פרטית, אסתטיקה וקליניקות', defaultDeal: 8500, cplFactor: 1.15, convFactor: 0.95 },
+    b2b_tech: { name: 'B2B, הייטק ו-SaaS', defaultDeal: 25000, cplFactor: 1.50, convFactor: 0.65 },
+    local_services: { name: 'בעלי מקצוע ושירותים מקומיים', defaultDeal: 3500, cplFactor: 0.80, convFactor: 1.30 },
+    consulting: { name: 'ייעוץ עסקי, אימון והדרכות', defaultDeal: 7500, cplFactor: 1.05, convFactor: 0.90 }
+};
+
+function getDealMult(deal) {
+    if (deal <= 500) return 0.40;
+    if (deal <= 1000) return 0.55;
+    if (deal <= 2000) return 0.70;
+    if (deal <= 4000) return 0.85;
+    if (deal <= 8000) return 1.00;
+    if (deal <= 15000) return 1.30;
+    if (deal <= 30000) return 1.70;
+    if (deal <= 60000) return 2.10;
+    return 2.50;
+}
+
+function getBaseConv(deal) {
+    if (deal <= 500) return 0.25;
+    if (deal <= 1000) return 0.20;
+    if (deal <= 2000) return 0.14;
+    if (deal <= 4000) return 0.10;
+    if (deal <= 8000) return 0.075;
+    if (deal <= 15000) return 0.050;
+    if (deal <= 30000) return 0.035;
+    if (deal <= 60000) return 0.025;
+    return 0.018;
+}
 
 window.setBentoChannel = function(channelKey) {
     if (!channelKey) return;
@@ -4506,13 +4589,31 @@ window.setBentoChannel = function(channelKey) {
     }
 };
 
+window.setBentoIndustry = function(indKey) {
+    if (!indKey) return;
+    var indSelect = document.getElementById('bento-industry-select');
+    if (indSelect) indSelect.value = indKey;
+    var ind = (window.BENTO_INDUSTRIES && window.BENTO_INDUSTRIES[indKey]) ? window.BENTO_INDUSTRIES[indKey] : null;
+    if (ind && ind.defaultDeal) {
+        var dealSlider = document.getElementById('bento-deal-slider');
+        if (dealSlider) {
+            dealSlider.value = ind.defaultDeal;
+        }
+    }
+    if (typeof window.updateBentoCalc === 'function') {
+        window.updateBentoCalc();
+    }
+};
+
 window.updateBentoCalc = function() {
     var channelSelect = document.getElementById('bento-channel-select');
+    var indSelect = document.getElementById('bento-industry-select');
     var leadsSlider = document.getElementById('bento-leads-slider');
     var dealSlider = document.getElementById('bento-deal-slider');
     if (!leadsSlider || !dealSlider) return;
 
     var chKey = (channelSelect && channelSelect.value) ? channelSelect.value : 'omnichannel';
+    var indKey = (indSelect && indSelect.value) ? indSelect.value : 'all';
     var leads = parseInt(leadsSlider.value, 10) || 100;
     var deal = parseInt(dealSlider.value, 10) || 6000;
 
@@ -4529,26 +4630,16 @@ window.updateBentoCalc = function() {
     });
 
     var benchmarks = window.BENTO_BENCHMARKS || {};
+    var industries = window.BENTO_INDUSTRIES || {};
     var ch = benchmarks[chKey] || benchmarks.omnichannel || { name: 'מערך 360° משולב', baseCpl: 85, convMult: 1.25, aiBoost: 0.35 };
-    var mult = 1.0;
-    if (deal <= 2000) mult = 0.70;
-    else if (deal <= 4000) mult = 0.85;
-    else if (deal <= 8000) mult = 1.00;
-    else if (deal <= 15000) mult = 1.30;
-    else if (deal <= 30000) mult = 1.70;
-    else mult = 2.10;
+    var ind = industries[indKey] || industries.all || { name: 'כללי / מגוון ענפים', cplFactor: 1.0, convFactor: 1.0 };
 
-    var baseConv = 0.075;
-    if (deal <= 2000) baseConv = 0.14;
-    else if (deal <= 4000) baseConv = 0.10;
-    else if (deal <= 8000) baseConv = 0.075;
-    else if (deal <= 15000) baseConv = 0.050;
-    else if (deal <= 30000) baseConv = 0.035;
-    else baseConv = 0.025;
+    var mult = getDealMult(deal);
+    var baseConv = getBaseConv(deal);
 
-    var effCpl = Math.round(ch.baseCpl * mult * 0.85);
+    var effCpl = Math.max(15, Math.round(ch.baseCpl * mult * ind.cplFactor * 0.85));
     var budget = Math.round(leads * effCpl);
-    var effConv = baseConv * ch.convMult * (1 + ch.aiBoost);
+    var effConv = Math.min(0.85, baseConv * ch.convMult * ind.convFactor * (1 + ch.aiBoost));
     var deals = Math.max(1, Math.round(leads * effConv));
     var rev = deals * deal;
     var roas = budget > 0 ? Math.round((rev / budget) * 100) : 0;
@@ -4562,6 +4653,9 @@ window.updateBentoCalc = function() {
 
     var resChannelPill = document.getElementById('bento-res-channel-pill');
     if (resChannelPill) resChannelPill.textContent = ch.name;
+
+    var resIndustryPill = document.getElementById('bento-res-industry-pill');
+    if (resIndustryPill) resIndustryPill.textContent = ind.name;
 
     var resBudget = document.getElementById('bento-res-budget');
     if (resBudget) resBudget.textContent = '₪' + budget.toLocaleString('he-IL');
@@ -4582,7 +4676,7 @@ window.updateBentoCalc = function() {
     if (resDeals) resDeals.textContent = deals + ' עסקאות';
 
     var resConvRate = document.getElementById('bento-res-conv-rate');
-    if (resConvRate) resConvRate.textContent = 'יחס המרה של ' + Math.round(effConv * 100) + '% מתוך הפניות';
+    if (resConvRate) resConvRate.textContent = 'יחס המרה של ' + Math.round(effConv * 100) + '% מתוך הפניות (' + ind.name + ')';
 
     var resRoas = document.getElementById('bento-res-roas');
     if (resRoas) resRoas.textContent = roas.toLocaleString('he-IL') + '%';
@@ -4594,24 +4688,31 @@ window.updateBentoCalc = function() {
     if (ctaBtn) {
         var msg = encodeURIComponent(
             'היי איגור, הרכבתי תחזית במחשבון ה-ROI של GOR MARKETING:%0A' +
-            '• ערוץ שיווק: ' + ch.name + '%0A' +
+            '• תחום פעילות וענף: ' + ind.name + '%0A' +
+            '• ערוץ שיווק מוביל: ' + ch.name + '%0A' +
             '• יעד לידים חודשי: ' + leads + ' פניות%0A' +
-            '• שווי עסקת לקוח: ₪' + deal.toLocaleString('he-IL') + '%0A' +
-            '• תקציב פרסום מומלץ: ₪' + budget.toLocaleString('he-IL') + '%0A' +
-            '• צפי הכנסות: ₪' + rev.toLocaleString('he-IL') + ' (' + deals + ' עסקאות)%0A' +
-            '• תשואת פרסום ROAS: ' + roas + '%%0A%0A' +
+            '• שווי עסקת לקוח ממוצעת: ₪' + deal.toLocaleString('he-IL') + '%0A' +
+            '• תקציב פרסום מומלץ: ₪' + budget.toLocaleString('he-IL') + ' (~₪' + effCpl + ' לליד)%0A' +
+            '• צפי סגירת עסקאות: ' + deals + ' עסקאות%0A' +
+            '• צפי הכנסות: ₪' + rev.toLocaleString('he-IL') + '%0A' +
+            '• צפי תרומה לרווח: ₪' + profit.toLocaleString('he-IL') + '%0A' +
+            '• תשואת פרסום ROAS: ' + roas + '% (פי ' + (roas / 100).toFixed(1) + ')%0A%0A' +
             'אשמח לבנות תוכנית עבודה מותאמת אישית איתך!'
         );
         ctaBtn.href = 'https://wa.me/972525155598?text=' + msg;
     }
 };
 
-// Direct event listener attachment on load to guarantee 100% click reliability
 function initBentoButtonEvents() {
     var btns = document.querySelectorAll('.bento-platform-btn');
     btns.forEach(function(b) {
         var ch = b.getAttribute('data-channel');
-        b.onclick = function() { window.setBentoChannel(ch); };
+        if (ch) {
+            b.onclick = function(e) {
+                if (e) e.preventDefault();
+                window.setBentoChannel(ch);
+            };
+        }
     });
     if (window.updateBentoCalc) window.updateBentoCalc();
 }
