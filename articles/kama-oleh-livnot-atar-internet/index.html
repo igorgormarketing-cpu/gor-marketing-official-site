@@ -557,7 +557,137 @@
         </div>
 
         </div>
-    </main>
+    
+        <!-- INTERACTIVE LEAD MAGNET: GOR WEBSITE COST CALCULATOR 2026 -->
+        <div id="gor-website-calc" class="gor-interactive-calc-card" style="margin: 40px 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(10, 14, 23, 0.98)); border: 2px solid #f59e0b; border-radius: 16px; padding: 32px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); direction: rtl; text-align: right; color: #f8fafc;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid rgba(245, 158, 11, 0.25); padding-bottom: 16px;">
+                <div>
+                    <span style="background: #f59e0b; color: #000; font-weight: 800; font-size: 0.78rem; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">כלי אינטראקטיבי 2026</span>
+                    <h3 style="margin: 8px 0 4px 0; font-size: 1.55rem; color: #ffffff; font-weight: 800;">🧮 מחשבון עלות הקמת אתר אינטרנט בזמן אמת</h3>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">בחרו את סוג האתר והפיצ'רים הרצויים לקבלת הערכת מחיר, לוח זמנים והמלצת טכנולוגיה מיידית:</p>
+                </div>
+                <div style="text-align: left;">
+                    <span style="color: #10b981; font-size: 0.85rem; font-weight: 600;">● מותאם לתקני שוק 2026</span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <!-- Controls -->
+                <div>
+                    <label for="site-type-select" style="display: block; font-weight: 700; margin-bottom: 8px; color: #e2e8f0; font-size: 0.95rem;">1. מהו סוג האתר הנדרש?</label>
+                    <select id="site-type-select" onchange="updateSiteCalc()" style="width: 100%; padding: 12px 14px; background: #1e293b; color: #ffffff; border: 1px solid #334155; border-radius: 8px; font-size: 1rem; margin-bottom: 18px; outline: none;">
+                        <option value="landing" data-base="2800" data-days="5" data-tech="HTML5 מהיר / Tailwind">דף נחיתה מקצועי וממיר (One-Page)</option>
+                        <option value="corporate" data-base="6500" data-days="14" data-tech="WordPress פרימיום / Custom" selected>אתר תדמית עסקי פרימיום (5-10 עמודים)</option>
+                        <option value="ecommerce" data-base="12500" data-days="24" data-tech="WooCommerce / Shopify מותאם אישית">חנות איקומרס מלאה עם סליקה ומוצרים</option>
+                        <option value="custom" data-base="22000" data-days="40" data-tech="Next.js / Node.js / Headless">פורטל מורכב / פלטפורמת Web ייעודית</option>
+                    </select>
+
+                    <label style="display: block; font-weight: 700; margin-bottom: 8px; color: #e2e8f0; font-size: 0.95rem;">2. שדרוגים ותוספות חיוניות:</label>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(30, 41, 59, 0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid #334155;">
+                            <input type="checkbox" id="feature-crm" onchange="updateSiteCalc()" checked style="width: 18px; height: 18px; accent-color: #f59e0b;">
+                            <span style="font-size: 0.9rem; color: #cbd5e1;">חיבור אוטומטי ל-CRM ווואטסאפ (התראת ליד מיידית) (+₪1,200)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(30, 41, 59, 0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid #334155;">
+                            <input type="checkbox" id="feature-seo" onchange="updateSiteCalc()" checked style="width: 18px; height: 18px; accent-color: #f59e0b;">
+                            <span style="font-size: 0.9rem; color: #cbd5e1;">הכנה מלאה ל-SEO אורגני ו-GEO Snippets ל-AI (+₪1,800)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(30, 41, 59, 0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid #334155;">
+                            <input type="checkbox" id="feature-copy" onchange="updateSiteCalc()" style="width: 18px; height: 18px; accent-color: #f59e0b;">
+                            <span style="font-size: 0.9rem; color: #cbd5e1;">קופירייטינג וכתיבת תוכן שיווקי ממיר מאפס (+₪2,500)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: rgba(30, 41, 59, 0.6); padding: 8px 12px; border-radius: 6px; border: 1px solid #334155;">
+                            <input type="checkbox" id="feature-speed" onchange="updateSiteCalc()" checked style="width: 18px; height: 18px; accent-color: #f59e0b;">
+                            <span style="font-size: 0.9rem; color: #cbd5e1;">אופטימיזציית מהירות 95+ PageSpeed ונגישות עפ&quot;י חוק (+₪1,400)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Live Results Box -->
+                <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span style="color: #94a3b8; font-size: 0.85rem; text-transform: uppercase;">הערכת עלות פרויקט מומלצת:</span>
+                        <div id="site-calc-price" style="font-size: 2.6rem; font-weight: 900; color: #fbbf24; margin: 6px 0 12px 0;">₪10,900</div>
+                        
+                        <div style="border-top: 1px solid #1e293b; padding-top: 14px; margin-bottom: 14px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="color: #94a3b8; font-size: 0.88rem;">זמן אספקה משוער:</span>
+                                <strong id="site-calc-days" style="color: #ffffff; font-size: 0.92rem;">כ-18 ימי עבודה</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                                <span style="color: #94a3b8; font-size: 0.88rem;">טכנולוגיה מומלצת:</span>
+                                <strong id="site-calc-tech" style="color: #38bdf8; font-size: 0.92rem;">WordPress פרימיום / Custom</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #94a3b8; font-size: 0.88rem;">אחריות וליווי:</span>
+                                <strong style="color: #10b981; font-size: 0.92rem;">3 חודשי תמיכה מלאים</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a id="site-calc-whatsapp-btn" href="https://wa.me/972525155598" target="_blank" rel="noopener" style="display: block; text-align: center; background: #25D366; color: #ffffff; padding: 14px 16px; border-radius: 8px; font-weight: 800; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); transition: transform 0.2s;">
+                            💬 שליחת המפרט לבדיקה ישירה עם איגור
+                        </a>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <span style="color: #64748b; font-size: 0.78rem;">מענה אישי ומקצועי מאיגור תוך זמן קצר • ללא שום התחייבות</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function updateSiteCalc() {
+            var select = document.getElementById('site-type-select');
+            var opt = select.options[select.selectedIndex];
+            var basePrice = parseInt(opt.getAttribute('data-base'), 10);
+            var baseDays = parseInt(opt.getAttribute('data-days'), 10);
+            var tech = opt.getAttribute('data-tech');
+
+            var total = basePrice;
+            var days = baseDays;
+            var featuresList = [];
+
+            if (document.getElementById('feature-crm').checked) {
+                total += 1200;
+                days += 1;
+                featuresList.push('CRM ווואטסאפ');
+            }
+            if (document.getElementById('feature-seo').checked) {
+                total += 1800;
+                days += 2;
+                featuresList.push('SEO + GEO Snippets');
+            }
+            if (document.getElementById('feature-copy').checked) {
+                total += 2500;
+                days += 3;
+                featuresList.push('קופירייטינג מלא');
+            }
+            if (document.getElementById('feature-speed').checked) {
+                total += 1400;
+                days += 1;
+                featuresList.push('מהירות 95+ ונגישות');
+            }
+
+            document.getElementById('site-calc-price').textContent = '₪' + total.toLocaleString();
+            document.getElementById('site-calc-days').textContent = 'כ-' + days + ' ימי עבודה';
+            document.getElementById('site-calc-tech').textContent = tech;
+
+            var msg = 'היי איגור, השתמשתי במחשבון עלות אתר באתר גור מרקטינג. אני מעוניין ב: ' + opt.text.trim() + 
+                      ' | תוספות: ' + (featuresList.length ? featuresList.join(', ') : 'ללא') + 
+                      ' | אומדן: ₪' + total.toLocaleString() + ' (' + days + ' ימים). אשמח לייעוץ קצר!';
+            
+            var waBtn = document.getElementById('site-calc-whatsapp-btn');
+            waBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
+        }
+        if (typeof document !== 'undefined') {
+            setTimeout(updateSiteCalc, 50);
+        }
+        </script>
+        <!-- END INTERACTIVE LEAD MAGNET -->
+
+</main>
 
     <!-- Footer -->
     <footer style="background: #040508; border-top: 1px solid var(--border-gold); padding: 40px 16px; text-align: center; color: var(--text-muted); font-size: 0.88rem;">

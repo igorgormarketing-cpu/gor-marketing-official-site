@@ -561,7 +561,127 @@
         </div>
 
         </div>
-    </main>
+    
+        <!-- INTERACTIVE LEAD MAGNET: GOR SEO VS PPC ROI CALCULATOR 2026 -->
+        <div id="gor-seo-ppc-calc" class="gor-interactive-calc-card" style="margin: 40px 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(10, 14, 23, 0.98)); border: 2px solid #38bdf8; border-radius: 16px; padding: 32px 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); direction: rtl; text-align: right; color: #f8fafc;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid rgba(56, 189, 248, 0.25); padding-bottom: 16px;">
+                <div>
+                    <span style="background: #38bdf8; color: #000; font-weight: 800; font-size: 0.78rem; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px;">מחשבון תשואה אסטרטגי</span>
+                    <h3 style="margin: 8px 0 4px 0; font-size: 1.55rem; color: #ffffff; font-weight: 800;">📊 סימולטור השוואת ROI: קידום אורגני מול ממומן</h3>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">בדקו איך התקציב שלכם יניב תוצאות לאורך 12 חודשים ומה תמהיל התקציב האופטימלי לענף שלכם:</p>
+                </div>
+                <div style="text-align: left;">
+                    <span style="color: #fbbf24; font-size: 0.85rem; font-weight: 600;">● מודל חיזוי GOR אלגוריתמי</span>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                <!-- Controls -->
+                <div>
+                    <label style="display: block; font-weight: 700; margin-bottom: 6px; color: #e2e8f0; font-size: 0.95rem;">
+                        1. תקציב שיווק חודשי כולל: <span id="budget-display" style="color: #38bdf8; font-weight: 800;">₪6,000</span>
+                    </label>
+                    <input type="range" id="roi-budget-slider" min="3000" max="30000" step="1000" value="6000" oninput="updateRoiCalc()" style="width: 100%; margin-bottom: 18px; accent-color: #38bdf8;">
+
+                    <label for="roi-industry-select" style="display: block; font-weight: 700; margin-bottom: 8px; color: #e2e8f0; font-size: 0.95rem;">2. ענף פעילות (עלות קליק ממוצעת):</label>
+                    <select id="roi-industry-select" onchange="updateRoiCalc()" style="width: 100%; padding: 12px 14px; background: #1e293b; color: #ffffff; border: 1px solid #334155; border-radius: 8px; font-size: 1rem; margin-bottom: 18px; outline: none;">
+                        <option value="services" data-cpc="12" selected>שירותים מקצועיים / עסקים (CPC ממוצע: ₪12)</option>
+                        <option value="legal" data-cpc="28">עריכת דין / פיננסים / נדל&quot;ן (CPC ממוצע: ₪28)</option>
+                        <option value="home" data-cpc="18">בעלי מקצוע / שיפוצים / הנדסה (CPC ממוצע: ₪18)</option>
+                        <option value="ecommerce" data-cpc="5">איקומרס / מוצרי צריכה (CPC ממוצע: ₪5)</option>
+                    </select>
+
+                    <label for="roi-timeframe-select" style="display: block; font-weight: 700; margin-bottom: 8px; color: #e2e8f0; font-size: 0.95rem;">3. אופק תכנון אסטרטגי:</label>
+                    <select id="roi-timeframe-select" onchange="updateRoiCalc()" style="width: 100%; padding: 12px 14px; background: #1e293b; color: #ffffff; border: 1px solid #334155; border-radius: 8px; font-size: 1rem; outline: none;">
+                        <option value="6">6 חודשים (תקופת הבשלה ראשונית)</option>
+                        <option value="12" selected>12 חודשים (תמונת תשואה מלאה)</option>
+                        <option value="24">24 חודשים (שליטה מקסימלית בשוק ונכס מניב)</option>
+                    </select>
+                </div>
+
+                <!-- Simulation Output -->
+                <div style="background: #0b1120; border: 1px solid #1e293b; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                            <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 12px; text-align: center;">
+                                <span style="color: #f87171; font-size: 0.78rem; font-weight: 700; display: block;">ממומן בלבד (PPC)</span>
+                                <div id="ppc-leads-count" style="color: #ffffff; font-size: 1.4rem; font-weight: 800; margin: 4px 0;">35 לידים/חודש</div>
+                                <span id="ppc-cpl-display" style="color: #94a3b8; font-size: 0.78rem;">עלות לליד: ₪171</span>
+                            </div>
+                            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px; text-align: center;">
+                                <span style="color: #34d399; font-size: 0.78rem; font-weight: 700; display: block;">שילוב SEO + PPC (מומלץ)</span>
+                                <div id="combo-leads-count" style="color: #ffffff; font-size: 1.4rem; font-weight: 800; margin: 4px 0;">72 לידים/חודש</div>
+                                <span id="combo-cpl-display" style="color: #94a3b8; font-size: 0.78rem;">עלות לליד: ₪83 (חיסכון של 51%)</span>
+                            </div>
+                        </div>
+
+                        <div style="border-top: 1px solid #1e293b; padding-top: 12px; margin-bottom: 14px;">
+                            <div style="margin-bottom: 6px; font-size: 0.88rem; color: #94a3b8;">
+                                תמהיל חלוקת תקציב אידיאלי: <strong id="budget-split" style="color: #fbbf24;">50% ממומן / 50% אורגני</strong>
+                            </div>
+                            <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.4;">
+                                💡 <strong>תובנת מומחה:</strong> בממומן בלבד ברגע שמפסיקים לשלם – התנועה מתאפסת לאפס. בשילוב SEO, בתוך 12 חודשים אתם מייצרים נכס דיגיטלי שמזרים עשרות פניות בחודש כמעט ללא עלות מדיה נוספת.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a id="roi-calc-whatsapp-btn" href="#" target="_blank" rel="noopener" style="display: block; text-align: center; background: #25D366; color: #ffffff; padding: 14px 16px; border-radius: 8px; font-weight: 800; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4); transition: transform 0.2s;">
+                            💬 קבלת תוכנית חלוקת תקציב אישית מאיגור
+                        </a>
+                        <div style="text-align: center; margin-top: 8px;">
+                            <span style="color: #64748b; font-size: 0.78rem;">בניית אסטרטגיה מותאמת ישירות עם מייסד הסוכנות</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function updateRoiCalc() {
+            var budget = parseInt(document.getElementById('roi-budget-slider').value, 10);
+            document.getElementById('budget-display').textContent = '₪' + budget.toLocaleString();
+
+            var indSelect = document.getElementById('roi-industry-select');
+            var cpc = parseFloat(indSelect.options[indSelect.selectedIndex].getAttribute('data-cpc'));
+            var industryName = indSelect.options[indSelect.selectedIndex].text.split('(')[0].trim();
+
+            var months = parseInt(document.getElementById('roi-timeframe-select').value, 10);
+
+            // PPC only calculations
+            var ppcClicks = Math.round(budget / cpc);
+            var convRate = 0.07;
+            var ppcLeads = Math.max(3, Math.round(ppcClicks * convRate));
+            var ppcCpl = Math.round(budget / ppcLeads);
+
+            // Combo SEO + PPC (at target months)
+            var seoMultiplier = months === 6 ? 1.4 : (months === 12 ? 2.1 : 3.2);
+            var comboLeads = Math.round(ppcLeads * seoMultiplier);
+            var comboCpl = Math.round(budget / comboLeads);
+            var savingPercent = Math.round(((ppcCpl - comboCpl) / ppcCpl) * 100);
+
+            document.getElementById('ppc-leads-count').textContent = ppcLeads + ' לידים/חודש';
+            document.getElementById('ppc-cpl-display').textContent = 'עלות לליד: ₪' + ppcCpl.toLocaleString();
+
+            document.getElementById('combo-leads-count').textContent = comboLeads + ' לידים/חודש';
+            document.getElementById('combo-cpl-display').textContent = 'עלות לליד: ₪' + comboCpl.toLocaleString() + ' (' + savingPercent + '% חיסכון)';
+
+            var splitText = months <= 6 ? '60% ממומן / 40% אורגני (שלב פריצה)' : '40% ממומן / 60% אורגני (נכס מבוסס)';
+            document.getElementById('budget-split').textContent = splitText;
+
+            var waMsg = 'היי איגור, ביצעתי סימולציה במחשבון התשואה (SEO מול ממומן). ' +
+                        'התקציב שלי: ₪' + budget.toLocaleString() + ' בחודש | תחום: ' + industryName + 
+                        ' | אופק: ' + months + ' חודשים. אשמח לבחון יחד את התמהיל המנצח לעסק שלי!';
+            
+            document.getElementById('roi-calc-whatsapp-btn').href = 'https://wa.me/972525155598?text=' + encodeURIComponent(waMsg);
+        }
+        if (typeof document !== 'undefined') {
+            setTimeout(updateRoiCalc, 50);
+        }
+        </script>
+        <!-- END INTERACTIVE LEAD MAGNET -->
+
+</main>
 
     <!-- Footer -->
     <footer style="background: #040508; border-top: 1px solid var(--border-gold); padding: 40px 16px; text-align: center; color: var(--text-muted); font-size: 0.88rem;">
