@@ -1275,7 +1275,7 @@ window.resetA11y = function() {
 
 // Toggle accessibility panel
 document.addEventListener('click', function(e) {
-    var toggleBtn = e.target.closest('#accessibilityToggleBtn');
+    var toggleBtn = (e.target.closest('#accessibilityToggleBtn') || e.target.closest('#gor-a11y-fab') || e.target.closest('.accessibility-trigger'));
     var closeBtn = e.target.closest('#a11yCloseBtn');
     var panel = document.getElementById('accessibilityPanel');
     
@@ -1759,3 +1759,18 @@ window.sendGorBotMsg = function() {
         }
     }
 };
+
+window.toggleGorA11yPanel = window.toggleGorA11yPanel || function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    if (!p) return;
+    var open = p.classList.contains('active') || p.style.display === 'flex';
+    if (open) { p.classList.remove('active'); p.style.display = 'none'; }
+    else { p.classList.add('active'); p.style.display = 'flex'; }
+};
+window.closeGorA11yPanel = window.closeGorA11yPanel || function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    if (p) { p.classList.remove('active'); p.style.display = 'none'; }
+};
+window.toggleA11y = window.toggleA11y || window.toggleA11yFeature;

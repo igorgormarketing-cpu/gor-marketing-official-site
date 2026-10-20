@@ -1968,11 +1968,7 @@
     </button>
 
     <!-- 3. Accessibility Floating Button (Bottom Left) -->
-    <button type="button" 
-       id="gor-a11y-fab" 
-       class="accessibility-trigger" 
-       aria-label="פתח סרגל נגישות" 
-       title="סרגל נגישות תקן 1918">
+    <button type="button" id="gor-a11y-fab" class="accessibility-trigger" aria-label="פתח סרגל נגישות" title="סרגל נגישות" onclick="window.toggleGorA11yPanel(event)">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M16 8h-8a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg>
     </button>
 
@@ -2035,7 +2031,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M16 8h-8a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg>
                 סרגל נגישות (תקן 1918)
             </h3>
-            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות">&times;</button>
+            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות" onclick="window.closeGorA11yPanel(event)">&times;</button>&times;</button>
         </div>
         
         <div class="a11y-grid">

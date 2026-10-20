@@ -1154,7 +1154,7 @@
     </button>
 
     <!-- 3. Accessibility FAB (Bottom-Right) -->
-    <button type="button" id="gor-a11y-fab" class="accessibility-trigger" aria-label="פתח סרגל נגישות" title="תפריט נגישות">
+    <button type="button" id="gor-a11y-fab" class="accessibility-trigger" aria-label="פתח סרגל נגישות" title="סרגל נגישות" onclick="window.toggleGorA11yPanel(event)">
         <i class="fas fa-universal-access"></i>
     </button>
 
@@ -1211,7 +1211,7 @@
     <div id="accessibilityPanel" class="accessibility-modal" role="dialog" aria-modal="true" aria-label="סרגל נגישות">
         <div class="a11y-header">
             <h3><i class="fas fa-universal-access"></i> תפריט נגישות</h3>
-            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגור תפריט נגישות">&times;</button>
+            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות" onclick="window.closeGorA11yPanel(event)">&times;</button>&times;</button>
         </div>
         <div class="a11y-grid">
             <button type="button" class="a11y-btn" onclick="toggleA11y('font-lg')"><i class="fas fa-text-height"></i> הגדל טקסט</button>
