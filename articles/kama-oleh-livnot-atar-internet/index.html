@@ -631,6 +631,12 @@
                         </a>
                         <div style="text-align: center; margin-top: 8px;">
                             <span style="color: #64748b; font-size: 0.78rem;">מענה אישי ומקצועי מאיגור תוך זמן קצר • ללא שום התחייבות</span>
+
+                    <div style="background: rgba(255,255,255,0.03); border: 1px dashed rgba(245,158,11,0.4); border-radius: 8px; padding: 10px 14px; margin-top: 14px; text-align: right;">
+                        <span style="color: #fbbf24; font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 2px;">⚠️ הבהרה חשובה (ללא התחייבות):</span>
+                        <p style="color: #94a3b8; font-size: 0.75rem; line-height: 1.4; margin: 0;">המחשבון מציג אומדן והערכת עלות יחסית בלבד לצרכי אפיון ותכנון תקציבי, ואינו מהווה הצעה מסחרית מחייבת. המחיר הסופי ייקבע לאחר אפיון צרכים טכנולוגי מדויק מול איגור גורלקין.</p>
+                    </div>
+
                         </div>
                     </div>
                 </div>
@@ -676,7 +682,7 @@
 
             var msg = 'היי איגור, השתמשתי במחשבון עלות אתר באתר גור מרקטינג. אני מעוניין ב: ' + opt.text.trim() + 
                       ' | תוספות: ' + (featuresList.length ? featuresList.join(', ') : 'ללא') + 
-                      ' | אומדן: ₪' + total.toLocaleString() + ' (' + days + ' ימים). אשמח לייעוץ קצר!';
+                      ' | אומדן יחסי לא מחייב: ₪' + total.toLocaleString() + ' (' + days + ' ימים). אשמח לייעוץ קצר!';
             
             var waBtn = document.getElementById('site-calc-whatsapp-btn');
             waBtn.href = 'https://wa.me/972525155598?text=' + encodeURIComponent(msg);
