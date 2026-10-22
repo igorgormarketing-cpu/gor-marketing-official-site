@@ -101,3 +101,30 @@
         right: auto !important;
     }
 }
+
+/* GOR ACCESSIBILITY DEFINITIVE CLOSE & ACTIVE FIX */
+.accessibility-modal:not(.active),
+#accessibilityPanel:not(.active) {
+    display: none !important;
+}
+.a11y-btn.active {
+    background: rgba(0, 240, 255, 0.25) !important;
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
+}
+.a11y-close {
+    cursor: pointer !important;
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    font-size: 1.6rem !important;
+    line-height: 1 !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    transition: color 0.2s, background 0.2s !important;
+}
+.a11y-close:hover {
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+}

@@ -1273,16 +1273,11 @@ window.resetA11y = function() {
     applyA11yStyles();
 };
 
-// Toggle accessibility panel
+// Universal accessibility panel delegation
 document.addEventListener('click', function(e) {
-    var toggleBtn = (e.target.closest('#accessibilityToggleBtn') || e.target.closest('#gor-a11y-fab') || e.target.closest('.accessibility-trigger'));
     var closeBtn = e.target.closest('#a11yCloseBtn');
-    var panel = document.getElementById('accessibilityPanel');
-    
-    if (toggleBtn && panel) {
-        panel.style.display = (panel.style.display === 'none' || !panel.style.display) ? 'block' : 'none';
-    } else if (closeBtn && panel) {
-        panel.style.display = 'none';
+    if (closeBtn && window.closeGorA11yPanel) {
+        window.closeGorA11yPanel(e);
     }
 });
 
@@ -1760,17 +1755,36 @@ window.sendGorBotMsg = function() {
     }
 };
 
-window.toggleGorA11yPanel = window.toggleGorA11yPanel || function(e) {
+window.openGorA11yPanel = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    var botModal = document.getElementById('gor-bot-modal');
+    if (botModal) {
+        botModal.classList.remove('active');
+        botModal.style.display = 'none';
+    }
+    if (p) {
+        p.classList.add('active');
+        p.style.display = 'flex';
+    }
+};
+window.closeGorA11yPanel = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    if (p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+    }
+};
+window.toggleGorA11yPanel = function(e) {
     if (e && e.preventDefault) e.preventDefault();
     var p = document.getElementById('accessibilityPanel');
     if (!p) return;
-    var open = p.classList.contains('active') || p.style.display === 'flex';
-    if (open) { p.classList.remove('active'); p.style.display = 'none'; }
-    else { p.classList.add('active'); p.style.display = 'flex'; }
-};
-window.closeGorA11yPanel = window.closeGorA11yPanel || function(e) {
-    if (e && e.preventDefault) e.preventDefault();
-    var p = document.getElementById('accessibilityPanel');
-    if (p) { p.classList.remove('active'); p.style.display = 'none'; }
+    var open = p.classList.contains('active') || (p.style.display === 'flex' || p.style.display === 'block');
+    if (open) {
+        window.closeGorA11yPanel(e);
+    } else {
+        window.openGorA11yPanel(e);
+    }
 };
 window.toggleA11y = window.toggleA11y || window.toggleA11yFeature;

@@ -2059,7 +2059,7 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--cyan-accent)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4" r="2"></circle><path d="M16 8h-8a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-5h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z"></path></svg>
                 סרגל נגישות (תקן 1918)
             </h3>
-            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות" onclick="window.closeGorA11yPanel(event)">&times;</button>&times;</button>
+            <button type="button" id="a11yCloseBtn" class="a11y-close" aria-label="סגירת סרגל נגישות" onclick="window.closeGorA11yPanel(event)">&times;</button>
         </div>
         
         <div class="a11y-grid">
@@ -2173,6 +2173,23 @@ window.sendGorBotMsg = function() {
 var S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false, invert: false };
 try { Object.assign(S_A11Y, JSON.parse(localStorage.getItem('gor-a11y-prefs') || '{}')); } catch(e){}
 
+function updateA11yButtonsState() {
+    var p = document.getElementById('accessibilityPanel');
+    if (!p) return;
+    var btns = p.querySelectorAll('.a11y-btn');
+    btns.forEach(function(btn) {
+        var fn = btn.getAttribute('onclick') || '';
+        if (fn.includes("'contrast'")) btn.classList.toggle('active', !!S_A11Y.contrast);
+        if (fn.includes("'grayscale'")) btn.classList.toggle('active', !!S_A11Y.grayscale);
+        if (fn.includes("'dyslexia'")) btn.classList.toggle('active', !!S_A11Y.dyslexia);
+        if (fn.includes("'links'")) btn.classList.toggle('active', !!S_A11Y.links);
+        if (fn.includes("'animations'")) btn.classList.toggle('active', !!S_A11Y.animations);
+        if (fn.includes("'invert'")) btn.classList.toggle('active', !!S_A11Y.invert);
+        if (fn.includes("'fontSize', 1")) btn.classList.toggle('active', S_A11Y.fontSize > 0);
+        if (fn.includes("'fontSize', -1")) btn.classList.toggle('active', S_A11Y.fontSize < 0);
+    });
+}
+
 function applyA11yStyles() {
     var css = document.getElementById('ga-custom-css') || document.createElement('style');
     css.id = 'ga-custom-css';
@@ -2188,6 +2205,7 @@ function applyA11yStyles() {
     if (S_A11Y.animations) c += '*, *::before, *::after { animation: none !important; transition: none !important; } ';
     css.textContent = c;
     try { localStorage.setItem('gor-a11y-prefs', JSON.stringify(S_A11Y)); } catch(e){}
+    updateA11yButtonsState();
 }
 
 window.toggleA11yFeature = function(feature, val) {
@@ -2202,6 +2220,43 @@ window.toggleA11yFeature = function(feature, val) {
 window.resetA11y = function() {
     S_A11Y = { fontSize: 0, contrast: false, grayscale: false, dyslexia: false, links: false, animations: false, invert: false };
     applyA11yStyles();
+    updateA11yButtonsState();
+};
+
+window.openGorA11yPanel = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    var botModal = document.getElementById('gor-bot-modal');
+    if (botModal) {
+        botModal.classList.remove('active');
+        botModal.style.display = 'none';
+    }
+    if (p) {
+        p.classList.add('active');
+        p.style.display = 'flex';
+        updateA11yButtonsState();
+    }
+};
+
+window.closeGorA11yPanel = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    if (p) {
+        p.classList.remove('active');
+        p.style.display = 'none';
+    }
+};
+
+window.toggleGorA11yPanel = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var p = document.getElementById('accessibilityPanel');
+    if (!p) return;
+    var isOpen = p.classList.contains('active') || (p.style.display === 'flex' || p.style.display === 'block');
+    if (isOpen) {
+        window.closeGorA11yPanel(e);
+    } else {
+        window.openGorA11yPanel(e);
+    }
 };
 
 if (Object.values(S_A11Y).some(Boolean)) {
@@ -2493,19 +2548,20 @@ if (document.readyState === 'loading') {
         var botClose = document.getElementById('gor-bot-close');
 
         var a11yBtn = document.getElementById('gor-a11y-fab');
-        var a11yModal = document.getElementById('accessibilityPanel');
         var a11yClose = document.getElementById('a11yCloseBtn');
 
         if (botBtn && botModal) {
             botBtn.onclick = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if (a11yModal) a11yModal.classList.remove('active');
+                window.closeGorA11yPanel(e);
                 var isOpen = botModal.classList.contains('active');
                 if (isOpen) {
                     botModal.classList.remove('active');
+                    botModal.style.display = 'none';
                 } else {
                     botModal.classList.add('active');
+                    botModal.style.display = 'flex';
                     var inp = document.getElementById('gor-bot-input');
                     if (inp) setTimeout(function() { inp.focus(); }, 150);
                 }
@@ -2517,41 +2573,39 @@ if (document.readyState === 'loading') {
                 e.preventDefault();
                 e.stopPropagation();
                 botModal.classList.remove('active');
+                botModal.style.display = 'none';
             };
         }
 
-        if (a11yBtn && a11yModal) {
+        if (a11yBtn) {
             a11yBtn.onclick = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (botModal) botModal.classList.remove('active');
-                var isOpen = a11yModal.classList.contains('active');
-                if (isOpen) {
-                    a11yModal.classList.remove('active');
-                } else {
-                    a11yModal.classList.add('active');
-                }
+                if (e) { e.preventDefault(); e.stopPropagation(); }
+                window.toggleGorA11yPanel(e);
             };
         }
 
-        if (a11yClose && a11yModal) {
+        if (a11yClose) {
             a11yClose.onclick = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                a11yModal.classList.remove('active');
+                if (e) { e.preventDefault(); e.stopPropagation(); }
+                window.closeGorA11yPanel(e);
             };
         }
 
         // Tap outside to close
         document.addEventListener('click', function(e) {
-            if (botModal && botModal.classList.contains('active')) {
-                if (!botModal.contains(e.target) && (!botBtn || !botBtn.contains(e.target))) {
-                    botModal.classList.remove('active');
+            var bModal = document.getElementById('gor-bot-modal');
+            var bBtn = document.getElementById('gor-bot-trigger');
+            if (bModal && (bModal.classList.contains('active') || bModal.style.display === 'flex')) {
+                if (!bModal.contains(e.target) && (!bBtn || !bBtn.contains(e.target))) {
+                    bModal.classList.remove('active');
+                    bModal.style.display = 'none';
                 }
             }
-            if (a11yModal && a11yModal.classList.contains('active')) {
-                if (!a11yModal.contains(e.target) && (!a11yBtn || !a11yBtn.contains(e.target))) {
-                    a11yModal.classList.remove('active');
+            var aModal = document.getElementById('accessibilityPanel');
+            var aBtn = document.getElementById('gor-a11y-fab');
+            if (aModal && (aModal.classList.contains('active') || aModal.style.display === 'flex' || aModal.style.display === 'block')) {
+                if (!aModal.contains(e.target) && (!aBtn || !aBtn.contains(e.target))) {
+                    window.closeGorA11yPanel(e);
                 }
             }
         });
@@ -2559,8 +2613,12 @@ if (document.readyState === 'loading') {
         // Escape key to close
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                if (botModal) botModal.classList.remove('active');
-                if (a11yModal) a11yModal.classList.remove('active');
+                var bModal = document.getElementById('gor-bot-modal');
+                if (bModal) {
+                    bModal.classList.remove('active');
+                    bModal.style.display = 'none';
+                }
+                window.closeGorA11yPanel(e);
             }
         });
 

@@ -1,9 +1,9 @@
-/**
+﻿/**
  * GOR MARKETING - WCAG 2.1 AA & ISRAELI STANDARD 1918 ACCESSIBILITY ENGINE
  */
 (function() {
     function initA11y() {
-        if (document.getElementById('gor-accessibility-widget')) return;
+        if (document.getElementById('gor-accessibility-widget') || document.getElementById('accessibilityPanel') || document.getElementById('gor-a11y-fab')) return;
 
         // 1. Create Skip-to-content
         if (!document.querySelector('.skip-to-content')) {
