@@ -714,7 +714,7 @@ function initGorMarketingInteractive() {
         },
         {
             keywords: ['איגור', 'טלפון', 'נייד', 'וואטסאפ', 'דואל', 'מייל', 'קשר', 'ליצור קשר'],
-            text: 'איגור גורלקין זמין ישירות בטלפון <strong>052-515-5598</strong>, בדוא"ל <strong>igorgor.marketing@gmail.com</strong> או ישירות בוואטסאפ!',
+            text: 'איגור גורלקין זמין ישירות בטלפון <strong>052-515-5598</strong>, בדוא"ל <strong>gmarketingsupp@gmail.com</strong> או ישירות בוואטסאפ!',
             wa: 'היי איגור, הגעתי מסוכן ה-AI באתר ואשמח לשוחח איתך.',
             btnText: 'שלח הודעה ישירה לאיגור',
             btnIcon: 'fa-whatsapp',
@@ -905,7 +905,7 @@ function initGorMarketingInteractive() {
             body += '\nסה"כ חודשי משוער: ₪' + discountedMonthly.toLocaleString() + '\n';
             if (onetimeTotal > 0) body += 'הקמה חד-פעמית: ₪' + onetimeTotal.toLocaleString() + '\n';
             body += '\nאשמח לתאם פגישת אפיון ביומן.\nשם:\nטלפון:\nשם העסק:';
-            const url = 'mailto:igorgor.marketing@gmail.com?subject=' + encodeURIComponent('הצעת מחיר מותאמת מחשבון GOR MARKETING') + '&body=' + encodeURIComponent(body);
+            const url = 'mailto:gmarketingsupp@gmail.com?subject=' + encodeURIComponent('הצעת מחיר מותאמת מחשבון GOR MARKETING') + '&body=' + encodeURIComponent(body);
             window.location.href = url;
         };
     }
@@ -972,7 +972,7 @@ function initGorMarketingInteractive() {
                         <label class="crm-form-label" for="crmInputEmail">דוא״ל / שם משתמש</label>
                         <div class="crm-input-wrapper">
                             <i class="fas fa-envelope crm-field-icon"></i>
-                            <input type="text" id="crmInputEmail" class="crm-input" placeholder="igor@gormarketing.com / משתמש" required autocomplete="username">
+                            <input type="text" id="crmInputEmail" class="crm-input" placeholder="gmarketingsupp@gmail.com / משתמש" required autocomplete="username">
                         </div>
                     </div>
 
@@ -1075,11 +1075,11 @@ function initGorMarketingInteractive() {
         if (quickAdminBtn) {
             quickAdminBtn.onclick = () => {
                 const emailInput = document.getElementById('crmInputEmail');
-                if (emailInput) emailInput.value = 'igor@gormarketing.com';
+                if (emailInput) emailInput.value = 'gmarketingsupp@gmail.com';
                 if (passInput) passInput.value = '••••••••';
                 handleSuccessfulLogin({
                     name: 'איגור גורלקין',
-                    email: 'igor@gormarketing.com',
+                    email: 'gmarketingsupp@gmail.com',
                     role: 'מנהל מערכת ראשי',
                     initials: 'אי'
                 });
