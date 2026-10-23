@@ -8079,32 +8079,18 @@ main#main-content > .container {
 }
 
 /* GOR ACCESSIBILITY DEFINITIVE CLOSE & ACTIVE FIX */
+
+/* ==========================================================================
+   GOR MARKETING - DEFINITIVE WCAG / STANDARD 1918 ACCESSIBILITY MODAL V3
+   ========================================================================== */
 .accessibility-modal:not(.active),
 #accessibilityPanel:not(.active) {
     display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
 }
-.a11y-btn.active {
-    background: rgba(0, 240, 255, 0.25) !important;
-    border-color: #00f0ff !important;
-    color: #00f0ff !important;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4) !important;
-}
-.a11y-close {
-    cursor: pointer !important;
-    background: transparent !important;
-    border: none !important;
-    color: #94a3b8 !important;
-    font-size: 1.6rem !important;
-    line-height: 1 !important;
-    padding: 4px 8px !important;
-    border-radius: 6px !important;
-    transition: color 0.2s, background 0.2s !important;
-}
-.a11y-close:hover {
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-}
-/* GOR STRICT GLOBAL ACCESSIBILITY POSITIONING (Bottom-Left Standard) */
+
 #gor-a11y-fab,
 .accessibility-trigger {
     position: fixed !important;
@@ -8122,48 +8108,180 @@ main#main-content > .container {
     align-items: center !important;
     justify-content: center !important;
     z-index: 999999 !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 240, 255, 0.4) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 15px rgba(0, 240, 255, 0.4) !important;
     border: 2px solid #ffffff !important;
     cursor: pointer !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 #gor-a11y-fab:hover,
 .accessibility-trigger:hover {
     transform: scale(1.1) !important;
-    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.6) !important;
-    outline: 3px solid #00f0ff !important;
+    box-shadow: 0 12px 30px rgba(0, 119, 255, 0.8), 0 0 22px rgba(0, 240, 255, 0.7) !important;
 }
+
 .accessibility-modal,
 #accessibilityPanel {
     position: fixed !important;
     bottom: 88px !important;
     left: 24px !important;
     right: auto !important;
-    width: clamp(290px, 85vw, 350px) !important;
-    max-height: min(520px, calc(100vh - 105px)) !important;
+    width: clamp(310px, 92vw, 360px) !important;
+    max-height: min(620px, calc(100vh - 105px)) !important;
     background: rgba(10, 14, 26, 0.98) !important;
     border: 1px solid rgba(0, 240, 255, 0.35) !important;
     border-radius: 18px !important;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.92), 0 0 30px rgba(0, 240, 255, 0.2) !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 240, 255, 0.2) !important;
     backdrop-filter: blur(25px) !important;
     -webkit-backdrop-filter: blur(25px) !important;
     z-index: 1000000 !important;
     display: none;
     flex-direction: column !important;
-    overflow-y: auto !important;
-    padding: 16px !important;
+    padding: 16px 18px !important;
     direction: rtl !important;
     text-align: right !important;
     transform-origin: bottom left !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(0, 240, 255, 0.3) transparent !important;
 }
+
 .accessibility-modal.active,
 #accessibilityPanel.active {
     display: flex !important;
-    animation: a11ySlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    animation: a11ySlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
-.accessibility-modal:not(.active),
-#accessibilityPanel:not(.active) {
-    display: none !important;
+
+/* Slim elegant dark-mode scrollbar (replaces ugly native grey bar) */
+#accessibilityPanel::-webkit-scrollbar,
+.accessibility-modal::-webkit-scrollbar {
+    width: 4px !important;
 }
+#accessibilityPanel::-webkit-scrollbar-track,
+.accessibility-modal::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+#accessibilityPanel::-webkit-scrollbar-thumb,
+.accessibility-modal::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.35) !important;
+    border-radius: 10px !important;
+}
+#accessibilityPanel::-webkit-scrollbar-thumb:hover,
+.accessibility-modal::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.7) !important;
+}
+
+/* Header & Single Close Button */
+.a11y-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    width: 100% !important;
+}
+.a11y-header h3 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+}
+.a11y-close {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 8px !important;
+    color: #94a3b8 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: all 0.2s ease !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+}
+.a11y-close:hover {
+    color: #ffffff !important;
+    background: rgba(239, 68, 68, 0.25) !important;
+    border-color: rgba(239, 68, 68, 0.6) !important;
+    transform: scale(1.08) !important;
+}
+
+/* Button Grid */
+.a11y-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+}
+.a11y-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 9px 8px !important;
+    min-height: 42px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e2e8f0 !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+}
+.a11y-btn:hover {
+    background: rgba(0, 240, 255, 0.12) !important;
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+    transform: translateY(-1px) !important;
+}
+.a11y-btn.active {
+    background: rgba(0, 240, 255, 0.22) !important;
+    border-color: #00f0ff !important;
+    color: #00f0ff !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.35) !important;
+}
+.a11y-btn-reset {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 10px !important;
+    min-height: 42px !important;
+    border-radius: 10px !important;
+    background: rgba(255, 193, 7, 0.1) !important;
+    border: 1px solid rgba(255, 193, 7, 0.3) !important;
+    color: #fbbf24 !important;
+    font-size: 0.86rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    margin-bottom: 8px !important;
+    transition: all 0.2s ease !important;
+}
+.a11y-btn-reset:hover {
+    background: rgba(255, 193, 7, 0.22) !important;
+    color: #ffffff !important;
+    border-color: #fbbf24 !important;
+}
+
 @media (max-width: 768px) {
     #gor-a11y-fab,
     .accessibility-trigger {
