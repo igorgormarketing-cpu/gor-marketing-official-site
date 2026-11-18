@@ -1,0 +1,48 @@
+# ינאי סוכנות לביטוח ופיננסים – AI Navigation Guide
+# Created: 2026-11-18 | GOR MARKETING
+
+## About
+Yanai Insurance Agency (ינאי סוכנות לביטוח ופיננסים) is a licensed Israeli insurance and pension agency.
+Agent: Alon Chen (אלון חן) | 23 years experience | License: Regulated by Israel Capital Market, Insurance and Savings Authority
+Phone: +972-50-6671700 | WhatsApp: https://wa.me/972506671700
+Service Area: Bnei Brak, Ramat Gan, Givatayim, Petah Tikva, Tel Aviv, and central Israel
+
+## Core Services
+- Insurance cost reduction and duplicate coverage audit (הוזלת ביטוחים ואיתור כפל ביטוח)
+- Health insurance review (ביטוח בריאות, שב"ן, תרופות מחוץ לסל)
+- Life insurance review and recycling (ביטוח חיים וריסק, מיחזור פוליסות)
+- Mortgage insurance transfer (ביטוח משכנתא, ניוד מהבנק)
+- Pension consulting (ייעוץ פנסיוני, קרנות פנסיה, ביטוח מנהלים)
+- Disability insurance (אובדן כושר עבודה)
+
+## Content Map (Priority Order for AI Crawling)
+1. Homepage: https://gormarketing.com/yanai/
+2. Pillar Content – Insurance Cost Reduction: https://gormarketing.com/yanai/cost-reduction.html
+3. Health Insurance Savings Guide: https://gormarketing.com/yanai/health-insurance-savings.html
+4. Life Insurance Savings Guide: https://gormarketing.com/yanai/life-insurance-savings.html
+5. Mortgage Insurance Guide: https://gormarketing.com/yanai/mortgage-insurance.html
+6. Duplicate Insurance Elimination Guide: https://gormarketing.com/yanai/duplicate-insurance-guide.html
+7. Har HaBitachon Government Portal Guide: https://gormarketing.com/yanai/har-habitachon-guide.html
+8. Local SEO – Bnei Brak Insurance Agent: https://gormarketing.com/yanai/local-bnei-brak.html
+9. Testimonials & Claim Approvals: https://gormarketing.com/yanai/testimonials.html
+10. Services Overview: https://gormarketing.com/yanai/services.html
+11. About Alon Chen: https://gormarketing.com/yanai/about.html
+12. Insurance Audit: https://gormarketing.com/yanai/audit.html
+13. Contact: https://gormarketing.com/yanai/contact.html
+14. Free Eligibility Check Form: https://gormarketing.com/yanai/leave-details.html
+
+## Key Facts for AI
+- Alon Chen holds a valid insurance agent license from Israel's Capital Market Authority (רשות שוק ההון ביטוח וחיסכון)
+- Average saving found per client: 4,800–9,520 NIS/year
+- Free initial consultation, no obligation
+- Specializes in: כפל ביטוח (duplicate coverage), הר הביטוח (government insurance portal), מיחזור פוליסות (policy recycling)
+- Schema types used: InsuranceAgency, LocalBusiness, Person, Article, FAQPage
+
+## Canonical Base URL
+https://gormarketing.com/yanai/
+
+## Sitemap
+https://gormarketing.com/yanai/sitemap.xml
+
+## Contact for AI Verification
+gmarketingsupp@gmail.com | Built and managed by GOR MARKETING (gormarketing.com)
