@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>צור קשר עם סוכנות ינאי | ינאי סוכנות לביטוח</title>
+    <meta name="description" content="שאלון מהיר של 60 שניות לבדיקת זכאות להוזלת עלויות ביטוח ואיתור כפל ביטוחים.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <div class="header-top">
+            <div>📞 משרד: <strong>073-7352444</strong> | 💬 WhatsApp ישיר: <strong>050-6671700</strong></div>
+            <div>ז'בוטינסקי 9, בני ברק • מנכ"ל וסוכן ביטוח פנסיוני: <strong>אלון חן</strong></div>
+        </div>
+        <div class="navbar">
+            <div class="logo-box">
+                <a href="index.html"><img src="logo.jpg" alt="ינאי סוכנות לביטוח" onerror="this.outerHTML='<span style=\'font-size:24px;font-weight:900;color:#0b2545\'>ינאי סוכנות לביטוח</span>'"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="">עמוד הבית</a></li>
+                <li><a href="audit.html" class="">בדיקת תיק ביטוח</a></li>
+                <li><a href="leave-details.html" class="active">שאלון בדיקת זכאות</a></li>
+                <li><a href="services.html" class="">מוצרי ביטוח</a></li>
+                <li><a href="about.html" class="">אודות</a></li>
+                <li><a href="blog.html" class="">מגזין</a></li>
+                <li><a href="contact.html" class="">צור קשר</a></li>
+            </ul>
+            <a href="leave-details.html" class="btn-cta">בדיקת זכאות להוזלה 🚀</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-container">
+            <span class="badge">⏱️ שאלון מהיר של 60 שניות</span>
+            <h1>בדיקת זכאות להוזלת ביטוחים</h1>
+            <p>מלאו את השאלון הקצר וסוכן ביטוח פנסיוני מורשה מסוכנות ינאי יבצע עבורכם בדיקה ראשונית</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="calculator-box" style="margin-top:0;">
+            <form id="leadForm" onsubmit="event.preventDefault(); submitLead();">
+                <div class="calc-field">
+                    <label>שם מלא *</label>
+                    <input type="text" id="leadName" required placeholder="למשל: ישראל ישראלי">
+                </div>
+                <div class="calc-field">
+                    <label>טלפון נייד לחזרה *</label>
+                    <input type="tel" id="leadPhone" required placeholder="050-0000000">
+                </div>
+                <div class="calc-field">
+                    <label>דואר אלקטרוני</label>
+                    <input type="email" id="leadEmail" placeholder="your@email.com">
+                </div>
+                <div class="calc-field">
+                    <label>מה השירות העיקרי שתרצו לבדוק?</label>
+                    <select id="leadService">
+                        <option value="audit" selected>בדיקת תיק ביטוח כללית והוזלת עלויות</option>
+                        <option value="health">ביטוחי בריאות וסיעוד</option>
+                        <option value="mortgage">הוזלת ביטוח משכנתא</option>
+                        <option value="pension">תכנון פנסיוני ופרישה</option>
+                        <option value="claims">סיוע בתביעת ביטוח קיימת</option>
+                    </select>
+                </div>
+                <div class="calc-field">
+                    <label>הערות או בקשות מיוחדות</label>
+                    <input type="text" id="leadNotes" placeholder="למשל: נשמח לבדיקה זוגית / יש לנו משכנתא ישנה">
+                </div>
+                <button type="submit" class="btn-cta" style="width:100%; font-size:18px; padding:14px;">שלח לבדיקת זכאות מיידית 🚀</button>
+            </form>
+            <div id="leadSuccess" class="calc-result" style="margin-top:20px;">
+                ✅ תודה רבה! פנייתך התקבלה בהצלחה בסוכנות ינאי.<br>
+                אלון חן או נציג מקצועי יחזרו אליך בהקדם.
+            </div>
+        </div>
+    </section>
+
+    
+    <div class="partners-strip">
+        <strong>חברות הביטוח המובילות בישראל בהסדר עבודה מלא:</strong>
+        <div class="partners-logos">
+            <span>הפניקס</span> • <span>הראל</span> • <span>מנורה מבטחים</span> • <span>מגדל</span> • <span>איילון</span> • <span>כלל ביטוח</span> • <span>פספורטכארד</span>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>ינאי סוכנות לביטוח ופיננסים</h4>
+                <p>גוף עצמאי ובלתי תלוי הפועל ברישיון רשות שוק ההון. מתמחים בהוזלת עלויות ביטוח, תכנון פרישה וניהול סיכונים הוליסטי לטובת הלקוח בלבד.</p>
+            </div>
+            <div class="footer-col">
+                <h4>ניווט מהיר</h4>
+                <a href="index.html">עמוד הבית</a>
+                <a href="audit.html">בדיקת תיק ביטוח</a>
+                <a href="leave-details.html">שאלון בדיקת זכאות</a>
+                <a href="services.html">מוצרי ביטוח ופנסיה</a>
+                <a href="blog.html">מגזין ביטוח מקצועי</a>
+            </div>
+            <div class="footer-col">
+                <h4>יצירת קשר</h4>
+                <p>טלפון: 073-7352444<br>נייד ישיר: 050-6671700<br>מייל: alon@yanai-ins.co.il<br>כתובת: ז'בוטינסקי 9, בני ברק</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            כל הזכויות שמורות © ינאי סוכנות לביטוח • מנוהל ומקודם ע"י GOR MARKETING • סוכן ביטוח פנסיוני מורשה: אלון חן
+        </div>
+    </footer>
+    
+
+    <script>
+        function submitLead() {
+            document.getElementById('leadForm').style.display = 'none';
+            document.getElementById('leadSuccess').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
