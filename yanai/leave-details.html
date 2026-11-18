@@ -1,119 +1,711 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html dir="rtl" lang="he-IL">
 <head>
-    <meta charset="UTF-8">
-    <title>שאלון בדיקת זכאות להוזלת ביטוח | ינאי סוכנות לביטוח</title>
-    <meta name="description" content="שאלון מהיר של 60 שניות לבדיקת זכאות להוזלת עלויות ביטוח ואיתור כפל ביטוחים.">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    
-    <header>
-        <div class="header-top">
-            <div>📞 משרד: <strong>073-7352444</strong> | 💬 WhatsApp ישיר: <strong>050-6671700</strong></div>
-            <div>ז'בוטינסקי 9, בני ברק • מנכ"ל וסוכן ביטוח פנסיוני: <strong>אלון חן</strong></div>
-        </div>
-        <div class="navbar">
-            <div class="logo-box">
-                <a href="index.html"><img src="logo.jpg" alt="ינאי סוכנות לביטוח" onerror="this.outerHTML='<span style=\'font-size:24px;font-weight:900;color:#0b2545\'>ינאי סוכנות לביטוח</span>'"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="">עמוד הבית</a></li>
-                <li><a href="audit.html" class="">בדיקת תיק ביטוח</a></li>
-                <li><a href="leave-details.html" class="active">שאלון בדיקת זכאות</a></li>
-                <li><a href="services.html" class="">מוצרי ביטוח</a></li>
-                <li><a href="about.html" class="">אודות</a></li>
-                <li><a href="blog.html" class="">מגזין</a></li>
-                <li><a href="contact.html" class="">צור קשר</a></li>
-            </ul>
-            <a href="leave-details.html" class="btn-cta">בדיקת זכאות להוזלה 🚀</a>
-        </div>
-    </header>
-    
-    <section class="hero">
-        <div class="hero-container">
-            <span class="badge">⏱️ שאלון מהיר של 60 שניות</span>
-            <h1>בדיקת זכאות להוזלת ביטוחים</h1>
-            <p>מלאו את השאלון הקצר וסוכן ביטוח פנסיוני מורשה מסוכנות ינאי יבצע עבורכם בדיקה ראשונית</p>
-        </div>
-    </section>
+	<meta charset="UTF-8">
+		<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
-    <section class="section">
-        <div class="calculator-box" style="margin-top:0;">
-            <form id="leadForm" onsubmit="event.preventDefault(); submitLead();">
-                <div class="calc-field">
-                    <label>שם מלא *</label>
-                    <input type="text" id="leadName" required placeholder="למשל: ישראל ישראלי">
-                </div>
-                <div class="calc-field">
-                    <label>טלפון נייד לחזרה *</label>
-                    <input type="tel" id="leadPhone" required placeholder="050-0000000">
-                </div>
-                <div class="calc-field">
-                    <label>דואר אלקטרוני</label>
-                    <input type="email" id="leadEmail" placeholder="your@email.com">
-                </div>
-                <div class="calc-field">
-                    <label>מה השירות העיקרי שתרצו לבדוק?</label>
-                    <select id="leadService">
-                        <option value="audit" selected>בדיקת תיק ביטוח כללית והוזלת עלויות</option>
-                        <option value="health">ביטוחי בריאות וסיעוד</option>
-                        <option value="mortgage">הוזלת ביטוח משכנתא</option>
-                        <option value="pension">תכנון פנסיוני ופרישה</option>
-                        <option value="claims">סיוע בתביעת ביטוח קיימת</option>
-                    </select>
-                </div>
-                <div class="calc-field">
-                    <label>הערות או בקשות מיוחדות</label>
-                    <input type="text" id="leadNotes" placeholder="למשל: נשמח לבדיקה זוגית / יש לנו משכנתא ישנה">
-                </div>
-                <button type="submit" class="btn-cta" style="width:100%; font-size:18px; padding:14px;">שלח לבדיקת זכאות מיידית 🚀</button>
-            </form>
-            <div id="leadSuccess" class="calc-result" style="margin-top:20px;">
-                ✅ תודה רבה! פנייתך התקבלה בהצלחה בסוכנות ינאי.<br>
-                אלון חן או נציג מקצועי יחזרו אליך בהקדם.
-            </div>
-        </div>
-    </section>
+	<!-- This site is optimized with the Yoast SEO plugin v28.8 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>השארת פרטים - ינאי סוכנות לביטוח</title>
+	<link rel="canonical" href="leave-details.html" />
+	<meta property="og:locale" content="he_IL" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="השארת פרטים - ינאי סוכנות לביטוח" />
+	<meta property="og:url" content="https://yanai-ins.co.il/leave-details/" />
+	<meta property="og:site_name" content="ינאי סוכנות לביטוח" />
+	<meta property="article:modified_time" content="2022-05-02T11:28:46+00:00" />
+	<meta property="og:image" content="https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989-1024x465.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","@id":"https:\/\/yanai-ins.co.il\/leave-details\/","url":"https:\/\/yanai-ins.co.il\/leave-details\/","name":"השארת פרטים - ינאי סוכנות לביטוח","isPartOf":{"@id":"https:\/\/yanai-ins.co.il\/#website"},"primaryImageOfPage":{"@id":"https:\/\/yanai-ins.co.il\/leave-details\/#primaryimage"},"image":{"@id":"https:\/\/yanai-ins.co.il\/leave-details\/#primaryimage"},"thumbnailUrl":"http:\/\/yanai-ins.co.il\/wp-content\/uploads\/2021\/04\/10046596_1581417309989-1024x465.jpg","datePublished":"2022-02-21T15:05:41+00:00","dateModified":"2022-05-02T11:28:46+00:00","breadcrumb":{"@id":"https:\/\/yanai-ins.co.il\/leave-details\/#breadcrumb"},"inLanguage":"he-IL","potentialAction":[{"@type":"ReadAction","target":["https:\/\/yanai-ins.co.il\/leave-details\/"]}]},{"@type":"ImageObject","inLanguage":"he-IL","@id":"https:\/\/yanai-ins.co.il\/leave-details\/#primaryimage","url":"https:\/\/yanai-ins.co.il\/wp-content\/uploads\/2021\/04\/10046596_1581417309989.jpg","contentUrl":"https:\/\/yanai-ins.co.il\/wp-content\/uploads\/2021\/04\/10046596_1581417309989.jpg","width":1280,"height":581,"caption":"נייס סוכנות לביטוח - Nice"},{"@type":"BreadcrumbList","@id":"https:\/\/yanai-ins.co.il\/leave-details\/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"דף הבית","item":"https:\/\/yanai-ins.co.il\/"},{"@type":"ListItem","position":2,"name":"השארת פרטים"}]},{"@type":"WebSite","@id":"https:\/\/yanai-ins.co.il\/#website","url":"https:\/\/yanai-ins.co.il\/","name":"ינאי סוכנות לביטוח","description":"ביטוח פנסיה פיננסים","publisher":{"@id":"https:\/\/yanai-ins.co.il\/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https:\/\/yanai-ins.co.il\/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"he-IL"},{"@type":"Organization","@id":"https:\/\/yanai-ins.co.il\/#organization","name":"ינאי סוכנות לביטוח","url":"https:\/\/yanai-ins.co.il\/","logo":{"@type":"ImageObject","inLanguage":"he-IL","@id":"https:\/\/yanai-ins.co.il\/#\/schema\/logo\/image\/","url":"https:\/\/yanai-ins.co.il\/wp-content\/uploads\/2021\/04\/logo-yaniy.svg","contentUrl":"https:\/\/yanai-ins.co.il\/wp-content\/uploads\/2021\/04\/logo-yaniy.svg","width":1721,"height":743,"caption":"ינאי סוכנות לביטוח"},"image":{"@id":"https:\/\/yanai-ins.co.il\/#\/schema\/logo\/image\/"}}]}</script>
+	<!-- / Yoast SEO plugin. -->
 
-    
-    <div class="partners-strip">
-        <strong>חברות הביטוח המובילות בישראל בהסדר עבודה מלא:</strong>
-        <div class="partners-logos">
-            <span>הפניקס</span> • <span>הראל</span> • <span>מנורה מבטחים</span> • <span>מגדל</span> • <span>איילון</span> • <span>כלל ביטוח</span> • <span>פספורטכארד</span>
-        </div>
+
+<link rel="alternate" type="application/rss+xml" title="ינאי סוכנות לביטוח &laquo; פיד‏" href="https://yanai-ins.co.il/feed/" />
+<link rel="alternate" type="application/rss+xml" title="ינאי סוכנות לביטוח &laquo; פיד תגובות‏" href="https://yanai-ins.co.il/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://yanai-ins.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fyanai-ins.co.il%2Fleave-details%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://yanai-ins.co.il/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fyanai-ins.co.il%2Fleave-details%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<link rel='stylesheet' id='scm-styles-css' href='https://yanai-ins.co.il/wp-content/plugins/saglix-cookie-consent-manager/scm.css?ver=1756219307' media='all' />
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}.wp-block-button{--wp--preset--dimension--25: 25%;--wp--preset--dimension--50: 50%;--wp--preset--dimension--75: 75%;--wp--preset--dimension--100: 100%;}:where(body) { margin: 0; }:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:where(.wp-block-gallery.is-layout-flex){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}:where(.wp-block-gallery.is-layout-grid){gap: var( --wp--style--gallery-gap-default, var( --gallery-block--gutter-size, var( --wp--style--block-gap, 0.5em ) ) );}
+:where(.wp-block-latest-posts.is-layout-flex){gap: 1.25em;}:where(.wp-block-latest-posts.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-term-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-term-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='https://yanai-ins.co.il/wp-content/themes/hello-elementor/style.min.css?ver=2.3.1' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://yanai-ins.co.il/wp-content/themes/hello-elementor/theme.min.css?ver=2.3.1' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.3.6' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/css/widget-heading-rtl.min.css?ver=4.3.6' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor-pro/assets/css/widget-form-rtl.min.css?ver=4.3.2' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.3.2' media='all' />
+<link rel='stylesheet' id='elementor-icons-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.54.0' media='all' />
+<link rel='stylesheet' id='elementor-post-5-css' href='https://yanai-ins.co.il/wp-content/uploads/elementor/css/post-5.css?ver=1794652371' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/css/widget-image-rtl.min.css?ver=4.3.6' media='all' />
+<link rel='stylesheet' id='widget-spacer-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/css/widget-spacer-rtl.min.css?ver=4.3.6' media='all' />
+<link rel='stylesheet' id='elementor-post-807-css' href='https://yanai-ins.co.il/wp-content/uploads/elementor/css/post-807.css?ver=1794832421' media='all' />
+<link rel='stylesheet' id='elementor-post-2862-css' href='https://yanai-ins.co.il/wp-content/uploads/elementor/css/post-2862.css?ver=1794652371' media='all' />
+<link rel='stylesheet' id='accessibility-css' href='https://yanai-ins.co.il/wp-content/plugins/smart-accessibility/accessibility.css?ver=1.0' media='all' />
+<link rel='stylesheet' id='elementor-gf-assistant-css' href='https://fonts.googleapis.com/css?family=Assistant:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic&#038;display=auto&#038;subset=hebrew' media='all' />
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3' media='all' />
+<script id="jquery-core-js" src="https://yanai-ins.co.il/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://yanai-ins.co.il/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<link rel="https://api.w.org/" href="https://yanai-ins.co.il/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://yanai-ins.co.il/wp-json/wp/v2/pages/807" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://yanai-ins.co.il/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.1.4" />
+<link rel='shortlink' href='https://yanai-ins.co.il/?p=807' />
+<meta name="generator" content="Elementor 4.3.6; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+<script type="text/javascript">(function(){var e=document.createElement('script');e.async=true;e.defer=true;e.setAttribute("type","text/javascript");e.setAttribute("src","https://my.pluro.ai/unitoolbar.js?lang=he");document.getElementsByTagName("head")[0].appendChild(e);})();</script>
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://yanai-ins.co.il/wp-content/uploads/2021/04/yani-fav-150x150.png" sizes="32x32" />
+<link rel="icon" href="https://yanai-ins.co.il/wp-content/uploads/2021/04/yani-fav-300x300.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://yanai-ins.co.il/wp-content/uploads/2021/04/yani-fav-300x300.png" />
+<meta name="msapplication-TileImage" content="https://yanai-ins.co.il/wp-content/uploads/2021/04/yani-fav-300x300.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="rtl wp-singular page-template page-template-elementor_canvas page page-id-807 wp-custom-logo wp-theme-hello-elementor elementor-default elementor-template-canvas elementor-kit-5 elementor-page elementor-page-807">
+			<div data-elementor-type="wp-page" data-elementor-id="807" class="elementor elementor-807" data-elementor-post-type="page">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-ec11a7d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ec11a7d" data-element_type="section" data-e-type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-cad5c1c" data-id="cad5c1c" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ee70959 elementor-widget elementor-widget-image" data-id="ee70959" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="800" height="363" src="https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989-1024x465.jpg" class="attachment-large size-large wp-image-11" alt="נייס סוכנות לביטוח - Nice" srcset="https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989-1024x465.jpg 1024w, https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989-300x136.jpg 300w, https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989-768x349.jpg 768w, https://yanai-ins.co.il/wp-content/uploads/2021/04/10046596_1581417309989.jpg 1280w" sizes="(max-width: 800px) 100vw, 800px" />															</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d619c2a elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="d619c2a" data-element_type="section" data-e-type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[]}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b31b4da" data-id="b31b4da" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ae4783b elementor-widget elementor-widget-spacer" data-id="ae4783b" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-7002085 elementor-button-align-stretch elementor-widget elementor-widget-global elementor-global-1105 elementor-widget-form" data-id="7002085" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;\u05d4\u05d1\u05d0&quot;,&quot;step_previous_label&quot;:&quot;\u05d0\u05d7\u05d5\u05e8\u05d4&quot;,&quot;step_type&quot;:&quot;number&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="טופס הרשמה" aria-label="טופס הרשמה">
+			<input type="hidden" name="post_id" value="807"/>
+			<input type="hidden" name="form_id" value="7002085"/>
+			<input type="hidden" name="referer_title" value="השארת פרטים - ינאי סוכנות לביטוח" />
+
+							<input type="hidden" name="queried_id" value="807"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-step elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
+							<div class="e-field-step elementor-hidden" data-label="שלב ראשון" data-previousButton="" data-nextButton="בדוק זכאות &gt;&gt;" data-iconUrl="" data-iconLibrary="fas fa-step-forward" data-icon="" ></div>
+
+						</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-FULLNAME elementor-col-100">
+												<label for="form-field-FULLNAME" class="elementor-field-label">
+								 <div style="text-align:center;">היי!  על מנת לבדוק כמה ניתן להוזיל את תשלומי  הביטוח שלך נשמח לשאול כמה שאלות קצרות.​</div> <p style="font-weight:650; text-align:center;">שנתחיל?</p>							</label>
+														<input size="1" type="text" name="form_fields[FULLNAME]" id="form-field-FULLNAME" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="שם מלא">
+											</div>
+								<div class="elementor-field-type-step elementor-field-group elementor-column elementor-field-group-field_16f46fe elementor-col-100">
+							<div class="e-field-step elementor-hidden" data-label="שלב שני" data-previousButton="חזרה אחורה" data-nextButton="המשך" data-iconUrl="" data-iconLibrary="fas fa-star" data-icon="" ></div>
+
+						</div>
+								<div class="elementor-field-type-date elementor-field-group elementor-column elementor-field-group-age elementor-col-100">
+												<label for="form-field-age" class="elementor-field-label">
+								מה הוא תאריך הלידה שלך?							</label>
+						
+		<input type="date" name="form_fields[age]" id="form-field-age" class="elementor-field elementor-size-sm  elementor-field-textual elementor-date-field" placeholder="15/01/1996" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" min="1960-01-01" max="2004-01-01">
+						</div>
+								<div class="elementor-field-type-step elementor-field-group elementor-column elementor-field-group-field_789c013 elementor-col-100">
+							<div class="e-field-step elementor-hidden" data-label="שלב שלישי" data-previousButton="חזרה אחורה" data-nextButton="" data-iconUrl="" data-iconLibrary="fas fa-star" data-icon="" ></div>
+
+						</div>
+								<div class="elementor-field-type-radio elementor-field-group elementor-column elementor-field-group-city elementor-col-100">
+												<label for="form-field-city" class="elementor-field-label">
+								היכן את/ה גר/ה?							</label>
+						<div class="elementor-field-subgroup  "><span class="elementor-field-option"><input type="radio" value="המרכז והשרון" id="form-field-city-0" name="form_fields[city]"> <label for="form-field-city-0">המרכז והשרון</label></span><span class="elementor-field-option"><input type="radio" value="חיפה והקריות" id="form-field-city-1" name="form_fields[city]"> <label for="form-field-city-1">חיפה והקריות</label></span><span class="elementor-field-option"><input type="radio" value="ירושלים והסביבה" id="form-field-city-2" name="form_fields[city]"> <label for="form-field-city-2">ירושלים והסביבה</label></span><span class="elementor-field-option"><input type="radio" value="הגליל והגולן" id="form-field-city-3" name="form_fields[city]"> <label for="form-field-city-3">הגליל והגולן</label></span><span class="elementor-field-option"><input type="radio" value="אריאל והשומרון" id="form-field-city-4" name="form_fields[city]"> <label for="form-field-city-4">אריאל והשומרון</label></span><span class="elementor-field-option"><input type="radio" value="אשקלון, אשדוד והסביבה" id="form-field-city-5" name="form_fields[city]"> <label for="form-field-city-5">אשקלון, אשדוד והסביבה</label></span><span class="elementor-field-option"><input type="radio" value="ערבה ואילת" id="form-field-city-6" name="form_fields[city]"> <label for="form-field-city-6">ערבה ואילת</label></span></div>				</div>
+								<div class="elementor-field-type-step elementor-field-group elementor-column elementor-field-group-field_5623fb1 elementor-col-100">
+							<div class="e-field-step elementor-hidden" data-label="שלב רביעי" data-previousButton="" data-nextButton="" data-iconUrl="" data-iconLibrary="fas fa-star" data-icon="" ></div>
+
+						</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-phone elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-phone" class="elementor-field-label">
+								מה מספר הטלפון שלך?							</label>
+								<input size="1" type="tel" name="form_fields[phone]" id="form-field-phone" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="050000000" required="required" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו&#039;).">
+
+						</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-lmn_acceptance elementor-col-100 elementor-field-required elementor-mark-required">
+												<label for="form-field-lmn_acceptance" class="elementor-field-label">
+								אני מסכים/ה ל <a href="https://yanai-ins.co.il/privacy-policy/" target="_blank">מדיניות הפרטיות</a>&nbsp;של האתר							</label>
+								<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[lmn_acceptance]" id="form-field-lmn_acceptance" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
+				<label for="form-field-lmn_acceptance">אני מסכים/ה ל <a href="https://yanai-ins.co.il/privacy-policy/" target="_blank">מדיניות הפרטיות</a>&nbsp;של האתר</label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">שלח</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-56e0255 elementor-widget elementor-widget-spacer" data-id="56e0255" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	
+<script>
+    jQuery(document).ready(function($) { 
+        // Remove default button role from elementor buttons (links)
+        $('.elementor-element elementor-element-ecd90db').removeAttr('aria-roledescription', 'aria-label');
+
+        // Remove default button role from elementor buttons (links)
+        $('.form.elementor-form').removeAttr('aria-required', 'tabindex');
+    });
+</script>
+	
+	
+	
+       
+
+
+
+
+
+
+
+
+
+
+
+    		<div data-elementor-type="popup" data-elementor-id="2862" class="elementor elementor-2862 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:{&quot;page_load&quot;:&quot;yes&quot;,&quot;page_load_delay&quot;:0},&quot;timing&quot;:{&quot;times_times&quot;:1,&quot;times&quot;:&quot;yes&quot;}}" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-8201c78 elementor-section-height-min-height elementor-section-boxed elementor-section-height-default elementor-section-items-middle" data-id="8201c78" data-element_type="section" data-e-type="section" data-settings="{&quot;jet_parallax_layout_list&quot;:[],&quot;background_background&quot;:&quot;classic&quot;}">
+							<div class="elementor-background-overlay"></div>
+							<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9f96141" data-id="9f96141" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b7f57c7 elementor-widget elementor-widget-heading" data-id="b7f57c7" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h4 class="elementor-heading-title elementor-size-default">בדיקת תיק ביטוח בחינם!</h4>				</div>
+				</div>
+				<div class="elementor-element elementor-element-aee93b0 elementor-mobile-button-align-stretch elementor-button-align-stretch elementor-widget elementor-widget-form" data-id="aee93b0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" name="טופס פוטר" aria-label="טופס פוטר">
+			<input type="hidden" name="post_id" value="2862"/>
+			<input type="hidden" name="form_id" value="aee93b0"/>
+			<input type="hidden" name="referer_title" value="העמוד לא נמצא - ינאי סוכנות לביטוח" />
+
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label elementor-screen-only">
+								שם:							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-lg  elementor-field-textual" placeholder="שם:" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label elementor-screen-only">
+								טלפון:							</label>
+								<input size="1" type="tel" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-lg  elementor-field-textual" placeholder="טלפון:" required="required" pattern="[0-9()#&amp;+*-=.]+" title="מותר להשתמש רק במספרים ותווי טלפון (#, -, *, וכו&#039;).">
+
+						</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-lmn_acceptance elementor-col-100 elementor-field-required">
+												<label for="form-field-lmn_acceptance" class="elementor-field-label elementor-screen-only">
+								אני מסכים/ה ל <a href="https://yanai-ins.co.il/privacy-policy/" target="_blank">מדיניות הפרטיות</a>&nbsp;של האתר							</label>
+								<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[lmn_acceptance]" id="form-field-lmn_acceptance" class="elementor-field elementor-size-lg  elementor-acceptance-field" required="required">
+				<label for="form-field-lmn_acceptance">אני מסכים/ה ל <a href="https://yanai-ins.co.il/privacy-policy/" target="_blank">מדיניות הפרטיות</a>&nbsp;של האתר</label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-lg" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">שליחה</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+					<script>
+				( () => {
+					const lazyloadRunObserver = () => {
+						const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+						const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+							entries.forEach( ( entry ) => {
+								if ( entry.isIntersecting ) {
+									let lazyloadBackground = entry.target;
+									if( lazyloadBackground ) {
+										lazyloadBackground.classList.add( 'e-lazyloaded' );
+									}
+									lazyloadBackgroundObserver.unobserve( entry.target );
+								}
+							});
+						}, { rootMargin: '200px 0px 200px 0px' } );
+						lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+							lazyloadBackgroundObserver.observe( lazyloadBackground );
+						} );
+					};
+					const events = [
+						'DOMContentLoaded',
+						'elementor/lazyload/observe',
+					];
+					events.forEach( ( event ) => {
+						document.addEventListener( event, lazyloadRunObserver );
+					} );
+				} )();
+			</script>
+			<link rel='stylesheet' id='flatpickr-css' href='https://yanai-ins.co.il/wp-content/plugins/elementor/assets/lib/flatpickr/flatpickr.min.css?ver=4.6.13' media='all' />
+<link rel='stylesheet' id='jet-elements-css' href='https://yanai-ins.co.il/wp-content/plugins/jet-elements/assets/css/jet-elements-rtl.css?ver=2.9.2.4' media='all' />
+<script id="elementor-webpack-runtime-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.3.6"></script>
+<script id="elementor-frontend-modules-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.3.6"></script>
+<script id="jquery-ui-core-js-before">
+jQuery.uiBackCompat = true;
+//# sourceURL=jquery-ui-core-js-before
+</script>
+<script id="jquery-ui-core-js" src="https://yanai-ins.co.il/wp-includes/js/jquery/ui/core.min.js?ver=1.14.2"></script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"\u05e9\u05ea\u05e3 \u05d1\u05e4\u05d9\u05d9\u05e1\u05d1\u05d5\u05e7","shareOnX":"Share on X","pinIt":"\u05dc\u05e0\u05e2\u05d5\u05e5 \u05d1\u05e4\u05d9\u05e0\u05d8\u05e8\u05e1\u05d8","download":"\u05d4\u05d5\u05e8\u05d3\u05d4","downloadImage":"\u05d4\u05d5\u05e8\u05d3\u05ea \u05ea\u05de\u05d5\u05e0\u05d4","fullscreen":"\u05de\u05e1\u05da \u05de\u05dc\u05d0","zoom":"\u05de\u05d9\u05e7\u05d5\u05d3","share":"\u05e9\u05ea\u05e3","playVideo":"\u05e0\u05d2\u05df \u05d5\u05d9\u05d3\u05d0\u05d5","previous":"\u05e7\u05d5\u05d3\u05dd","next":"\u05d4\u05d1\u05d0","close":"\u05e1\u05d2\u05d5\u05e8","a11yCarouselPrevSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05e7\u05d5\u05d3\u05de\u05ea","a11yCarouselNextSlideMessage":"\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d1\u05d0\u05d4","a11yCarouselFirstSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05e8\u05d0\u05e9\u05d5\u05e0\u05d4","a11yCarouselLastSlideMessage":"\u05d6\u05d5\u05d4\u05d9 \u05d4\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea \u05d4\u05d0\u05d7\u05e8\u05d5\u05e0\u05d4","a11yCarouselPaginationBulletMessage":"\u05dc\u05e2\u05d1\u05d5\u05e8 \u05dc\u05e9\u05e7\u05d5\u05e4\u05d9\u05ea"},"is_rtl":true,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05e0\u05db\u05d9","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"\u05de\u05d5\u05d1\u05d9\u05d9\u05dc \u05d0\u05d5\u05e4\u05e7\u05d9","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05e0\u05db\u05d9","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"\u05d8\u05d0\u05d1\u05dc\u05d8 \u05d0\u05d5\u05e4\u05e7\u05d9","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"\u05dc\u05e4\u05d8\u05d5\u05e4","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"\u05de\u05e1\u05da \u05e8\u05d7\u05d1","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.3.6","is_static":false,"experimentalFeatures":{"additional_custom_breakpoints":true,"theme_builder_v2":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_collection_loop":true},"urls":{"assets":"https:\/\/yanai-ins.co.il\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/yanai-ins.co.il\/wp-admin\/admin-ajax.php","uploadUrl":"http:\/\/yanai-ins.co.il\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"af338494b1","atomicFormsSendForm":"0d9d7da565"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":807,"title":"%D7%94%D7%A9%D7%90%D7%A8%D7%AA%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20-%20%D7%99%D7%A0%D7%90%D7%99%20%D7%A1%D7%95%D7%9B%D7%A0%D7%95%D7%AA%20%D7%9C%D7%91%D7%99%D7%98%D7%95%D7%97","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.3.6"></script>
+<script id="flatpickr-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor/assets/lib/flatpickr/flatpickr.min.js?ver=4.6.13"></script>
+<script id="jet-tween-js-js" src="https://yanai-ins.co.il/wp-content/plugins/jet-elements/assets/js/lib/tweenjs/tweenjs.min.js?ver=2.0.2"></script>
+<script id="jet-elements-js-extra">
+var jetElements = {"ajaxUrl":"https://yanai-ins.co.il/wp-admin/admin-ajax.php","isMobile":"false","templateApiUrl":"https://yanai-ins.co.il/wp-json/jet-elements-api/v1/elementor-template","devMode":"false","mapboxToken":"","messages":{"invalidMail":"Please specify a valid e-mail"}};
+//# sourceURL=jet-elements-js-extra
+</script>
+<script id="jet-elements-js" src="https://yanai-ins.co.il/wp-content/plugins/jet-elements/assets/js/jet-elements.min.js?ver=2.9.2.4"></script>
+<script id="wp-hooks-js" src="https://yanai-ins.co.il/wp-includes/js/dist/hooks.min.js?ver=f0f188028580e8dc1255"></script>
+<script id="wp-i18n-js" src="https://yanai-ins.co.il/wp-includes/js/dist/i18n.min.js?ver=1dfe7db3940c23ea9216"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'rtl' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/yanai-ins.co.il\/wp-admin\/admin-ajax.php","nonce":"bb18e6828f","urls":{"assets":"https:\/\/yanai-ins.co.il\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/yanai-ins.co.il\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"he_IL","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/yanai-ins.co.il\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.3.2"></script>
+<script id="pro-elements-handlers-js" src="https://yanai-ins.co.il/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.3.2"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://yanai-ins.co.il/wp-includes/js/wp-emoji-release.min.js?ver=7.1.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const r=JSON.parse(t.text),s=(window._wpemojiSettings=r,"wpEmojiSettingsSupports"),o=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,r){let a;const s=(a="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),o=(s.textBaseline="top",s.font="600 32px Arial",{});return e.forEach(e=>{o[e]=t(s,e,n,r)}),o}function a(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}r.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(s));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(o),u.toString(),c.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{i(n=e.data),a.terminate(),t(n)})}catch(e){}i(n=f(o,u,c,p))}t(n)}).then(e=>{for(const n in e)r.supports[n]=e[n],r.supports.everything=r.supports.everything&&r.supports[n],"flag"!==n&&(r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&r.supports[n]);var t;r.supports.everythingExceptFlag=r.supports.everythingExceptFlag&&!r.supports.flag,r.supports.everything||((t=r.source||{}).concatemoji?a(t.concatemoji):t.wpemoji&&t.twemoji&&(a(t.twemoji),a(t.wpemoji)))});
+//# sourceURL=https://yanai-ins.co.il/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+let codeExecuted = false;
+
+window.addEventListener('load', function() {
+ if (!codeExecuted) {
+if (getCookie('formFilled') === 'true') {
+    console.log("cookie is true! popup won't show...");
+} else {
+        setTimeout(() => {
+					elementorProFrontend.modules.popup.showPopup( {id:1468}, event)}
+						, 500); 
+   }
+       codeExecuted = true;
+  }
+});
+</script>
+<script>window.SCM_VENDOR_MAP = {"analytics":{"domains":["googletagmanager.com","google-analytics.com","g.doubleclick.net","analytics.google.com","www.googletagmanager.com","www.google-analytics.com","tagmanager.google.com","optimize.google.com","hotjar.com","static.hotjar.com","script.hotjar.com","clarity.ms","stats.wp.com","pixel.wp.com","matomo","piwik","plausible.io","umami.is","umami","mixpanel.com","cdn.mxpnl.com","segment.com","cdn.segment.com","amplitude.com","cdn.amplitude.com","snowplowanalytics.com","cdn.jsdelivr.net\/npm\/snowplow","quantserve.com","quantcount.com","scorecardresearch.com","comscore.com","kissmetrics.com","heap.io","cdn.heapanalytics.com","crazyegg.com","mouseflow.com","fullstory.com","cdn.fullstory.com","inspectlet.com","chartbeat.com","static.chartbeat.com","yandex.ru\/metrika","mc.yandex.ru","rudderstack.com","cdn.rudderlabs.com","statcounter.com","stc.wa.me","an.yandex.ru","yastatic.net","yandexadexchange.net"],"cookies":["_ga","_ga_","_gid","_gat","_gac_","_gcl_aw","_clck","_clsk","_hjid","_hjSession","_hjSessionUser","_hjIncludedInSessionSample","_fbp_test","fs_uid","_mkto_trk","_vwo","_vis_opt_s","_vis_opt_test_cookie","ajs_anonymous_id","ajs_user_id","amplitude_id","heap_user_id","heap_session_id","sc_is_visitor_unique","_ym_uid","_ym_d","_ym_isad","_ym_visorc","yandexuid","yabs-sid","i","yuidss"]},"ads":{"domains":["doubleclick.net","googleads.g.doubleclick.net","adservice.google.","googlesyndication.com","googleadservices.com","pagead2.googlesyndication.com","tpc.googlesyndication.com","facebook.com\/tr","connect.facebook.net","facebook.com","analytics.tiktok.com","business.tiktok.com","tiktok.com","bat.bing.com","ads.microsoft.com","ads.yahoo.com","adroll.com","s.adroll.com","rlcdn.com","criteo.com","bidder.criteo.com","rubiconproject.com","pubmatic.com","openx.net","adnxs.com","appnexus.com","taboola.com","cdn.taboola.com","outbrain.com","widgets.outbrain.com","quantserve.com","quantcount.com","spotxchange.com","indexww.com","casalemedia.com","bluekai.com","everesttech.net","3lift.com","triplelift.com","zemanta.com","media.net","teads.tv","bttrack.com","snapads.scdn.co","pinterest.com","trk.pinterest.com","ads-twitter.com","t.co\/i\/adsct","linkedin.com\/px","px.ads.linkedin.com","redditstatic.com\/ads","commerce.coinbase.com","affiliates","impactradius.com","cj.com","awin.com"],"cookies":["_gcl_au","_gcl_aw","_gcl_dc","_gcl_gb","_fbp","_fbc","_ttp","_ttcid","_uetvid","_uetsid","IDE","ANID","SIDCC","AID","cid","uid","lidc","bscookie","bcookie","guest_id_ads","personalization_id","_pin_unauth","_pinterest_sess","adrl","adroll","criteo","cto_bundle","cto_bidid","bk_uid","everest_g_v2"]},"performance":{"domains":["nr-data.net","newrelic.com","bam.nr-data.net","sentry.io","sentry-cdn.com","browser.sentry-cdn.com","datadoghq.com","www.datadoghq-browser-agent.com","logs.datadoghq.com","raygun.com","cdn.raygun.io","bugsnag.com","notify.bugsnag.com","speedcurve.com","cdn.speedcurve.com","firebaseinstallations.googleapis.com","rollbar.com","cdn.rollbar.com","logrocket.io","cdn.lr-ingest.io","cloudfront.net\/rum","cloudwatch.amazonaws.com"],"cookies":["NREUM","NRAGENT","__dd_s","__ddg1","sentrysid","raygun4js-userid","_lr_id_","_lr_uf_","_scid_r"]},"necessary":{"domains":["recaptcha","hcaptcha","youtube.com","www.youtube.com","youtu.be","ytimg.com","i.ytimg.com","vimeo.com","player.vimeo.com","cloudflareinsights.com","static.cloudflareinsights.com","turnstile.cloudflare.com","maps.googleapis.com","maps.gstatic.com","openstreetmap.org","tile.openstreetmap.org","sharethis.com","platform-api.sharethis.com","addthis.com","s7.addthis.com","disqus.com","c.disquscdn.com","trustpilot.com","widget.trustpilot.com","intercom.io","widget.intercom.io","static.klaviyo.com","cdn.klaviyo.com","onesignal.com","cdn.onesignal.com","pushcrew.com","zendesk.com","static.zdassets.com","freshdesk.com","embed.tawk.to","static.criteo.com\/events.js","paypal.com","www.paypal.com","stripe.com","js.stripe.com","checkout.stripe.com","yanai-ins.co.il",".yanai-ins.co.il","co.il",".co.il"],"cookies":["wordpress_","wp-saving-post","elementor","phpsession","phpsessid","wordpress_logged_in_","wordpress_sec_","wp-settings","wp-settings-time","wp_woocommerce_session_","woocommerce_cart_hash","woocommerce_items_in_cart","wp-wpml_current_language","pll_language","complianz_policy_id","cookie_notice_accepted","ccm_consent","cf_clearance","CONSENT","VISITOR_INFO1_LIVE","YSC","__cf_bm","cf_chl","__stripe_mid","__stripe_sid","paypal","ts_c","KL_FORMS_MODAL","__zlcmid","intercom-session","onesignal-pageview-count"]}};</script>
+
+<div id="scm-reopen" class="ccm-reopen" style="left: 16px;bottom: 16px;" aria-label="העדפות פרטיות" title="העדפות פרטיות">
+ <img src="https://yanai-ins.co.il/wp-content/plugins/saglix-cookie-consent-manager/cookie.svg" alt="Cookie settings" width="20" height="20">
+</div>
+
+<div id="scm-overlay" class="ccm-overlay ccm-hidden" aria-hidden="true"></div>
+
+<section id="scm-banner" class="scm-banner ccm-hidden" role="region" aria-label="אנחנו מכבדים את פרטיותך" dir="rtl">
+  <div class="scm-banner__inner">
+    <div class="scm-banner__text">
+      <strong>אנחנו מכבדים את פרטיותך</strong><br>
+      אנחנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה, להציג פרסומות או תוכן מותאמים ולנתח את התנועה באתר. בלחיצה על &quot;אשר הכול&quot; אתה מסכים לשימוש בעוגיות. <a class="ccm-link" href="https://yanai-ins.co.il/privacy-policy/">מדיניות הפרטיות</a>    </div>
+    <div class="ccm-actions">
+      <button id="scm-customize" class="ccm-btn ghost">התאמה אישית</button>
+      <button id="scm-reject" class="ccm-btn">דחה הכול</button>
+      <button id="scm-accept" class="ccm-btn primary">אשר הכול</button>
     </div>
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>ינאי סוכנות לביטוח ופיננסים</h4>
-                <p>גוף עצמאי ובלתי תלוי הפועל ברישיון רשות שוק ההון. מתמחים בהוזלת עלויות ביטוח, תכנון פרישה וניהול סיכונים הוליסטי לטובת הלקוח בלבד.</p>
-            </div>
-            <div class="footer-col">
-                <h4>ניווט מהיר</h4>
-                <a href="index.html">עמוד הבית</a>
-                <a href="audit.html">בדיקת תיק ביטוח</a>
-                <a href="leave-details.html">שאלון בדיקת זכאות</a>
-                <a href="services.html">מוצרי ביטוח ופנסיה</a>
-                <a href="blog.html">מגזין ביטוח מקצועי</a>
-            </div>
-            <div class="footer-col">
-                <h4>יצירת קשר</h4>
-                <p>טלפון: 073-7352444<br>נייד ישיר: 050-6671700<br>מייל: alon@yanai-ins.co.il<br>כתובת: ז'בוטינסקי 9, בני ברק</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            כל הזכויות שמורות © ינאי סוכנות לביטוח • מנוהל ומקודם ע"י GOR MARKETING • סוכן ביטוח פנסיוני מורשה: אלון חן
-        </div>
-    </footer>
-    
+  </div>
+</section>
 
-    <script>
-        function submitLead() {
-            document.getElementById('leadForm').style.display = 'none';
-            document.getElementById('leadSuccess').style.display = 'block';
+<section id="scm-custom" class="ccm-modal ccm-hidden" role="dialog" aria-modal="true" aria-labelledby="scm-custom-title" dir="rtl">
+  <button class="ccm-close" type="button" aria-label="סגור" id="scm-x">×</button>
+  <div class="ccm-head" id="scm-custom-title">העדפות פרטיות</div>
+  <div class="ccm-body">
+    <p>אנחנו משתמשים בעוגיות כדי לאפשר תפקוד בסיסי ולבצע פונקציות מסוימות. כאן ניתן לנהל כל קטגוריה.</p>
+
+    <div class="ccm-row">
+      <div class="ccm-col"><strong>נחוצות</strong> <span class="ccm-note">פעיל תמיד</span></div>
+      <span class="ccm-badge">פעיל</span>
+    </div>
+
+    <div class="ccm-row">
+      <div class="ccm-col"><strong>אנליטיקה</strong><div>מדדי שימוש באתר כמו כניסות, מקורות תנועה ועוד.</div></div>
+      <label class="ccm-switch"><input type="checkbox" data-consent-cat="analytics"><span class="dot"></span></label>
+    </div>
+
+    <div class="ccm-row">
+      <div class="ccm-col"><strong>ביצועים</strong><div>ניתוח ביצועים לשיפור חוויית המשתמש.</div></div>
+      <label class="ccm-switch"><input type="checkbox" data-consent-cat="performance"><span class="dot"></span></label>
+    </div>
+
+    <div class="ccm-row">
+      <div class="ccm-col"><strong>פרסום</strong><div>פרסום מותאם אישית ומדידת קמפיינים.</div></div>
+      <label class="ccm-switch"><input type="checkbox" data-consent-cat="ads"><span class="dot"></span></label>
+    </div>
+  </div>
+  <div class="ccm-actions--modal">
+    <button class="ccm-btn primary" id="scm-save">שמור העדפות</button>
+    <button class="ccm-btn" id="scm-custom-accept">אשר הכול</button>
+    <button class="ccm-btn" id="scm-custom-reject">דחה הכול</button>
+  </div>
+</section>
+
+<script id="scm-inline-js">
+(function(){
+  var d=document,w=window;
+  var DAYS=180, NAME="ccm_consent";
+  var overlay=d.getElementById('scm-overlay'), banner=d.getElementById('scm-banner'), custom=d.getElementById('scm-custom'), reopen=d.getElementById('scm-reopen');
+  var focusTrapEl=null;
+
+  function setCookie(n,v,days){var date=new Date();date.setTime(date.getTime()+days*24*60*60*1000);var secure=location.protocol==='https:'?';Secure':'';document.cookie=encodeURIComponent(n)+'='+encodeURIComponent(v)+';expires='+date.toUTCString()+';path=/;SameSite=Lax'+secure;}
+  function getCookie(n){var nameEQ=encodeURIComponent(n)+"=";var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(nameEQ)==0)return decodeURIComponent(c.substring(nameEQ.length));}return "";}
+  function parseState(){try{var v=getCookie(NAME);if(!v)return null;return JSON.parse(v);}catch(e){return null;}}
+  function saveState(st){setCookie(NAME,JSON.stringify(st),DAYS);fireChange(st);}
+  function fireChange(st){var ev=new CustomEvent('ccm:change',{detail:st});w.dispatchEvent(ev);enableDeferredScripts(st);}
+
+  function showBanner(){banner.classList.remove('ccm-hidden');}
+  function hideBanner(){banner.classList.add('ccm-hidden');}
+  function showModal(el){overlay.classList.remove('ccm-hidden');overlay.setAttribute('aria-hidden','false');el.classList.remove('ccm-hidden');trapFocus(el);}
+  function hideModal(el){if(el)el.classList.add('ccm-hidden');overlay.classList.add('ccm-hidden');overlay.setAttribute('aria-hidden','true');releaseFocus();}
+
+  function trapFocus(el){
+    focusTrapEl=el;
+    var focusables=el.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])');
+    if(focusables.length) focusables[0].focus();
+    function h(e){
+      if(!focusTrapEl)return;
+      if(e.key==='Tab'){
+        var list=[].slice.call(focusables).filter(function(n){return !n.disabled && n.offsetParent!==null;});
+        if(!list.length)return; var first=list[0],last=list[list.length-1];
+        if(e.shiftKey && document.activeElement===first){last.focus();e.preventDefault();}
+        else if(!e.shiftKey && document.activeElement===last){first.focus();e.preventDefault();}
+      }
+      if(e.key==='Escape' && el===custom){hideModal(custom);}
+    }
+    w.scmKeyHandler=h;d.addEventListener('keydown',h);
+  }
+  function releaseFocus(){d.removeEventListener('keydown',w.scmKeyHandler||function(){});focusTrapEl=null;}
+
+  function toggleSwitch(sw,on){sw.classList.toggle('on',!!on);var inp=sw.querySelector('input');if(inp)inp.checked=!!on;}
+  function stateFromToggles(){var cats=['analytics','performance','ads'],st={necessary:true};cats.forEach(function(c){st[c]=!!custom.querySelector('input[data-consent-cat="'+c+'"]').checked;});return st;}
+  function setTogglesFromState(st){['analytics','performance','ads'].forEach(function(c){var lab=custom.querySelector('label.ccm-switch input[data-consent-cat="'+c+'"]').parentElement;toggleSwitch(lab,!!(st&&st[c]));});}
+
+  // Delete cookies for categories not consented (no functional)
+  function deleteUnconsentedCookies(state){
+    try{
+      var MAP = w.SCM_VENDOR_MAP || {};
+      var blockedCats = [];
+      Object.keys(MAP).forEach(function(cat){
+        if (cat === 'necessary') return;
+        if (!state || !state[cat]) blockedCats.push(cat);
+      });
+      if (!blockedCats.length) return;
+
+      function tryDelete(name){
+        var past='Thu, 01 Jan 1970 00:00:00 GMT';
+        var paths=['/'];
+        var host=location.hostname, parts=host.split('.');
+        var eTLD1 = parts.length>2 ? parts.slice(-2).join('.') : host;
+        var domains=[null, host, '.'+host];
+        if (eTLD1!==host) domains.push('.'+eTLD1);
+        domains = Array.from(new Set(domains));
+        domains.forEach(function(dom){
+          paths.forEach(function(p){
+            var base = name+'=; expires='+past+'; path='+p+';';
+            if(dom) d.cookie = base+' domain='+dom+';';
+            d.cookie = base;
+            if (dom && dom.charAt(0)==='.') d.cookie = name+'=; expires='+past+'; path='+p+'; domain='+dom.substring(1)+';';
+          });
+        });
+      }
+
+      (d.cookie||'').split(';').forEach(function(c){
+        var name=(c.split('=')[0]||'').trim(); if(!name) return;
+        var belongs=blockedCats.some(function(cat){
+          var arr=(MAP[cat]&&MAP[cat].cookies)||[];
+          for(var i=0;i<arr.length;i++){
+            var pref=String(arr[i]||''); if(!pref) continue;
+            if (name.indexOf(pref)===0 || name.indexOf(pref)!==-1) return true;
+          }
+          return false;
+        });
+        if (belongs) tryDelete(name);
+      });
+    }catch(e){}
+  }
+
+  function isTightening(prev,next){
+    var cats=['analytics','performance','ads'];
+    for(var i=0;i<cats.length;i++){ var c=cats[i]; if ((prev&&prev[c]) && !next[c]) return true; }
+    return false;
+  }
+
+  function acceptAll(){var st={necessary:true,analytics:true,performance:true,ads:true};saveState(st);hideBanner();hideModal(custom);}
+  function rejectAll(){
+    var prev=parseState()||{necessary:true,analytics:false,performance:false,ads:false};
+    var st={necessary:true,analytics:false,performance:false,ads:false};
+    deleteUnconsentedCookies(st); saveState(st); hideBanner(); hideModal(custom);
+    if (isTightening(prev, st)) location.reload();
+  }
+  function savePrefs(){
+    var prev=parseState()||{necessary:true,analytics:false,performance:false,ads:false};
+    var st=stateFromToggles(); deleteUnconsentedCookies(st); saveState(st); hideBanner(); hideModal(custom);
+    if (isTightening(prev, st)) location.reload();
+  }
+
+  // Enable deferred scripts/iframes/images once allowed
+  function enableDeferredScripts(st){
+    var allowed=function(cat){return !!st[cat];};
+
+    d.querySelectorAll('script[type="text/plain"][data-consent]').forEach(function(s){
+      var cat=s.getAttribute('data-consent'); if(!(cat==='necessary'||allowed(cat))) return;
+      var ns=d.createElement('script');
+      if(s.getAttribute('data-src')) ns.src=s.getAttribute('data-src'); else if(s.src) ns.src=s.src;
+      ns.text=s.text||s.textContent||''; ns.type=s.getAttribute('data-script-type')||'text/javascript';
+      if(s.defer)ns.defer=true; if(s.async)ns.async=true;
+      s.parentNode.replaceChild(ns,s);
+    });
+
+    d.querySelectorAll('[data-consent][data-src]').forEach(function(el){
+      var cat=el.getAttribute('data-consent'); if(!(cat==='necessary'||allowed(cat))) return;
+      el.setAttribute('src',el.getAttribute('data-src')); el.removeAttribute('data-src');
+    });
+
+    d.querySelectorAll('.scm-blocked[data-src]').forEach(function(ph){
+      var cat=ph.getAttribute('data-consent'); if(!(cat==='necessary'||allowed(cat))) return;
+      if(ph.getAttribute('data-kind')==='iframe-noscript'){
+        var ifr=d.createElement('iframe'); ifr.setAttribute('src',ph.getAttribute('data-src'));
+        ph.parentNode.replaceChild(ifr,ph);
+      }
+    });
+  }
+
+  (function(){ // MutationObserver
+    var MAP=w.SCM_VENDOR_MAP||{};
+
+    function hostFrom(url){ try{ return new URL(url, location.href).hostname.toLowerCase(); }catch(e){ return ''; } }
+
+    // Always-necessary rules (match PHP)
+    var ALWAYS_MEDIA = [
+      'youtube.com','www.youtube.com','youtu.be','ytimg.com','i.ytimg.com',
+      'vimeo.com','player.vimeo.com'
+    ];
+
+    function isSameOriginHost(h){
+      if(!h) return false;
+      var cur = location.hostname.toLowerCase();
+      return h===cur || cur.endsWith('.'+h) || h.endsWith('.'+cur);
+    }
+
+    function alwaysNecessaryUrl(url){
+      if(!url) return false;
+      var h = hostFrom(url);
+      if(!h) return false;
+      if (h.indexOf('recaptcha')!==-1 || h.indexOf('hcaptcha')!==-1) return true;
+      for (var i=0;i<ALWAYS_MEDIA.length;i++){
+        if (h.indexOf(ALWAYS_MEDIA[i])!==-1) return true;
+      }
+      if (isSameOriginHost(h)) return true;
+      return false;
+    }
+
+    function matchCatByUrl(url){
+      if (!url) return null;
+      if (alwaysNecessaryUrl(url)) return 'necessary';
+
+      var h = hostFrom(url);
+      for (var cat in MAP){
+        var arr=(MAP[cat]&&MAP[cat].domains)||[];
+        for (var i=0;i<arr.length;i++){
+          var needle = String(arr[i]||'').toLowerCase();
+          if (needle && (h.indexOf(needle)!==-1)) return cat;
         }
-    </script>
-</body>
+      }
+      return null;
+    }
+
+function hasConsent(cat){
+  // Necessary must always be allowed, even when no cookie exists yet
+  if (cat === 'necessary') return true;
+  var s = parseState();
+  return !!(s && s[cat]);
+}
+
+
+    function neutralizeScript(el,cat){
+      if (el.getAttribute('type')==='text/plain'||el.hasAttribute('data-consent')) return;
+      var src=el.getAttribute('src');
+      if(src){ el.setAttribute('data-src',src); el.removeAttribute('src'); }
+      el.setAttribute('type','text/plain'); el.setAttribute('data-consent',cat); el.setAttribute('data-script-type','text/javascript');
+    }
+
+    function neutralizeSrcEl(el,cat){
+      if (el.hasAttribute('data-consent')) return;
+      var src=el.getAttribute('src')||el.getAttribute('data-src'); if(!src) return;
+      el.setAttribute('data-src',src); el.removeAttribute('src'); el.setAttribute('data-consent',cat);
+    }
+
+    try{
+      var mo=new MutationObserver(function(muts){
+        muts.forEach(function(m){
+          (m.addedNodes||[]).forEach(function(node){
+            if(!(node && node.nodeType===1)) return;
+
+            if(node.tagName==='SCRIPT'){
+              var u=node.getAttribute('src')||'';
+              var cat=matchCatByUrl(u);
+              if(cat && !hasConsent(cat)) neutralizeScript(node,cat);
+            }
+
+            if(node.tagName==='IFRAME' || node.tagName==='IMG'){
+              var u2=node.getAttribute('src')||'';
+              var cat2=matchCatByUrl(u2);
+              if(cat2 && !hasConsent(cat2)) neutralizeSrcEl(node,cat2);
+            }
+
+            node.querySelectorAll && node.querySelectorAll('script[src],iframe[src],img[src]').forEach(function(el){
+              var u3=el.getAttribute('src')||'';
+              var cat3=matchCatByUrl(u3);
+              if(cat3 && !hasConsent(cat3)){
+                if(el.tagName==='SCRIPT') neutralizeScript(el,cat3); else neutralizeSrcEl(el,cat3);
+              }
+            });
+          });
+        });
+      });
+      mo.observe(document.documentElement,{childList:true,subtree:true});
+    }catch(e){}
+  })();
+
+  function initSwitchClicks(){
+    custom.querySelectorAll('label.ccm-switch').forEach(function(l){
+      var inp=l.querySelector('input');
+      l.addEventListener('click',function(e){
+        if(e.target.tagName.toLowerCase()!=='input'){e.preventDefault();toggleSwitch(l,!l.classList.contains('on')); }
+      });
+      inp.addEventListener('change',function(){toggleSwitch(l,inp.checked);});
+    });
+  }
+
+  d.getElementById('scm-customize').addEventListener('click',function(){setTogglesFromState(parseState()||{necessary:true});showModal(custom);});
+  d.getElementById('scm-accept').addEventListener('click',acceptAll);
+  d.getElementById('scm-reject').addEventListener('click',rejectAll);
+  d.getElementById('scm-custom-accept').addEventListener('click',acceptAll);
+  d.getElementById('scm-custom-reject').addEventListener('click',rejectAll);
+  d.getElementById('scm-save').addEventListener('click',savePrefs);
+  d.getElementById('scm-x').addEventListener('click',function(){hideModal(custom);});
+  reopen.addEventListener('click',function(){setTogglesFromState(parseState()||{necessary:true});showModal(custom);});
+  initSwitchClicks();
+
+  // Close modal on overlay click
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) hideModal(custom);
+  });
+
+  w.CookieConsent={
+    state:function(){return parseState();},
+    has:function(cat){var s=parseState();return s?!!s[cat]:false;},
+    on:function(ev,fn){w.addEventListener('ccm:change',fn);},
+    open:function(){setTogglesFromState(parseState()||{necessary:true});showModal(custom);},
+    reset:function(){document.cookie=encodeURIComponent(NAME)+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';showBanner();}
+  };
+
+var _st = parseState() || {necessary:true, analytics:false, performance:false, ads:false};
+
+enableDeferredScripts(_st);
+
+// If there is no saved consent yet, show the banner
+if (!parseState()) { showBanner(); }
+
+})();
+</script>
+	</body>
 </html>
+<!-- Cached by ezCache | Full-Page Cache: Disk | Generated: 2026-11-16 12:33:41 | Time: 0.98s -->
